@@ -16,6 +16,10 @@ class CollectionBrandingInfo < ApplicationRecord
     self.local_path = find_local_filename(collection_id, role, filename)
   end
 
+  def collection
+    @collection ||= Collection.where(id: collection_id).first
+  end
+
   def save(file_location, copy_file = true)
     local_dir = find_local_dir_name(collection_id, role)
     FileUtils.mkdir_p local_dir
@@ -35,5 +39,22 @@ class CollectionBrandingInfo < ApplicationRecord
 
   def find_local_dir_name(collection_id, role)
     File.join(Hyrax.config.branding_path, collection_id.to_s, role.to_s)
+  end
+
+  def file
+    File.split(local_path).last
+  end
+
+  def relative_path
+    relative_path = "/" + local_path.split("/")[-4..-1].join("/")
+  end
+
+  def display_hash
+    { file: file,
+      full_path: local_path,
+      relative_path: relative_path,
+      file_location: relative_path,
+      alttext: alt_text,
+      linkurl: target_url }
   end
 end
