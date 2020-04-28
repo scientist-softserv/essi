@@ -5,7 +5,7 @@ module Extensions
         module FileSetBackedBranding
           def show
             if @collection.collection_type.brandable?
-              @banner_file = @collection.banner_branding.first&.relative_path
+              @banner_file = @collection.banner_branding.first&.file_set_image_path
             end
     
             presenter
@@ -16,7 +16,7 @@ module Extensions
     
             def update_existing_banner
               banner_info = @collection.banner_branding.first
-              banner_info.save(banner_info.local_path, false)
+              banner_info.save
             end
     
             def add_new_banner(uploaded_file_ids)
@@ -28,7 +28,8 @@ module Extensions
                 alt_txt: "",
                 target_url: ""
               )
-              banner_info.save f.file_url
+              banner_info.save(uploaded_file_id: uploaded_file_ids.first,
+                               user_key: @current_user.user_key)
             end
     
             def remove_banner
@@ -40,7 +41,7 @@ module Extensions
               logo_info.first.alt_text = alttext
               logo_info.first.target_url = linkurl
               logo_info.first.local_path = uploaded_file_id
-              logo_info.first.save(uploaded_file_id, false)
+              logo_info.first.save
             end
     
             def create_logo_info(uploaded_file_id, alttext, linkurl)
@@ -52,14 +53,14 @@ module Extensions
                 alt_txt: alttext,
                 target_url: linkurl
               )
-              logo_info.save file.file_url
+              logo_info.save(uploaded_file_id: uploaded_file_id,
+                             user_key: @current_user.user_key)
               logo_info
             end
     
             def remove_redundant_files(public_files)
               # remove any public ones that were not included in the selection.
               @collection.logo_branding.each do |logo_info|
-                logo_info.delete(logo_info.local_path) unless public_files.include? logo_info.local_path
                 logo_info.destroy unless public_files.include? logo_info.local_path
               end
             end

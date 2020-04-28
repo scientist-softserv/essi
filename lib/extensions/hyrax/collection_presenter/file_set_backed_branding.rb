@@ -4,7 +4,7 @@ module Extensions
       module FileSetBackedBranding
         def banner_file
           # Find Banner filename
-          ::CollectionBrandingInfo.where(collection_id: id, role: "banner").map(&:relative_path).first
+          ::CollectionBrandingInfo.where(collection_id: id, role: "banner").map(&:file_set_image_path).first
         end
     
         def logo_record
