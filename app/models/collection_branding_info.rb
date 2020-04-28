@@ -20,6 +20,10 @@ class CollectionBrandingInfo < ApplicationRecord
     @collection ||= Collection.where(id: collection_id).first
   end
 
+  def file_set
+    @file_set ||= FileSet.find(file_set_id) if file_set_id.present?
+  end
+
   def save(file_location, copy_file = true)
     local_dir = find_local_dir_name(collection_id, role)
     FileUtils.mkdir_p local_dir
