@@ -31,6 +31,11 @@ class CollectionBrandingInfo < ApplicationRecord
     @file_set ||= FileSet.find(file_set_id) if file_set_id.present?
   end
 
+  def destroy
+    file_set&.destroy
+    super
+  end
+
   def save(uploaded_file_id: nil, user_key: nil)
     if uploaded_file_id && user_key
       uploaded_file = uploaded_files(uploaded_file_id)
@@ -62,8 +67,6 @@ class CollectionBrandingInfo < ApplicationRecord
       actor = Hyrax::Actors::FileSetActor.new(FileSet.create, user)
       uploaded_file.update(file_set_uri: actor.file_set.uri)
       self.file_set_id = actor.file_set.id
-      # FIXME: change visibility permissions?
-      # actor.file_set.permissions_attributes = work_permissions
       actor.create_metadata()
       actor.create_content(uploaded_file)
     end
@@ -90,7 +93,6 @@ class CollectionBrandingInfo < ApplicationRecord
       File.join(Hyrax.config.branding_path, collection_id.to_s, role.to_s)
     end  
     
-    # FIXME: use different image dimensions than default?
     # this passes a nil value for request base_url, as our custom url builder
     # does not use that argument, and the model also doesn't have a request
     def generate_image_path!
@@ -106,7 +108,7 @@ class CollectionBrandingInfo < ApplicationRecord
     end  
 
     def file_set_versions
-      file_set&.reload&.original_file&.versions
+      file_set&.reload&.original_file&.versions || []
     end
 
     def uploaded_files(uploaded_file_ids)

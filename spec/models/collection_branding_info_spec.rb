@@ -34,6 +34,27 @@ RSpec.describe CollectionBrandingInfo, type: :model do
     end
   end
 
+  describe '#destroy' do
+    context 'without an associated FileSet' do
+      before do
+        allow(banner).to receive(:file_set).and_return(nil)
+      end
+      it 'does not raise an error' do
+        expect { banner.destroy }.not_to raise_error
+      end
+    end
+    context 'with an associated FileSet' do
+      before do
+        allow(banner).to receive(:file_set).and_return(file_set)
+        allow(file_set).to receive(:destroy)
+      end
+      it 'destroys the FileSet' do
+        expect(file_set).to receive(:destroy)
+        banner.destroy
+      end
+    end
+  end
+
   describe '#save' do
     context  'without an uploaded_file_id or user_key' do
       it 'does not call #attach_file_set' do
