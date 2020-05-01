@@ -47,10 +47,25 @@ describe Hyrax::Actors::FileActor do
         file_actor.ingest_file(io)
         expect(file_set.reload.original_file.mime_type).to include "image/png"
       end
-      it 'runs characterization' do
-        expect(CharacterizeJob).to receive(:perform_later) \
-          .with(file_set, String, String)
-        file_actor.ingest_file(io)
+      context 'when the file_set is for collection branding' do
+        before do
+          allow(file_set).to receive(:collection_branding?).and_return(true)
+        end
+        it 'does not run characterization' do
+          expect(CharacterizeJob).not_to receive(:perform_later) \
+            .with(file_set, String, String)
+          file_actor.ingest_file(io)
+        end
+      end
+      context 'when the file_set is not for collection branding' do
+        before do
+          allow(file_set).to receive(:collection_branding?).and_return(false)
+        end
+        it 'runs characterization' do
+          expect(CharacterizeJob).to receive(:perform_later) \
+            .with(file_set, String, String)
+          file_actor.ingest_file(io)
+        end
       end
     end
   end

@@ -38,7 +38,7 @@ module Hyrax
         repository_file = related_file
         Hyrax::VersioningService.create(repository_file, user)
         pathhint = io.uploaded_file.uploader.path if io.uploaded_file # in case next worker is on same filesystem
-        CharacterizeJob.perform_later(file_set, repository_file.id, pathhint || io.path) if store_files?
+        CharacterizeJob.perform_later(file_set, repository_file.id, pathhint || io.path) if characterize_files?(file_set)
       end
 
       # Reverts file and spawns async job to characterize and create derivatives.
@@ -49,7 +49,7 @@ module Hyrax
         repository_file.restore_version(revision_id)
         return false unless file_set.save
         Hyrax::VersioningService.create(repository_file, user)
-        CharacterizeJob.perform_later(file_set, repository_file.id)
+        CharacterizeJob.perform_later(file_set, repository_file.id) if characterize_files?(file_set)
       end
 
       # @note FileSet comparison is limited to IDs, but this should be sufficient, given that
@@ -64,6 +64,10 @@ module Hyrax
         # @return [Hydra::PCDM::File] the file referenced by relation
         def related_file
           file_set.public_send(relation) || raise("No #{relation} returned for FileSet #{file_set.id}")
+        end
+
+        def characterize_files?(file_set)
+          store_files? && !file_set.collection_branding?
         end
 
         def store_files?
