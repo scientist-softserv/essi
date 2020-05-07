@@ -1,4 +1,35 @@
 version: '3.7'
+
+x-app:
+  &default-app
+  image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG}"
+  #    image: iublibtech/essi:master
+  build:
+    context: ./
+    dockerfile: Dockerfile
+    target: essi-dev
+    args:
+      USER_ID: ${USER_ID:-1000}
+      GROUP_ID: ${GROUP_ID:-1000}
+  environment:
+    IN_DOCKER: 'true'
+  stdin_open: true
+  tty: true
+  env_file:
+    - .env.development
+    - .env
+  volumes:
+    - .:/app
+    - ./config/essi_config.docker.yml:/run/secrets/essi_config.yml
+  depends_on:
+    - redis
+    - solr
+    - fcrepo
+    - db
+    - minio
+    - cantaloupe
+    - chrome
+
 services:
   web:
     image: nginxinc/nginx-unprivileged:stable-alpine
@@ -8,66 +39,21 @@ services:
       - "80:8980"
     depends_on:
       - app
+      - worker
+
   app:
-    image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG}"
+    << : *default-app
     command: bash -l -c "rake db:migrate && yarn install && bundle exec puma -b tcp://0.0.0.0:3000"
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      target: essi-dev
-      args:
-        USER_ID: ${USER_ID:-1000}
-        GROUP_ID: ${GROUP_ID:-1000}
     environment:
       VIRTUAL_HOST: essi.docker
       VIRTUAL_PORT: 3000
       IN_DOCKER: 'true'
     ports:
       - "3000:3000"
-    stdin_open: true
-    tty: true
-    env_file:
-      - .env.development
-      - .env
-    volumes:
-      - .:/app
-      - ./config/essi_config.docker.yml:/run/secrets/essi_config.yml
-    depends_on:
-      - redis
-      - solr
-      - fcrepo
-      - db
-      - minio
-      - cantaloupe
-      - worker
-      - chrome
 
   worker:
-    image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG}"
-    command: sidekiq 
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      target: essi-dev
-      args:
-        USER_ID: ${USER_ID:-1000}
-        GROUP_ID: ${GROUP_ID:-1000}
-    environment:
-      IN_DOCKER: 'true'
-    stdin_open: true
-    tty: true
-    env_file:
-      - .env.development
-      - .env
-    volumes:
-      - .:/app
-      - ./config/essi_config.docker.yml:/run/secrets/essi_config.yml
-    depends_on:
-      - redis
-      - solr
-      - fcrepo
-      - db
-      - minio
+    << : *default-app
+    command: sidekiq
 
   db:
     image: mysql:5.7
