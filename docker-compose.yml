@@ -99,7 +99,7 @@ services:
     image: alpine:3.11
     volumes:
       - minio:/data
-    command: ln -s /nasvol /data/essi-dropbox; exit 0
+    command: sh -c "ln -s /nasvol /data/essi-dropbox || exit 0"
 
   cantaloupe:
     image: iublibtech/cantaloupe
