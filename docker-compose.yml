@@ -146,6 +146,7 @@ services:
 
   chrome:
     image: selenium/standalone-chrome:3.141
+    shm_size: 2G
 
 volumes:
   fcrepo:
