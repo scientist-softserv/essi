@@ -14,7 +14,9 @@ module CatalogHelper
     if thumbnail_file_id
       Hyrax.config.iiif_image_url_builder.call(thumbnail_file_id, nil, '250,')
     else
-      image_path 'default.png'
+      raise 'thumbnail_file_id is nil'
     end
+  rescue
+    image_path 'default.png'
   end
 end
