@@ -213,7 +213,7 @@ Blacklight.onLoad(function () {
   $('#parent-collections-wrapper')
     .find('.remove-from-collection-button')
     .on('click', function (e) {
-    var $dataEl = $(this).closest('li'),
+    var $dataEl = $(this).closest('tr'),
       modalId = '#collection-remove-from-collection-modal';
 
     addDataAttributesToModal(modalId, ['id', 'parent-id', 'post-url'], $dataEl);
@@ -224,7 +224,7 @@ Blacklight.onLoad(function () {
   $('#sub-collections-wrapper')
     .find('.remove-subcollection-button')
     .on('click', function (e) {
-    var $dataEl = $(this).closest('li'),
+    var $dataEl = $(this).closest('tr'),
       modalId = '#collection-remove-subcollection-modal';
 
     addDataAttributesToModal(modalId, ['id', 'parent-id', 'post-url'], $dataEl);
