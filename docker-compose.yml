@@ -43,7 +43,7 @@ services:
 
   app:
     << : *default-app
-    command: bash -l -c "rake db:migrate && yarn install && bundle exec puma -b tcp://0.0.0.0:3000"
+    command: bash -l -c "rake db:migrate db:seed && yarn install && bundle exec puma -b tcp://0.0.0.0:3000"
     environment:
       VIRTUAL_HOST: essi.docker
       VIRTUAL_PORT: 3000
