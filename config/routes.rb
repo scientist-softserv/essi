@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   concern :iiif_search, BlacklightIiifSearch::Routes.new
         mount BrowseEverything::Engine => '/browse'
 
-  mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
+  mount Riiif::Engine => 'iiif/2', as: :riiif if Hyrax.config.iiif_image_server?
   mount Blacklight::Engine => '/'
   mount Hydra::RoleManagement::Engine => '/'
 

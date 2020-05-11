@@ -36,7 +36,6 @@ fits.log
 .env.*
 
 # Ignore yarn generated files
-yarn.lock
 public/uv
 
 # Ignore public branding
@@ -44,3 +43,5 @@ public/branding
 
 # Ignore Browse Everything dropbox directory
 staged_files
+
+public/assets

@@ -1,87 +1,59 @@
 version: '3.7'
+
+x-app:
+  &default-app
+  image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG}"
+  #    image: iublibtech/essi:master
+  build:
+    context: ./
+    dockerfile: Dockerfile
+    target: essi-dev
+    args:
+      USER_ID: ${USER_ID:-1000}
+      GROUP_ID: ${GROUP_ID:-1000}
+  environment:
+    IN_DOCKER: 'true'
+  stdin_open: true
+  tty: true
+  env_file:
+    - .env.development
+    - .env
+  volumes:
+    - .:/app
+    - ./config/essi_config.docker.yml:/run/secrets/essi_config.yml
+  depends_on:
+    - redis
+    - solr
+    - fcrepo
+    - db
+    - minio
+    - cantaloupe
+    - chrome
+
 services:
   web:
-    image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG}"
-    command: bash -l -c "rake db:migrate && yarn install && bundle exec puma -b tcp://0.0.0.0:3000"
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      target: essi-dev
+    image: nginxinc/nginx-unprivileged:stable-alpine
+    volumes:
+      - ./essi-nginx.nginx:/etc/nginx/conf.d/essi-nginx.conf
+    ports:
+      - "80:8980"
+    depends_on:
+      - app
+      - worker
+
+  app:
+    << : *default-app
+    command: bash -l -c "rake db:migrate db:seed && yarn install && bundle exec puma -b tcp://0.0.0.0:3000"
     environment:
       VIRTUAL_HOST: essi.docker
       VIRTUAL_PORT: 3000
       IN_DOCKER: 'true'
     ports:
       - "3000:3000"
-    stdin_open: true
-    tty: true
-    env_file:
-      - .env.development
-      - .env
-    volumes:
-      - .:/app
-    depends_on:
-      - redis
-      - solr
-      - fcrepo
-      - db
-      - minio
-      - cantaloupe
-      - worker
-      - chrome
-
-  debug:
-    image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG}"
-    command: tail -f /dev/null
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      target: essi-dev
-    environment:
-      VIRTUAL_HOST: essi.docker
-      VIRTUAL_PORT: 3000
-      IN_DOCKER: 'true'
-    ports:
-      - "3001:3000"
-    stdin_open: true
-    tty: true
-    env_file:
-      - .env.development
-      - .env
-    volumes:
-      - .:/app
-    depends_on:
-      - redis
-      - solr
-      - fcrepo
-      - db
-      - minio
-      - cantaloupe
-      - worker
-      - chrome
 
   worker:
-    image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG}"
-    command: sidekiq 
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      target: essi-dev
-    environment:
-      IN_DOCKER: 'true'
-    stdin_open: true
-    tty: true
-    env_file:
-      - .env.development
-      - .env
-    volumes:
-      - .:/app
-    depends_on:
-      - redis
-      - solr
-      - fcrepo
-      - db
-      - minio
+    << : *default-app
+    command: sidekiq
 
   db:
     image: mysql:5.7
@@ -113,7 +85,7 @@ services:
     image: alpine:3.11
     volumes:
       - minio:/data
-    command: ln -s /nasvol /data/essi-dropbox; exit 0
+    command: sh -c "ln -s /nasvol /data/essi-dropbox || exit 0"
 
   cantaloupe:
     image: iublibtech/cantaloupe
@@ -139,7 +111,7 @@ services:
       HEAPCACHE_TARGET_SIZE: 256M
       CACHE_SERVIER_DERIVATIVE_TTL_SECONDS: 0
       CACHE_SERVER_PURGE_MISSING: "true"
-      LOG_APPLICATION_LEVEL: info
+      LOG_APPLICATION_LEVEL: debug
       LOG_ACCESS_CONSOLEAPPENDER_ENABLED: "true"
     volumes:
       - './cantaloupe:/cantaloupe/delegate'
@@ -168,12 +140,13 @@ services:
   fcrepo:
     image: samvera/fcrepo4:4.7.5
     volumes:
-      - 'fcrepo:/opt/data'
+      - 'fcrepo:/data'
     ports:
       - "8080"
 
   chrome:
     image: selenium/standalone-chrome:3.141
+    shm_size: 2G
 
 volumes:
   fcrepo:

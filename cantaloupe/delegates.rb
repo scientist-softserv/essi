@@ -1,4 +1,5 @@
 require 'java'
+require 'cgi'
 
 # Delegate script to use Fedora as an HttpSource.
 
@@ -170,18 +171,20 @@ class CustomDelegate
   def httpsource_resource_info(_options = {})
     logger = Java::edu.illinois.library.cantaloupe.script.Logger
 
+    fedora_base = ENV.fetch('FEDORA_BASE') { 'http://localhost:8984' }
+    fedora_path = ENV.fetch('FEDORA_PATH') { '/rest/dev' }
+    fedora_username = ENV.fetch('FEDORA_USERNAME') { 'fedoraAdmin' }
+    fedora_password = ENV.fetch('FEDORA_PASSWORD') { 'fedoraAdmin' }
+
     # Code from https://slides.com/ksclarke/integrating-cantaloupe/fullscreen#/3
     file_id = context['identifier']
 
     # Split the parts into Fedora's pseudo-pairtree (only first four pairs)
     paths = file_id.split(/(.{0,2})/).reject!(&:empty?)[0, 4]
 
-    fedora_base = ENV.fetch('FEDORA_BASE') { 'http://localhost:8984' }
-    fedora_path = ENV.fetch('FEDORA_PATH') { '/rest/dev' }
-    fedora_base_url = fedora_base + fedora_path
-    url = fedora_base_url + '/' + paths.join('/') + '/' + file_id
-    logger.info "Delegated URL: #{url}"
-    url
+    url = CGI::unescape(fedora_base + fedora_path + '/' + paths.join('/') + '/' + file_id)
+    logger.info "Fedora ID: #{file_id} | Delegated URL: #{url}"
+    return { 'uri' => url, 'username' => fedora_username, 'secret' => fedora_password }
   end
 
   ##

@@ -9,3 +9,6 @@ coverage
 spec/tmp
 
 .idea
+node_modules
+public/uv
+public/assets

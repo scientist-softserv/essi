@@ -10,7 +10,7 @@ RSpec.describe ESSI::FileSetIndexer do
     let(:file) { file_set.files.first }
 
     it 'indexes a IIIF thumbnail path' do
-      expect(solr_document.fetch('thumbnail_path_ss')).to eq "http://#{TEST_HOST}/images/#{CGI.escape(file.id)}/full/250,/0/default.jpg"
+      expect(solr_document.fetch('thumbnail_path_ss')).to eq "/iiif/2/#{CGI.escape(file.id)}/full/250,/0/default.jpg"
     end
   end
 end
