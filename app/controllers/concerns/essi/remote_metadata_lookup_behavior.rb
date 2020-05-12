@@ -43,7 +43,8 @@ module ESSI
         elsif source_metadata_identifier.blank?
           RemoteRecord
         else
-          raise RemoteRecord::BibdataError, RemoteRecord.bibdata_error_message
+          flash[:alert] = I18n.t('services.remote_metadata.invalid_identifier').to_s + (I18n.t('services.remote_metadata.validation') || RemoteRecord.bibdata_error_message).to_s
+          RemoteRecord
         end
     end
   end
