@@ -36,6 +36,7 @@ en:
     remote_metadata:
       invalid_identifier: "The provided Source Metadata ID value was saved, but not used for remote metadata lookup as it was did not pass validation.  "
       validation: "A valid metadata identifier may contain only alphanumeric, underscore, hyphen, and period characters."
+      no_results: "The provided Source Metadata ID value was saved, but did not return any results from remote metadata lookup."
   simple_form:
     options:
       file_set:

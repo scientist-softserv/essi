@@ -16,6 +16,7 @@ module ESSI
     end
 
     def remote_attributes
+      return {} if remote_data.nil?
       @remote_attributes ||= begin
          remote_attributes = remote_data.raw_attributes
          remote_attributes['source_metadata'] = remote_data.source.dup.try(:force_encoding, 'utf-8') if remote_data.source
@@ -33,8 +34,12 @@ module ESSI
       end
 
       def remote_data
-        @remote_data ||=
+        @remote_data ||= begin
           remote_metadata_factory.retrieve(source_metadata_identifier)
+          rescue JSONLDRecord::MissingRemoteRecordError
+            flash[:alert] = I18n.t('services.remote_metadata.no_results')
+            nil
+        end
       end
 
       def remote_metadata_factory
