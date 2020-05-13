@@ -35,7 +35,7 @@ en:
     metadata: "IUCAT"
     remote_metadata:
       invalid_identifier: "The provided Source Metadata ID value was saved, but not used for remote metadata lookup as it was did not pass validation.  "
-      validation: "A valid metadata identifier may contain only alphanumeric and underscore characters."
+      validation: "A valid metadata identifier may contain only alphanumeric, underscore, hyphen, and period characters."
   simple_form:
     options:
       file_set:
