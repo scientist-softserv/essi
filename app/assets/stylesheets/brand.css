@@ -402,3 +402,8 @@ html {font-size: 16px !important;}   /*override root element font-size, so rem c
 #campus-logo a:hover{
   color: #fff;
 }
+
+/*Collection Banner*/
+.hyc-logos-link:hover{
+  background-color: rgba(0,0,0,0.5);
+}

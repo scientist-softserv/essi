@@ -4,4 +4,18 @@ class Collection < ActiveFedora::Base
   # You can replace these metadata if they're not suitable
   include Hyrax::BasicMetadata
   self.indexer = Hyrax::CollectionWithBasicMetadataIndexer
+
+  def collection_branding_infos(role: nil)
+    cbis = ::CollectionBrandingInfo.where(collection_id: id)
+    cbis = cbis.where(role: role) if role.present?
+    cbis
+  end
+
+  def banner_branding
+    collection_branding_infos(role: 'banner')
+  end
+
+  def logo_branding
+    collection_branding_infos(role: 'logo')
+  end
 end
