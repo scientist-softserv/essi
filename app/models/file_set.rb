@@ -8,6 +8,14 @@ class FileSet < ActiveFedora::Base
 
   self.indexer = ESSI::FileSetIndexer
 
+  def collection_branding_info
+    @collection_branding_info ||= CollectionBrandingInfo.where(file_set_id: self.id).first
+  end
+
+  def collection_branding?
+    collection_branding_info.present?
+  end
+
   def ocr_language
     [language.entries,
      parent&.language&.entries,
