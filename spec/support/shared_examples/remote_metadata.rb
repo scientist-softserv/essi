@@ -34,9 +34,11 @@ RSpec.shared_examples 'update metadata remotely' do |resource_symbol|
 
       context 'without remote refresh flag' do
         it 'updates the record but does not refresh the external metadata' do
-          patch :update,
-               params: { id: resource.id,
-                         resource_symbol => static_attributes }
+          perform_enqueued_jobs do
+            patch :update,
+                 params: { id: resource.id,
+                           resource_symbol => static_attributes }
+          end
           expect(reloaded.title).to eq ['Dummy Title']
           expect(reloaded.description).to eq ['a description']
         end
@@ -45,43 +47,53 @@ RSpec.shared_examples 'update metadata remotely' do |resource_symbol|
       context 'with remote refresh flag', vcr: { cassette_name: 'bibdata', record: :new_episodes } do
         context 'with an invalid identifier' do
           it 'updates the record' do
-            patch :update,
-                 params: { id: resource.id,
-                           resource_symbol => invalid_identifier_attributes,
-                           refresh_remote_metadata: true }
+            perform_enqueued_jobs do
+              patch :update,
+                   params: { id: resource.id,
+                             resource_symbol => invalid_identifier_attributes,
+                             refresh_remote_metadata: true }
+            end
             expect(reloaded.description).to eq ['a description']
           end
           it 'flashes an alert about not refreshing the external metadata' do
-            patch :update,
+            perform_enqueued_jobs do
+              patch :update,
                  params: { id: resource.id,
                            resource_symbol => invalid_identifier_attributes,
                            refresh_remote_metadata: true }
+            end
             expect(flash[:alert]).to match I18n.t('services.remote_metadata.invalid_identifier')
             expect(flash[:alert]).to match I18n.t('services.remote_metadata.validation')
           end
         end
         context 'with a valid, non-matching source metadata ID' do
           it 'updates the record' do
-            patch :update,
+            perform_enqueued_jobs do
+              patch :update,
                   params: { id: resource.id,
                             resource_symbol => no_results_identifier_attributes,
                             refresh_remote_metadata: true }
+            end
             expect(reloaded.description).to eq ['a description']
           end
           it 'flashes an alert about no results found' do
-            patch :update,
+            perform_enqueued_jobs do
+              patch :update,
                   params: { id: resource.id,
                             resource_symbol => no_results_identifier_attributes,
                             refresh_remote_metadata: true }
+            end
             expect(flash[:alert]).to match I18n.t('services.remote_metadata.no_results')
           end
         end
         context 'with a valid, matching source metadata ID' do
           it 'updates the record and refreshes the external metadata' do
-            patch :update,
+            perform_enqueued_jobs do
+              patch :update,
                  params: { id: resource.id,
                            resource_symbol => static_attributes,
                            refresh_remote_metadata: true }
+            end
             expect(reloaded.title).to eq ['Fontane di Roma ; poema sinfonico per orchestra']
             expect(reloaded.description).to eq ['a description']
           end
