@@ -5,7 +5,7 @@
 class RemoteRecord < SimpleDelegator
   class << self
     def retrieve(id)
-      if id.present?
+      if id.present? && bibdata?(id)
         # FIXME: below will always raise an Argument error -- but this action
         # should also be short-cutted by raising the Bibdata error earlier, so
         # this is probably vestigial at this point
