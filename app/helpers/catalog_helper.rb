@@ -9,6 +9,7 @@ module CatalogHelper
   # @param [SolrDocument, Presenter] document
   # @return [String]
   def thumbnail_url document
+    return document.thumbnail_path if document.try(:thumbnail_path).present?
     if document.id == document.thumbnail_id
       representative_document = document
     else

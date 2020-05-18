@@ -26,6 +26,10 @@ Hyrax::WorkShowPresenter.include Extensions::Hyrax::WorkShowPresenter::Collectio
 # primary fields support
 Hyrax::Forms::WorkForm.include Extensions::Hyrax::Forms::WorkForm::PrimaryFields
 
+# IIIF Thumbnails for both types of Collections
+Hyrax::AdminSetIndexer.include ESSI::IIIFCollectionThumbnailBehavior
+Hyrax::CollectionIndexer.include ESSI::IIIFCollectionThumbnailBehavior
+
 # Use FileSet to store and display collection banner/logo image
 Hyrax::Forms::CollectionForm.prepend Extensions::Hyrax::Forms::CollectionForm::FileSetBackedBranding
 Hyrax::CollectionPresenter.prepend Extensions::Hyrax::CollectionPresenter::FileSetBackedBranding
