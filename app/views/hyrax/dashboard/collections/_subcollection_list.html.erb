@@ -1,0 +1,26 @@
+<% if @subcollection_docs.nil? || @subcollection_docs.empty? %>
+<div class="alert alert-warning" role="alert"><%= t('hyrax.collections.show.no_visible_subcollections') %></div>
+<% else %>
+ <table class="table table-striped">
+    <caption class="sr-only"><%= t('hyrax.collections.show.list_collections') %></caption>
+    <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th><%= t("hyrax.dashboard.my.heading.title") %></th>
+      <% if current_user %>
+        <th><%= t('hyrax.dashboard.my.heading.action') %></th>
+      <% end %>
+    </tr>
+    </thead>
+    <tbody>
+    <% @subcollection_docs.each do |document| %>
+      <%= render 'hyrax/dashboard/collections/subcollection_row', id: id, document: document %>
+    <% end %>
+    </tbody>
+  </table>
+<%= render 'hyrax/collections/paginate', solr_response: @subcollection_solr_response, page_param_name: :sub_collection_page %>
+<% end %>
+
+<% if can? :edit, id %>
+<%= render 'modal_remove_sub_collection' %>
+<% end %>

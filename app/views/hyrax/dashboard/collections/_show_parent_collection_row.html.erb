@@ -1,0 +1,35 @@
+<tr id="document_<%= id %>"
+    data-id="<%= document.id %>"
+    data-parent-id="<%= id %>"
+    data-post-url="<%= hyrax.dashboard_remove_parent_relationship_above_path(id, document.id) %>"
+    data-subcollection-label="<%= document.title_or_label %>">
+  <td>&nbsp;
+    <% if current_user and document.depositor != current_user.user_key %>
+      <i class="glyphicon glyphicon-share-alt" />
+    <% end %>
+  </td>
+  <td>
+    <div class="media">
+      <%= link_to [hyrax, :dashboard, document], class: "media-left" do %>
+        <%= render_thumbnail_tag document, { class: "hidden-xs file_listing_thumbnail" }, { suppress_link: true } %>
+      <% end %>
+      <div class="media-body">
+        <p class="media-heading">
+          <strong><%= link_to document.title_or_label, [hyrax, :dashboard, document], id: "src_copy_link#{document.id}", class: "#{'document-title' if document.title_or_label == document.label}" %></strong>
+        </p>
+        <% document.description.each do |description| %>
+          <p>
+            <%= truncate description, length: 160, seprator: /w+/ %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </td>
+  <% if current_user %>
+  <td>
+    <% if can?(:edit, id) || can?(:edit, document.id) %>
+      <button class="btn btn-xs btn-danger remove-from-collection-button"><%= t('hyrax.collections.show.buttons.remove_from_collection') %></button>
+    <% end %>
+  </td>
+  <% end %>
+</tr>

@@ -51,6 +51,9 @@ en:
       file_manager_actions:
         save: Save changes
         saving: Saving...
+    collections:
+      show:
+        list_collections: List of items in this collection
     directory:
       suffix: "@example.org"
     footer:

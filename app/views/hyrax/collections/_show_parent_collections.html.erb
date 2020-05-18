@@ -1,0 +1,21 @@
+<% if presenter.total_parent_collections <= 0 %>
+    <div class="alert alert-warning" role="alert"><%= t('hyrax.collections.show.no_visible_parent_collections') %></div>
+<% else %>
+  <table class="table table-striped">
+    <caption class="sr-only"><%= t('hyrax.collections.show.list_collections') %></caption>
+    <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th><%= t("hyrax.dashboard.my.heading.title") %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% presenter.parent_collections.documents.each do |document| %>
+      <%= render 'hyrax/collections/collection_row', id: document.id, document: document %>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="row">
+    <%= render 'hyrax/collections/paginate', solr_response: presenter.parent_collections, page_param_name: :parent_collection_page %>
+  </div>
+<% end %>
