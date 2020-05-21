@@ -4,6 +4,8 @@ class FileSet < ActiveFedora::Base
   include ESSI::RemoteLookupMetadata
   include ::Hyrax::FileSetBehavior
 
+  directly_contains_one :preservation_master_file, through: :files, type: ::RDF::URI('http://pcdm.org/use#PreservationMasterFile'), class_name: 'Hydra::PCDM::File'
+
   self.indexer = ESSI::FileSetIndexer
 
   def collection_branding_info

@@ -40,3 +40,9 @@ Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::SourceMetad
 
 Hyrax::CurationConcern.actor_factory.insert Hyrax::Actors::TransactionalRequest, ESSI::Actors::PerformLaterActor
 Hyrax::CurationConcern.actor_factory.swap Hyrax::Actors::CreateWithRemoteFilesActor, ESSI::Actors::CreateWithRemoteFilesActor
+
+# .jp2 conversion settings
+Hydra::Derivatives.kdu_compress_path = ESSI.config.dig(:essi, :kdu_compress_path)
+Hydra::Derivatives.kdu_compress_recipes =
+  Hydra::Derivatives.kdu_compress_recipes.with_indifferent_access
+                    .merge(ESSI.config.dig(:essi, :jp2_recipes) || {})
