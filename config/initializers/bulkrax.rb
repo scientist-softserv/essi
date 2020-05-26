@@ -55,9 +55,28 @@ Bulkrax.setup do |config|
 
   # Field mappings
   # Create a completely new set of mappings by replacing the whole set as follows
-  #   config.field_mappings = {
-  #     "Bulkrax::OaiDcParser" => { **individual field mappings go here*** }
-  #   }
+     config.field_mappings = {
+       #"Bulkrax::OaiDcParser" => { **individual field mappings go here*** }
+        "Bulkrax::CSVParser" => {
+          "file" => { from: ["file"] },
+          #"contributor" => { from: ["contributor"] },
+          "creator" => { from: ["creator"] },
+          #"date_created" => { from: ["date_created"] },
+          #"description" => { from: ["description"] },
+          #"identifier" => { from: ["identifier"] },
+          #"language" => { from: ["language"], parsed: true },
+          #"location" => { from: ["holding_location"], parsed: true },
+          #"publisher" => { from: ["publisher"] },
+          #"related_url" => { from: ["related_url"] },
+          "rights_statement" => { from: ["rights_statement"] },
+          "source" => { from: ["source"] },
+          "source_identifier" => { from: ["source_identifier"] },
+          #"subject" => { from: ["subject"], parsed: true },
+          "title" => { from: ["title"] },
+          #"resource_type" => { from: ["resource_type"], parsed: true },
+          #"remote_files" => { from: ["thumbnail_url"], parsed: true }
+        }
+     }
 
   # Add to, or change existing mappings as follows
   #   e.g. to exclude date
