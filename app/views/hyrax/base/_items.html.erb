@@ -2,7 +2,7 @@
 <%  array_of_ids = presenter.list_of_item_ids_to_display %>
 <%  members = presenter.member_presenters_for(array_of_ids) %>
 <% if members.present? %>
-  <%= link_to t('hyrax.works.form.show_child_items'),
+  <%= link_to t("hyrax.works.form.#{request.xhr? ? 'hide_child_items' : 'show_child_items'}"),
               '#work-items',
               class: 'btn btn-default additional-fields',
               id: 'work-items-button',
@@ -10,7 +10,7 @@
               role: "button",
               'aria-expanded'=> "false",
               'aria-controls'=> "work-items" %>
-  <div id="work-items" class='collapse'>
+  <div id="work-items" class='collapse <%= request.xhr? ? 'in' : '' %>'>
     <table class="table table-striped related-files">
       <thead>
         <tr>
@@ -28,7 +28,7 @@
     <div class="row">
       <% if presenter.total_pages > 1 %>
           <div class="row record-padding col-md-9">
-            <%= paginate array_of_ids, outer_window: 2, theme: 'blacklight', param_name: :page, route_set: main_app %>
+            <%= paginate array_of_ids, outer_window: 2, theme: 'blacklight', param_name: :page, route_set: main_app, remote: true %>
           </div><!-- /pager -->
       <% end %>
     </div>
