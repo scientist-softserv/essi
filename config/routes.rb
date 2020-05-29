@@ -63,5 +63,9 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
+  # Purl redirects
+  get '/purl/:id', to: 'purl#default', as: 'default_purl'
+  get '/purl/formats/:id', to: 'purl#formats', as: 'formats_purl'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

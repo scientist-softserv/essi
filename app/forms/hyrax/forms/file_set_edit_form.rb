@@ -15,5 +15,9 @@ module Hyrax::Forms
                   :visibility_during_embargo, :visibility_after_embargo, :embargo_release_date,
                   :visibility_during_lease, :visibility_after_lease, :lease_expiration_date,
                   :visibility]
+
+    class_attribute :primary_fields
+    self.primary_fields = []
+    include ESSI::RemoteMetadataFormElements
   end
 end

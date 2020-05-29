@@ -37,4 +37,8 @@ class SolrDocument
   def series
     self[Solrizer.solr_name('series')]
   end
+  
+  def source_metadata_identifier
+    self[Solrizer.solr_name('source_metadata_identifier')]&.first
+  end
 end
