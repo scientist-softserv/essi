@@ -79,6 +79,7 @@ default: &default
     index_hocr_files: true
     create_word_boundaries: true
     allow_pdf_download: false
+    link_banners: false
     bagit:
       default_upload_dropbox: <%= Rails.root.join("staged_files/uploaded") %>
       default_bagit_dir: <%= Rails.root.join("staged_files/work_bags") %>
