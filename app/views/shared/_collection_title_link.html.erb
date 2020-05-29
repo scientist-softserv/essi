@@ -1,0 +1,36 @@
+<% @collection_presenter = Hyrax::CollectionPresenter.new(@presenter.collection, current_ability) %>
+
+  <div class="row hyc-header extended-banner extended-banner-title-linked">
+    <div class="col-md-12">
+
+      <% unless @collection_presenter.banner_file.blank? %>
+          <header class="hyc-banner" style="background-image:url(<%= @collection_presenter.banner_file %>)">
+      <% else %>
+          <header class="hyc-generic">
+      <% end %>
+
+      <div class="hyc-title">
+        <h1><a href="<%= collection_path(@collection_presenter.id) %>"><%= @collection_presenter.title.first %></a></h1>
+        <%= @collection_presenter.collection_type_badge %>
+        <%= @collection_presenter.permission_badge %>
+      </div>
+
+      <% unless @collection_presenter.logo_record.blank? %>
+          <div class="hyc-logos">
+            <% @collection_presenter.logo_record.each_with_index  do |lr, i| %>
+                <% if lr[:linkurl].blank? %>
+                  <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>" />
+                <% else %>
+                  <object>
+                    <a href="<%= lr[:linkurl] %>" class="hyc-logos-link">
+                      <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>" />
+                    </a>
+                  </object>
+                <% end %>
+            <% end %>
+          </div>
+      <% end %>
+
+      </header>
+    </div>
+  </div>
