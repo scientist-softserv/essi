@@ -60,6 +60,9 @@ default: &default
     secret_access_key: Essi12345
     region: iu-local
   browse_everything:
+    #TODO: N8 for local development 
+    #file_system:
+    #    :home: <%= Rails.root.join("staged_files") %>
     s3:
       :bucket: essi-dropbox
       :region: iu-local

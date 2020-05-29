@@ -35,6 +35,9 @@ WORKDIR /app
 
 USER essi:essi
 COPY --chown=essi:essi Gemfile Gemfile.lock ./
+#TODO: N8 specific - add bulkrax for development; remove for PR back to ESSI
+#COPY --chown=essi:essi vendor/engines/bulkrax /app/vendor/engines/bulkrax
+
 RUN gem update bundler
 RUN bundle install -j 2 --retry=3
 
