@@ -6,6 +6,10 @@ module ESSI
         presenter && parent_presenter
         render 'viewer_only.html.erb', layout: 'boilerplate', content_type: 'text/html'
       end
+      # Allow kaminari gem to paginate child items using ajax
+      wants.js do
+        render :show
+      end
     end
 
     # Overrides stock Hyrax method to accept retrieving a cached JSON manifest_builder

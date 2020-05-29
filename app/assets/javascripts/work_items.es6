@@ -4,13 +4,14 @@ export default class WorkItems {
   }
 
   toggle_show_items(){
-    let button = $("#work-items-button")
     let show = I18n.t('hyrax.works.form.show_child_items')
     let hide = I18n.t('hyrax.works.form.hide_child_items')
-    button.click(function(event) {
-      if(button.text() == show){
+
+    $('body').on('click', '#work-items-button', function(e) {
+      const button = $("#work-items-button")
+      if (button.text() == show) {
         button.text(hide)
-      }else{
+      } else {
         button.text(show)
       }
     })
