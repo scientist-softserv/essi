@@ -1,7 +1,8 @@
 <%# override file ported from Hyrax master (slated for 3.x) @todo remove on upgrade to Hyrax 3.x %>
+<%# @todo refactor or recreate volume (m), page (cv) argument passing %>
 <div class="viewer-wrapper <%= "fullscreen" if local_assigns.fetch(:fullscreen, false) %>">
   <iframe
-    src="<%= universal_viewer_base_url %>#?manifest=<%= main_app.polymorphic_url([main_app, :manifest, presenter], { locale: nil }) %>&config=<%= universal_viewer_config_url %>" 
+    src="<%= universal_viewer_base_url %>#?manifest=<%= main_app.polymorphic_url([main_app, :manifest, presenter], { locale: nil }) %>&config=<%= universal_viewer_config_url %>&m=<%= params[:m].to_i %>&cv=<%= params[:cv].to_i %>" 
     allowfullscreen="true" 
     frameborder="0" 
   ></iframe>
