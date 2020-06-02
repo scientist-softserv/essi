@@ -4,9 +4,6 @@ class FileSet < ActiveFedora::Base
   include ESSI::RemoteLookupMetadata
   include ::Hyrax::FileSetBehavior
 
-  # FIXME: find a more appropriate file use?
-  directly_contains_one :transcript, through: :files, type: ::RDF::URI('http://pcdm.org/use#Transcript'), class_name: 'Hydra::PCDM::File'
-
   self.indexer = ESSI::FileSetIndexer
 
   def collection_branding_info
@@ -20,7 +17,7 @@ class FileSet < ActiveFedora::Base
   def ocr_language
     [language.entries,
      parent&.language&.entries,
-     ESSI.config.dig(:essi, :hocr_language),
+     ESSI.config.dig(:essi, :ocr_language),
      'eng'].map { |l| Tesseract.try_languages(l) }.select(&:present?).first
   end
 end

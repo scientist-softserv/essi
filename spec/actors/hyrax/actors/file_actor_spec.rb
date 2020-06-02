@@ -12,9 +12,9 @@ describe Hyrax::Actors::FileActor do
   describe '#ingest_file' do
     before do
       allow(ESSI.config).to receive(:dig).with(any_args).and_call_original
-      allow(ESSI.config).to receive(:dig).with(:essi, :create_hocr_files) \
+      allow(ESSI.config).to receive(:dig).with(:essi, :create_ocr_files) \
         .and_return(true)
-      allow(ESSI.config).to receive(:dig).with(:essi, :index_hocr_files) \
+      allow(ESSI.config).to receive(:dig).with(:essi, :index_ocr_files) \
         .and_return(true)
     end
     context 'when :store_original_files is false', :clean do
