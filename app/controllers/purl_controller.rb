@@ -59,7 +59,7 @@ class PurlController < ApplicationController
         subfolder = klass.to_s.pluralize.underscore
         url = "#{request.protocol}#{request.host_with_port}" \
           "#{config.relative_url_root}/concern/#{subfolder}/#{solr_hit.id}"
-        url += "#?m=#{volume}&cv=#{page}" if volume.positive? || page.positive?
+        url += "?m=#{volume}&cv=#{page}" if volume.positive? || page.positive?
       rescue StandardError
         url = rescue_url
       end
@@ -78,11 +78,12 @@ class PurlController < ApplicationController
       end
     end
 
+    # remove any volume, page arguments before adding manifest call
     def manifest_url(url)
       if url == rescue_url
         nil
       else
-        url = url + '/manifest'
+        url = url.sub(/\?.*$/, '') + '/manifest'
       end
     end
 

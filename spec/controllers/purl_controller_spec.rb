@@ -47,18 +47,20 @@ describe PurlController do
           let(:format) { 'iiif' }
 
           it 'redirects to the IIIF manifest' do
-            expect(response).to redirect_to target_path + '/manifest'
+            expect(response).to redirect_to manifest_path
           end
         end
       end
       context 'when for a PagedResource' do
         let(:id) { paged_resource.source_metadata_identifier }
         let(:target_path) { paged_resource_path }
+        let(:manifest_path) { paged_resource_path + '/manifest' }
         include_examples 'responses for matches'
       end
       context 'when for a specific page' do
         let(:id) { paged_resource.source_metadata_identifier + '-9-0042' }
-        let(:target_path) { paged_resource_path + '#?m=8&cv=41' }
+        let(:target_path) { paged_resource_path + '?m=8&cv=41' }
+        let(:manifest_path) { paged_resource_path + '/manifest' }
 
         include_examples 'responses for matches'
       end
