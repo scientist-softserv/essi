@@ -10,7 +10,7 @@ module ESSI
     private
 
       def apply_ocr_option_data_to_curation_concern(env)
-        return unless ESSI.config.dig(:essi, :index_hocr_files)
+        return unless ESSI.config.dig(:essi, :index_ocr_files)
         env.curation_concern.ocr_state = "searchable"
       end
   end

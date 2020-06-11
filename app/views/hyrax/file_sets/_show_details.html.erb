@@ -6,9 +6,11 @@
   <dd itemprop="datePublished"><%= @presenter.date_uploaded %></dd>
   <dt>Date Modified</dt>
   <dd itemprop="dateModified"><%= @presenter.date_modified %></dd>
-  <% if @presenter.extracted_text? %>
   <dt>OCR</dt>
-  <dd><%= link_to 'Download', @presenter.extracted_text_link %></dd>
+  <% if @presenter.extracted_text? %>
+    <dd><%= link_to 'Download', @presenter.extracted_text_link %></dd>
+  <% else %>
+    <dd>not available</dd>
   <% end %>
   <dt>Fixity Check</dt>
   <dd><%= @presenter.fixity_check_status %></dd>

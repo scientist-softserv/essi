@@ -16,13 +16,13 @@ RSpec.describe Processors::OCR do
     context "without a language directive" do
       let(:directives) { {} }
       it "returns a hash with a default tesseract language argument" do
-        expect(subject.options_for('hocr')&.dig(:options).to_s).to match /-l eng/
+        expect(subject.options_for('alto')&.dig(:options).to_s).to match /-l eng/
       end
     end
     context "with a language directive" do
       let(:directives) { { language: 'ita' } }
       it "returns a hash with the specified tesseract language argument" do
-        expect(subject.options_for('hocr')&.dig(:options).to_s).to match /-l ita/
+        expect(subject.options_for('alto')&.dig(:options).to_s).to match /-l ita/
       end
     end
   end

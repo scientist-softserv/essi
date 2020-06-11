@@ -74,9 +74,9 @@ default: &default
     master_file_service_url: http://purl.dlib.indiana.edu/iudl/variations/master
     access_file_service_url: http://purl.dlib.indiana.edu/iudl/variations/access
     purl_redirect_url: http://server1.variations2.indiana.edu/cgi-bin/access?%s
-    hocr_language: [eng]
-    create_hocr_files: true
-    index_hocr_files: true
+    ocr_language: [eng]
+    create_ocr_files: true
+    index_ocr_files: true
     create_word_boundaries: true
     allow_pdf_download: false
     manifest_builder:
