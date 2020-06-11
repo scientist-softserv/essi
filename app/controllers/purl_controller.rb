@@ -25,12 +25,11 @@ class PurlController < ApplicationController
 
   private
     FILESET_LOOKUPS = { FileSet => nil }.freeze
-    # FIXME: refactor?
     WORK_LOOKUPS = {
-      BibRecord => /^\w{3}\d{4}$/,
-      Image => /^\w{3,}\d{4,}$/,
-      PagedResource => /^\w{3}\d{4}$/,
-      Scientific => /^\w{3}\d{4}$/,
+      BibRecord => /^[a-zA-Z\/]{0,}\w{3}\d{4}$/,
+      Image => /^[a-zA-Z\/]{0,}\w{3,}\d{4,}$/,
+      PagedResource => /^[a-zA-Z\/]{0,}\w{3}\d{4}$/,
+      Scientific => /^[a-zA-Z\/]{0,}\w{3}\d{4}$/,
     }.freeze
    
     # sets @solr_hit (if found), @url (always)
@@ -46,11 +45,13 @@ class PurlController < ApplicationController
       @url ||= rescue_url
     end
 
+    # TODO: reconsider how not all work types support source_metadata_identifier?
     def find_object(id, klass, match_pattern)
+      terms = { source_metadata_identifier: id } if klass.properties['source_metadata_identifier']
+      terms = { identifier_tesim: id } if id.match('/') && klass.properties['identifier']
+      return unless terms
       if match_pattern.nil? || id.match(match_pattern)
-        klass.search_with_conditions(
-          { source_metadata_identifier_tesim: id }, rows: 1
-        ).first
+        klass.search_with_conditions(terms, rows: 1).first
       end
     end
 

@@ -6,6 +6,7 @@ describe PurlController do
   let(:paged_resource) {
     FactoryBot.create(:paged_resource,
                        user: user,
+                       identifier: ['http://purl.dlib.indiana.edu/iudl/variations/score/BHR9405'],
                        source_metadata_identifier: 'BHR9405')
   }
   let(:paged_resource_path) { Rails.application.routes.url_helpers.hyrax_paged_resource_path(paged_resource) }
@@ -52,10 +53,18 @@ describe PurlController do
         end
       end
       context 'when for a PagedResource' do
-        let(:id) { paged_resource.source_metadata_identifier }
         let(:target_path) { paged_resource_path }
         let(:manifest_path) { paged_resource_path + '/manifest' }
-        include_examples 'responses for matches'
+
+        context 'matching by source_metadata_identifier' do
+          let(:id) { paged_resource.source_metadata_identifier }
+          include_examples 'responses for matches'
+        end
+
+        context 'matching a full PURL by identifier' do
+          let(:id) { 'iudl/variations/score/BHR9405' }
+          include_examples 'responses for matches'
+        end
       end
       context 'when for a specific page' do
         let(:id) { paged_resource.source_metadata_identifier + '-9-0042' }
