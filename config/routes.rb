@@ -64,8 +64,8 @@ Rails.application.routes.draw do
   end
 
   # Purl redirects
-  get '/purl/:id', to: 'purl#default', as: 'default_purl'
   get '/purl/formats/:id', to: 'purl#formats', as: 'formats_purl'
+  get '/purl/*id', to: 'purl#default', as: 'default_purl'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
