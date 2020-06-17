@@ -40,6 +40,8 @@ RUN bundle install -j 2 --retry=3
 
 COPY --chown=essi:essi . .
 
+RUN mkdir /app/tmp/cache
+
 ENV RAILS_LOG_TO_STDOUT true
 
 ###

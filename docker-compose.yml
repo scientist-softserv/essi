@@ -19,7 +19,8 @@ x-app:
     - .env.development
     - .env
   volumes:
-    - .:/app
+    - .:/app:cached
+    - rails_cache:/app/tmp/cache
     - ./config/essi_config.docker.yml:/run/secrets/essi_config.yml
   depends_on:
     - redis
@@ -43,7 +44,7 @@ services:
 
   app:
     << : *default-app
-    command: bash -l -c "rake db:migrate db:seed && yarn install && bundle exec puma -b tcp://0.0.0.0:3000"
+    command: bash -l -c "bundle exec rake db:migrate db:seed yarn:install && bundle exec puma -b tcp://0.0.0.0:3000"
     environment:
       VIRTUAL_HOST: essi.docker
       VIRTUAL_PORT: 3000
@@ -154,3 +155,4 @@ volumes:
   redis:
   solr:
   minio:
+  rails_cache:
