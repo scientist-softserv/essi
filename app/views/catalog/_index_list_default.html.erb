@@ -5,7 +5,11 @@
     <% index_fields(document).each do |field_name, field| -%>
       <% if should_render_index_field? document, field %>
           <dt><%= render_index_field_label document, field: field_name %></dt>
-          <dd><%= truncate doc_presenter.field_value(field_name), length:160 %></dd>
+          <% if doc_presenter.field_value(field_name).match(/(<([^>]+)>)/i) %>
+            <dd><%= doc_presenter.field_value(field_name) %></dd>
+          <% else %>
+            <dd><%= truncate doc_presenter.field_value(field_name), length:160 %></dd>
+          <% end %>
       <% end %>
     <% end %>
     </dl>
