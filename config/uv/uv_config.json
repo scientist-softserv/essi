@@ -8,9 +8,6 @@
         "defaultToTreeEnabled": true,
         "thumbsCacheInvalidation": {
           "enabled": false
-        },
-        "content": {
-          "index": "TOC"
         }
       }
     },
@@ -23,12 +20,6 @@
     "searchFooterPanel": {
       "options": {
         "pageModeEnabled": false
-      }
-    },
-    "pagingHeaderPanel": {
-      "options": {
-        "autoCompleteBoxEnabled": false,
-        "imageSelectionBoxEnabled": true
       }
     }
   }
