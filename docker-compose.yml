@@ -88,6 +88,15 @@ services:
       - minio:/data
     command: sh -c "ln -s /nasvol /data/essi-dropbox || exit 0"
 
+  minio_config:
+    image: minio/mc:RELEASE.2020-03-14T01-23-37Z
+    environment:
+      MC_HOST_essi: http://essi-minio:Essi12345@minio:9000
+    entrypoint: ''
+    command: sh -c "until nc -z minio 9000; do echo 'Waiting for minio...'; sleep 1; done; mc policy set public essi/essi-dropbox"
+    depends_on:
+      - minio
+
   cantaloupe:
     image: iublibtech/cantaloupe
     ports:

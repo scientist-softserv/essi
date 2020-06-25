@@ -47,7 +47,7 @@ default: &default
     s3:
       :bucket: essi-dropbox
       :region: iu-local
-      :response_type: :signed_url
+      :response_type: :public_url
     file_system:
       :home: <%= Rails.root.join("staged_files") %>
   ldap:
