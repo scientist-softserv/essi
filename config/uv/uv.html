@@ -17,19 +17,8 @@
             overflow: hidden;
         }
     </style>
-</head>
-<body>
-
-<div id="uv" class="uv"></div>
-
-<script>
-
-    $(function() {
-
-        var $UV = $('#uv');
-
-        window.addEventListener('uvLoaded', function(e) {
-
+    <script type="text/javascript">
+    window.addEventListener('uvLoaded', function(e) { 
             urlDataProvider = new UV.URLDataProvider(true);
             var formattedLocales;
             var locales = urlDataProvider.get('locales', '');
@@ -42,7 +31,7 @@
                     var nameparts = String(names[i]).split(':');
                     formattedLocales[i] = {name: nameparts[0], label: nameparts[1]};
                 }
-
+                
             } else {
                 formattedLocales = [
                     {
@@ -54,11 +43,12 @@
             uv = createUV('#uv', {
                 root: '.',
                 iiifResourceUri: urlDataProvider.get('manifest'),
-                configUri: 'uv_config.json',
+                configUri: urlDataProvider.get('config'),
                 collectionIndex: Number(urlDataProvider.get('c', 0)),
                 manifestIndex: Number(urlDataProvider.get('m', 0)),
                 sequenceIndex: Number(urlDataProvider.get('s', 0)),
                 canvasIndex: Number(urlDataProvider.get('cv', 0)),
+                rangeId: urlDataProvider.get('rid', 0),
                 rotation: Number(urlDataProvider.get('r', 0)),
                 xywh: urlDataProvider.get('xywh', ''),
                 embedded: true,
@@ -66,6 +56,17 @@
             }, urlDataProvider);
 
         }, false);
+    </script>
+</head>    
+<body>
+
+<div id="uv" class="uv"></div>
+
+<script>
+
+    $(function() {
+
+        var $UV = $('#uv');
 
         function resize() {
             var windowWidth = window.innerWidth;
@@ -74,13 +75,13 @@
             $UV.height(windowHeight);
         }
 
-        $(window).on('resize' ,function() {
+        $(window).on('resize', function() {
             resize();
         });
-
+        
         resize();
     });
-
+    
 </script>
 
 <script type="text/javascript" src="uv.js"></script>

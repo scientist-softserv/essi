@@ -3,6 +3,20 @@
     "searchWithinEnabled": true
   },
   "modules": {
+    "contentLeftPanel": {
+      "options": {
+        "defaultToTreeEnabled": true,
+        "thumbsCacheInvalidation": {
+          "enabled": false
+        }
+      }
+    },
+    "footerPanel": {
+      "options": {
+        "downloadEnabled": true,
+        "shareEnabled": true
+      }
+    },
     "searchFooterPanel": {
       "options": {
         "pageModeEnabled": false
