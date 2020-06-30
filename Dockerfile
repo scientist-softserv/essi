@@ -6,6 +6,8 @@ ARG GROUP_ID=1000
 
 RUN groupadd -g ${GROUP_ID} essi && \
     useradd -m -l -g essi -u ${USER_ID} essi && \
+    curl -sS https://notesalexp.org/debian/alexp_key.asc | apt-key add - && \
+    echo "deb https://notesalexp.org/tesseract-ocr/buster/ buster main" | tee -a /etc/apt/sources.list && \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
