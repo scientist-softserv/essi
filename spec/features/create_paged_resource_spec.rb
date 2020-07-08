@@ -5,7 +5,7 @@ include Warden::Test::Helpers
 include ActiveJob::TestHelper
 
 # NOTE: If you generated more than one work, you have to set "js: true"
-RSpec.feature 'Create a PagedResource', js: true do
+RSpec.feature 'Create a PagedResource', type: :system, js: true do
   context 'a logged in user', clean: true do
     let(:user) do
       FactoryBot.create :user

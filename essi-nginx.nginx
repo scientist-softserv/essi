@@ -1,5 +1,5 @@
 upstream essi_app {
-  server app:3000;
+  server essi:3000;
 }
 
 upstream essi_iiif {

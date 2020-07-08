@@ -39,16 +39,17 @@ services:
     ports:
       - "80:8980"
     depends_on:
-      - app
+      - essi
       - worker
 
-  app:
+  essi:
     << : *default-app
     command: bash -l -c "bundle exec rake db:migrate db:seed yarn:install && bundle exec puma -b tcp://0.0.0.0:3000"
     environment:
       VIRTUAL_HOST: essi.docker
       VIRTUAL_PORT: 3000
       IN_DOCKER: 'true'
+      HUB_URL: http://chrome:4444/wd/hub 
     ports:
       - "3000:3000"
 
@@ -155,8 +156,13 @@ services:
       - "8080"
 
   chrome:
-    image: selenium/standalone-chrome:3.141
+    image: selenium/standalone-chrome-debug:3.141.59-20200525
+    volumes:
+      - /dev/shm:/dev/shm
     shm_size: 2G
+    ports:
+      - "4444:4444"
+      - "5959:5900"
 
 volumes:
   fcrepo:

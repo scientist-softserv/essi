@@ -11,6 +11,7 @@ require 'rspec/rails'
 require 'webmock/rspec'
 require 'vcr'
 require 'capybara/rails'
+require 'capybara-screenshot/rspec'
 require 'database_cleaner'
 require 'active_fedora/cleaner'
 require 'selenium-webdriver'
@@ -39,50 +40,10 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 ActiveJob::Base.queue_adapter = :test
 
-if ENV['IN_DOCKER'].present?
-  TEST_HOST='essi.docker'
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: {
-      args: %w[headless disable-gpu no-sandbox whitelisted-ips window-size=1400,1400]
-    }
-  )
-
-  Capybara.register_driver :selenium_chrome_headless_sandboxless do |app|
-    d = Capybara::Selenium::Driver.new(app,
-                                       browser: :remote,
-                                       desired_capabilities: capabilities,
-                                       url: "http://chrome:4444/wd/hub")
-    # Fix for capybara vs remote files. Selenium handles this for us
-    d.browser.file_detector = lambda do |args|
-      str = args.first.to_s
-      str if File.exist?(str)
-    end
-    d
-  end
-  Capybara.server_host = '0.0.0.0'
-  Capybara.server_port = 3001
-  Capybara.app_host = "http://web:#{Capybara.server_port}"
-else
-  TEST_HOST='localhost:3000'
-  # @note In January 2018, TravisCI disabled Chrome sandboxing in its Linux
-  #       container build environments to mitigate Meltdown/Spectre
-  #       vulnerabilities, at which point Hyrax could no longer use the
-  #       Capybara-provided :selenium_chrome_headless driver (which does not
-  #       include the `--no-sandbox` argument).
-
-  Capybara.register_driver :selenium_chrome_headless_sandboxless do |app|
-    browser_options = ::Selenium::WebDriver::Chrome::Options.new
-    browser_options.args << '--headless'
-    browser_options.args << '--disable-gpu'
-    browser_options.args << '--no-sandbox'
-    Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
-  end
-end
-
-Capybara.default_driver = :rack_test # This is a faster driver
-Capybara.javascript_driver = :selenium_chrome_headless_sandboxless # This is slower
-
 RSpec.configure do |config|
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium_chrome_headless_sandboxless #
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -110,7 +71,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-
+  config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Warden::Test::Helpers, type: :request
   config.include Warden::Test::Helpers, type: :feature
@@ -146,10 +107,18 @@ RSpec.configure do |config|
     end
   end
 
+  config.after(:each) do |example|
+    if example.metadata[:js]
+      save_timestamped_page_and_screenshot(Capybara.page, example.metadata) if example.exception
+    end
+  end
+
   config.after(:each, type: :feature) do
     Warden.test_reset!
     Capybara.reset_sessions!
     page.driver.reset!
+    # Keep up to the number of screenshots specified in the hash
+    Capybara::Screenshot.prune_strategy = { keep: 10 }
   end
 
   config.after(:suite) do
@@ -162,8 +131,10 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
+  config.allow_http_connections_when_no_cassette = true
 
   # Ignore webdriver updates
   driver_hosts = Webdrivers::Common.subclasses.map { |driver| URI(driver.base_url).host }
   config.ignore_hosts(*driver_hosts)
 end
+

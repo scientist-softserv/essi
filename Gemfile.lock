@@ -182,6 +182,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    capybara-screenshot (1.0.24)
+      capybara (>= 1.0, < 4)
+      launchy
     carrierwave (1.3.1)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -497,6 +500,8 @@ GEM
     kaminari_route_prefix (0.1.1)
       kaminari (~> 1.0)
     language_list (1.2.1)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     ld-patch (0.3.3)
       ebnf (~> 1.1)
       rdf (>= 2.2, < 4.0)
@@ -611,10 +616,14 @@ GEM
     parallel (1.12.1)
     parser (2.5.1.2)
       ast (~> 2.4.0)
+    pdf-core (0.7.0)
     phantomjs (2.1.1.0)
     posix-spawn (0.3.13)
     power_converter (0.1.2)
     powerpack (0.1.2)
+    prawn (2.2.2)
+      pdf-core (~> 0.7.0)
+      ttfunk (~> 1.5)
     public_suffix (4.0.4)
     pul_uv_rails (2.0.1)
     puma (3.12.6)
@@ -871,6 +880,7 @@ GEM
     tilt (2.0.8)
     tinymce-rails (4.9.6)
       railties (>= 3.1.1)
+    ttfunk (1.6.2.1)
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -925,6 +935,7 @@ DEPENDENCIES
   bulkrax!
   byebug
   capybara
+  capybara-screenshot (~> 1.0)
   coffee-rails (~> 4.2)
   database_cleaner
   debase
@@ -948,6 +959,7 @@ DEPENDENCIES
   mysql2
   omniauth
   omniauth-iu-cas
+  prawn
   puma
   rails (~> 5.1.6)
   rails-controller-testing

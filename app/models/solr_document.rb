@@ -33,6 +33,7 @@ class SolrDocument
   attribute :ocr_searchable, Solr::String, solr_name('ocr_searchable', Solrizer::Descriptor.new(:boolean, :stored, :indexed))
   # @todo remove after upgrade to Hyrax 3.x
   attribute :original_file_id, Solr::String, "original_file_id_ssi"
+  attribute :allow_pdf_download, Solr::String, solr_name('allow_pdf_download', Solrizer::Descriptor.new(:boolean, :stored, :indexed))
 
   def series
     self[Solrizer.solr_name('series')]

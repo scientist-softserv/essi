@@ -77,6 +77,11 @@ RSpec.configure do |config|
     ActiveJob::Base.queue_adapter.perform_enqueued_at_jobs = false
   end
 
+  # Delete pdfs generated from specs
+  config.after(:suite) do
+    FileUtils.rm_rf(Dir["#{Rails.root}/spec/fixtures/pdfs"])
+  end
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin

@@ -42,6 +42,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara'
+  gem 'capybara-screenshot', '~> 1.0'
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'database_cleaner'
@@ -94,6 +95,7 @@ gem 'iiif_manifest'
 gem 'i18n-js'
 gem 'bagit'
 gem 'validatable'
+gem 'prawn'
 
 # Bulk Import / Export
 #TODO: N8 specific - use local for dev; use github for test/staging

@@ -40,6 +40,7 @@ Rails.application.routes.draw do
       member do
         get :structure
         post :structure, action: :save_structure
+        get '/pdf', action: :pdf, as: :pdf
       end
     end
   end
