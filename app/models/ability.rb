@@ -5,7 +5,7 @@ class Ability
   self.ability_logic += [:everyone_can_create_curation_concerns]
   # Define any customized permissions here.
   def custom_permissions
-    can %i[file_manager save_structure structure], PagedResource
+    can %i[file_manager save_structure structure pdf], PagedResource
     # Limits deleting objects to a the admin user
     #
     # if current_user.admin?
@@ -18,7 +18,7 @@ class Ability
     #   can [:create], ActiveFedora::Base
     # end
     if current_user.admin?
-        can [:create, :show, :add_user, :remove_user, :index, :edit, :update, :destroy], Role
+        can [:create, :show, :add_user, :remove_user, :index, :edit, :update, :destroy, :pdf], Role
     end
   end
 

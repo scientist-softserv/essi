@@ -22,7 +22,7 @@ module Hyrax
       renderings = []
       if rendering_ids.present?
         rendering_ids.each do |file_set_id|
-          if solr_document[:allow_pdf_download_tesim] == "true" || current_ability.current_user.admin?
+          if solr_document[:allow_pdf_download_tesim] == ["true"] || current_ability.current_user.admin?
             renderings << manifest_helper.build_pdf_rendering(file_set_id)
           end
         end
