@@ -1,4 +1,5 @@
 <a id="logo" class="navbar-brand" href="<%= hyrax.root_path %>" data-no-turbolink="true">
-  <span class="glyphicon glyphicon-globe" role="img" aria-label="<%= application_name %>" aria-hidden="true"></span>
-  <span class="institution_name"><%= application_name %></span>
+  <% application_name.split(' ', 2).tap do |words| %>
+    <span class="institution_name"><%= words.first %><span class="thin"> <%= words.last if words.length > 1 %></span></span>
+  <% end %>
 </a>
