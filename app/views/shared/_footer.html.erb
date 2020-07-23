@@ -1,19 +1,39 @@
-<div class="navbar-text text-left application-margin">
-  <p><%= t('hyrax.footer.service_html') %></p>
-  <p><%= t('hyrax.product_name') %> <%= link_to "v#{Hyrax::VERSION}", "https://github.com/samvera/hyrax/tree/v#{Hyrax::VERSION}" %>
-    ESSI <%= link_to(ENV['SOURCE_COMMIT'], "https://github.com/IU-Libraries-Joint-Development/essi/tree/#{ENV['SOURCE_COMMIT']}") if ENV['SOURCE_COMMIT'] %></p>
-</div>
-<footer id="footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/CollegeOrUniversity">
+<footer role="contentinfo">
+  <div class=" bg-mahogany bottom-nav">
+    <div class="container-fluid smallText">
     <div class="row pad">
-
-        <p class="signature">
-            <a href="https://www.iu.edu" class="signature-link signature-img"><img src="//assets.iu.edu/brand/3.2.x/iu-sig-formal.svg" alt="Indiana University" /></a>
+      <div class="grid thirds">
+        <div class="grid-item">
+        <p>
+          <%= link_to(t('hyrax.product_name'), 'https://github.com/IU-Libraries-Joint-Development/essi') %>
+          <%= link_to(ENV['SOURCE_COMMIT'].to_s.truncate(9), "https://github.com/IU-Libraries-Joint-Development/essi/tree/#{ENV['SOURCE_COMMIT']}") if ENV['SOURCE_COMMIT'] %>
         </p>
-
-        <p class="copyright">
-        <span class="line-break"><a href="https://accessibility.iu.edu/assistance" id="accessibility-link" title="Having trouble accessing this web page content? Please visit this page for assistance.">Accessibility</a> | <a href="/privacy" id="privacy-policy-link">Privacy Notice</a></span>
-        <span class="hide-on-mobile"> | </span>
-        <a href="https://www.iu.edu/copyright/index.html">Copyright</a> &#169; 2019 <span class="line-break-small">The Trustees of <a href="https://www.iu.edu/" itemprop="url"><span itemprop="name">Indiana University</span></a></span>
+        <p>
+          <%= t('hyrax.footer.service_html') %>
+          <%= link_to "Hyrax v#{Hyrax::VERSION}", "https://github.com/samvera/hyrax/tree/v#{Hyrax::VERSION}" %>
         </p>
+        </div>
+        <div class="grid-item">
+        </div>
+        <div class="grid-item">
+        </div>
+      </div>
     </div>
+  </div>
+  </div>
+
+  <footer id="footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/CollegeOrUniversity">
+      <div class="row pad">
+
+          <p class="signature">
+              <a href="https://www.iu.edu" class="signature-link signature-img"><img src="//assets.iu.edu/brand/3.2.x/iu-sig-formal.svg" alt="Indiana University" /></a>
+          </p>
+
+          <p class="copyright">
+          <span class="line-break"><a href="https://accessibility.iu.edu/assistance" id="accessibility-link" title="Having trouble accessing this web page content? Please visit this page for assistance.">Accessibility</a> | <a href="/privacy" id="privacy-policy-link">Privacy Notice</a></span>
+          <span class="hide-on-mobile"> | </span>
+          <a href="https://www.iu.edu/copyright/index.html">Copyright</a> &#169; 2020 <span class="line-break-small">The Trustees of <a href="https://www.iu.edu/" itemprop="url"><span itemprop="name">Indiana University</span></a></span>
+          </p>
+      </div>
+  </footer>
 </footer>
