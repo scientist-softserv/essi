@@ -5,7 +5,7 @@ $midnight           : #006298;
 $darkMajestic       : #512A44;
 $majestic           : #66435A;
 $black              : #191919;
-$mahogeny           : #4a3c31;
+$mahogany           : #4a3c31;
 $default_background : #eee;
 $default_border     : #A7A9AB;
 $success_background : #DDF4EA;
@@ -29,7 +29,7 @@ h1,
 h2,
 h3,
 h4 {
-  color : $mahogeny;
+  color : $mahogany;
 }
 
 //spacing
@@ -246,9 +246,9 @@ a:hover {
   background-color : transparent;
 }
 
-.bg-mahogeny {
+.bg-mahogany {
   color      : #fff;
-  background : $mahogeny;
+  background : $mahogany;
 }
 
 .bg-crimson,
@@ -287,9 +287,9 @@ a:hover {
 .bg-black a:link,
 .bg-black a:visited,
 .bg-black h2,
-.bg-mahogeny a:active,
-.bg-mahogeny a:link,
-.bg-mahogeny a:visited,
+.bg-mahogany a:active,
+.bg-mahogany a:link,
+.bg-mahogany a:visited,
 .btn-default:hover,
 .library a,
 .navbar-default.nav-bg-black .navbar-nav > li > a,.stars h2 {
@@ -318,15 +318,15 @@ a:hover {
   color : #333;
 }
 
-.btn-mahogeny,
+.btn-mahogany,
 .viewResultsBtns .btn {
   border-color : #fff;
-  border-color : $mahogeny;
-  background   : $mahogeny;
+  border-color : $mahogany;
+  background   : $mahogany;
 }
 
 .viewResultsBtns .btn.active {
-  color      : $mahogeny;
+  color      : $mahogany;
   background : #fff;
 }
 
@@ -365,8 +365,8 @@ a.btn:hover {
 .bg-black .navbar a:link,
 .bg-black a.textLink,
 .bg-black a.textLink:active,
-.bg-mahogeny .navbar a:hover,
-.bg-mahogeny a:hover,
+.bg-mahogany .navbar a:hover,
+.bg-mahogany a:hover,
 .navbar-default.nav-bg-black .navbar-nav > li > a:hover {
   color           : lighten($midnight, 50%);
   text-decoration : none;
