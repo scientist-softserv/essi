@@ -63,6 +63,10 @@ en:
     institution_name_full: The Institution Name
     product_name: "Digital \nCollections"
     product_twitter_handle: "@SamveraRepo"
+    search:
+      form:
+        q:
+          placeholder: Search Digital Collections
     structure_manager:
       link_text: "Edit Structure"
     upload:
