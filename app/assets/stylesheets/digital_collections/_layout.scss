@@ -85,6 +85,10 @@ color: $black;
 }
 //.image-masthead, .home-content,.bottom-nav{padding: 2em 1em 3em;}
 
+.image-masthead .background-container-gradient {
+  display: none;
+}
+
 .edit_collection {
 	width: 100%;
 	margin: 0.5em 0;
@@ -193,6 +197,10 @@ h3 {
 	text-shadow: 2px 2px #000;
 	padding: 1em 2em 3em;
 	margin-bottom: 3em;
+}
+
+.home_marketing_text h1 {
+  text-shadow: 2px 2px #000;
 }
 
 #logo,#logo2 {
