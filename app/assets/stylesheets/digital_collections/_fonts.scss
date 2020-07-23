@@ -1,0 +1,18 @@
+
+/*
+
+	$breakpoint-xs: 0;
+	$breakpoint-sm: 576px;
+	$breakpoint-md: 768px;
+	$breakpoint-lg: 992px;
+	$breakpoint-xl: 1200px;
+
+*/
+h3,h3 a, .panel h3 a, .media-heading a, table a:not(.button), .panel table a:not(.button), .panel a:not(.button){text-decoration: none;}
+.tab-content .col-sm-12, .tab-content h3, .recent-item h3, .recent-item p, .smallText{font-size: small; line-height: 1em}
+.tab-content h3, .recent-item h3{font-size: 1.1em;}
+.flex-3 h2+p{margin-top: .1em; }
+.flex-3 h2{font-size: 1.2em; margin: .5em 0 0}
+
+.text-shadow{  text-shadow: 3px 3px 0px rgba(0,0,0, 0.5)}
+.lg-text{font-size: $lg}
