@@ -1,3 +1,4 @@
 <h2>
+  <%= link_to(t('services.metadata_link') + t('services.metadata'), @presenter.catalog_url, class: "fa fa-external-link link_font") if @presenter.try(:catalog_url).present? %>
   <%= link_to( t('hyrax.works.link.large_viewer'), polymorphic_path([main_app, @presenter], format: :uv), class: "fa fa-external-link link_font") %>
 </h2>
