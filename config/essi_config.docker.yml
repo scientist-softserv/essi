@@ -13,7 +13,7 @@ default: &default
     user: essi
     password: essi
   redis:
-    host: redis
+    host: redis_jobs
     port: 6379
   sidekiq:
     queue_names:
