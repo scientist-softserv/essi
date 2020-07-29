@@ -139,14 +139,14 @@ services:
     ports:
       - "8983"
     volumes:
-      - './solr/config:/opt/config:delegated'
+      - './solr:/myconfig:delegated'
       - solr:/opt/solr/server/solr/mycores
-      - './solr/lib/solr-tokenizing_suggester-7.x.jar:/opt/solr/contrib/solr-tokenizing_suggester-7.x.jar'
+      - './solr/lib/tokenizing-suggest-v1.0.1.jar:/opt/solr/contrib/tokenizing-suggest-v1.0.1.jar'
     entrypoint:
       - docker-entrypoint.sh
       - solr-precreate
       - "${SOLR_CORE}"
-      - /opt/config
+      - /myconfig
 
   fcrepo:
     image: samvera/fcrepo4:4.7.5
