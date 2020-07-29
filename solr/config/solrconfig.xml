@@ -51,6 +51,7 @@
   </requestDispatcher>
   
   <requestHandler name="/analysis/field" startup="lazy" class="solr.FieldAnalysisRequestHandler" />
+  <queryParser name="xmlparser" class="solr.ExtendedDismaxQParserPlugin"/>
 
   <!-- config for the admin interface --> 
   <admin>
@@ -102,6 +103,7 @@
        -->
         <str name="qf">
           id
+          active_fedora_model_ssi
           title_tesim
           author_tesim
           subject_tesim
@@ -133,7 +135,9 @@
 
        <str name="facet">true</str>
        <str name="facet.mincount">1</str>
-
+       <str name="facet.limit">10</str>
+       <str name="facet.field">active_fedora_model_ssi</str>
+       <str name="facet.field">subject_sim</str>
        <str name="spellcheck">true</str>
        <str name="spellcheck.dictionary">default</str>
        <str name="spellcheck.onlyMorePopular">true</str>
@@ -284,10 +288,13 @@
       -->
   </searchComponent>
 
+  <!--
+       Requirement for highlight snippets was eliminated for iiif_search gem, though it
+       could be turned on for implementing snippets in some other search context
+  -->
+  <!--
   <searchComponent class="solr.HighlightComponent" name="highlight">
     <highlighting>
-      <!-- Configure the standard fragmenter -->
-      <!-- This could most likely be commented out in the "default" case -->
       <fragmenter name="gap"
                   default="true"
                   class="solr.highlight.GapFragmenter">
@@ -296,22 +303,15 @@
         </lst>
       </fragmenter>
 
-      <!-- A regular-expression-based fragmenter
-           (for sentence extraction)
-        -->
       <fragmenter name="regex"
                   class="solr.highlight.RegexFragmenter">
         <lst name="defaults">
-          <!-- slightly smaller fragsizes work better because of slop -->
           <int name="hl.fragsize">70</int>
-          <!-- allow 50% slop on fragment sizes -->
           <float name="hl.regex.slop">0.5</float>
-          <!-- a basic sentence pattern -->
           <str name="hl.regex.pattern">[-\w ,/\n\&quot;&apos;]{20,200}</str>
         </lst>
       </fragmenter>
 
-      <!-- Configure the standard formatter -->
       <formatter name="html"
                  default="true"
                  class="solr.highlight.HtmlFormatter">
@@ -321,35 +321,24 @@
         </lst>
       </formatter>
 
-      <!-- Configure the standard encoder -->
       <encoder name="html"
                class="solr.highlight.HtmlEncoder" />
 
-      <!-- Configure the standard fragListBuilder -->
       <fragListBuilder name="simple"
                        class="solr.highlight.SimpleFragListBuilder"/>
 
-      <!-- Configure the single fragListBuilder -->
       <fragListBuilder name="single"
                        class="solr.highlight.SingleFragListBuilder"/>
 
-      <!-- Configure the weighted fragListBuilder -->
       <fragListBuilder name="weighted"
                        default="true"
                        class="solr.highlight.WeightedFragListBuilder"/>
 
-      <!-- default tag FragmentsBuilder -->
       <fragmentsBuilder name="default"
                         default="true"
                         class="solr.highlight.ScoreOrderFragmentsBuilder">
-        <!--
-        <lst name="defaults">
-          <str name="hl.multiValuedSeparatorChar">/</str>
-        </lst>
-        -->
       </fragmentsBuilder>
 
-      <!-- multi-colored tag FragmentsBuilder -->
       <fragmentsBuilder name="colored"
                         class="solr.highlight.ScoreOrderFragmentsBuilder">
         <lst name="defaults">
@@ -375,25 +364,26 @@
       <boundaryScanner name="breakIterator"
                        class="solr.highlight.BreakIteratorBoundaryScanner">
         <lst name="defaults">
-          <!-- type should be one of CHARACTER, WORD(default), LINE and SENTENCE -->
           <str name="hl.bs.type">WORD</str>
-          <!-- language and country are used when constructing Locale object.  -->
-          <!-- And the Locale object will be used when getting instance of BreakIterator -->
           <str name="hl.bs.language">en</str>
           <str name="hl.bs.country">US</str>
         </lst>
       </boundaryScanner>
     </highlighting>
   </searchComponent>
+  -->
 
-<!-- suggest searchComponent and requestHandler disabled by default due to performance penalties -->
-<!--
+  <!--
+       Disabling suggest field until a user story requires autocomplete for general search.
+       If we require autocomplete, we set buildOnOptimize to be true instead of buildOnCommit
+  -->
+  <!--
   <searchComponent name="suggest" class="solr.SuggestComponent">
     <lst name="suggester">
       <str name="name">mySuggester</str>
       <str name="lookupImpl">FuzzyLookupFactory</str>
       <str name="suggestAnalyzerFieldType">textSuggest</str>
-      <str name="buildOnCommit">true</str>
+      <str name="buildOnOptimize">true</str>
       <str name="field">suggest</str>
     </lst>
   </searchComponent>
@@ -408,7 +398,7 @@
       <str>suggest</str>
     </arr>
   </requestHandler>
--->
+  -->
  
   <requestHandler name="/update/extract" class="org.apache.solr.handler.extraction.ExtractingRequestHandler">
     <lst name="defaults">
@@ -425,8 +415,14 @@
   </requestHandler>
 
   <!-- BEGIN Blacklight IIIF Search autocomplete config -->
+  <!--
+       Disabling suggest field until a user story requires autocomplete for search within.
+       If we require autocomplete, we set buildOnOptimize to be true instead of buildOnCommit
+  -->
   <!-- solr-tokenizing_suggester is necessary to return single terms from the suggester -->
+  <!--
   <lib dir="${solr.install.dir:../../../..}/contrib" regex="tokenizing-suggest-v1.0.1.jar" />
+
 
   <searchComponent name="iiif_suggest" class="solr.SuggestComponent">
     <lst name="suggester">
@@ -451,7 +447,9 @@
       <str>iiif_suggest</str>
     </arr>
   </requestHandler>
+  -->
   <!-- END Blacklight IIIF Search autocomplete config -->
+
 
 </config>
 
