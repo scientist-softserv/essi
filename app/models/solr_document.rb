@@ -42,4 +42,12 @@ class SolrDocument
   def source_metadata_identifier
     self[Solrizer.solr_name('source_metadata_identifier')]&.first
   end
+
+  def related_url
+    Array.wrap(self[Solrizer.solr_name('related_url')]) - [catalog_url]
+  end
+
+  def catalog_url
+    self[Solrizer.solr_name('related_url')]&.select { |url| url.match ESSI.config.dig(:essi, :metadata, :url).gsub('%s', '') }&.first
+  end
 end
