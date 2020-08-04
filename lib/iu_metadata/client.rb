@@ -12,7 +12,7 @@ module IuMetadata
       elsif format == :marc
         url, src = retrieve_marc(id)
         data = strip_yaz(src)
-        record = IuMetadata::MarcRecord.new(url, data)
+        record = IuMetadata::MarcRecord.new(id, url, data)
       else
         raise ArgumentError, 'Invalid format argument'
       end

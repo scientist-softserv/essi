@@ -2,7 +2,7 @@ module IuMetadata
   class AttributeIngester
     def initialize(source_id,
                    source_attributes,
-                   factory: ScannedResource,
+                   factory: PagedResource,
                    context: CONTEXT)
       @source_id = source_id
       @source_attributes = source_attributes
