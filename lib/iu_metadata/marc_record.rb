@@ -1,13 +1,13 @@
 # rubocop:disable Metrics/ClassLength
 module IuMetadata
   class MarcRecord
-    def initialize(source_metadata_identifier, id, source)
-      @source_metadata_identifier = source_metadata_identifier
+    def initialize(id, source, source_metadata_identifier: nil)
       @id = id
       @source = source
+      @source_metadata_identifier = source_metadata_identifier
     end
 
-    attr_reader :source_metadata_identifier, :id, :source
+    attr_reader :id, :source, :source_metadata_identifier
 
     class MarcParsingError < StandardError; end
 
@@ -179,6 +179,7 @@ module IuMetadata
     end
 
     def related_url
+      return [] unless source_metadata_identifier
       [ESSI.config.dig(:essi, :metadata, :url).to_s % source_metadata_identifier]
     end
 
