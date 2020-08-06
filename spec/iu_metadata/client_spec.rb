@@ -3,10 +3,10 @@ require 'rails_helper'
 describe IuMetadata::Client do
   let(:fixture_path) { File.expand_path('../../fixtures', __FILE__) }
   let(:marc) {
-    File.open(File.join(fixture_path, 'marc_VAD5427.xml')).read.strip
+    File.open(File.join(fixture_path, 'iu_metadata/marc_VAD5427.xml')).read.strip
   }
   let(:mods) {
-    File.open(File.join(fixture_path, 'mods_VAD5427.xml')).read.strip
+    File.open(File.join(fixture_path, 'iu_metadata/mods_VAD5427.xml')).read.strip
   }
 
   context 'with an IUCAT id' do
