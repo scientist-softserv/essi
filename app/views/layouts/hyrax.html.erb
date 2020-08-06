@@ -25,7 +25,9 @@
   <% end %>
 
   <a name="skip-to-content" id="skip-to-content"></a>
-  <%= content_for?(:content) ? yield(:content) : yield %>
+  <main>
+    <%= content_for?(:content) ? yield(:content) : yield %>
+  </main>
 
 </div><!-- /#content-wrapper -->
 <%= render 'shared/footer' %>

@@ -14,6 +14,7 @@
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require_self
  *= require hyrax
+ *= require digital_collections
  */
 
 // Third-party / vendor styles
@@ -30,3 +31,4 @@
 @import 'components/extended_banner';
 
 @import 'brand';
+@import 'brand_tweaks';

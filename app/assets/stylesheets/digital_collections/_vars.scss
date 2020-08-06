@@ -1,0 +1,450 @@
+$cream              : #EDEBEB;
+$crimson            : #990000;
+$darkMidnight       : #01426A;
+$midnight           : #006298;
+$darkMajestic       : #512A44;
+$majestic           : #66435A;
+$black              : #191919;
+$mahogany           : #4a3c31;
+$default_background : #eee;
+$default_border     : #A7A9AB;
+$success_background : #DDF4EA;
+$success_border     : #009933;
+$info_background    : #E9F6FC;
+$info_border        : #49AFC7;
+$message_background : #FDF7E7;
+$message_border     : #F5BB17;
+$outage_background  : #FDEEE8;
+$outage_border      : #F25B19;
+$all_clear          : #009933;
+$minor              : #49afc7;
+$moderate           : #f5BB17;
+$severe             : #F25B19;
+$extreme            : #BD0000;
+$nav_bg             : #3c3c3c;
+
+// alert stylesheet
+
+h1,
+h2,
+h3,
+h4 {
+  color : $mahogany;
+}
+
+//spacing
+
+
+$size__site-main: 100%;
+$size__site-sidebar: 25%;
+
+$spacing-unit: .5rem; // 8px
+$xxs: $spacing-unit/2; // 4px
+$xs: $spacing-unit; // 8px
+$sm: $spacing-unit * 2;// 16px Base
+$md: $spacing-unit * 3; // 24px
+$lg: $spacing-unit * 4; // 32px
+$xl: $spacing-unit * 5; // 40px
+$xxl: $spacing-unit * 8; // 64px
+
+
+/* pad the top */
+$class-slug: pt-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    padding-top: ($base-spacing-unit * $i);
+  }
+}
+
+/* pad the bottom */
+$class-slug: pb-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    padding-bottom: ($base-spacing-unit * $i);
+  }
+}
+/* pad the top and bottom */
+$class-slug: py-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    padding-top: ($base-spacing-unit * $i);
+    padding-bottom: ($base-spacing-unit * $i);
+  }
+}
+
+
+
+/* pad  left */
+$class-slug: pl-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    padding-left: ($base-spacing-unit * $i);
+  }
+}
+
+/* pad  right */
+$class-slug: pr-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    padding-right: ($base-spacing-unit * $i);
+  }
+}
+
+/* pad the left/right */
+$class-slug: px-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    padding-left: ($base-spacing-unit * $i);
+    padding-right: ($base-spacing-unit * $i);
+  }
+}
+
+
+
+/* pad  all */
+$class-slug: p-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    padding: ($base-spacing-unit * $i);
+  }
+}
+
+
+
+
+/* marg the top */
+$class-slug: mt-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    margin-top: ($base-spacing-unit * $i);
+  }
+}
+
+/* margin the bottom */
+$class-slug: mb-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    margin-bottom: ($base-spacing-unit * $i);
+  }
+}
+/* margin the top and bottom */
+$class-slug: my-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    margin-top: ($base-spacing-unit * $i);
+    margin-bottom: ($base-spacing-unit * $i);
+  }
+}
+/* margin  left */
+$class-slug: ml-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    margin-left: ($base-spacing-unit * $i);
+  }
+}
+
+/* margin  right */
+$class-slug: mr-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    margin-right: ($base-spacing-unit * $i);
+  }
+}
+
+/* margin the left/right */
+$class-slug: mx-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    margin-left: ($base-spacing-unit * $i);
+    margin-right: ($base-spacing-unit * $i);
+  }
+}
+/* pad  all */
+$class-slug: m-;
+$base-spacing-unit: $spacing-unit;
+$classes-amount: 5;
+
+@for $i from 0 through $classes-amount {
+  .#{$class-slug}#{$i} {
+    margin: ($base-spacing-unit * $i);
+  }
+}
+
+.bg-darkMidnight, .bg-darkMidnight h1{
+  background-color: $darkMidnight;
+  color: #fff;
+}
+
+.bg-midnight, .bg-midnight h1{
+  background-color: $midnight;
+  color: #fff;
+}
+
+.bg-majestic, .bg-majestic h1{background-color: $majestic;color: #fff;}
+
+// Notice styles
+
+.bg-black .dropdown-menu a:link,
+.bg-black .dropdown-menu a:visited,
+a:link,
+a:visited {
+  color            : $darkMidnight;
+  background       : none;
+  background-color : transparent;
+}
+
+.background-container a {
+  text-decoration : underline;
+}
+
+.bg-black .dropdown-menu a:hover,
+.navbar-nav > li > a:hover,
+.navbar a:hover,
+a:active,
+a:hover {
+  color            : $crimson;
+  background       : none;
+  background-color : transparent;
+}
+
+.bg-mahogany {
+  color      : #fff;
+  background : $mahogany;
+}
+
+.bg-crimson,
+.bg-crimson h2,  {
+  color      : #fff;
+  background : $crimson;
+}
+
+.bg-black {
+  color      : #fff;
+  background : $black;
+}
+
+.bg-light {
+  color : $black;
+}
+
+.bg-cream {
+  color      : $crimson;
+  background : $cream;
+}
+
+.appliedFilter .btn:hover {
+  color : $midnight;
+}
+
+.appliedFilter .btn.remove {
+  margin-right : 5px;
+  color        : red;
+  border-color : #edebeb;
+  background   : #fff;
+}
+
+.bg-black .textLink:hover,
+.bg-black a:active,
+.bg-black a:link,
+.bg-black a:visited,
+.bg-black h2,
+.bg-mahogany a:active,
+.bg-mahogany a:link,
+.bg-mahogany a:visited,
+.btn-default:hover,
+.library a,
+.navbar-default.nav-bg-black .navbar-nav > li > a,.stars h2 {
+  color : #fff;
+}
+.cream-text{color: $cream;}
+.white-text{color: #fff;}
+.navbar-default,
+.navbar-nav,
+.navbar-nav > .active {
+  border-bottom : none;
+}
+
+.navbar-default .navbar-nav > .active {
+  border-bottom : none;
+  background    : #fff;
+}
+
+.navbar-default .navbar-nav > .active > a {
+  padding-bottom : 1.3em;
+  border         : none;
+  background     : #fff;
+}
+
+#main-nav li.active a {
+  color : #333;
+}
+
+.btn-mahogany,
+.viewResultsBtns .btn {
+  border-color : #fff;
+  border-color : $mahogany;
+  background   : $mahogany;
+}
+
+.viewResultsBtns .btn.active {
+  color      : $mahogany;
+  background : #fff;
+}
+
+#btn-view-search,
+.btn,
+.btn-lg,
+.btn-primary,
+a.btn {
+  color        : $midnight;
+  border-color : $cream;
+  background   : #fff;
+}
+
+
+
+#btn-view-search:hover,
+.btn-lg:hover,
+.btn-primary:hover,
+.btn-sm:hover,
+.btn.btn-default.dropdown-toggle:hover,
+.btn.btn-default:hover,
+.btn:hover,
+.collection .btn,
+.hyc-blacklight .btn-default:hover,
+a.btn:hover {
+  color        : #fff;
+  border-color : $midnight;
+  background   : $midnight;
+}
+
+.btn.btn-default.dropdown-toggle:hover .caret {
+  border-top-color : #fff;
+}
+
+.bg-black .navbar a:hover,
+.bg-black .navbar a:link,
+.bg-black a.textLink,
+.bg-black a.textLink:active,
+.bg-mahogany .navbar a:hover,
+.bg-mahogany a:hover,
+.navbar-default.nav-bg-black .navbar-nav > li > a:hover {
+  color           : lighten($midnight, 50%);
+  text-decoration : none;
+}
+
+.nav-bg-black {
+  background-color : rgba(0,0,0,0.6);
+}
+
+.nav-bg-midnight {
+  background-color : rgba(0,98,152,0.7);
+}
+
+.nav-bg-crimson {
+  background-color : rgba(153,0,0,0.7);
+}
+
+.btn:hover .icon {
+  fill : #fff;
+}
+
+.icon {
+  width  : 20px;
+  height : auto;
+  fill   : $midnight;
+}
+
+.slideDown {
+  visibility                : visible !important;
+  animation-duration        : 0.25s;
+  animation-name            : slideDown;
+  animation-timing-function : ease;
+}
+
+.featured a {
+  text-decoration : underline;
+  font-weight     : bold;
+}
+
+.p-l-0 {
+  padding-left : 0;
+}
+
+.m-l-0 {
+  margin-left : 0;
+}
+
+.p-md {
+  padding : 2em;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity   : 0;
+    transform : translateY(-60%) scale(0.2) scaleY(0.4);
+  }
+
+  100% {
+    opacity   : 1;
+    transform : translateY(0%) scale(1) scaleY(1);
+  }
+}
+
+#main-nav.in {
+  visibility                : visible !important;
+  animation-duration        : 0.25s;
+  animation-name            : in;
+  animation-timing-function : ease-in-out;
+}
+
+@keyframes in {
+  0% {
+    opacity   : 0.0;
+    transform : translateY(-50%);
+  }
+
+  100% {
+    opacity   : 1;
+    transform : translateY(0%);
+  }
+}

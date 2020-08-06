@@ -1,0 +1,5 @@
+<a id="logo" class="navbar-brand" href="<%= hyrax.root_path %>" data-no-turbolink="true">
+  <% application_name.split(' ', 2).tap do |words| %>
+    <span class="institution_name"><%= words.first %><span class="thin"> <%= words.last if words.length > 1 %></span></span>
+  <% end %>
+</a>

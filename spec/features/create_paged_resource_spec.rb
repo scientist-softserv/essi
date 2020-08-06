@@ -77,12 +77,12 @@ RSpec.feature 'Create a PagedResource', type: :system, js: true do
       # On works dashboard (would probably need a page refresh in actual use)
       expect(page).to have_content('My Test Work', count: 1)
       expect(page).to have_content('1 works you own in the repository')
-      expect(page).to have_content "Your files are being processed by Hyrax in the background."
+      expect(page).to have_content "Your files are being processed by Digital Collections in the background."
       click_on('My Test Work')
 
       # On work show page
       expect(page).to have_content('My Test Work')
-      expect(page).to_not have_content "Your files are being processed by Hyrax in the background."
+      expect(page).to_not have_content "Your files are being processed by Digital Collections in the background."
       expect(find('li.attribute-creator')).to have_content('Doe, Jane')
       click_on('Show Child Items')
       expect(find('table.related-files')).to have_content('rgb.png')

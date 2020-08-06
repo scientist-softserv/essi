@@ -61,8 +61,12 @@ en:
       service_html: A service of <a href="http://samvera.org/" class="navbar-link" target="_blank">Samvera</a>
     institution_name: Institution
     institution_name_full: The Institution Name
-    product_name: Hyrax
+    product_name: "Digital \nCollections"
     product_twitter_handle: "@SamveraRepo"
+    search:
+      form:
+        q:
+          placeholder: Search Digital Collections
     structure_manager:
       link_text: "Edit Structure"
     upload:

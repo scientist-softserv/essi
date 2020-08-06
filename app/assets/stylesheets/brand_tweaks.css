@@ -1,0 +1,56 @@
+/* Adjustments to the IU Brand */
+
+#branding-bar {
+    position: relative;
+}
+
+#branding-bar:after {
+    height: 15px;
+    bottom: -15px;
+    background-color: #3c3c3c;
+}
+
+/*ESSI specify*/
+/*override root element font-size, so rem can get the right size*/
+html {
+    font-size: 16px !important;
+}
+
+#footer {
+    color: #777777;
+    margin-top: 8em;
+    margin-bottom: 1em;
+}
+
+.application-margin {
+    margin-top: 4em
+}
+
+/*Campus Logo*/
+#campus-logo {
+  border-left: solid 2px #dcdcdc;
+  margin-left: 10px;
+  padding-left: 10px;
+  color: #dcdcdc;
+}
+#campus-logo a{
+  text-decoration: none;
+  color: #dcdcdc;
+}
+#campus-logo a:hover{
+  color: #fff;
+}
+
+/*Collection Banner*/
+.extended-banner-linked .hyc-logos-link:hover{
+  background-color: rgba(0,0,0,0.5);
+}
+
+.extended-banner-title-linked a{
+  color: #dcdcdc;
+}
+
+.extended-banner-title-linked a:hover{
+  color: #fff;
+  text-decoration: none;
+}
