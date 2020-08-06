@@ -32,9 +32,10 @@
 en:
   hello: "Hello world"
   services:
+    metadata_link: "View record in "
     metadata: "IUCAT"
     remote_metadata:
-      invalid_identifier: "The provided Source Metadata ID value was saved, but not used for remote metadata lookup as it was did not pass validation.  "
+      invalid_identifier: "The provided Source Metadata ID value was saved, but not used for remote metadata lookup as it did not pass validation.  "
       validation: "A valid metadata identifier may contain only alphanumeric, underscore, hyphen, and period characters."
       no_results: "The provided Source Metadata ID value was saved, but did not return any results from remote metadata lookup."
   simple_form:
@@ -45,4 +46,4 @@ en:
           non-paged: 'Non-Paged'
           facing-pages: 'Facing pages'
   rights:
-    pdf_boilerplate: Indiana University claims no copyright governing this digital resource. It is provided for free, on a non-commercial, open-access basis, for fair-use academic and research purposes only. Anyone who claimscopyright over any part of these resources and feels that they should not be presented in this manner isinvited to contact Indiana University, who will in turn consider such concerns and make every effort to respondappropriately.
+    pdf_boilerplate: Indiana University claims no copyright governing this digital resource. It is provided for free, on a non-commercial, open-access basis, for fair-use academic and research purposes only. Anyone who claimscopyright over any part of these resources and feels that they should not be presented in this manner isinvited to contact Indiana University, who will in turn consider such concerns and make every effort to respond appropriately.

@@ -93,4 +93,6 @@ RSpec.describe Hyrax::PagedResourcePresenter do
       end
     end
   end
+
+  include_examples "presents related_url"
 end
