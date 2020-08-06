@@ -13,7 +13,7 @@ default: &default
     user: essi
     password: essi
   redis:
-    host: redis
+    host: redis_jobs
     port: 6379
   sidekiq:
     queue_names:
@@ -71,8 +71,9 @@ default: &default
     iiif_host: essi.docker  # riiif only
     notifier_email: example@test.test
     store_original_files: true
+    store_files_as_jp2: true
+    kdu_compress_path: 'opj_compress' # set as kdu_compress or opj_compress, or '' to use ImageMagick
     master_file_service_url: http://purl.dlib.indiana.edu/iudl/variations/master
-    access_file_service_url: http://purl.dlib.indiana.edu/iudl/variations/access
     purl_redirect_url: http://server1.variations2.indiana.edu/cgi-bin/access?%s
     ocr_language: [eng]
     create_ocr_files: true

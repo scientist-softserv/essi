@@ -23,7 +23,7 @@ x-app:
     - rails_cache:/app/tmp/cache
     - ./config/essi_config.docker.yml:/run/secrets/essi_config.yml
   depends_on:
-    - redis
+    - redis_jobs
     - solr
     - fcrepo
     - db
@@ -55,7 +55,7 @@ services:
 
   worker:
     << : *default-app
-    command: sidekiq
+    command: sidekiq -c 10
 
   db:
     image: mysql:5.7
@@ -109,6 +109,7 @@ services:
       SOURCE_STATIC: HttpSource
       SOURCE_DELEGATE: "false"
       HTTPSOURCE_LOOKUP_STRATEGY: ScriptLookupStrategy
+      HTTPSOURCE_CHUNKING: "false"
       DELEGATE_SCRIPT_ENABLED: "true"
       DELEGATE_SCRIPT_CACHE_ENABLED: "true"
       DELEGATE_SCRIPT_PATHNAME: /cantaloupe/delegate/delegates.rb
@@ -116,9 +117,21 @@ services:
       FEDORA_PATH: /rest/dev
       PROCESSOR_SELECTION_STRATEGY: ManualSelectionStrategy
       PROCESSOR_MANUAL_SELECTIONSTRATEGY_JP2: OpenJpegProcessor
+      PROCESSOR_STREAM_RETRIEVAL_STRATEGY: CacheStrategy
+      CACHE_SERVER_SOURCE_ENABLED: "true"
+      CACHE_SERVER_SOURCE: FilesystemCache
+      CACHE_SERVER_SOURCE_TTL_SECONDS: 3600
+      CACHE_SERVER_WORKER_ENABLED: "true"
+      CACHE_SERVER_WORKER_INTERVAL: 3600
+      FILESYSTEMCACHE_PATHNAME: /var/cache/cantaloupe
       CACHE_SERVER_DERIVATIVE_ENABLED: "true"
       CACHE_SERVER_INFO_ENABLED: "true"
-      CACHE_SERVER_DERIVATIVE: HeapCache
+      CACHE_SERVER_DERIVATIVE: RedisCache
+      REDISCACHE_HOST: redis_cache
+      REDISCACHE_PORT: 6379
+      REDISCACHE_SSL: "false"
+      REDISCACHE_PASSWORD: ""
+      REDISCACHE_DATABASE: 0
       HEAPCACHE_TARGET_SIZE: 256M
       CACHE_SERVIER_DERIVATIVE_TTL_SECONDS: 0
       CACHE_SERVER_PURGE_MISSING: "true"
@@ -126,27 +139,37 @@ services:
       LOG_ACCESS_CONSOLEAPPENDER_ENABLED: "true"
     volumes:
       - './cantaloupe:/cantaloupe/delegate'
+    depends_on:
+      - redis_cache
+      - fcrepo
 
-  redis:
-    image: redis:5
+  redis_jobs:
+    image: redis:5-alpine
     ports:
       - '6379'
     volumes:
       - 'redis:/data'
+    command: redis-server --appendonly yes --maxmemory-policy noeviction
+
+  redis_cache:
+    image: redis:5-alpine
+    ports:
+      - '6379'
+    command: redis-server --maxmemory-policy allkeys-lru --maxmemory 256mb
 
   solr:
     image: solr:7.7
     ports:
       - "8983"
     volumes:
-      - './solr/config:/opt/config:delegated'
+      - './solr:/myconfig:delegated'
       - solr:/opt/solr/server/solr/mycores
-      - './solr/lib/solr-tokenizing_suggester-7.x.jar:/opt/solr/contrib/solr-tokenizing_suggester-7.x.jar'
+      - './solr/lib/tokenizing-suggest-v1.0.1.jar:/opt/solr/contrib/tokenizing-suggest-v1.0.1.jar'
     entrypoint:
       - docker-entrypoint.sh
       - solr-precreate
       - "${SOLR_CORE}"
-      - /opt/config
+      - /myconfig
 
   fcrepo:
     image: samvera/fcrepo4:4.7.5

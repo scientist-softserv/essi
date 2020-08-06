@@ -16,24 +16,26 @@ describe Hyrax::Actors::FileActor do
         .and_return(true)
       allow(ESSI.config).to receive(:dig).with(:essi, :index_ocr_files) \
         .and_return(true)
+      allow(ESSI.config).to receive(:dig) \
+        .with(:essi, :master_file_service_url) \
+        .and_return('http://service')
     end
     context 'when :store_original_files is false', :clean do
       before do
         allow(ESSI.config).to receive(:dig)
           .with(:essi, :store_original_files) \
           .and_return(false)
-        allow(ESSI.config).to receive(:dig) \
-          .with(:essi, :master_file_service_url) \
-          .and_return('http://service')
       end
-      it 'sets the mime_type to an external body redirect' do
-        file_actor.ingest_file(io)
-        expect(file_set.reload.original_file.mime_type).to include \
-          ESSI.config.dig :essi, :master_file_service_url
-      end
-      it 'does not run characterization' do
-        expect(CharacterizeJob).not_to receive(:perform_later)
-        file_actor.ingest_file(io)
+      describe 'stores masters as original_file' do
+        it 'sets the mime_type to an external body redirect' do
+          file_actor.ingest_file(io)
+          expect(file_set.reload.original_file.mime_type).to include \
+            ESSI.config.dig :essi, :master_file_service_url
+        end
+        it 'does not run characterization' do
+          expect(CharacterizeJob).not_to receive(:perform_later)
+          file_actor.ingest_file(io)
+        end
       end
     end
   
@@ -65,6 +67,31 @@ describe Hyrax::Actors::FileActor do
           expect(CharacterizeJob).to receive(:perform_later) \
             .with(file_set, String, String)
           file_actor.ingest_file(io)
+        end
+      end
+      context 'when jp2 transformation is configured' do
+        before do
+          allow(file_actor).to receive(:transform_to_jp2?).and_return(true)
+        end
+        it 'turns tiffs into jp2' do
+          expect(file_actor).to receive(:transform_to_jp2)
+          file_actor.ingest_file(io)
+        end
+      end
+      context 'when jp2 transformation is not configured' do
+        before do
+          allow(file_actor).to receive(:transform_to_jp2?).and_return(false)
+        end
+        it 'turns tiffs into jp2' do
+          expect(file_actor).not_to receive(:transform_to_jp2)
+          file_actor.ingest_file(io)
+        end
+      end
+      describe 'stores masters as preservation_master_file' do
+        it 'sets the mime_type to an external body redirect' do
+          file_actor.ingest_file(io)
+          expect(file_set.reload.preservation_master_file.mime_type).to include \
+            ESSI.config.dig :essi, :master_file_service_url
         end
       end
     end
