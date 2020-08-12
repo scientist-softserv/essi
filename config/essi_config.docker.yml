@@ -13,8 +13,12 @@ default: &default
     user: essi
     password: essi
   redis:
-    host: redis_jobs
-    port: 6379
+    rails:
+      url: "redis://redis_cache:6379/1"
+    cable:
+      url: "redis://redis_jobs:6379/1"
+    sidekiq:
+      url: "redis://redis_jobs:6379/0"
   sidekiq:
     queue_names:
       - default

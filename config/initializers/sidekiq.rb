@@ -1,6 +1,16 @@
 # Sidekiq normally sets options from (Rails.root)/config/sidekiq.yml. This initializer allows us to set
 # configuration options that may have been overridden using the ESSI configuration YAML file.
 
+redis_config = ESSI.config[:redis][:sidekiq]
+
+Sidekiq.configure_server do |c|
+  c.redis = redis_config
+end
+
+Sidekiq.configure_client do |c|
+  c.redis = redis_config
+end
+
 # Retrieve Sidekiq options set in the default configuration file
 sidekiq_config = YAML.safe_load(ERB.new(IO.read(Rails.root.join('config', 'sidekiq.yml'))).result,[Symbol], [], true)
 

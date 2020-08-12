@@ -10,8 +10,12 @@ default: &default
     adapter: sqlite3
     database: db/development.sqlite3
   redis:
-    host: 127.0.0.1
-    port: 6379
+    rails:
+      url: "redis://127.0.0.1:6379/3"
+    cable:
+      url: "redis://127.0.0.1:6379/2"
+    sidekiq:
+      url: "redis://127.0.0.1:6379/1"
   sidekiq:
     queue_names:
       - default
