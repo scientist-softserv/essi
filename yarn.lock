@@ -547,12 +547,14 @@ event-emitter@^0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
-"exjs@github:BSick7/exjs#0.5.0":
+exjs@BSick7/exjs#0.5.0:
   version "0.5.0"
+  uid "98195810790c0e61cb5beb510da4b756528f92f2"
   resolved "https://codeload.github.com/BSick7/exjs/tar.gz/98195810790c0e61cb5beb510da4b756528f92f2"
 
-"exjs@github:BSick7/exjs#0.5.1":
+exjs@BSick7/exjs#0.5.1:
   version "0.5.1"
+  uid "87f638b98635fe8ddee36ce964e64bcce6e2bb6d"
   resolved "https://codeload.github.com/BSick7/exjs/tar.gz/87f638b98635fe8ddee36ce964e64bcce6e2bb6d"
 
 ext@^1.1.2:
@@ -691,8 +693,9 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-"http-status-codes@github:edsilv/http-status-codes#v0.0.7":
+http-status-codes@edsilv/http-status-codes#v0.0.7:
   version "0.0.7"
+  uid af3a8ab9970b1f291a79b03c7382dc16aebee749
   resolved "https://codeload.github.com/edsilv/http-status-codes/tar.gz/af3a8ab9970b1f291a79b03c7382dc16aebee749"
 
 iconv-lite@^0.4.17, iconv-lite@~0.4.13:
@@ -884,9 +887,9 @@ localforage@*, localforage@^1.7.2:
     lie "3.1.1"
 
 lodash@^4.17.10, lodash@^4.3.0:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 manifesto.js@3.0.11:
   version "3.0.11"
