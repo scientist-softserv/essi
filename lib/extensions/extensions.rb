@@ -46,3 +46,6 @@ Hydra::Derivatives.kdu_compress_path = ESSI.config.dig(:essi, :kdu_compress_path
 Hydra::Derivatives.kdu_compress_recipes =
   Hydra::Derivatives.kdu_compress_recipes.with_indifferent_access
                     .merge(ESSI.config.dig(:essi, :jp2_recipes) || {})
+
+# ocr derivation
+Hyrax::DerivativeService.services.unshift ESSI::FileSetOCRDerivativesService
