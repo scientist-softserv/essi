@@ -9,5 +9,6 @@ module Hyrax
     self.primary_fields = [:title, :creator, :rights_statement]
     include ESSI::ScientificFormBehavior
     include ESSI::OCRTerms
+    include ESSI::PurlTerms
   end
 end
