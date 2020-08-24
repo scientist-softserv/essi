@@ -27,17 +27,17 @@ html {
 }
 
 /*Campus Logo*/
-#campus-logo {
-  border-left: solid 2px #dcdcdc;
-  margin-left: 10px;
-  padding-left: 10px;
-  color: #dcdcdc;
+.campus-logo {
+  font-size: 1.6em;
+  color: #fff;
+  margin: 0px;
+  padding: 12px 5px;
 }
-#campus-logo a{
+.campus-logo a:link{
   text-decoration: none;
-  color: #dcdcdc;
+  color: #fff;
 }
-#campus-logo a:hover{
+.campus-logo a:hover{
   color: #fff;
 }
 
