@@ -1,6 +1,5 @@
 default: &default
   adapter: async
-  url: redis://<%= ESSI.config[:redis][:host] %>:<%= ESSI.config[:redis][:port] %>/1
 
 development:
   <<: *default
@@ -11,4 +10,4 @@ test:
 production:
   <<: *default
   adapter: redis
-  channel_prefix: <%= ESSI.config[:redis][:namespace] %>
+  url: <%= ESSI.config[:redis][:cable][:url] %>

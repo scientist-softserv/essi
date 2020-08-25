@@ -1,6 +1,5 @@
 default: &default
-  host: <%= ESSI.config[:redis][:host] %>
-  port: <%= ESSI.config[:redis][:port] %>
+  url: <%= ESSI.config[:redis][:rails][:url] %>
 development:
   <<: *default
 test:

@@ -144,7 +144,7 @@ services:
       - fcrepo
 
   redis_jobs:
-    image: redis:5-alpine
+    image: redis:6-alpine
     ports:
       - '6379'
     volumes:
@@ -152,7 +152,7 @@ services:
     command: redis-server --appendonly yes --maxmemory-policy noeviction
 
   redis_cache:
-    image: redis:5-alpine
+    image: redis:6-alpine
     ports:
       - '6379'
     command: redis-server --maxmemory-policy allkeys-lru --maxmemory 256mb

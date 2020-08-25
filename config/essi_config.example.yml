@@ -10,8 +10,12 @@ default: &default
     adapter: sqlite3
     database: db/development.sqlite3
   redis:
-    host: 127.0.0.1
-    port: 6379
+    rails:
+      url: "redis://127.0.0.1:6379/3"
+    cable:
+      url: "redis://127.0.0.1:6379/2"
+    sidekiq:
+      url: "redis://127.0.0.1:6379/1"
   sidekiq:
     queue_names:
       - default
@@ -186,9 +190,12 @@ test:
     adapter: sqlite3
     database: db/test.sqlite3
   redis:
-    host: 127.0.0.1
-    port: 6379
-    namespace: essi_test
+    rails:
+      url: "redis://127.0.0.1:6379/11"
+    cable:
+      url: "redis://127.0.0.1:6379/10"
+    sidekiq:
+      url: "redis://127.0.0.1:6379/9"
   rails:
       secret_key_base: c9dd75fe2cce941807d14e04c09aa1f9ae41b6e1f7ba9d2f33142659acf9491f4a7835aad0c4110bf2fa40f2a1e6f7a62048b5a1e1a32c361c8c16d772e40bf0
 
