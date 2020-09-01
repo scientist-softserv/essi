@@ -8,6 +8,12 @@
 	$breakpoint-xl: 1200px;
 
 */
+@import "https://fonts.iu.edu/style.css?family=BentonSans:regular,bold|BentonSansCond:regular|GeorgiaPro:regular";
+
+body {
+  font-family: BentonSansRegular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 h3,h3 a, .panel h3 a, .media-heading a, table a:not(.button), .panel table a:not(.button), .panel a:not(.button){text-decoration: none;}
 .tab-content .col-sm-12, .tab-content h3, .recent-item h3, .recent-item p, .smallText{font-size: small; line-height: 1em}
 .tab-content h3, .recent-item h3{font-size: 1.1em;}
