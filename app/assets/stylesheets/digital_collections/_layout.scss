@@ -642,13 +642,20 @@ tr:nth-child(even):hover {
 }
 
 .gallery .grid-item {
-padding: $xs;
-max-width: 310px;
-margin:$xxs;
+  padding: $xs;
+  max-width: 310px;
+  margin:$xxs;
 }
-.gallery .grid-item img{
 
-max-width: 290px
+.gallery .grid-item .gallery-thumbnail-wrapper {
+
+}
+
+.gallery .grid-item img {
+  object-fit: cover;
+  object-position: 50% 25%;
+  width: 292px;
+  height: 219px;
 }
 
 .gallery .grid-item:nth-child(odd) {
@@ -659,15 +666,15 @@ max-width: 290px
 
 .gallery .grid-item:nth-child(even) {
   background: #fff;
-	border-radius: $xxs;
-	border:1px solid $cream;
+  border-radius: $xxs;
+  border:1px solid $cream;
 }
 
 
 #search-results .grid-list {
-	display: flex;
-	flex-flow: row wrap;
-	width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
 }
 
 .grid-list,
