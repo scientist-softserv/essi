@@ -18,6 +18,11 @@ module ESSI
                predicate: RDF::Vocab::MODS.physicalExtent,
                multiple: false
 
+      property :purl,
+               predicate: ::RDF::Vocab::DC.identifier do |index|
+                 index.as :stored_searchable
+               end
+
       property :abridger, predicate: RDF::Vocab::MARCRelators.abr
       property :actor, predicate: RDF::Vocab::MARCRelators.act
       property :adapter, predicate: RDF::Vocab::MARCRelators.adp

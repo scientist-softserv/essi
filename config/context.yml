@@ -483,6 +483,8 @@
     "@id": mrel:pbd
   puppeteer:
     "@id": mrel:ppt
+  purl:
+    "@id": dcterms:identifier
   radio_director:
     "@id": mrel:rdd
   radio_producer:
