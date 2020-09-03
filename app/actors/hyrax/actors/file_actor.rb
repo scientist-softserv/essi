@@ -24,7 +24,13 @@ module Hyrax
       def ingest_file(io)
         infer_source_metadata_identifier(file_set, io)
         if store_files?
-          transform_to_jp2(io) if transform_to_jp2?
+          if transform_to_jp2?(io)
+            # use original .tiff for derivatives
+            derivation_path = pathhint_for(io)
+            transform_to_jp2(file_set, io)
+            # use transformed .jp2 for characterization
+            characterization_path = io.path
+          end
 
           Hydra::Works::AddFileToFileSet.call(file_set,
                                               io,
@@ -42,8 +48,9 @@ module Hyrax
         return false unless file_set.save
         repository_file = related_file
         Hyrax::VersioningService.create(repository_file, user)
-        pathhint = io.uploaded_file.uploader.path if io.uploaded_file # in case next worker is on same filesystem
-        CharacterizeJob.perform_later(file_set, repository_file.id, pathhint || io.path) if characterize_files?(file_set)
+        characterization_path ||= pathhint_for(io)
+        derivation_path ||= pathhint_for(io)
+        CharacterizeJob.perform_later(file_set, repository_file.id, characterization_path, derivation_path) if characterize_files?(file_set)
       end
 
       # Reverts file and spawns async job to characterize and create derivatives.
@@ -99,17 +106,17 @@ module Hyrax
           master_file_service_url.present?
         end
 
-        def transform_to_jp2?
-          ESSI.config.dig :essi, :store_files_as_jp2
+        def transform_to_jp2?(io)
+          # FIXME: only transform tiffs?
+          ESSI.config.dig(:essi, :store_files_as_jp2) && io.path.match(/\.tif+$/)
         end
 
-        def transform_to_jp2(io)
-          # FIXME: only transform tiffs?
-          return unless io.path.match /\.tif+$/
+        def transform_to_jp2(file_set, io)
           original_path = io.path
-          dir = Dir.mktmpdir
           new_file = File.basename(original_path).sub(/\.tif+$/, '.jp2')
-          new_path = "#{dir}/#{new_file}"
+          new_path = "#{Dir.mktmpdir}/#{new_file}"
+          file_set.label = new_file
+          file_set.title = [new_file]
           if Hydra::Derivatives.kdu_compress_path.present?
             url = URI("file://#{new_path}").to_s
             # FIXME: chokes on compressed tiffs
@@ -123,6 +130,11 @@ module Hyrax
           end
           io.path = new_path
           io.mime_type = MIME::Types.type_for('jp2').first.to_s
+        end
+
+        def pathhint_for(io)
+          return io.uploaded_file.uploader.path if io.uploaded_file # in case next worker is on same filesystem
+          io.path
         end
     end
   end
