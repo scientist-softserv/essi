@@ -18,7 +18,7 @@
       <% end %>
     </div>
     <div class="col-sm-8 text-right">
-    <% if presenter.editor? %>
+    <% unless presenter.editor? && access_only? %>
         <%= link_to "Edit", edit_polymorphic_path([main_app, presenter]), class: 'btn btn-default' %>
         <% if presenter.member_presenters.any? %>
             <% begin %>
