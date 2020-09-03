@@ -1,26 +1,36 @@
 <footer role="contentinfo">
+
   <div class=" bg-mahogany bottom-nav">
-    <div class="container-fluid smallText">
-    <div class="row pad">
-      <div class="grid thirds">
-        <div class="grid-item">
-        <p>
-          <%= link_to(t('hyrax.product_name'), 'https://github.com/IU-Libraries-Joint-Development/essi') %>
-          <%= link_to(ENV['SOURCE_COMMIT'].to_s.truncate(9), "https://github.com/IU-Libraries-Joint-Development/essi/tree/#{ENV['SOURCE_COMMIT']}") if ENV['SOURCE_COMMIT'] %>
-        </p>
-        <p>
-          <%= t('hyrax.footer.service_html') %>
-          <%= link_to "Hyrax v#{Hyrax::VERSION}", "https://github.com/samvera/hyrax/tree/v#{Hyrax::VERSION}" %>
-        </p>
-        </div>
-        <div class="grid-item">
-        </div>
-        <div class="grid-item">
-        </div>
+    <div class="grid thirds text-center">
+      <div class="grid-item">
+        <%= link_to 'https://www.ulib.iupui.edu' do %>
+          <%= image_tag 'iupui-library.png', class: 'lockup'  %>
+        <% end %>
+      </div>
+      <div class="grid-item">
+        <%= link_to 'https://libraries.indiana.edu' do %>
+          <%= image_tag 'iu-libraries.png', class: 'lockup'  %>
+        <% end  %>
+      </div>
+      <div class="grid-item">
+        <%= link_to 'https://uits.iu.edu' do %>
+          <%= image_tag 'uits.png', class: 'lockup' %>
+        <% end %>
       </div>
     </div>
+
+    <div class="container-fluid small text-center">
+      <p><%= link_to(t('hyrax.product_name'), 'https://github.com/IU-Libraries-Joint-Development/essi') %>
+        <%= link_to(ENV['SOURCE_COMMIT'].to_s.truncate(9), "https://github.com/IU-Libraries-Joint-Development/essi/tree/#{ENV['SOURCE_COMMIT']}") if ENV['SOURCE_COMMIT'] %>
+      </p>
+      <p>
+        <%= t('hyrax.footer.service_html') %>
+        <%= link_to "Hyrax v#{Hyrax::VERSION}", "https://github.com/samvera/hyrax/tree/v#{Hyrax::VERSION}" %>
+      </p>
+    </div>
   </div>
-  </div>
+
+
 
   <footer id="footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/CollegeOrUniversity">
       <div class="row pad">
