@@ -171,10 +171,13 @@ color: $black;
 	font-weight: bold;
 }
 
+dl.work-show {
+	margin-top: 20px;
+}
+
 .work-show dd,
 .work-show dl ul,
 .work-show dt {
-	font-size: 0.8em;
 	margin: 0;
 	padding: 0;
 }
