@@ -18,4 +18,6 @@
     </div>
   </nav>
   <%= render '/campus' %>
+  <%= render 'shared/collection_banner'  if @presenter.respond_to?(:collection) && @presenter.collection%>
+
 </header>
