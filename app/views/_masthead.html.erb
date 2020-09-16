@@ -18,7 +18,6 @@
     </div>
   </nav>
   <%= render '/campus' %>
-  <%byebug %>
   <%= render 'shared/collection_banner'  if @presenter.respond_to?(:collection) && @presenter.collection%>
   <%= render 'shared/collection_banner_for_collection' if @presenter.try(:collection?) && @presenter.model_name == 'Collection' %>
 
