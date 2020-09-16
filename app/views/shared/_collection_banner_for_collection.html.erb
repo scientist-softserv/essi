@@ -10,8 +10,8 @@
     <div class="col-md-6">
       <div class="hyc-title">
         <h1><%= @presenter.title.first %></h1>
-        <%= @presenter.collection_type_badge %>
-        <%= @presenter.permission_badge %>
+        <%# @presenter.collection_type_badge %>
+        <%# @presenter.permission_badge %>
         <% if @presenter.description.any? %>
           <p><%= @presenter.description.first %></p>
         <% end %>
@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <%= render 'collection_bugs', collection_presenter: @presenter %>
+    <%# render 'collection_bugs', collection_presenter: @presenter %>
 
     </header>
     </header>

@@ -12,8 +12,8 @@
       <div class="col-md-6">
         <div class="hyc-title">
           <h1><a href="<%= collection_path(@collection_presenter.id) %>"><%= @collection_presenter.title.first %></a></h1>
-          <%= @collection_presenter.collection_type_badge %>
-          <%= @collection_presenter.permission_badge %>
+          <%# @collection_presenter.collection_type_badge %>
+          <%# @collection_presenter.permission_badge %>
           <% if @collection_presenter.description.any? %>
             <p><%= @collection_presenter.description.first %></p>
           <% end %>
