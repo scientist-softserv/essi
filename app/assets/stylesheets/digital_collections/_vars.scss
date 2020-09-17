@@ -235,9 +235,8 @@ $classes-amount: 5;
 // Notice styles
 
 .bg-black .dropdown-menu a:link,
-.bg-black .dropdown-menu a:visited,
-a:link,
-a:visited {
+.bg-black .dropdown-menu a:visited
+{
   color            : $darkMidnight;
   background       : none;
   background-color : transparent;
