@@ -20,10 +20,8 @@
     </div>
   </div>
 </div><!-- /.col-xs-6 -->
-<ul class="list-inline collection-highlights-list">
-  <li>
-    <%= link_to t('hyrax.homepage.admin_sets.link'),
-                main_app.search_catalog_path(f: { human_readable_type_sim: ["Collection"]}),
-                class: 'btn btn-default' %>
-  </li>
-</ul>
+<div class="centered">
+  <%= link_to t('hyrax.homepage.admin_sets.link'),
+              main_app.search_catalog_path(f: { human_readable_type_sim: ["Collection"]}),
+              class: 'button' %>
+</div>
