@@ -211,6 +211,28 @@ h3 {
   text-shadow: 2px 2px #000 !important;
 }
 
+.home_welcome {
+
+}
+
+.home_campuses {
+  padding: 2em 0;
+  margin: auto;
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.light-gray {
+  background: #eee;
+}
+
 #logo,#logo2 {
 	font-size: 1.6em;
 	font-weight: bold;
