@@ -49,3 +49,5 @@ Hydra::Derivatives.kdu_compress_recipes =
 
 # ocr derivation
 Hyrax::DerivativeService.services.unshift ESSI::FileSetOCRDerivativesService
+
+AdminSet.include Extensions::Hyrax::AdminSet::CampusOnAdminSet
