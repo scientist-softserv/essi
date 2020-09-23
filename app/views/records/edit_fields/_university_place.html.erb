@@ -1,0 +1,4 @@
+<%= f.input :university_place, as: :select,
+    collection: UniversityPlaceService.select_all_options,
+    input_html: { class: 'form-control', multiple: true }
+%>
