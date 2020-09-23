@@ -6,6 +6,7 @@ module Hyrax
     include ESSI::PresentsOCR
     include ESSI::PresentsStructure
     include ESSI::PresentsRelatedUrl
+    include ESSI::PresentsUniversityPlace
     delegate :series, to: :solr_document
   end
 end

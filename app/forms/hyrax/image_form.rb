@@ -10,5 +10,6 @@ module Hyrax
     include ESSI::ImageFormBehavior
     include ESSI::OCRTerms
     include ESSI::PurlTerms
+    include ESSI::UniversityPlaceTerms
   end
 end

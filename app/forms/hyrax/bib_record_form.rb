@@ -11,5 +11,6 @@ module Hyrax
     include ESSI::OCRTerms
     include ESSI::PurlTerms
     include ESSI::RemoteMetadataFormElements
+    include ESSI::UniversityPlaceTerms
   end
 end
