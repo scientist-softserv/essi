@@ -51,3 +51,7 @@ Hydra::Derivatives.kdu_compress_recipes =
 Hyrax::DerivativeService.services.unshift ESSI::FileSetOCRDerivativesService
 
 AdminSet.include Extensions::Hyrax::AdminSet::CampusOnAdminSet
+
+# add customized terms, currently just university_place, to collection forms
+Hyrax::Forms::CollectionForm.include Extensions::Hyrax::Forms::CollectionForm::CustomizedTerms
+Hyrax::CollectionPresenter.include Extensions::Hyrax::CollectionPresenter::CustomizedTerms
