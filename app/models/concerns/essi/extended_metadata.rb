@@ -279,7 +279,10 @@ module ESSI
       property :translator, predicate: RDF::Vocab::MARCRelators.trl
       property :type_designer, predicate: RDF::Vocab::MARCRelators.tyd
       property :typographer, predicate: RDF::Vocab::MARCRelators.tyg
-      property :university_place, predicate: RDF::Vocab::MARCRelators.uvp
+      property :university_place,
+               predicate: RDF::Vocab::MARCRelators.uvp do |index|
+                 index.as :stored_searchable, :facetable
+               end
       property :videographer, predicate: RDF::Vocab::MARCRelators.vdg
       property :voice_actor, predicate: RDF::Vocab::MARCRelators.vac
       property :witness, predicate: RDF::Vocab::MARCRelators.wit
