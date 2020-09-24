@@ -8,6 +8,7 @@ module Hyrax
     self.required_fields -= [:keyword]
     self.primary_fields = [:title, :creator, :rights_statement]
     include ESSI::ScientificFormBehavior
+    include ESSI::HoldingLocationTerms
     include ESSI::OCRTerms
     include ESSI::PurlTerms
     include ESSI::UniversityPlaceTerms
