@@ -23,7 +23,7 @@ module ESSI
                  index.as :stored_searchable
                end
 
-      property :university_place,
+      property :campus,
                predicate: RDF::Vocab::MARCRelators.uvp,
                multiple: false do |index|
                  index.as :stored_searchable, :facetable

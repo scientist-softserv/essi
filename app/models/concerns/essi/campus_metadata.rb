@@ -3,7 +3,7 @@ module ESSI
     extend ActiveSupport::Concern
 
     included do
-      property :university_place,
+      property :campus,
                predicate: ::RDF::Vocab::MARCRelators.uvp,
                multiple: false do |index|
                  index.as :stored_searchable, :facetable

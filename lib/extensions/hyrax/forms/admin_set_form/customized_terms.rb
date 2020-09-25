@@ -7,9 +7,9 @@ module Extensions
         module CustomizedTerms
           def self.included(base)
             base.class_eval do
-              self.terms = [:title, :description, :thumbnail_id, :university_place]
+              self.terms = [:title, :description, :thumbnail_id, :campus]
               class_attribute :single_terms
-              self.single_terms = [:thumbnail_id, :university_place]
+              self.single_terms = [:thumbnail_id, :campus]
               class_attribute :array_terms
               self.array_terms = []
 

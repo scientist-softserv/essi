@@ -8,7 +8,7 @@ module Extensions
               self.terms = [:resource_type, :title, :creator, :contributor, :description,
                             :keyword, :license, :publisher, :date_created, :subject, :language,
                             :representative_id, :thumbnail_id, :identifier, :based_near,
-                            :university_place, :related_url, :visibility, :collection_type_gid]
+                            :campus, :related_url, :visibility, :collection_type_gid]
         
               self.required_fields = [:title]
         
@@ -29,7 +29,7 @@ module Extensions
                  :language,
                  :identifier,
                  :based_near,
-                 :university_place,
+                 :campus,
                  :related_url,
                  :resource_type]
               end

@@ -1,6 +1,6 @@
-module UniversityPlaceService
+module CampusService
   mattr_accessor :authority
-  self.authority = Qa::Authorities::UniversityPlaces.new
+  self.authority = Qa::Authorities::Campuses.new
 
   def self.select_options
     authority.all.map { |element| [element[:label], element[:code]] }.sort

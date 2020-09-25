@@ -11,6 +11,6 @@ module Hyrax
     include ESSI::HoldingLocationTerms
     include ESSI::OCRTerms
     include ESSI::PurlTerms
-    include ESSI::UniversityPlaceTerms
+    include ESSI::CampusTerms
   end
 end

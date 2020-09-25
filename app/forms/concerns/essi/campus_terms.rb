@@ -1,8 +1,8 @@
 module ESSI
-  module UniversityPlaceTerms
+  module CampusTerms
     extend ActiveSupport::Concern
     included do
-      self.terms += [:university_place]
+      self.terms += [:campus]
     end
   end
 end

@@ -7,6 +7,6 @@ module Hyrax
     include ESSI::PresentsOCR
     include ESSI::PresentsRelatedUrl
     include ESSI::PresentsStructure
-    include ESSI::PresentsUniversityPlace
+    include ESSI::PresentsCampus
   end
 end

@@ -1,5 +1,5 @@
 module Qa::Authorities
-  class UniversityPlaces < Base
+  class Campuses < Base
 
     def search(id)
       all.select { |place| place[:code].match(id.to_s) }

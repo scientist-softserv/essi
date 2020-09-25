@@ -7,7 +7,7 @@ module Hyrax
     include ESSI::PresentsOCR
     include ESSI::PresentsRelatedUrl
     include ESSI::PresentsStructure
-    include ESSI::PresentsUniversityPlace
+    include ESSI::PresentsCampus
 
     delegate :series, :viewing_direction, :viewing_hint, :allow_pdf_download,
              to: :solr_document

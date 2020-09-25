@@ -52,7 +52,7 @@ Hyrax::DerivativeService.services.unshift ESSI::FileSetOCRDerivativesService
 
 AdminSet.include Extensions::Hyrax::AdminSet::CampusOnAdminSet
 
-# add customized terms, currently just university_place, to collection forms
+# add customized terms, currently just campus, to collection forms
 Hyrax::Forms::CollectionForm.include Extensions::Hyrax::Forms::CollectionForm::CustomizedTerms
 Hyrax::CollectionPresenter.include Extensions::Hyrax::CollectionPresenter::CustomizedTerms
 Hyrax::Forms::AdminSetForm.include Extensions::Hyrax::Forms::AdminSetForm::CustomizedTerms
