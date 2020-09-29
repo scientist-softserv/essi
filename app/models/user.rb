@@ -39,7 +39,17 @@ class User < ApplicationRecord
   def groups
     g = roles.map(&:name)
     g += ['registered'] if authorized_patron? || admin?
+    g += ldap_roles
     g
+  end
+
+  # Roles to add depending on user's LDAP groups and ESSI configuration
+  def ldap_roles
+    roles = []
+    ESSI.config[:ldap][:group_roles].each do |role, groups|
+      roles << role if member_of_ldap_group?(groups)
+    end
+    roles
   end
 
   def authorized_ldap_member?(force_update = nil)
