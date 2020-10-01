@@ -9,8 +9,7 @@
 
     <div class="hyc-title">
       <h1><%= @presenter.title.first %></h1>
-      <%= @presenter.collection_type_badge %>
-      <%= @presenter.permission_badge %>
+
     </div>
 
     <% unless @presenter.logo_record.blank? %>
@@ -31,10 +30,6 @@
 
     <% unless @presenter.total_viewable_items.blank? %>
       <div class="hyc-bugs">
-        <div class="hyc-item-count">
-          <b><%= @presenter.total_viewable_items %></b>
-          <%= 'Item'.pluralize(@presenter.total_viewable_items) %></div>
-
         <% unless @presenter.creator.blank? %>
           <div class="hyc-created-by">Created by: <%= @presenter.creator.first %></div>
         <% end %>
