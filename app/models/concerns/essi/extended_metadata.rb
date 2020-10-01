@@ -23,6 +23,12 @@ module ESSI
                  index.as :stored_searchable
                end
 
+      property :campus,
+               predicate: RDF::Vocab::MARCRelators.uvp,
+               multiple: false do |index|
+                 index.as :stored_searchable, :facetable
+               end
+
       property :abridger, predicate: RDF::Vocab::MARCRelators.abr
       property :actor, predicate: RDF::Vocab::MARCRelators.act
       property :adapter, predicate: RDF::Vocab::MARCRelators.adp
@@ -279,7 +285,6 @@ module ESSI
       property :translator, predicate: RDF::Vocab::MARCRelators.trl
       property :type_designer, predicate: RDF::Vocab::MARCRelators.tyd
       property :typographer, predicate: RDF::Vocab::MARCRelators.tyg
-      property :university_place, predicate: RDF::Vocab::MARCRelators.uvp
       property :videographer, predicate: RDF::Vocab::MARCRelators.vdg
       property :voice_actor, predicate: RDF::Vocab::MARCRelators.vac
       property :witness, predicate: RDF::Vocab::MARCRelators.wit

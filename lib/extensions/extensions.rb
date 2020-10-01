@@ -49,3 +49,9 @@ Hydra::Derivatives.kdu_compress_recipes =
 
 # ocr derivation
 Hyrax::DerivativeService.services.unshift ESSI::FileSetOCRDerivativesService
+
+# add customized terms, currently just campus, to collection forms
+Hyrax::Forms::CollectionForm.include Extensions::Hyrax::Forms::CollectionForm::CustomizedTerms
+Hyrax::CollectionPresenter.include Extensions::Hyrax::CollectionPresenter::CustomizedTerms
+AdminSet.include Extensions::Hyrax::AdminSet::CampusOnAdminSet
+Hyrax::Forms::AdminSetForm.include Extensions::Hyrax::Forms::AdminSetForm::CustomizedTerms

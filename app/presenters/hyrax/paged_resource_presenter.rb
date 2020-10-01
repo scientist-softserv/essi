@@ -2,16 +2,15 @@
 #  `rails generate hyrax:work PagedResource`
 module Hyrax
   class PagedResourcePresenter < Hyrax::WorkShowPresenter
+    include ESSI::PresentsHoldingLocation
     include ESSI::PresentsNumPages
     include ESSI::PresentsOCR
     include ESSI::PresentsRelatedUrl
     include ESSI::PresentsStructure
+    include ESSI::PresentsCampus
+
     delegate :series, :viewing_direction, :viewing_hint, :allow_pdf_download,
              to: :solr_document
-
-    def holding_location
-      HoldingLocationAttributeRenderer.new(solr_document.holding_location).render_dl_row
-    end
 
     # Overrides hyrax
     # IIIF rendering linking property for inclusion in the manifest
