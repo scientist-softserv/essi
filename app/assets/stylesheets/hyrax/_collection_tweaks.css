@@ -1,5 +1,5 @@
 .hyc-banner-row {
-  max-width: none;
+  max-width: none !important;
 }
 
 .hyc-banner {
@@ -7,7 +7,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  // border-radius: 1em;
+  border-radius: 0;
   min-height: 254px;
   position: relative;
   width: 100%;
