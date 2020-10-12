@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/samvera-labs/bulkrax.git
-  revision: 996223d4efccf25888e62b5e519d9fbd0184fdc0
+  revision: 12e03c7df0b60e619543394894b59bcd231b5dab
   specs:
     bulkrax (0.1.0)
       bagit (~> 0.4)
@@ -113,7 +113,7 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
-    bagit (0.4.3)
+    bagit (0.4.4)
       docopt (~> 0.5.0)
       validatable (~> 1.6)
     bcp47 (0.3.3)
@@ -432,7 +432,7 @@ GEM
       select2-rails (~> 3.5)
       signet
       tinymce-rails (~> 4.1)
-    i18n (1.8.2)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     i18n-js (3.3.0)
       i18n (>= 0.6.6)
@@ -553,7 +553,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.5.0)
+    loofah (2.6.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -582,12 +582,12 @@ GEM
     net-http-persistent (3.1.0)
       connection_pool (~> 2.2)
     net-ldap (0.16.1)
-    nio4r (2.4.0)
+    nio4r (2.5.2)
     noid (0.9.0)
     noid-rails (3.0.1)
       actionpack (>= 5.0.0, < 6)
       noid (~> 0.9)
-    nokogiri (1.10.9)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     nokogumbo (1.5.0)
       nokogiri
@@ -635,6 +635,8 @@ GEM
       rails (~> 5.0)
       rdf
     rack (2.2.3)
+    rack-protection (2.0.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.1.7)
@@ -671,7 +673,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rdf (3.1.1)
+    rdf (3.1.4)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
     rdf-aggregate-repo (2.2.1)
@@ -827,7 +829,7 @@ GEM
       faraday (~> 0.9)
       jwt (>= 1.5, < 3.0)
       multi_json (~> 1.10)
-    simple_form (5.0.1)
+    simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     slop (4.8.0)

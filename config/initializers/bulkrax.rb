@@ -2,9 +2,9 @@
 
 Bulkrax.setup do |config|
   # Add local parsers
-  # config.parsers += [
-  #   { name: 'MODS - My Local MODS parser', class_name: 'Bulkrax::ModsXmlParser', partial: 'mods_fields' },
-  # ]
+  config.parsers += [
+    { name: 'METS XML', class_name: 'Bulkrax::MetsXmlParser', partial: 'mets_xml_fields' },
+  ]
 
   # Field to use during import to identify if the Work or Collection already exists.
   # Default is 'source'.
@@ -32,7 +32,9 @@ Bulkrax.setup do |config|
   #     'Bulkrax::CsvEntry'  => 'MyIdentifierField'
   #   }
   # The default value for CSV is 'source_identifier'
-  # config.source_identifier_field_mapping = { }
+   config.source_identifier_field_mapping = {
+     'Bulkrax::MetsXmlEntry'  => 'OBJID'
+   }
 
   # Field_mapping for establishing a parent-child relationship (FROM parent TO child)
   # This can be a Collection to Work, or Work to Work relationship
@@ -75,6 +77,10 @@ Bulkrax.setup do |config|
           "title" => { from: ["title"] },
           #"resource_type" => { from: ["resource_type"], parsed: true },
           #"remote_files" => { from: ["thumbnail_url"], parsed: true }
+        },
+        "Bulkrax::MetsXmlParser" => {
+          "source_identifier" => { from: ["identifier"] },
+          "work_type" => 'PagedResource'
         }
      }
 
@@ -89,3 +95,4 @@ Bulkrax.setup do |config|
   # Properties that should not be used in imports/exports. They are reserved for use by Hyrax.
   # config.reserved_properties += ['my_field']
 end
+
