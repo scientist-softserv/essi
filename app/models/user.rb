@@ -52,6 +52,11 @@ class User < ApplicationRecord
     roles
   end
 
+  # Unmodified method from hydra-role-management Hydra::RoleManagement::UserRoles
+  def admin?
+    roles.where(name: 'admin').exists?
+  end
+
   def authorized_ldap_member?(force_update = nil)
     if force_update == :force ||
         authorized_membership_updated_at.nil? ||
