@@ -5,11 +5,12 @@ module Hyrax
     include ESSI::PresentsHoldingLocation
     include ESSI::PresentsNumPages
     include ESSI::PresentsOCR
+    include ESSI::PresentsPDF
     include ESSI::PresentsRelatedUrl
     include ESSI::PresentsStructure
     include ESSI::PresentsCampus
 
-    delegate :series, :viewing_direction, :viewing_hint, :allow_pdf_download,
+    delegate :series, :viewing_direction, :viewing_hint,
              to: :solr_document
 
     # Overrides hyrax

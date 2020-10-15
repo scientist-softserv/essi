@@ -10,10 +10,10 @@ module ESSI
     # @return [Hash] rendering
     def build_pdf_rendering(file_set_id)
       file_set_document = query_for_rendering(file_set_id)
-      paged_resource_id = file_set_document.dig(:is_page_of_ssi)
+      pdf_path = file_set_document.to_h.with_indifferent_access.dig(:parent_path_tesi).to_s + '/pdf'
 
       {
-        "@id"=> pdf_hyrax_paged_resource_path(paged_resource_id),
+        "@id"=> pdf_path,
         "label"=> "Download as PDF",
         "format"=> "application/pdf"
       }
