@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           ID="VAC1741-00310"
+           OBJID="http://purl.dlib.indiana.edu/iudl/archives/VAC1741-00310"
+           xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/version19/mets.xsd">
+   <mets:metsHdr CREATEDATE="2013-02-01T10:10:24">
+      <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+         <mets:name>Indiana University Digital Library Program</mets:name>
+      </mets:agent>
+   </mets:metsHdr>
+   <mets:fileSec>
+      <mets:fileGrp USE="thumbnail">
+         <mets:file GROUPID="VAC1741-U-00064-001" ID="VAC1741-U-00064-001-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="1"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00064-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00064-002" ID="VAC1741-U-00064-002-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="2"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00064-002"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00064-003" ID="VAC1741-U-00064-003-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="3"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00064-003"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00065-001" ID="VAC1741-U-00065-001-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="4"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00065-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00066-001" ID="VAC1741-U-00066-001-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="5"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00066-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00067-001" ID="VAC1741-U-00067-001-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="6"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00067-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00067-002" ID="VAC1741-U-00067-002-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="7"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00067-002"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00068-001" ID="VAC1741-U-00068-001-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="8"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00068-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00068-002" ID="VAC1741-U-00068-002-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="9"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00068-002"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00068-003" ID="VAC1741-U-00068-003-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="10"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00068-003"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00069-001" ID="VAC1741-U-00069-001-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="11"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00069-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00069-002" ID="VAC1741-U-00069-002-thumbnail"
+                    MIMETYPE="image/jpeg"
+                    SEQ="12"
+                    USE="thumbnail">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00069-002"/>
+         </mets:file>
+      </mets:fileGrp>
+      <mets:fileGrp USE="screen">
+         <mets:file GROUPID="VAC1741-U-00064-001" ID="VAC1741-U-00064-001-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="1"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00064-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00064-002" ID="VAC1741-U-00064-002-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="2"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00064-002"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00064-003" ID="VAC1741-U-00064-003-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="3"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00064-003"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00065-001" ID="VAC1741-U-00065-001-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="4"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00065-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00066-001" ID="VAC1741-U-00066-001-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="5"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00066-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00067-001" ID="VAC1741-U-00067-001-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="6"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00067-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00067-002" ID="VAC1741-U-00067-002-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="7"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00067-002"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00068-001" ID="VAC1741-U-00068-001-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="8"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00068-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00068-002" ID="VAC1741-U-00068-002-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="9"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00068-002"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00068-003" ID="VAC1741-U-00068-003-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="10"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00068-003"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00069-001" ID="VAC1741-U-00069-001-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="11"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00069-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00069-002" ID="VAC1741-U-00069-002-screen"
+                    MIMETYPE="image/jpeg"
+                    SEQ="12"
+                    USE="screen">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00069-002"/>
+         </mets:file>
+      </mets:fileGrp>
+      <mets:fileGrp USE="large">
+         <mets:file GROUPID="VAC1741-U-00064-001" ID="VAC1741-U-00064-001-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="1"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00064-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00064-002" ID="VAC1741-U-00064-002-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="2"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00064-002"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00064-003" ID="VAC1741-U-00064-003-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="3"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00064-003"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00065-001" ID="VAC1741-U-00065-001-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="4"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00065-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00066-001" ID="VAC1741-U-00066-001-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="5"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00066-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00067-001" ID="VAC1741-U-00067-001-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="6"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00067-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00067-002" ID="VAC1741-U-00067-002-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="7"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00067-002"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00068-001" ID="VAC1741-U-00068-001-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="8"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00068-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00068-002" ID="VAC1741-U-00068-002-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="9"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00068-002"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00068-003" ID="VAC1741-U-00068-003-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="10"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00068-003"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00069-001" ID="VAC1741-U-00069-001-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="11"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00069-001"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00069-002" ID="VAC1741-U-00069-002-large"
+                    MIMETYPE="image/jpeg"
+                    SEQ="12"
+                    USE="large">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00069-002"/>
+         </mets:file>
+      </mets:fileGrp>
+      <mets:fileGrp USE="printable">
+         <mets:file GROUPID="VAC1741-U-00064" ID="VAC1741-U-00064-printable"
+                    MIMETYPE="application/pdf"
+                    SEQ="1"
+                    USE="printable">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00064"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00065" ID="VAC1741-U-00065-printable"
+                    MIMETYPE="application/pdf"
+                    SEQ="2"
+                    USE="printable">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00065"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00066" ID="VAC1741-U-00066-printable"
+                    MIMETYPE="application/pdf"
+                    SEQ="3"
+                    USE="printable">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00066"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00067" ID="VAC1741-U-00067-printable"
+                    MIMETYPE="application/pdf"
+                    SEQ="4"
+                    USE="printable">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00067"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00068" ID="VAC1741-U-00068-printable"
+                    MIMETYPE="application/pdf"
+                    SEQ="5"
+                    USE="printable">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00068"/>
+         </mets:file>
+         <mets:file GROUPID="VAC1741-U-00069" ID="VAC1741-U-00069-printable"
+                    MIMETYPE="application/pdf"
+                    SEQ="6"
+                    USE="printable">
+            <mets:FLocat LOCTYPE="PURL"
+                         xlink:href="http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00069"/>
+         </mets:file>
+      </mets:fileGrp>
+   </mets:fileSec>
+   <mets:structMap TYPE="logical">
+      <mets:div TYPE="archivalcomponent">
+         <mets: ID="VAC1741-U-00064" ORDER="1" TYPE="archivalitem">
+            <mets:fptr FILEID="VAC1741-U-00064-printable"/>
+            <mets:div ORDER="1" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00064-001-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00064-001-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00064-001-large"/>
+            </mets:div>
+            <mets:div ORDER="2" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00064-002-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00064-002-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00064-002-large"/>
+            </mets:div>
+            <mets:div ORDER="3" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00064-003-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00064-003-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00064-003-large"/>
+            </mets:div>
+         </mets:div>
+         <mets:div ID="VAC1741-U-00065" ORDER="2" TYPE="archivalitem">
+            <mets:fptr FILEID="VAC1741-U-00065-printable"/>
+            <mets:div ORDER="1" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00065-001-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00065-001-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00065-001-large"/>
+            </mets:div>
+         </mets:div>
+         <mets:div ID="VAC1741-U-00066" ORDER="3" TYPE="archivalitem">
+            <mets:fptr FILEID="VAC1741-U-00066-printable"/>
+            <mets:div ORDER="1" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00066-001-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00066-001-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00066-001-large"/>
+            </mets:div>
+         </mets:div>
+         <mets:div ID="VAC1741-U-00067" ORDER="4" TYPE="archivalitem">
+            <mets:fptr FILEID="VAC1741-U-00067-printable"/>
+            <mets:div ORDER="1" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00067-001-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00067-001-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00067-001-large"/>
+            </mets:div>
+            <mets:div ORDER="2" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00067-002-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00067-002-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00067-002-large"/>
+            </mets:div>
+         </mets:div>
+         <mets:div ID="VAC1741-U-00068" ORDER="5" TYPE="archivalitem">
+            <mets:fptr FILEID="VAC1741-U-00068-printable"/>
+            <mets:div ORDER="1" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00068-001-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00068-001-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00068-001-large"/>
+            </mets:div>
+            <mets:div ORDER="2" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00068-002-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00068-002-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00068-002-large"/>
+            </mets:div>
+            <mets:div ORDER="3" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00068-003-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00068-003-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00068-003-large"/>
+            </mets:div>
+         </mets:div>
+         <mets:div ID="VAC1741-U-00069" ORDER="6" TYPE="archivalitem">
+            <mets:fptr FILEID="VAC1741-U-00069-printable"/>
+            <mets:div ORDER="1" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00069-001-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00069-001-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00069-001-large"/>
+            </mets:div>
+            <mets:div ORDER="2" TYPE="page">
+               <mets:fptr FILEID="VAC1741-U-00069-002-thumbnail"/>
+               <mets:fptr FILEID="VAC1741-U-00069-002-screen"/>
+               <mets:fptr FILEID="VAC1741-U-00069-002-large"/>
+            </mets:div>
+         </mets:div>
+      </mets:div>
+   </mets:structMap>
+</mets:mets>

@@ -89,7 +89,8 @@ module ESSI
 
         def save_structure(env, structure)
           if structure.present?
-            SaveStructureJob.perform_now(env.curation_concern, map_fileids(structure).to_json)
+            field_map = map_fileids(structure)
+            SaveStructureJob.perform_now(env.curation_concern, field_map.to_json)
           end
           true
         end
@@ -102,7 +103,10 @@ module ESSI
         def map_fileids(hsh)
           hsh.each do |k, v|
             hsh[k] = v.each { |node| map_fileids(node) } if k == :nodes
-            hsh[k] = structure_to_repo_map[v] if k == :proxy
+            if k == :proxy
+              hsh[k] = structure_to_repo_map[v]
+              hsh[:label] = "#{v} (missing file)" if !structure_to_repo_map[v]
+            end
           end
         end
     

@@ -1,0 +1,4062 @@
+---
+http_interactions:
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00064-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:08 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00064-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:08 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00064-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:08 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229891/THUMBNAIL
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:08 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229891/THUMBNAIL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:08 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '3999'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:08 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00064-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:08 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00064-002
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:08 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00064-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:08 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229892/THUMBNAIL
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:08 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229892/THUMBNAIL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:08 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '5014'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:08 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00064-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:08 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00064-003
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:08 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00064-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229893/THUMBNAIL
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229893/THUMBNAIL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '19421'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00065-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00065-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00065-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229895/THUMBNAIL
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229895/THUMBNAIL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '3264'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00066-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00066-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00066-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229897/THUMBNAIL
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229897/THUMBNAIL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '3846'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00067-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00067-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00067-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229899/THUMBNAIL
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229899/THUMBNAIL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '2524'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00068-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00068-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00068-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229902/THUMBNAIL
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229902/THUMBNAIL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '22796'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00068-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00068-002
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00068-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229903/THUMBNAIL
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229903/THUMBNAIL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '5046'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00068-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00068-003
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00068-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229904/THUMBNAIL
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229904/THUMBNAIL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '5027'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00069-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00069-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00069-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229906/THUMBNAIL
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229906/THUMBNAIL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '4360'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/thumbnail/VAC1741-U-00069-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00069-002
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/thumbnail/VAC1741-U-00069-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229907/THUMBNAIL
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229907/THUMBNAIL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:09 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '3770'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:09 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00064-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00064-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00064-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229891/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229891/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '28968'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00064-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00064-002
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00064-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229892/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229892/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '36806'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00064-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00064-003
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00064-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229893/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229893/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '27233'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00065-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00065-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00065-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229895/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229895/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '25919'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00066-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00066-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00066-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229897/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229897/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '29036'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00067-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00067-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00067-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229899/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229899/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '18907'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00067-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00067-002
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00067-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229900/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229900/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '26211'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00068-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00068-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00068-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229902/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229902/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '40727'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00068-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00068-002
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:10 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00068-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:10 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229903/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229903/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '38713'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00068-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00068-003
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00068-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229904/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229904/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '37333'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00069-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00069-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00069-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229906/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229906/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '33678'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/screen/VAC1741-U-00069-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00069-002
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/screen/VAC1741-U-00069-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229907/SCREEN
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229907/SCREEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '29691'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00064-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00064-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00064-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229891/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229891/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '72492'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00064-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00064-002
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00064-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229892/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229892/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '84616'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00064-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00064-003
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00064-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229893/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229893/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '43986'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00065-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00065-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00065-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229895/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229895/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '65667'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00066-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00066-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00066-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229897/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229897/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:11 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '66340'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:11 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00067-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00067-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00067-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229899/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229899/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '48674'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00067-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00067-002
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00067-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229900/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229900/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '65442'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00068-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00068-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00068-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229902/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229902/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '74044'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00068-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00068-002
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00068-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229903/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229903/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '83784'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00068-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00068-003
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00068-003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229904/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229904/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '81614'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00069-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00069-001
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00069-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229906/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229906/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '82355'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/large/VAC1741-U-00069-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00069-002
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/large/VAC1741-U-00069-002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229907/LARGE
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229907/LARGE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '74461'
+      Connection:
+      - close
+      Content-Type:
+      - image/jpeg
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00064
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00064
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00064
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229890/OVERVIEW
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229890/OVERVIEW
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '564115'
+      Connection:
+      - close
+      Content-Type:
+      - application/pdf
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00065
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00065
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00065
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229894/OVERVIEW
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229894/OVERVIEW
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:12 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '190759'
+      Connection:
+      - close
+      Content-Type:
+      - application/pdf
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:12 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00066
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00066
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00066
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229896/OVERVIEW
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229896/OVERVIEW
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '173885'
+      Connection:
+      - close
+      Content-Type:
+      - application/pdf
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00067
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00067
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00067
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229898/OVERVIEW
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229898/OVERVIEW
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '236403'
+      Connection:
+      - close
+      Content-Type:
+      - application/pdf
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00068
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00068
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00068
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229901/OVERVIEW
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229901/OVERVIEW
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '496375'
+      Connection:
+      - close
+      Content-Type:
+      - application/pdf
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+- request:
+    method: head
+    uri: http://purl.dlib.indiana.edu/iudl/archives/printable/VAC1741-U-00069
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache
+      Location:
+      - http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00069
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+- request:
+    method: head
+    uri: http://webapp1.dlib.indiana.edu/purl/purlResolver?id=/archives/printable/VAC1741-U-00069
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache
+      Location:
+      - http://fedora.dlib.indiana.edu:80/fedora/get/iudl:1229905/OVERVIEW
+      Connection:
+      - close
+      Content-Type:
+      - text/plain
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+- request:
+    method: head
+    uri: http://fedora.dlib.indiana.edu/fedora/get/iudl:1229905/OVERVIEW
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Aug 2020 06:09:13 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Pragma:
+      - No-cache
+      Cache-Control:
+      - no-cache
+      Expires:
+      - Wed, 31 Dec 1969 19:00:00 EST
+      Content-Length:
+      - '489314'
+      Connection:
+      - close
+      Content-Type:
+      - application/pdf
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 06:09:13 GMT
+recorded_with: VCR 4.0.0
