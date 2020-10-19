@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*!
+ * iu-framework
+ * @version v3.2.9
+ * extracted .button css, only
+ */
+
+
+.button, img {
+  vertical-align: middle;
+}
+
+.button, .stat {
+  line-height: 1;
+}
+
+.button, .input-group-label, .text-center {
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: .5625em 1em;
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  background-color: #900;
+  color: #fff;
+}
+
+.bg-dark .button:focus, .bg-dark .button:hover, .button {
+  border-width: 2px;
+}
+
+.button {
+  font-family: BentonSansBold,Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  transition: background-color .2s ease-out,color .2s ease-out,border-color .18s ease-out;
+}
+
+.pagination a, .panel--interactive a, a.accordion-title, a.button {
+  text-decoration: none;
+}

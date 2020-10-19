@@ -206,6 +206,46 @@ h3 {
   text-shadow: 2px 2px #000;
 }
 
+.home_marketing_text {
+  color: #fff !important;
+  text-shadow: 2px 2px #000 !important;
+}
+
+.home_welcome {
+
+}
+
+.home_campuses {
+  padding: 2em 0;
+  margin: auto;
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.centered {
+  display: table;
+  margin: auto;
+}
+
+.light-gray {
+  background: #eee;
+}
+
+.nav-buttons li {
+  float: left;
+}
+
+.nav-buttons li + li {
+  margin-left: 2px
+}
+
 #logo,#logo2 {
 	font-size: 1.6em;
 	font-weight: bold;
