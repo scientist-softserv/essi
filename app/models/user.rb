@@ -38,8 +38,20 @@ class User < ApplicationRecord
   # Grants registered status for authenticated visibility ("Institution") by ldap group membership, if so configured, and admins
   def groups
     g = roles.map(&:name)
-    g += ['registered'] if authorized_patron? || admin?
+    g += ldap_roles
+    g += ['registered'] if authorized_patron? || g.include?('admin')
     g
+  end
+
+  # Roles to add depending on user's LDAP groups and ESSI configuration
+  def ldap_roles
+    mappings = ESSI.config.dig(:ldap, :group_roles) || {}
+    mappings.select { |role, groups| member_of_ldap_group?(groups) }.keys
+  end
+
+  # Modified method from hydra-role-management Hydra::RoleManagement::UserRoles
+  def admin?
+    groups.include? 'admin'
   end
 
   def authorized_ldap_member?(force_update = nil)
