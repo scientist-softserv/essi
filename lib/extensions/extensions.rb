@@ -25,6 +25,8 @@ Hyrax::WorkShowPresenter.include Extensions::Hyrax::WorkShowPresenter::Collectio
 
 # primary fields support
 Hyrax::Forms::WorkForm.include Extensions::Hyrax::Forms::WorkForm::PrimaryFields
+# support for worktype-specific #work_requires_files?
+Hyrax::Forms::WorkForm.include Extensions::Hyrax::Forms::WorkForm::WorkRequiresFiles
 
 # IIIF Thumbnails for both types of Collections
 Hyrax::AdminSetIndexer.include ESSI::IIIFCollectionThumbnailBehavior
