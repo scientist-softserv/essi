@@ -23,6 +23,8 @@
     "@id": bf:heldBy
   series:
     "@id": bf:seriesStatement
+  campus:
+    "@id": mrel:uvp
   contributor:
     "@id": dc:contributor
   coverage:
@@ -585,8 +587,6 @@
     "@id": mrel:tyd
   typographer:
     "@id": mrel:tyg
-  university_place:
-    "@id": mrel:uvp
   videographer:
     "@id": mrel:vdg
   voice_actor:

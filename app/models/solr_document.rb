@@ -28,6 +28,7 @@ class SolrDocument
 
   attribute :num_pages, Solr::String, solr_name('num_pages')
   attribute :holding_location, Solr::String, solr_name('holding_location')
+  attribute :campus, Solr::String, solr_name('campus')
   attribute :viewing_hint, Solr::String, solr_name('viewing_hint')
   attribute :viewing_direction, Solr::String, solr_name('viewing_direction')
   attribute :ocr_searchable, Solr::String, solr_name('ocr_searchable', Solrizer::Descriptor.new(:boolean, :stored, :indexed))

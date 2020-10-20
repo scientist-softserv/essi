@@ -38,6 +38,11 @@ Hyrax::Dashboard::CollectionsController.prepend Extensions::Hyrax::Dashboard::Co
 # purl controller support
 Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::SourceMetadataIdentifier
 
+# bulkrax overrides
+
+Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::Structure
+
+
 Hyrax::CurationConcern.actor_factory.insert Hyrax::Actors::TransactionalRequest, ESSI::Actors::PerformLaterActor
 Hyrax::CurationConcern.actor_factory.swap Hyrax::Actors::CreateWithRemoteFilesActor, ESSI::Actors::CreateWithRemoteFilesActor
 
@@ -49,3 +54,9 @@ Hydra::Derivatives.kdu_compress_recipes =
 
 # ocr derivation
 Hyrax::DerivativeService.services.unshift ESSI::FileSetOCRDerivativesService
+
+# add customized terms, currently just campus, to collection forms
+Hyrax::Forms::CollectionForm.include Extensions::Hyrax::Forms::CollectionForm::CustomizedTerms
+Hyrax::CollectionPresenter.include Extensions::Hyrax::CollectionPresenter::CustomizedTerms
+AdminSet.include Extensions::Hyrax::AdminSet::CampusOnAdminSet
+Hyrax::Forms::AdminSetForm.include Extensions::Hyrax::Forms::AdminSetForm::CustomizedTerms

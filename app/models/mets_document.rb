@@ -37,7 +37,7 @@ class METSDocument
   end
 
   def right_to_left
-    @mets.xpath("/mets:mets/mets:structMap[@TYPE='Physical']/mets:div/@TYPE") \
+    @mets.xpath("/mets:mets/mets:structMap[@TYPE='logical']/mets:div/@TYPE") \
          .to_s.start_with? 'RTL'
   end
 
@@ -55,7 +55,7 @@ class METSDocument
     volume_node = volume_nodes.find do |vol|
       vol.attribute("ID").value == volume_id
     end
-    return volume_node.attribute("LABEL").value if volume_node
+    return volume_node.attribute("FILEID").value if volume_node
   end
 
   def files_for_volume(volume_id)
@@ -66,7 +66,7 @@ class METSDocument
   end
 
   def files
-    @mets.xpath("/mets:mets/mets:fileSec/mets:fileGrp[@USE='masters']" \
+    @mets.xpath("/mets:mets/mets:fileSec/mets:fileGrp" \
                 "/mets:file").map do |f|
       file_info(f)
     end
@@ -77,7 +77,8 @@ class METSDocument
       id: file.xpath('@ID').to_s,
       checksum: file.xpath('@CHECKSUM').to_s,
       mime_type: file.xpath('@MIMETYPE').to_s,
-      path: file.xpath('mets:FLocat/@xlink:href').to_s.gsub(/file:\/\//, '')
+      url: final_url(file),
+      file_name: file.xpath('@ID').to_s
     }
   end
 
@@ -97,8 +98,19 @@ class METSDocument
   private
 
     def volume_nodes
-      xp = "/mets:mets/mets:structMap[@TYPE='Physical']" \
+      xp = "/mets:mets/mets:structMap[@TYPE='logical']" \
       "/mets:div[@TYPE='MultiVolumeSet']/mets:div"
       @volume_nodes ||= @mets.xpath(xp)
+    end
+
+    def final_url(file)
+      url = file.xpath('mets:FLocat/@xlink:href').to_s.gsub(/file:\/\//, '')
+      #return unless url.present?
+
+      fl = if url.present?
+             IuMetadata::FinalRedirectUrl.final_redirect_url(url)
+           end
+
+      fl.present? ? fl : url
     end
 end
