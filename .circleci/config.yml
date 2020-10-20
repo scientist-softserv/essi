@@ -7,7 +7,7 @@ version: 2
 default_environment: &default_environment
   RAILS_ENV: test
   RACK_ENV: test
-  FCREPO_TEST_PORT: 8080/fcrepo
+  FCREPO_TEST_PORT: 8080
   BUNDLE_JOBS: 4
   BUNDLE_RETRY: 3
   NOKOGIRI_USE_SYSTEM_LIBRARIES: true
@@ -20,9 +20,9 @@ jobs:
   build:
     docker:
     # legacy needed for phantomjs
-    - image: circleci/ruby:2.5-stretch-node-browsers-legacy
-    - image: circleci/redis:5
-    - image: ualbertalib/docker-fcrepo4:4.7
+    - image: circleci/ruby:2.5-buster-node-browsers-legacy
+    - image: circleci/redis:6
+    - image: samvera/fcrepo4:4.7.5
       environment:
         CATALINA_OPTS: "-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1024m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
     - image: solr:7
@@ -61,25 +61,28 @@ jobs:
     - run:
         name: Install system deps
         command: |
+          curl -sS https://notesalexp.org/debian/alexp_key.asc | sudo apt-key add -
+          echo "deb https://notesalexp.org/tesseract-ocr/buster/ buster main" | sudo tee -a /etc/apt/sources.list
+          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+          echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+          curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
           sudo apt-get update -qq
           sudo apt-get install -y build-essential default-jre-headless libpq-dev nodejs \
-                libreoffice-writer libreoffice-impress imagemagick unzip ghostscript
-
-          sudo sh -c 'echo "deb http://http.us.debian.org/debian/ testing non-free contrib main" >> /etc/apt/sources.list'
-          sudo apt-get update -qq
-          sudo apt-get install libopenjp2-tools libtesseract-dev libleptonica-dev liblept5 tesseract-ocr -t testing
-
+                                  libreoffice-writer libreoffice-impress imagemagick unzip ghostscript \
+                                  libtesseract-dev libleptonica-dev liblept5 tesseract-ocr \
+                                  yarn libopenjp2-tools
           sudo mkdir -p -m 777 /opt/fits
-          curl -fSL -o /opt/fits/fits-1.4.0.zip https://github.com/harvard-lts/fits/releases/download/1.4.0/fits-1.4.0.zip
-          cd /opt/fits && unzip fits-1.4.0.zip && chmod +X fits.sh
+          curl -fSL -o /tmp/fits-1.5.0.zip https://github.com/harvard-lts/fits/releases/download/1.5.0/fits-1.5.0.zip
+          sudo mv /tmp/fits-1.5.0.zip /opt/fits
+          cd /opt/fits && sudo unzip fits-1.5.0.zip && sudo chmod +X fits.sh
           echo 'export PATH=/opt/fits:$PATH' >> $BASH_ENV
 
     # Download and cache dependencies
     - restore_cache:
         keys:
-        - dependencies-v3-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-        - dependencies-v3-{{ .Branch }}
-        - dependencies-v3-
+        - dependencies-v4-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+        - dependencies-v4-{{ .Branch }}
+        - dependencies-v4-
 
     - run:
         name: Install dependencies
@@ -96,7 +99,7 @@ jobs:
         paths:
         - ./vendor/bundle
         - ./webdriver
-        key: dependencies-v3-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+        key: dependencies-v4-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
 
 #    - run:
 #        name: Call Rubocop
