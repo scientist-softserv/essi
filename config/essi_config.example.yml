@@ -80,6 +80,7 @@ default: &default
     skip_derivatives: false
     derivatives_folder: false
     ocr_language: [eng]
+    ocr_preprocessor_path: <%= Rails.root.join('bin', 'ocr_preprocessor') %>
     create_ocr_files: true
     index_ocr_files: true
     create_word_boundaries: true
