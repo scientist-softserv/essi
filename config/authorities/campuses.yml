@@ -1,0 +1,55 @@
+:terms:
+- :id: IUB
+  :term: IU Bloomington
+  :active: true
+  :url: https://www.indiana.edu
+  :img_src: campuses/iub.jpg
+  :img_alt: The Sample Gates at IU Bloomington
+- :id: IUPUI
+  :term: IUPUI
+  :active: true
+  :url: https://www.iupui.edu
+  :img_src: campuses/iupui.jpg
+  :img_alt: The Campus Center at IUPUI
+- :id: IUPUC
+  :term: IUPUC
+  :active: true
+  :url: https://www.iupuc.edu
+  :img_src: campuses/iupuc.jpg
+  :img_alt: Two people sit at a table looking at a book.
+- :id: IUE
+  :term: IU East
+  :active: true
+  :url: https://www.iue.edu
+  :img_src: campuses/iue.jpg
+  :img_alt: A building with flowers in the foreground
+# - :id: IUFW
+#  :term: IU Fort Wayne
+#  :active: false
+#  :url: https://www.iufw.edu
+#  :img_src: https://www.iu.edu/imagescampuses/ipfw.jpg
+#  :img_alt: Students walk in front of a building.
+- :id: IUK
+  :term: IU Kokomo
+  :active: true
+  :url: https://www.iuk.edu
+  :img_src: campuses/iuk.jpg
+  :img_alt: A building with a flowering tree in the foreground
+- :id: IUN
+  :term: IU Northwest
+  :active: true
+  :url: https://www.iun.edu
+  :img_src: campuses/iun.jpg
+  :img_alt: A terrace with flowers, a fountain, trees, and people sitting at benches
+- :id: IUSB
+  :term: IU South Bend
+  :active: true
+  :url: https://www.iusb.edu
+  :img_src: campuses/iusb.jpg
+  :img_alt: People sit on a lawn amid flowering trees.
+- :id: IUS
+  :term: IU Southeast
+  :active: true
+  :url: https://www.ius.edu
+  :img_src: campuses/ius.jpg
+  :img_alt: An aerial view of IU Southeast, with buildings, trees, and a pond

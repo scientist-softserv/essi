@@ -1,0 +1,15 @@
+<% unless collection_presenter.total_viewable_items.blank? %>
+    <div class="hyc-bugs">
+      <div class="hyc-item-count">
+        <b><%= collection_presenter.total_viewable_items %></b>
+        <%= 'Item'.pluralize(collection_presenter.total_viewable_items) %></div>
+
+      <% unless collection_presenter.creator.blank? %>
+          <div class="hyc-created-by">Created by: <%= collection_presenter.creator.first %></div>
+      <% end %>
+
+      <% unless collection_presenter.modified_date.blank? %>
+          <div class="hyc-last-updated">Last Updated: <%= collection_presenter.modified_date %></div>
+      <% end %>
+    </div>
+<% end %>

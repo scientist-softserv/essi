@@ -212,12 +212,41 @@ h3 {
 }
 
 .home_welcome {
-
+  padding-left: 15px;
 }
 
 .home_campuses {
-  padding: 2em 0;
+  padding: 1em 25px;
   margin: auto;
+}
+
+.campus {
+  background-color: #fff;
+  margin: 1em;
+  border-radius: 1em;
+  padding: 0.5em;
+
+  .campus_header {
+    margin: 0.5em;
+  }
+
+  .campus_image {
+    height: auto;
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  .campus_footer {
+    margin-top: 0.5em;
+  }
+
+  .campus_link {
+    margin-bottom: 0;
+  }
+}
+
+.home_featured_tabs {
+  margin-top: 1em;
 }
 
 .full-width {

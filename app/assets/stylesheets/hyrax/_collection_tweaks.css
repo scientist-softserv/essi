@@ -1,0 +1,51 @@
+.hyc-banner-row {
+  max-width: none !important;
+}
+
+.hyc-banner {
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0;
+  min-height: 254px;
+  position: relative;
+  width: 100%;
+
+  .hyc-title {
+
+    padding: 1em;
+    text-overflow: ellipsis;
+    background-color: #333;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    max-height: 234px;
+
+    h1 {
+      color: #fff;
+      display: inline-block;
+      font-size: 1.5em;
+      margin: 0;
+      padding: 0;
+      // text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      color: #fff;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+    }
+
+    .label {
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
+      margin-left: 0.5em;
+      vertical-align: 100%;
+    }
+
+  }
+
+}

@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:included_modules) { described_class.included_modules }
   let(:user) { described_class.new }
+  let(:admin_role) { FactoryBot.create(:role, name: "admin") }
+  let(:roles) { 2.times { |i| FactoryBot.create(:role, name: "role#{i}") }; Role.all }
 
   it 'has IuUserRoles functionality' do
     expect(included_modules).to include(::IuUserRoles)
@@ -14,6 +16,36 @@ RSpec.describe User, type: :model do
   it 'has Hydra Role Management behaviors' do
     expect(included_modules).to include(Hydra::RoleManagement::UserRoles)
     expect(user).to respond_to(:admin?)
+  end
+
+  describe "#admin?" do
+    context "when granted by regular roles" do
+      before do
+        allow(user).to receive(:roles).and_return([admin_role])
+        allow(user).to receive(:ldap_roles).and_return([])
+      end
+      it "returns true" do
+        expect(user.admin?).to be true
+      end
+    end
+    context "when granted by ldap_roles" do
+      before do
+        allow(user).to receive(:roles).and_return([])
+        allow(user).to receive(:ldap_roles).and_return(['admin'])
+      end
+      it "returns true" do
+        expect(user.admin?).to be true
+      end
+    end
+    context "when not granted by any roles" do
+      before do
+        allow(user).to receive(:roles).and_return([])
+        allow(user).to receive(:ldap_roles).and_return([])
+      end
+      it "returns false" do
+        expect(user.admin?).to be false
+      end
+    end
   end
 
   describe "#institution_patron?" do
@@ -72,6 +104,20 @@ RSpec.describe User, type: :model do
           end
         end
       end
+    end
+  end
+
+  describe "#ldap_roles", :clean do
+    before do
+      groups1 = ['groupA', 'groupB']
+      groups2 = ['groupB', 'groupC']
+      allow(user).to receive(:member_of_ldap_group?).with(groups1).and_return(true)
+      allow(user).to receive(:member_of_ldap_group?).with(groups2).and_return(false)
+      allow(ESSI.config).to receive(:dig).with(:ldap, :group_roles).and_return({ roles[0].name => groups1, roles[1].name => groups2  })
+    end
+    it "returns ESSI-configured roles for the user's ldap_groups" do
+      expect(user.ldap_roles).to include roles[0].name
+      expect(user.ldap_roles).not_to include roles[1].name
     end
   end
 end
