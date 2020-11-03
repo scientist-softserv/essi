@@ -18,7 +18,7 @@
         <% end %>
       </div>
     </div>
-
+    <% if request.path.include?('about') %>
     <div class="container-fluid small text-center">
       <p><%= link_to(t('hyrax.product_name'), 'https://github.com/IU-Libraries-Joint-Development/essi') %>
         <%= link_to(ENV['SOURCE_COMMIT'].to_s.truncate(9), "https://github.com/IU-Libraries-Joint-Development/essi/tree/#{ENV['SOURCE_COMMIT']}") if ENV['SOURCE_COMMIT'] %>
@@ -28,6 +28,7 @@
         <%= link_to "Hyrax v#{Hyrax::VERSION}", "https://github.com/samvera/hyrax/tree/v#{Hyrax::VERSION}" %>
       </p>
     </div>
+    <%end %>
   </div>
 
 

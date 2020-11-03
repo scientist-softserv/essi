@@ -46,3 +46,33 @@ Notes:
 
 A local instance of Redis should also be running on the host machine.
 If using Docker for Mac, all localhost and 127.0.0.1 references should be replaced with host.docker.internal in config/essi_config.example.yml.
+
+
+#### New developer guide for set up local instance (on Mac)
+1. Follow Hyrax's [basic prerequisites](https://github.com/samvera/hyrax#prerequisites), make sure _everything_ is running.
+
+2. besides Hyrax's [basic prerequisites](https://github.com/samvera/hyrax#prerequisites), install yarn
+
+3. Go to Github repo, fork your master branch
+
+4. in your local terminal :
+  * git clone https://github.com/IU-Libraries-Joint-Development/essi.git
+  * cd essi
+
+    * bundle install
+    * bundle exec rake db:migrate
+    * bundle exec rake hyrax:default_collection_types:create
+    * bundle exec rake hyrax:workflow:load
+    * bundle exec rake hyrax:default_admin_set:create
+
+  * In rails console, type following to create admin user for yourself:
+    * User.find_by_email('username@iu.edu').roles<<Role.find_or_create_by(name:'admin')
+
+ 5. Run following in seperate terminal windows 
+  * brew services start redis (_or make sure redis server is running in background_):
+  * solr_wrapper (go to http://127.0.0.1:8983/solr/#/, click core-selector in left menu, you will see hydra-development in the dropdown list) 
+    * If you couldn't find hydra-development in the core-selector, you may need check your .solr_wrapper file in the project directory, make sure there is no extra space on the front of the line.
+  * fcrepo_wrapper (check http://127.0.0.1:8984/ if fedora is running)
+  * bundle exec rails s (ESSI is running on http://localhost:3000/)
+  * Now, you can go to the ESSI website and try to upload images. If the image is not shown, instead, there is an error like: "Routing Error, No route matches [GET] /uv/uv.html", then, run yarn to install the universal viewer javascript libraries. 
+  
