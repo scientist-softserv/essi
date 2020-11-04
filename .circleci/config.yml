@@ -99,7 +99,7 @@ jobs:
     - save_cache:
         paths:
         - ./public/uv
-        - ./public/assets
+        - ./node_modules
         - ./vendor/bundle
         - ./webdriver
         key: dependencies-v4-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
