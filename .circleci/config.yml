@@ -94,9 +94,12 @@ jobs:
           bundle pristine webdrivers
           bundle clean
           bundle exec rails webdrivers:chromedriver:update
+          yarn
 
     - save_cache:
         paths:
+        - ./public/uv
+        - ./public/assets
         - ./vendor/bundle
         - ./webdriver
         key: dependencies-v4-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
