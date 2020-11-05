@@ -1,6 +1,7 @@
 module ESSI
   class GeneratePdfService
     # Generate PDFs for download
+    # @param [SolrDocument] resource
     def initialize(resource)
       @resource = resource
       @file_name = "#{@resource.id}.pdf"
@@ -35,12 +36,14 @@ module ESSI
     end
 
     def create_tmp_files(pdf)
-      sorted_files = @resource.ordered_members.to_a
+      # TODO Use logical structure if it exists?
+      sorted_files = @resource.file_set_ids
       sorted_files.each.with_index(1) do |fs, i|
-        Tempfile.create(fs.original_file.file_name.first, dir_path) do |file|
+        fs_solr = SolrDocument.find fs
+        uri = Hyrax.config.iiif_image_url_builder.call(fs_solr.original_file_id, nil, '1024,')
+        URI.open(uri) do |file|
           page_size = [CoverPageGenerator::LETTER_WIDTH, CoverPageGenerator::LETTER_HEIGHT]
           file.binmode
-          file.write(fs.original_file.content)
           pdf.image(file, fit: page_size, position: :center, vposition: :center)
         end
         paginate_images(pdf, i)
@@ -48,7 +51,7 @@ module ESSI
     end
 
     def paginate_images(pdf, i)
-      num_of_images = @resource.file_sets.count
+      num_of_images = @resource.file_set_ids.size
       pdf.start_new_page unless num_of_images == i
     end
   end
