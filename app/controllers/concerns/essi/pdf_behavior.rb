@@ -9,8 +9,8 @@ module ESSI
                   type: 'application/pdf',
                   disposition: 'inline'
       else
-        redirect_to "/concern/#{resource.class.to_s.underscore.pluralize}/#{resource.id}?locale=en",
-          alert: 'You do not have access to download this PDF.'
+        redirect_to [main_app, curation_concern],
+                    alert: 'You do not have access to download this PDF.'
       end
     end
   end
