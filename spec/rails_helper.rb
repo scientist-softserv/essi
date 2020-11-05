@@ -41,6 +41,7 @@ ActiveRecord::Migration.maintain_test_schema!
 ActiveJob::Base.queue_adapter = :test
 
 RSpec.configure do |config|
+  config.include ActiveJob::TestHelper
   config.before(:each, type: :system, js: true) do
     driven_by :selenium_chrome_headless_sandboxless #
   end

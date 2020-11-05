@@ -1,6 +1,6 @@
 # Generated via
-#  `rails generate hyrax:work PagedResource`
-class PagedResource < ActiveFedora::Base
+#  `rails generate hyrax:work ArchivalMaterial`
+class ArchivalMaterial < PagedResource
   include ESSI::PagedResourceBehavior
   include ::Hyrax::WorkBehavior
   include StructuralMetadata
@@ -11,7 +11,7 @@ class PagedResource < ActiveFedora::Base
   include ESSI::OCRMetadata
   include ESSI::PDFMetadata
 
-  self.indexer = PagedResourceIndexer
+  self.indexer = ArchivalMaterialIndexer
   # Change this to restrict which works can be added as a child.
   # self.valid_child_concerns = []
   validates :title, presence: { message: 'Your work must have a title.' }

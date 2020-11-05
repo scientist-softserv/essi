@@ -10,6 +10,7 @@ module Hyrax
     include ESSI::PagedResourceFormBehavior
     include ESSI::HoldingLocationTerms
     include ESSI::OCRTerms
+    include ESSI::PDFTerms
     include ESSI::PurlTerms
     include ESSI::RemoteMetadataFormElements
     include ESSI::CampusTerms
