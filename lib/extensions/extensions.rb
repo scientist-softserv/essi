@@ -46,7 +46,7 @@ Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::Structure
 
 
 Hyrax::CurationConcern.actor_factory.insert Hyrax::Actors::TransactionalRequest, ESSI::Actors::PerformLaterActor
-Hyrax::CurationConcern.actor_factory.swap Hyrax::Actors::CreateWithRemoteFilesActor, ESSI::Actors::CreateWithRemoteFilesActor
+Hyrax::CurationConcern.actor_factory.swap Hyrax::Actors::CreateWithRemoteFilesActor, ESSI::Actors::CreateWithRemoteFilesOrderedMembersStructureActor
 
 # .jp2 conversion settings
 Hydra::Derivatives.kdu_compress_path = ESSI.config.dig(:essi, :kdu_compress_path)
@@ -62,3 +62,6 @@ Hyrax::Forms::CollectionForm.include Extensions::Hyrax::Forms::CollectionForm::C
 Hyrax::CollectionPresenter.include Extensions::Hyrax::CollectionPresenter::CustomizedTerms
 AdminSet.include Extensions::Hyrax::AdminSet::CampusOnAdminSet
 Hyrax::Forms::AdminSetForm.include Extensions::Hyrax::Forms::AdminSetForm::CustomizedTerms
+
+VisibilityCopyJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
+InheritPermissionsJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
