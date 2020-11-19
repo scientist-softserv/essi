@@ -15,7 +15,7 @@
         <% if @presenter.description.any? %>
           <p><%= @presenter.description.first %></p>
         <% end %>
-        <%= render 'collection_logo', collection_presenter: @presenter %>
+        <%= render 'hyrax/collections/collection_logo', collection_presenter: @presenter %>
       </div>
     </div>
 
