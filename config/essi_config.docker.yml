@@ -80,6 +80,7 @@ default: &default
     master_file_service_url: http://purl.dlib.indiana.edu/iudl/variations/master
     purl_redirect_url: http://server1.variations2.indiana.edu/cgi-bin/access?%s
     ocr_language: [eng]
+    ocr_preprocessor_path: <%= Rails.root.join('bin', 'ocr_preprocessor') %>
     create_ocr_files: true
     index_ocr_files: true
     create_word_boundaries: true

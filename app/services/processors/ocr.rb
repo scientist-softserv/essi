@@ -8,12 +8,14 @@ module Processors
       if existing_file
         Rails.logger.info "Copying Pre-derived OCR file #{existing_file} to #{output_file}."
         execute "cp #{existing_file} #{output_file}"
-      else
-        clean_file = ocr_clean_file(path)
-        bitonal_file = ocr_bitonal_file(clean_file)
-        remove_tmp_file(clean_file)
+      elsif preprocess_ocr?
+        Rails.logger.info "Pre-processing #{path} before OCR derivation."
+        bitonal_file = ocr_clean_file(path)
         execute "tesseract #{bitonal_file} #{output_file.gsub('.xml', '')} #{options[:options]} alto"
         remove_tmp_file(bitonal_file)
+      else
+        Rails.logger.info "Deriving OCR directly from #{path}."
+        execute "tesseract #{path} #{output_file.gsub('.xml', '')} #{options[:options]} alto"
       end
     end
 
@@ -35,16 +37,18 @@ module Processors
       ocr_file
     end
 
-    def self.ocr_clean_file(path)
-      clean_file = File.join(Hydra::Derivatives.temp_file_base, "clean_#{File.basename(path)}")
-      execute "#{Rails.root.join('bin', 'textcleaner')} #{path} #{clean_file}"
-      clean_file
+    def self.preprocess_ocr?
+      ocr_preprocessor.present? && File.exists?(ocr_preprocessor)
     end
 
-    def self.ocr_bitonal_file(path)
-      bitonal_file = File.join(Hydra::Derivatives.temp_file_base, "bitonal_#{File.basename(path)}")
-      execute "convert #{path} -threshold 42% #{bitonal_file}"
-      bitonal_file
+    def self.ocr_preprocessor
+      @ocr_preprocessor ||= ESSI.config.dig(:essi, :ocr_preprocessor_path)
+    end
+
+    def self.ocr_clean_file(path)
+      clean_file = File.join(Hydra::Derivatives.temp_file_base, "clean_#{File.basename(path)}")
+      execute "#{ocr_preprocessor} #{path} #{clean_file}"
+      clean_file
     end
 
     def self.remove_tmp_file(file)
