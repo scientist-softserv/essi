@@ -26,15 +26,16 @@ class SolrDocument
 
   use_extension( Hydra::ContentNegotiation )
 
-  attribute :num_pages, Solr::String, solr_name('num_pages')
+  attribute :num_pages, Solr::String, solr_name('num_pages', :stored_searchable, type: :integer)
   attribute :holding_location, Solr::String, solr_name('holding_location')
   attribute :campus, Solr::String, solr_name('campus')
   attribute :viewing_hint, Solr::String, solr_name('viewing_hint')
   attribute :viewing_direction, Solr::String, solr_name('viewing_direction')
   attribute :ocr_searchable, Solr::String, solr_name('ocr_searchable', Solrizer::Descriptor.new(:boolean, :stored, :indexed))
   # @todo remove after upgrade to Hyrax 3.x
-  attribute :original_file_id, Solr::String, "original_file_id_ssi"
+  attribute :original_file_id, Solr::String, solr_name('original_file_id', :stored_sortable)
   attribute :allow_pdf_download, Solr::String, solr_name('allow_pdf_download', Solrizer::Descriptor.new(:boolean, :stored, :indexed))
+  attribute :file_set_ids, Solr::Array, solr_name('file_set_ids', :symbol)
 
   def series
     self[Solrizer.solr_name('series')]
