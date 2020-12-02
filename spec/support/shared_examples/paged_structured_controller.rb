@@ -1,5 +1,5 @@
 RSpec.shared_examples "paged_structure persister" \
-do |resource_symbol, presenter_factory|
+do |resource_symbol, presenter_factory, resource_controller|
 
   describe "when logged in" do
 
@@ -22,6 +22,7 @@ do |resource_symbol, presenter_factory|
 
       before do
         allow(resource.class).to receive(:find).and_return(resource)
+        allow_any_instance_of(resource_controller).to receive(:authorize!).and_return(true)
         resource.ordered_members << file_set
         solr.add file_set.to_solr.merge(ordered_by_ssim: [resource.id])
         solr.add resource.to_solr
