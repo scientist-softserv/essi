@@ -1,4 +1,6 @@
 class PerformLaterActorJob < ActiveJob::Base
+  queue_as Hyrax.config.ingest_queue_name
+
   def perform(action, curation_concern, ability_user, attributes_for_actor)
     # create action needs a new object, update/destroy should pass in the existing object.
     curation_concern = curation_concern.constantize.new if curation_concern.is_a? String
