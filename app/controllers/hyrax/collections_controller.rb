@@ -14,6 +14,11 @@ module Hyrax
       render json: result
     end
 
+    # disable the bookmark control from displaying in gallery view
+    def render_bookmarks_control?
+      false
+    end
+
     private
 
       def form
