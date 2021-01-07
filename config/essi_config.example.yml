@@ -54,6 +54,9 @@ default: &default
       :response_type: :public_url
     file_system:
       :home: <%= Rails.root.join("staged_files") %>
+  airbrake:
+    project_id:
+    project_key:
   ldap:
     enabled: false
     host: ads.iu.edu

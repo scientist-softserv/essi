@@ -42,6 +42,9 @@ default: &default
     iiif_server_url: /iiif/2/
   iucat_libraries:
     url: http://iucat-feature-tadas.uits.iu.edu/api/library
+  airbrake:
+    project_id:
+    project_key:
   ldap:
     enabled: false
     host: ads.iu.edu

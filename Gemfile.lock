@@ -85,6 +85,10 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    airbrake (11.0.1)
+      airbrake-ruby (~> 5.1)
+    airbrake-ruby (5.1.1)
+      rbtree3 (~> 0.5)
     almond-rails (0.1.0)
       rails (>= 4.2, < 6)
     arel (8.0.0)
@@ -635,8 +639,6 @@ GEM
       rails (~> 5.0)
       rdf
     rack (2.2.3)
-    rack-protection (2.0.5)
-      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.1.7)
@@ -673,6 +675,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    rbtree3 (0.6.0)
     rdf (3.1.4)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
@@ -926,6 +929,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   bagit
   better_errors
   binding_of_caller
