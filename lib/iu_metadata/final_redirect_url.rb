@@ -34,7 +34,8 @@ module IuMetadata
       begin
         redirect_lookup_depth = options[:depth].to_i > 0 ? options[:depth].to_i : 10
         response_uri = head_final_redirect_url(url, redirect_lookup_depth)
-        final_url =  url_string_from_uri(response_uri)
+        # final_url =  url_string_from_uri(response_uri) # Don't use string constructor from upstream
+        final_url = URI(response_uri).to_s
       rescue Exception => ex
         logger = Logger.new(STDOUT)
         logger.error(ex.message)

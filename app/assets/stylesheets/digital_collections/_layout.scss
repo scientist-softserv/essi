@@ -849,11 +849,6 @@ tr:nth-child(even):hover {
 	max-width: 100%;
 }
 
-.masonry {
-	display: flex;
-	width: 100%;
-	flex-flow: row wrap;
-}
 
 a {
 	color: #333;
@@ -863,16 +858,6 @@ a {
 	vertical-align: middle;
 	max-width: 100%;
 }
-
-.masonry {
-	display: flex;
-	width: 100%;
-	flex-flow: row wrap;
-}
-
-
-
-
 
 a {
 	color: #333;
@@ -1269,7 +1254,3 @@ a {
 
 #main-nav{margin: 0;padding: .4em .2em ;}
 .masonry{}
-
-#search-form-header label.control-label {
-  display: none;
-}
