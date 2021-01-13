@@ -54,6 +54,8 @@ en:
     collections:
       show:
         list_collections: List of items in this collection
+    contact_form:
+      notice: If you have questions or comments about Digital Collections, please fill out the form below.
     directory:
       suffix: "@example.org"
     footer:
