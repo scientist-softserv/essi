@@ -1,0 +1,6 @@
+#!/bin/bash
+# Stub executable for pre-processing an image before OCR derivation
+# Takes input file and output file as arguments
+# Can be replaced with actual pre-processing script, such as Fred Weinhaus's textcleaner
+# Pre-processing can also be skipped entirely by dropping the ocr_preprocessor value in ESSI config
+cp $1 $2

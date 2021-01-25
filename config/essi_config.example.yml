@@ -34,7 +34,7 @@ default: &default
     active_job:
       queue_adapter: async
   cantaloupe:
-    iiif_server_url: /iiif/2/
+    iiif_server_url: http://localhost:3000/iiif/2/
 #    iiif_server_url: http://localhost:8182/iiif/2/
   derivatives:
     path: <%= Rails.root.join("tmp/derivatives") %>
@@ -54,6 +54,9 @@ default: &default
       :response_type: :public_url
     file_system:
       :home: <%= Rails.root.join("staged_files") %>
+  airbrake:
+    project_id:
+    project_key:
   ldap:
     enabled: false
     host: ads.iu.edu
@@ -80,6 +83,7 @@ default: &default
     skip_derivatives: false
     derivatives_folder: false
     ocr_language: [eng]
+    ocr_preprocessor_path: <%= Rails.root.join('bin', 'ocr_preprocessor') %>
     create_ocr_files: true
     index_ocr_files: true
     create_word_boundaries: true
@@ -198,6 +202,8 @@ test:
       url: "redis://127.0.0.1:6379/9"
   rails:
       secret_key_base: c9dd75fe2cce941807d14e04c09aa1f9ae41b6e1f7ba9d2f33142659acf9491f4a7835aad0c4110bf2fa40f2a1e6f7a62048b5a1e1a32c361c8c16d772e40bf0
+  cantaloupe:
+    iiif_server_url: /iiif/2/
 
 production:
   <<: *default

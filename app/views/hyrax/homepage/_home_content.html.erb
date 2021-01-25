@@ -1,0 +1,27 @@
+<div class="home_welcome">
+  <%= render 'home_content_welcome' %>
+</div>
+<div class="full-width light-gray">
+  <div class="row home_campuses">
+    <%= render 'home_content_campuses' %>
+  </div>
+</div>
+<div class="home_featured_tabs">
+  <ul id="homeTabs" class="nav nav-buttons" role="tablist">
+    <li class="active"><a href="#featured_container" data-toggle="tab" role="tab" id="featureTab" class="button"><%= t('hyrax.homepage.featured_works.tab_label') %></a></li>
+    <li><a href="#recently_uploaded" data-toggle="tab" role="tab" id="recentTab" class="button"><%= t('hyrax.homepage.recently_uploaded.tab_label') %></a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade in active" id="featured_container" role="tabpanel" aria-labelledby="featureTab">
+      <%= render 'featured_works' %>
+    </div>
+    <div class="tab-pane fade" id="recently_uploaded" role="tabpanel" aria-labelledby="recentTab">
+      <%= render 'recently_uploaded', recent_documents: @recent_documents %>
+    </div>
+  </div>
+</div><!-- /.col-xs-6 -->
+<div class="centered">
+  <%= link_to t('hyrax.homepage.admin_sets.link'),
+              main_app.search_catalog_path(f: { human_readable_type_sim: ["Collection"]}),
+              class: 'button' %>
+</div>

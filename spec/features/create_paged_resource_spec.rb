@@ -81,7 +81,7 @@ RSpec.feature 'Create a PagedResource', type: :system, js: true do
       click_on('My Test Work')
 
       # On work show page
-      expect(page).to have_content('My Test Work')
+      expect(find('.work-type')).to have_content('My Test Work')
       expect(page).to_not have_content "Your files are being processed by Digital Collections in the background."
       expect(find('li.attribute-creator')).to have_content('Doe, Jane')
       click_on('Show Child Items')

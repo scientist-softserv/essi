@@ -1,6 +1,6 @@
 class SaveStructureJob < ActiveJob::Base
   prepend ::LockableJob
-  queue_as :default
+  queue_as Hyrax.config.ingest_queue_name
 
   # rubocop:disable Metrics/AbcSize
   def perform(curation_concern, structure)

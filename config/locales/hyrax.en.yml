@@ -54,6 +54,19 @@ en:
     collections:
       show:
         list_collections: List of items in this collection
+    contact_form:
+      issue_types: # blank values force overriding stock Hyrax entries
+        browsing: ''
+        changing: ''
+        depositing: ''
+        reporting: ''
+        general: General feedback
+        request_access: Request for access
+        tech_support: Technical support
+        other: Other
+      notice: If you have questions or comments about Digital Collections, please fill out the form below.
+      select_type: Select an Issue Type...
+      title: Contact Us
     directory:
       suffix: "@example.org"
     footer:

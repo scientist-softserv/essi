@@ -56,6 +56,9 @@ end
 Capybara.default_driver = :rack_test # This is a faster driver
 Capybara.javascript_driver = :selenium_chrome_headless_sandboxless # This is slower
 
+Capybara.default_max_wait_time = 10
+Capybara.disable_animation = true
+
 Capybara::Screenshot.register_driver(:selenium_chrome_headless_sandboxless) do |driver, path|
   driver.browser.save_screenshot(path)
 end

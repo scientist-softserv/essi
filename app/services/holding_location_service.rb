@@ -3,13 +3,11 @@ module HoldingLocationService
   self.authority = Qa::Authorities::IucatLibraries.new
 
   def self.select_options
-    authority.all.map { |element| [element[:label], element[:code]] }.sort
+    select_all_options.sort
   end
 
   def self.select_all_options
-    authority.all.map do |element|
-      [element[:label], element[:code]]
-    end
+    authority.all.map { |element| [element[:label], element[:code]] }
   end
 
   def self.find(id)
