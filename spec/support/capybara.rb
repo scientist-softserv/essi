@@ -49,7 +49,14 @@ else
     browser_options.args << '--headless'
     browser_options.args << '--disable-gpu'
     browser_options.args << '--no-sandbox'
-    Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
+
+    http_client = ::Selenium::WebDriver::Remote::Http::Default.new
+    http_client.read_timeout = 150
+
+    Capybara::Selenium::Driver.new(app,
+                                   browser: :chrome,
+                                   options: browser_options,
+                                   http_client: http_client)
   end
 end
 

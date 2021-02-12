@@ -20,7 +20,7 @@ describe CatalogHelper do
 
         context 'with an original_file_id' do
           let(:original_file_id) { 'abcd1234/files/zyxw0987' }
-          it { is_expected.to eq '/iiif/2/abcd1234%2Ffiles%2Fzyxw0987/full/250,/0/default.jpg' }
+          it { is_expected.to match '/iiif/2/abcd1234%2Ffiles%2Fzyxw0987/full/250,/0/default.jpg' }
         end
 
         context 'without an original_file_id' do

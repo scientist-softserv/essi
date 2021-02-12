@@ -11,11 +11,11 @@ module Processors
       elsif preprocess_ocr?
         Rails.logger.info "Pre-processing #{path} before OCR derivation."
         bitonal_file = ocr_clean_file(path)
-        execute "tesseract #{bitonal_file} #{output_file.gsub('.xml', '')} #{options[:options]} alto"
+        execute "OMP_THREAD_LIMIT=1 tesseract #{bitonal_file} #{output_file.gsub('.xml', '')} #{options[:options]} alto"
         remove_tmp_file(bitonal_file)
       else
         Rails.logger.info "Deriving OCR directly from #{path}."
-        execute "tesseract #{path} #{output_file.gsub('.xml', '')} #{options[:options]} alto"
+        execute "OMP_THREAD_LIMIT=1 tesseract #{path} #{output_file.gsub('.xml', '')} #{options[:options]} alto"
       end
     end
 

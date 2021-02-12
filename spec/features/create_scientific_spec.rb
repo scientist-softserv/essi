@@ -2,15 +2,13 @@
 #  `rails generate hyrax:work Scientific`
 require 'rails_helper'
 include Warden::Test::Helpers
+include ActiveJob::TestHelper
 
 # NOTE: If you generated more than one work, you have to set "js: true"
-RSpec.feature 'Create a Scientific', js: false do
-  context 'a logged in user' do
-    let(:user_attributes) do
-      { email: 'test@example.com' }
-    end
+RSpec.feature 'Create a Scientific', type: :system, js: true do
+  context 'a logged in user', clean: true do
     let(:user) do
-      User.new(user_attributes) { |u| u.save(validate: false) }
+      FactoryBot.create :user
     end
     let(:admin_set_id) { AdminSet.find_or_create_default_admin_set_id }
     let(:permission_template) { Hyrax::PermissionTemplate.find_or_create_by!(source_id: admin_set_id) }
@@ -27,31 +25,37 @@ RSpec.feature 'Create a Scientific', js: false do
         agent_id: user.user_key,
         access: 'deposit'
       )
+      # Ensure empty requirement for ldap group authorization
+      allow(ESSI.config[:authorized_ldap_groups]).to receive(:blank?).and_return(true)
       login_as user
     end
 
-    xscenario do
+    scenario do
       visit '/dashboard'
       click_link "Works"
       click_link "Add new work"
+      expect(page).to have_content "Select type of work"
 
       # If you generate more than one work uncomment these lines
-      # choose "payload_concern", option: "Scientific"
-      # click_button "Create work"
+      choose "payload_concern", option: "Scientific"
+      VCR.use_cassette('iucat_libraries_up') do
+        click_button "Create work"
+      end
 
       expect(page).to have_content "Add New Scientific"
       click_link "Files" # switch tab
       expect(page).to have_content "Add files"
       expect(page).to have_content "Add folder"
       within('span#addfiles') do
-        attach_file("files[]", "#{Hyrax::Engine.root}/spec/fixtures/image.jp2", visible: false)
-        attach_file("files[]", "#{Hyrax::Engine.root}/spec/fixtures/jp2_fits.xml", visible: false)
+        attach_file(RSpec.configuration.fixture_path + "/world.png", make_visible: true)
+        attach_file(RSpec.configuration.fixture_path + "/rgb.png", make_visible: true)
       end
       click_link "Descriptions" # switch tab
       fill_in('Title', with: 'My Test Work')
-      fill_in('Creator', with: 'Doe, Jane')
-      fill_in('Keyword', with: 'testing')
-      select('In Copyright', from: 'Rights statement')
+      click_link 'Additional fields'
+      fill_in('Publication Place', with: 'Wells')
+
+      #select('In Copyright', from: 'Rights statement')
 
       # With selenium and the chrome driver, focus remains on the
       # select box. Click outside the box so the next line can't find
@@ -59,11 +63,35 @@ RSpec.feature 'Create a Scientific', js: false do
       find('body').click
       choose('scientific_visibility_open')
       expect(page).to have_content('Please note, making something visible to the world (i.e. marking this as Public) may be viewed as publishing which could impact your ability to')
+      page.driver.browser.manage.window.resize_to(1400,1400)
       check('agreement')
 
-      click_on('Save')
-      expect(page).to have_content('My Test Work')
-      expect(page).to have_content "Your files are being processed by Hyrax in the background."
+      perform_enqueued_jobs do
+        click_on('Save')
+      end
+
+      # On works dashboard (would probably need a page refresh in actual use)
+      expect(page).to have_content('My Test Work', count: 1)
+      expect(page).to have_content('1 works you own in the repository')
+      expect(page).to have_content "Your files are being processed by Digital Collections in the background."
+      click_on('My Test Work')
+
+      # On work show page
+      expect(find('.work-type')).to have_content('My Test Work')
+      expect(page).to_not have_content "Your files are being processed by Digital Collections in the background."
+      expect(find('li.attribute-title')).to have_content('My Test Work')
+      click_on('Show Child Items')
+      expect(find('table.related-files')).to have_content('rgb.png')
+
+      click_on('Go')
+      within '#facets' do
+        click_on('Pages')
+        expect(page).to have_content('0-99')
+        click_on('Publication Place')
+        expect(page).to have_content('Wells')
+        click_on('State')
+        expect(page).to have_content('deposited')
+      end
     end
   end
 end

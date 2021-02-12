@@ -60,7 +60,7 @@ module Bulkrax
         end
 
         it 'succeeds' do
-          expect(xml_entry.status).to eq('succeeded')
+          expect(xml_entry.status).to eq('Complete')
         end
 
         it 'builds entry' do
@@ -68,11 +68,11 @@ module Bulkrax
                                                        'rights_statement' => [nil],
                                                        'source' => ["http://purl.dlib.indiana.edu/iudl/archives/VAC1741-00310"],
                                                        'title' => ["http://purl.dlib.indiana.edu/iudl/archives/VAC1741-00310"],
-                                                       'viewing_direction' => 'left-to-right',
+                                                       #'viewing_direction' => 'left-to-right',
                                                        'visibility' => 'open',
                                                        'work_type' => ['PagedResource'])
-          expect(xml_entry.parsed_metadata).to include('remote_files' => a_collection_starting_with(a_hash_including('file_name' => 'VAC1741-U-00064-001-thumbnail')),
-                                                       'structure' => a_hash_including("nodes"))
+          expect(xml_entry.parsed_metadata).to include('remote_files' => a_collection_starting_with(a_hash_including(:file_name => 'VAC1741-U-00064-001-thumbnail')),
+                                                       'structure' => a_hash_including(:nodes))
         end
 
         it 'does not add unsupported fields' do
@@ -88,7 +88,7 @@ module Bulkrax
 
         it 'fails' do
           xml_entry.build
-          expect(xml_entry.status).to eq('failed')
+          expect(xml_entry.status).to eq('Failed')
         end
       end
     end

@@ -73,7 +73,7 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'hyrax', '~> 2.6.0'
 gem 'rsolr'
@@ -95,11 +95,16 @@ gem 'iiif_manifest'
 gem 'i18n-js'
 gem 'bagit'
 gem 'validatable'
+gem 'country_select', '~> 4.0', require: 'country_select_without_sort_alphabetical'
 gem 'prawn'
 gem 'airbrake'
+gem 'allinson_flex', github: 'samvera-labs/allinson_flex'
+# gem 'allinson_flex', path: 'vendor/engines/allinson_flex'
 
 # Bulk Import / Export
 #TODO: N8 specific - use local for dev; use github for test/staging
 gem 'bulkrax', git: 'https://github.com/samvera-labs/bulkrax.git'
 #gem 'bulkrax', path: 'vendor/engines/bulkrax'
 gem 'willow_sword', github: 'notch8/willow_sword'
+gem 'webpacker'
+gem 'react-rails'

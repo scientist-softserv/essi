@@ -77,7 +77,7 @@ default: &default
     notifier_email: example@test.test
     store_original_files: true
     store_files_as_jp2: true
-    kdu_compress_path: 'opj_compress' # set as kdu_compress or opj_compress, or '' to use ImageMagick
+    kdu_compress_path: '' # set as kdu_compress or opj_compress, or '' to use ImageMagick
     master_file_service_url: http://purl.dlib.indiana.edu/iudl/variations/master
     purl_redirect_url: http://server1.variations2.indiana.edu/cgi-bin/access?%s
     skip_derivatives: false

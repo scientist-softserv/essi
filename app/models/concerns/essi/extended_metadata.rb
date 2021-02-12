@@ -18,11 +18,6 @@ module ESSI
                predicate: RDF::Vocab::MODS.physicalExtent,
                multiple: false
 
-      property :purl,
-               predicate: ::RDF::Vocab::DC.identifier do |index|
-                 index.as :stored_searchable
-               end
-
       property :campus,
                predicate: RDF::Vocab::MARCRelators.uvp,
                multiple: false do |index|

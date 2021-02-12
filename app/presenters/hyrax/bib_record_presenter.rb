@@ -9,5 +9,8 @@ module Hyrax
     include ESSI::PresentsRelatedUrl
     include ESSI::PresentsCampus
     delegate :series, to: :solr_document
+    include AllinsonFlex::DynamicPresenterBehavior
+    self.model_class = ::BibRecord
+    delegate(*delegated_properties, to: :solr_document)
   end
 end

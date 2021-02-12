@@ -9,11 +9,12 @@ do |resource_symbol, presenter_factory, resource_controller|
     let(:user) { FactoryBot.create(:user) }
 
     before { sign_in user }
+
     describe "#structure", :clean do
 
       let(:solr) { ActiveFedora.solr.conn }
       let(:resource) do
-        r = FactoryBot.create(resource_symbol)
+        r = FactoryBot.create(resource_symbol, user: user)
         allow(r).to receive(:id).and_return("1")
         allow(r.list_source).to receive(:id).and_return("3")
         r
@@ -52,7 +53,6 @@ do |resource_symbol, presenter_factory, resource_controller|
 
       let(:resource) { FactoryBot.create(resource_symbol, user: user) }
       let(:file_set) { FactoryBot.create(:file_set, user: user) }
-      let(:user) { FactoryBot.create(:admin) }
       let(:nodes) do
         [
             {
@@ -67,14 +67,13 @@ do |resource_symbol, presenter_factory, resource_controller|
       end
 
       before do
-        sign_in user
+        allow_any_instance_of(resource_controller).to receive(:authorize!).and_return(true)
         resource.ordered_members << file_set
         resource.save
       end
 
       it "persists order" do
         post :save_structure, params: {nodes: nodes, id: resource.id, label: "TOP!"}
-
         expect(response.status).to eq 200
         expect(resource.reload.logical_order.order) \
         .to eq({ 'label': 'TOP!', 'nodes': nodes }.with_indifferent_access)
@@ -88,7 +87,7 @@ do |resource_symbol, presenter_factory, resource_controller|
     end
 
     describe '#manifest', :clean do
-      let(:resource) { FactoryBot.create(resource_symbol) }
+      let(:resource) { FactoryBot.create(resource_symbol, user: user) }
       let(:fs1) { FactoryBot.create(:file_set, user: user) }
       let(:fs2) { FactoryBot.create(:file_set, user: user) }
 

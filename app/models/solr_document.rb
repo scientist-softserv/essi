@@ -5,7 +5,7 @@ class SolrDocument
 
   # Adds Hyrax behaviors to the SolrDocument.
   include Hyrax::SolrDocumentBehavior
-
+  include ESSI::DynamicSolrDocument
 
   # self.unique_key = 'id'
 
