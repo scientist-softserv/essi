@@ -11,9 +11,10 @@
           <%= image_tag campus.img_src, class: 'campus_image', alt: campus.img_alt %>
         </div>
         <div class="text-center campus_footer">
-          <%= link_to 'Explore collections',
-              main_app.search_catalog_path(f: { campus_sim: [campus.id], human_readable_type_sim: ["Collection"]}),
-              class: 'button campus_link' %>
+          <a class="button campus_link" href="<%= main_app.search_catalog_path(f: { campus_sim: [campus.id], human_readable_type_sim: ["Collection"]}) %>">
+            <div class="sr-only">Explore <%= campus.term %>collections</div>
+            <div aria-hidden="true">Explore collections</div>
+          </a>
         </div>
       </div>
     </div>
