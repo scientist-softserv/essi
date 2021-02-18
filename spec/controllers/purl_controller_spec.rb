@@ -6,7 +6,7 @@ describe PurlController do
   let(:paged_resource) {
     FactoryBot.create(:paged_resource,
                        user: user,
-                       purl: ['http://purl.dlib.indiana.edu/iudl/variations/score/BHR9405'],
+                       identifier: ['http://purl.dlib.indiana.edu/iudl/variations/score/BHR9405'],
                        source_metadata_identifier: 'BHR9405')
   }
   let(:paged_resource_path) { Rails.application.routes.url_helpers.hyrax_paged_resource_path(paged_resource) }

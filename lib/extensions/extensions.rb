@@ -25,6 +25,8 @@ Hyrax::WorkShowPresenter.include Extensions::Hyrax::WorkShowPresenter::Collectio
 
 # primary fields support
 Hyrax::Forms::WorkForm.include Extensions::Hyrax::Forms::WorkForm::PrimaryFields
+# support for worktype-specific #work_requires_files?
+Hyrax::Forms::WorkForm.include Extensions::Hyrax::Forms::WorkForm::WorkRequiresFiles
 
 # IIIF Thumbnails for both types of Collections
 Hyrax::AdminSetIndexer.include ESSI::IIIFCollectionThumbnailBehavior
@@ -44,7 +46,7 @@ Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::Structure
 
 
 Hyrax::CurationConcern.actor_factory.insert Hyrax::Actors::TransactionalRequest, ESSI::Actors::PerformLaterActor
-Hyrax::CurationConcern.actor_factory.swap Hyrax::Actors::CreateWithRemoteFilesActor, ESSI::Actors::CreateWithRemoteFilesActor
+Hyrax::CurationConcern.actor_factory.swap Hyrax::Actors::CreateWithRemoteFilesActor, ESSI::Actors::CreateWithRemoteFilesOrderedMembersStructureActor
 
 # .jp2 conversion settings
 Hydra::Derivatives.kdu_compress_path = ESSI.config.dig(:essi, :kdu_compress_path)
@@ -60,3 +62,9 @@ Hyrax::Forms::CollectionForm.include Extensions::Hyrax::Forms::CollectionForm::C
 Hyrax::CollectionPresenter.include Extensions::Hyrax::CollectionPresenter::CustomizedTerms
 AdminSet.include Extensions::Hyrax::AdminSet::CampusOnAdminSet
 Hyrax::Forms::AdminSetForm.include Extensions::Hyrax::Forms::AdminSetForm::CustomizedTerms
+
+VisibilityCopyJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
+InheritPermissionsJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
+
+# Hyrax user lookup
+Hyrax::UsersController.prepend Extensions::Hyrax::UsersController::FindUser

@@ -48,7 +48,7 @@ class PurlController < ApplicationController
     # TODO: reconsider how not all work types support source_metadata_identifier?
     def find_object(id, klass, match_pattern)
       terms = { source_metadata_identifier: id } if klass.properties['source_metadata_identifier']
-      terms = { purl_tesim: id } if id.match('/') && klass.properties['purl']
+      terms = { identifier_tesim: id } if id.match('/') && klass.properties['identifier']
       return unless terms
       if match_pattern.nil? || id.match(match_pattern)
         klass.search_with_conditions(terms, rows: 1).first

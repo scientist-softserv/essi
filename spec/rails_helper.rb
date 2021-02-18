@@ -41,6 +41,7 @@ ActiveRecord::Migration.maintain_test_schema!
 ActiveJob::Base.queue_adapter = :test
 
 RSpec.configure do |config|
+  config.include ActiveJob::TestHelper
   config.before(:each, type: :system, js: true) do
     driven_by :selenium_chrome_headless_sandboxless #
   end
@@ -78,16 +79,20 @@ RSpec.configure do |config|
   config.include(ControllerLevelHelpers, type: :view)
   config.before(:each, type: :view) { initialize_controller_helpers(view) }
 
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
   # The following methods ensure proper handling of minted IDs via Noid to eliminate LDP conflict errors
   include Noid::Rails::RSpec
-  config.before(:suite) { disable_production_minter! }
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+    disable_production_minter!
+    AdminSet.find_or_create_default_admin_set_id
+    profile_path = Rails.root.join('config', 'metadata_profile', 'essi_short.yaml')
+    @allinson_flex_profile = AllinsonFlex::Importer.load_profile_from_path(path: profile_path.to_s)
+    @allinson_flex_profile.save
+  end
+
   config.after(:suite)  { enable_production_minter! }
 
-  config.before do |example|
+  config.around do |example|
     #  Sometimes tests need a clean Fedora and Solr environment to work properly. To invoke the ActiveFedora
     #  cleaner use the :clean metadata directive like:
     #   describe "#structure", :clean do
@@ -96,14 +101,24 @@ RSpec.configure do |config|
     if example.metadata[:clean]
       ActiveFedora::Cleaner.clean!
       ActiveFedora.fedora.connection.send(:init_base_path) if example.metadata[:js]
-    end
 
-    # Let the DatabaseCleaner take care of database rows written in an example
-    if example.metadata[:type] == :feature && Capybara.current_driver != :rack_test
-      DatabaseCleaner.strategy = :truncation
+      # Recreate only the AdminSet, not the associated permission template that is still in the database.
+      # (Instead of AdminSet.find_or_create_default_admin_set_id)
+      AdminSet.create id: AdminSet::DEFAULT_ID, title: Array.wrap(AdminSet::DEFAULT_TITLE)
+
+      # Let the DatabaseCleaner take care of database rows written in an example
+      if example.metadata[:type] == :feature && Capybara.current_driver != :rack_test
+        DatabaseCleaner.strategy = :truncation
+      else
+        DatabaseCleaner.strategy = :transaction
+        DatabaseCleaner.start
+      end
+
+      DatabaseCleaner.cleaning do
+        example.run
+      end
     else
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.start
+      example.run
     end
   end
 
@@ -137,4 +152,3 @@ VCR.configure do |config|
   driver_hosts = Webdrivers::Common.subclasses.map { |driver| URI(driver.base_url).host }
   config.ignore_hosts(*driver_hosts)
 end
-

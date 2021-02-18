@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   mount Bulkrax::Engine, at: '/'
+  mount AllinsonFlex::Engine, at: '/'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # mount spec/javascripts/fixtures directory
   mount JasmineFixtureServer => '/spec/javascripts/fixtures' if defined?(Jasmine::Jquery::Rails::Engine)
@@ -57,6 +58,13 @@ Rails.application.routes.draw do
   curation_concerns_basic_routes
   namespace :hyrax, path: :concern do
     resources :paged_resources, only: [] do
+      member do
+        get :structure
+        post :structure, action: :save_structure
+        get '/pdf', action: :pdf, as: :pdf
+      end
+    end
+    resources :archival_materials, only: [] do
       member do
         get :structure
         post :structure, action: :save_structure

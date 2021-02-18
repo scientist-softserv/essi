@@ -5,6 +5,7 @@ include ActiveJob::TestHelper
 describe IngestYAMLJob do
   before(:context) do
     ActiveFedora::Cleaner.clean!  # Clean just once for the context, not each example.
+    AdminSet.create id: AdminSet::DEFAULT_ID, title: Array.wrap(AdminSet::DEFAULT_TITLE)
     RSpec::Mocks.with_temporary_scope do
       @paged_resource_yaml = Rails.root.join('spec', 'fixtures', 'paged_resource.yml').to_s
       @user = FactoryBot.create(:user)

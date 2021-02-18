@@ -206,6 +206,75 @@ h3 {
   text-shadow: 2px 2px #000;
 }
 
+.home_marketing_text {
+  color: #fff !important;
+  text-shadow: 2px 2px #000 !important;
+}
+
+.home_welcome {
+  padding-left: 15px;
+}
+
+.home_campuses {
+  padding: 1em 25px;
+  margin: auto;
+}
+
+.campus {
+  background-color: #fff;
+  margin: 1em;
+  border-radius: 1em;
+  padding: 0.5em;
+
+  .campus_header {
+    margin: 0.5em;
+  }
+
+  .campus_image {
+    height: auto;
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  .campus_footer {
+    margin-top: 0.5em;
+  }
+
+  .campus_link {
+    margin-bottom: 0;
+  }
+}
+
+.home_featured_tabs {
+  margin-top: 1em;
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.centered {
+  display: table;
+  margin: auto;
+}
+
+.light-gray {
+  background: #eee;
+}
+
+.nav-buttons li {
+  float: left;
+}
+
+.nav-buttons li + li {
+  margin-left: 2px
+}
+
 #logo,#logo2 {
 	font-size: 1.6em;
 	font-weight: bold;
@@ -474,11 +543,13 @@ min-height: 300px;
 .active a {
 	background: #fff;
 }
-/*
-.hyc-bl-search{border: 3px solid red;}
+
+
+.hyc-bl-sort{margin-bottom: 50px;}
+
+/*.hyc-bl-search{border: 3px solid red;}
 .hyc-bl-sort{border:5px dotted blue;}
 .btn-group{margin: .2em .2em .5em;}
-
  search */
 #navbar-search {
 	-webkit-transition: width 0.4s ease-in-out;
@@ -780,11 +851,6 @@ tr:nth-child(even):hover {
 	max-width: 100%;
 }
 
-.masonry {
-	display: flex;
-	width: 100%;
-	flex-flow: row wrap;
-}
 
 a {
 	color: #333;
@@ -794,16 +860,6 @@ a {
 	vertical-align: middle;
 	max-width: 100%;
 }
-
-.masonry {
-	display: flex;
-	width: 100%;
-	flex-flow: row wrap;
-}
-
-
-
-
 
 a {
 	color: #333;
@@ -1200,7 +1256,3 @@ a {
 
 #main-nav{margin: 0;padding: .4em .2em ;}
 .masonry{}
-
-#search-form-header label.control-label {
-  display: none;
-}

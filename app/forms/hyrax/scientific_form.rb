@@ -6,11 +6,11 @@ module Hyrax
     self.model_class = ::Scientific
     self.terms += [:resource_type]
     self.required_fields -= [:keyword]
-    self.primary_fields = [:title, :creator, :rights_statement]
+    self.primary_fields = [:profile_version, :title, :creator, :rights_statement]
     include ESSI::ScientificFormBehavior
     include ESSI::HoldingLocationTerms
     include ESSI::OCRTerms
-    include ESSI::PurlTerms
+    include AllinsonFlex::DynamicFormBehavior
     include ESSI::CampusTerms
   end
 end

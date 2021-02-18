@@ -1,0 +1,15 @@
+<% unless collection_presenter.logo_record.blank? %>
+    <div class="hyc-logos">
+      <% collection_presenter.logo_record.each_with_index  do |lr, i| %>
+
+          <% if lr[:linkurl].blank? %>
+              <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>" />
+          <% else %>
+              <a href="<%= lr[:linkurl] %>">
+                <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>" />
+              </a>
+          <% end %>
+
+      <% end %>
+    </div>
+<% end %>

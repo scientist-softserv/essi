@@ -1,7 +1,7 @@
 class CatalogController < ApplicationController
   include Hydra::Catalog
   include Hydra::Controller::ControllerBehavior
-
+  include AllinsonFlex::DynamicCatalogBehavior
   # This filter applies the hydra access controls
   before_action :enforce_show_permissions, only: :show
 
@@ -13,11 +13,11 @@ class CatalogController < ApplicationController
     solr_name('system_modified', :stored_sortable, type: :date)
   end
 
-  
+
   # CatalogController-scope behavior and configuration for BlacklightIiifSearch
   include BlacklightIiifSearch::Controller
 
-configure_blacklight do |config|
+  configure_blacklight do |config|
 
     # configuration for Blacklight IIIF Content Search
     config.iiif_search = {
@@ -64,16 +64,17 @@ configure_blacklight do |config|
     config.add_facet_field solr_name("language", :facetable), limit: true
     config.add_facet_field solr_name("based_near_label", :facetable), limit: true
     config.add_facet_field solr_name('publication_place', :facetable),
-                           label: 'Publication Place', limit: true
+      label: 'Publication Place', limit: true
     config.add_facet_field solr_name("publisher", :facetable), limit: true
     config.add_facet_field solr_name("file_format", :facetable), limit: true
     config.add_facet_field solr_name('date_created', :facetable),
-                           label: 'Date Created', limit: true
+      label: 'Date Created', limit: true
     config.add_facet_field solr_name('num_pages', :facetable, type: :integer),
-                           sort: 'index', label: 'Pages', limit: true
+      sort: 'index', label: 'Pages', limit: true
     config.add_facet_field solr_name('member_of_collection_ids', :symbol),
-                           limit: true, label: 'Collections', helper_method: :collection_title_by_id
+      limit: true, label: 'Collections', helper_method: :collection_title_by_id
     config.add_facet_field 'workflow_state_name_ssim', label: 'State'
+    config.add_facet_field solr_name("campus", :facetable), label: 'Campus', limit: true
 
     # The generic_type isn't displayed on the facet list
     # It's used to give a label to the filter that comes from the user profile
@@ -308,7 +309,7 @@ configure_blacklight do |config|
     # except in the relevancy case).
     # label is key, solr field is value
     config.add_sort_field "score desc, #{uploaded_field} desc",
-                          label: "relevance \u25BC"
+      label: "relevance \u25BC"
     config.add_sort_field "#{modified_field} desc", label: "recently updated"
     config.add_sort_field \
       "#{solr_name('sort_title', :stored_sortable, type: :string)} asc",

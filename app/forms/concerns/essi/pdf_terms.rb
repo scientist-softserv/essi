@@ -1,8 +1,8 @@
 module ESSI
-  module PurlTerms
+  module PDFTerms
     extend ActiveSupport::Concern
     included do
-      self.terms += [:purl]
+      self.terms += [:allow_pdf_download]
     end
   end
 end

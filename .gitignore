@@ -44,9 +44,19 @@ public/branding
 # Ignore Browse Everything dropbox directory
 staged_files
 
-public/assets
-vendor/engines/bulkrax/
+# Ignore any locally mounted engines
+vendor/engines/
+/public/assets
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
 spec/tmp/pdfs
 
 # Ignore solr generated files
 solr/config/*
+
+# Ignore swp files
+.*.sw?

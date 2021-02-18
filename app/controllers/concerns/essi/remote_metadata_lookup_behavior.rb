@@ -9,7 +9,7 @@ module ESSI
   module RemoteMetadataLookupBehavior
     def attributes_for_actor
       if wants_to_update_remote_metadata?
-        super.to_h.with_indifferent_access.merge(remote_attributes)
+        super.merge(remote_attributes)
       else
         super
       end
