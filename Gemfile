@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2.4'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'
@@ -77,7 +77,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'hyrax', '~> 2.6.0'
+gem 'hyrax', '~> 2.9.6'
 gem 'browse-everything', '1.1.0' # held to 1.1.0 pending resolution of webpacker issues
 gem 'rsolr'
 gem 'jquery-rails'
@@ -102,13 +102,13 @@ gem 'country_select', '~> 4.0', require: 'country_select_without_sort_alphabetic
 gem 'prawn'
 gem 'airbrake'
 gem 'allinson_flex', github: 'samvera-labs/allinson_flex'
-# gem 'allinson_flex', path: 'vendor/engines/allinson_flex'
 gem 'okcomputer'
 
 # Bulk Import / Export
-#TODO: N8 specific - use local for dev; use github for test/staging
 gem 'bulkrax', '~> 1.0.0'
-#gem 'bulkrax', path: 'vendor/engines/bulkrax'
 gem 'willow_sword', github: 'notch8/willow_sword'
 gem 'webpacker'
 gem 'react-rails'
+
+# hold back hydra-head due to implicit Blacklight 7 requirement in newer versions
+gem 'hydra-head', '10.6.1'

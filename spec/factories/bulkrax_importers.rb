@@ -1,4 +1,3 @@
-# We use modify instead of define because the actual factory is defined in hyrax/spec/factories
 FactoryBot.define do
   factory :bulkrax_importer_mets_xml, class: 'Bulkrax::Importer' do
     name { 'METS XML Import' }
