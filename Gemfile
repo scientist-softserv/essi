@@ -76,6 +76,7 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'hyrax', '~> 2.6.0'
+gem 'browse-everything', '~> 1.0.2' 
 gem 'rsolr'
 gem 'jquery-rails'
 gem 'devise'
