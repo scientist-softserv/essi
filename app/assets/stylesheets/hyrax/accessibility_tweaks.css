@@ -1,0 +1,4 @@
+/* ESSI-1229: increase visibility label in Child Items of a work, from 75% */
+table.related-files td.attribute-permission span.label {
+        font-size:95%;
+}
