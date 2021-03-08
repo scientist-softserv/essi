@@ -14,9 +14,8 @@ module Extensions
 
           # Regardless of what the Parser gives us, these are the properties we are prepared to accept.
           def permitted_attributes
-            # Override - add structure to accepted fields
-            super
-            klass.properties.keys.map(&:to_sym) + %i[structure]
+            # Override - add admin_set_id, structure to accepted fields
+            super + %i[admin_set_id structure]
           end
 
       end
