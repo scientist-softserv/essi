@@ -41,10 +41,10 @@ Hyrax::Dashboard::CollectionsController.prepend Extensions::Hyrax::Dashboard::Co
 Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::SourceMetadataIdentifier
 
 # bulkrax overrides
-
 Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::Structure
+Bulkrax::Entry.prepend Extensions::Bulkrax::Entry::AllinsonFlexFields
 
-
+# actor customizations
 Hyrax::CurationConcern.actor_factory.insert Hyrax::Actors::TransactionalRequest, ESSI::Actors::PerformLaterActor
 Hyrax::CurationConcern.actor_factory.swap Hyrax::Actors::CreateWithRemoteFilesActor, ESSI::Actors::CreateWithRemoteFilesOrderedMembersStructureActor
 
