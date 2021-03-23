@@ -166,6 +166,7 @@ ActiveRecord::Schema.define(version: 20210113205232) do
     t.date "start_date"
     t.date "finish_date"
     t.string "work_visibility"
+    t.string "workflow_status"
     t.index ["user_id"], name: "index_bulkrax_exporters_on_user_id"
   end
 
