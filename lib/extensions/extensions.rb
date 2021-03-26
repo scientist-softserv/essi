@@ -43,6 +43,8 @@ Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::SourceMetad
 # bulkrax overrides
 Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::Structure
 Bulkrax::Entry.prepend Extensions::Bulkrax::Entry::AllinsonFlexFields
+Bulkrax::Exporter.prepend Extensions::Bulkrax::Exporter::LastRun
+Bulkrax::Importer.prepend Extensions::Bulkrax::Importer::LastRun
 
 # actor customizations
 Hyrax::CurationConcern.actor_factory.insert Hyrax::Actors::TransactionalRequest, ESSI::Actors::PerformLaterActor
