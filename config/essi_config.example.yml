@@ -177,6 +177,7 @@ default: &default
       example_admin_set:
         title: Example title
         url: https://example.com
+    homepage_banner: images/homepage_banner.png
 
 development:
   <<: *default
