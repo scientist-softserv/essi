@@ -29,7 +29,7 @@ class METSDocument
   def thumbnail_path
     xp = "/mets:mets/mets:fileSec/mets:fileGrp[@USE='thumbnail']" \
     "/mets:file/mets:FLocat/@xlink:href"
-    @mets.xpath(xp).to_s.gsub(/file:\/\//, '')
+    @mets.xpath(xp).to_s
   end
 
   def viewing_direction
@@ -104,7 +104,7 @@ class METSDocument
     end
 
     def final_url(file)
-      url = file.xpath('mets:FLocat/@xlink:href').to_s.gsub(/file:\/\//, '')
+      url = file.xpath('mets:FLocat/@xlink:href').to_s
       #return unless url.present?
 
       fl = if url.present?

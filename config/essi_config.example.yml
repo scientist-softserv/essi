@@ -178,6 +178,7 @@ default: &default
         title: Example title
         url: https://example.com
     homepage_banner: images/homepage_banner.png
+    whitelisted_ingest_dirs: []
 
 development:
   <<: *default
