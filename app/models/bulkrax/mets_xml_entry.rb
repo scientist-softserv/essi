@@ -45,6 +45,10 @@ module Bulkrax
       @record ||= IuMetadata::METSRecord.new(source_identifier, raw_metadata['data'])
     end
 
+    def files
+      @files ||= record.files
+    end
+
     def build_metadata
       raise StandardError, 'Record not found' if record.nil?
       raise StandardError, 'Missing source identifier' if source_identifier.blank?
@@ -59,8 +63,9 @@ module Bulkrax
       add_title
       add_visibility
       add_rights_statement
-      self.parsed_metadata['remote_files'] = record.files
-      self.parsed_metadata['structure'] = record.structure #add_logical_structure
+      add_local_files
+      add_remote_files
+      add_logical_structure
       add_collections
       add_local
       raise StandardError, "title is required" if self.parsed_metadata['title'].join.blank?
@@ -69,6 +74,20 @@ module Bulkrax
 
     def add_title
       self.parsed_metadata['title'] = [parser.parser_fields['title'] || record.identifier]
+    end
+
+    def add_local_files
+      local_files = files.reject { |e| e[:url].match(URI::ABS_URI) }.map { |e| e[:url] }
+      self.parsed_metadata['file'] = local_files if local_files.any?
+    end
+
+    def add_remote_files
+      remote_files = files.select { |e| e[:url].match(URI::ABS_URI) }
+      self.parsed_metadata['remote_files'] = remote_files if remote_files.any?
+    end
+
+    def add_logical_structure
+      self.parsed_metadata['structure'] = record.structure 
     end
   end
 end

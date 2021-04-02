@@ -2,7 +2,7 @@ module ESSI
   module Actors
     class CreateWithRemoteFilesOrderedMembersStructureActor < CreateWithRemoteFilesActor
       def create(env)
-        Rails.logger.debug "Called ESSI::Actors::CreateWithRemoteFilesOrderedMembersStructureActor#create for #{env.curation_concern.id}"
+        ::Rails.logger.debug "Called ESSI::Actors::CreateWithRemoteFilesOrderedMembersStructureActor#create for #{env.curation_concern.id}"
         structure = env.attributes.delete(:structure)&.deep_symbolize_keys
         super(env) && save_structure(env,structure) && copy_visibility(env) && inherit_permissions(env)
       end
@@ -22,9 +22,9 @@ module ESSI
           remote_files.each do |file_info|
             next if file_info.blank? || file_info[:url].blank?
             # Escape any space characters, so that this is a legal URI
-            uri = URI.parse(Addressable::URI.normalized_encode(file_info[:url]))
+            uri = ::URI.parse(::Addressable::URI.normalized_encode(file_info[:url]))
             unless validate_remote_url(uri)
-              Rails.logger.error "User #{env.user.user_key} attempted to ingest file from url #{file_info[:url]}, which doesn't pass validation"
+              ::Rails.logger.error "User #{env.user.user_key} attempted to ingest file from url #{file_info[:url]}, which doesn't pass validation"
               return false
             end
             auth_header = file_info.fetch(:auth_header, {})
@@ -53,27 +53,27 @@ module ESSI
             structure_to_repo_map[file_info[:id]] = fs.id
             if uri.scheme == 'file'
               # Turn any %20 into spaces.
-              file_path = CGI.unescape(uri.path)
-              IngestLocalFileJob.perform_later(fs, file_path, env.user)
+              file_path = ::CGI.unescape(uri.path)
+              ::IngestLocalFileJob.perform_later(fs, file_path, env.user)
             else
-              ImportUrlJob.perform_later(fs, operation_for(user: actor.user), auth_header)
+              ::ImportUrlJob.perform_later(fs, operation_for(user: actor.user), auth_header)
             end
           end
         end
 
         # Add all file_sets as ordered_members in a single action
         def add_ordered_members(env)
-          actor = Hyrax::Actors::OrderedMembersActor.new(env.retrieve(self, :ordered_members), env.user)
+          actor = ::Hyrax::Actors::OrderedMembersActor.new(env.retrieve(self, :ordered_members), env.user)
           actor.attach_ordered_members_to_work(env.curation_concern)
         end
 
         class_attribute :file_set_actor_class
-        self.file_set_actor_class = Hyrax::Actors::FileSetOrderedMembersActor
+        self.file_set_actor_class = ::Hyrax::Actors::FileSetOrderedMembersActor
 
         def save_structure(env, structure)
           if structure.present?
             field_map = map_fileids(structure)
-            SaveStructureJob.perform_now(env.curation_concern, field_map.to_json)
+            ::SaveStructureJob.perform_now(env.curation_concern, field_map.to_json)
           end
           true
         end

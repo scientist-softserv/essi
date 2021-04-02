@@ -299,6 +299,10 @@ Hyrax.config do |config|
   #
   config.whitelisted_ingest_dirs ||= []
   config.whitelisted_ingest_dirs << Rails.root.join('spec', 'fixtures').to_s
+  [ESSI.config.dig(:essi, :whitelisted_ingest_dirs) || [], 
+   ENV['WHITELISTED_INGEST_DIRS'].to_s.split].select(&:any?).each do |additional_dirs|
+    config.whitelisted_ingest_dirs += additional_dirs
+  end
 end
 
 Date::DATE_FORMATS[:standard] = "%m/%d/%Y"
