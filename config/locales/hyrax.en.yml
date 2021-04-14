@@ -79,7 +79,7 @@ en:
     search:
       form:
         q:
-          placeholder: Search Digital Collections
+          placeholder: Enter search terms
     structure_manager:
       link_text: "Edit Structure"
     upload:
