@@ -101,6 +101,7 @@ gem 'prawn'
 gem 'airbrake'
 gem 'allinson_flex', github: 'samvera-labs/allinson_flex'
 # gem 'allinson_flex', path: 'vendor/engines/allinson_flex'
+gem 'okcomputer'
 
 # Bulk Import / Export
 #TODO: N8 specific - use local for dev; use github for test/staging
