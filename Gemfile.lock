@@ -340,7 +340,7 @@ GEM
       faraday (>= 0.7.4, < 1.0)
     fcrepo_wrapper (0.9.0)
       ruby-progressbar
-    ffi (1.14.2)
+    ffi (1.15.0)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -914,7 +914,7 @@ GEM
       activemodel (>= 5.0)
     sixarm_ruby_unaccent (1.2.0)
     slop (4.8.2)
-    solr_wrapper (3.1.1)
+    solr_wrapper (3.1.2)
       http
       retriable
       ruby-progressbar
