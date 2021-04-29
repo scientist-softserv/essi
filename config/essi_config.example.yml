@@ -26,6 +26,11 @@ default: &default
   rails:
     mailer:
       host: localhost:3000
+      address: 'smtp.gmail.com'
+      port: 587
+      user_name: 'example@gmail.com'
+      password: 'app_password'
+      authentication: 'plain'
     serve_static_files: true
     secret_key_base: 628b30efcdf28acbbd30a80e53e2b743d44f74bf393462badc49e0f5909ed109812ff12905e3a98bf4f81d3618fac5c061ad4e1ca5c91f9c1dce8226ca3cff25
     cache:
@@ -179,7 +184,8 @@ default: &default
         url: https://example.com
     homepage_banner: images/homepage_banner.png
     whitelisted_ingest_dirs: []
-
+    contact_email: example@test.test
+        
 development:
   <<: *default
 
