@@ -55,7 +55,7 @@ class METSDocument
     volume_node = volume_nodes.find do |vol|
       vol.attribute("ID").value == volume_id
     end
-    return volume_node.attribute("FILEID").value if volume_node
+    return label_for_element(volume_node) if volume_node
   end
 
   def files_for_volume(volume_id)
