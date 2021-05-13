@@ -94,7 +94,7 @@ module MetsStructure
 
     def label_for_element(node)
       return nil unless node
-      node_id = node["FILEID"]
+      node_id = node["LABEL"]
       node_id = node['ID'] if node_id.blank?
       node_id = "#{node["TYPE"]} #{node['ORDER']}" if node_id.blank? &&
                                                       node['TYPE'].present?
