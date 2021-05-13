@@ -315,7 +315,7 @@
    </mets:fileSec>
    <mets:structMap TYPE="logical">
       <mets:div TYPE="archivalcomponent">
-         <mets: ID="VAC1741-U-00064" ORDER="1" TYPE="archivalitem">
+         <mets:div ID="VAC1741-U-00064" ORDER="1" TYPE="archivalitem">
             <mets:fptr FILEID="VAC1741-U-00064-printable"/>
             <mets:div ORDER="1" TYPE="page">
                <mets:fptr FILEID="VAC1741-U-00064-001-thumbnail"/>
