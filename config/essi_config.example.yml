@@ -31,6 +31,9 @@ default: &default
       user_name: 'example@gmail.com'
       password: 'app_password'
       authentication: 'plain'
+      raise_delivery_errors: false
+      enable_starttls_auto: true
+      openssl_verify_mode: 'none'
     serve_static_files: true
     secret_key_base: 628b30efcdf28acbbd30a80e53e2b743d44f74bf393462badc49e0f5909ed109812ff12905e3a98bf4f81d3618fac5c061ad4e1ca5c91f9c1dce8226ca3cff25
     cache:
