@@ -55,7 +55,7 @@ module Bulkrax
       self.parsed_metadata = {}
       self.parsed_metadata['admin_set_id'] = self.importerexporter.admin_set_id
       self.parsed_metadata[Bulkrax.system_identifier_field] = [source_identifier]
-      self.parsed_metadata['work_type'] = ['PagedResource']
+      self.parsed_metadata['work_type'] = [parser.parser_fields['work_type'] || 'PagedResource']
 
       record.attributes.each do |k,v|
         add_metadata(k, v) unless v.blank?
