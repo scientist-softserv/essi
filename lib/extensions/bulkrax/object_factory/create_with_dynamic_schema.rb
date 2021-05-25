@@ -2,10 +2,10 @@ module Extensions
   module Bulkrax
     module ObjectFactory
       module CreateWithDynamicSchema
-        # unmodified
+        # modified to apply a supplied dynamic_schema_id to initial object build
         def create
           attrs = create_attributes
-          @object = klass.new
+          @object = klass.new(dynamic_schema_id: attrs[:dynamic_schema_id])
           object.reindex_extent = ::Hyrax::Adapters::NestingIndexAdapter::LIMITED_REINDEX
           run_callbacks :save do
             run_callbacks :create do
