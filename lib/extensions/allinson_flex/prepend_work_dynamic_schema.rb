@@ -3,9 +3,10 @@
 module Extensions
   module AllinsonFlex
     module PrependWorkDynamicSchema
-      # unmodified method from allinson_flex, exhibiting issue #61
+      # @todo remove after issue is resolved within allinson_flex
+      # modified from allinson_flex, to resolve issue #61
       def dynamic_schema
-        @dynamic_schema ||= ::AllinsonFlex::DynamicSchema.find_by_id(id: self.dynamic_schema_id) || self.dynamic_schema_service(update: true)&.dynamic_schema
+        @dynamic_schema ||= ::AllinsonFlex::DynamicSchema.find_by(id: self.dynamic_schema_id) || self.dynamic_schema_service(update: true)&.dynamic_schema
       end
     end
   end
