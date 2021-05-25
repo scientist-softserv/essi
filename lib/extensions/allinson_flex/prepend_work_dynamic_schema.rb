@@ -8,6 +8,23 @@ module Extensions
       def dynamic_schema
         @dynamic_schema ||= ::AllinsonFlex::DynamicSchema.find_by(id: self.dynamic_schema_id) || self.dynamic_schema_service(update: true)&.dynamic_schema
       end
+
+      # unmodified method from allinson_flex, exhibiting issue #63
+      def initialize(attributes = nil, &_block)
+        init_internals
+        attributes = attributes.dup if attributes # can't dup nil in Ruby 2.3
+        id = attributes && (attributes.delete(:id) || attributes.delete('id'))
+        @ldp_source = build_ldp_resource(id)
+        raise IllegalOperation, "Attempting to recreate existing ldp_source: `#{ldp_source.subject}'" unless ldp_source.new?
+        load_allinson_flex ## This is the new part
+        assign_attributes(attributes) if attributes
+        assert_content_model
+        load_attached_files
+  
+        yield self if block_given?
+        _run_initialize_callbacks
+      end
+  
     end
   end
 end
