@@ -11,7 +11,7 @@ module Bulkrax
     end
 
     def available_profiles
-      @available_profiles ||= AllinsonFlex::Profile.all.order(:id).map { |p| [p.profile_version.to_s, p.id] }
+      @available_profiles ||= AllinsonFlex::Profile.all.order(id: :desc).map { |p| [p.profile_version.to_s, p.id] }
     end
   end
 end

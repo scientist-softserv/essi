@@ -1,6 +1,9 @@
 <div class='csv_fields'>
 
-  <%= fi.input :profile_id, collection: available_profiles, selected: available_profiles.last.last %>
+  <%= fi.input :profile_id,
+    collection: available_profiles,
+    selected: importer.parser_fields['profile_id'] || available_profiles.first.last
+  %>
 
   <%= fi.input :visibility,
     collection: [
