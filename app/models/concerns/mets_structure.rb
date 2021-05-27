@@ -76,7 +76,8 @@ module MetsStructure
         label = "#{parent_label}. #{label}"
         current = current.parent
       end
-      label unless label.gsub('. ').blank?
+      label = '' if label&.gsub('. ').blank?
+      label
     end
 
     def in_scope(node)
@@ -93,11 +94,13 @@ module MetsStructure
     end
 
     def label_for_element(node)
-      return nil unless node
+      return '' unless node.present?
+      debugger if node.class != Nokogiri::XML::Element
       node_id = node["LABEL"]
       node_id = node['ID'] if node_id.blank?
       node_id = "#{node["TYPE"]} #{node['ORDER']}" if node_id.blank? &&
                                                       node['TYPE'].present?
-      node_id unless node_id.gsub(' ','').blank?
+      node_id = '' if node_id&.gsub(' ','').blank?
+      node_id
     end
 end
