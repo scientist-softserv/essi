@@ -1,5 +1,7 @@
 <div class='mets_xml_fields'>
 
+  <%= fi.input :profile_id, collection: available_profiles, selected: available_profiles.last.last %>
+
   <%# @todo improve on this implementation. 
     As it stands, it's a hostage to namespaces, 
     eg. dc:title 
