@@ -64,7 +64,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = ESSI.config.dig(:rails, :mailer, :raise_delivery_errors) || ENV['SMTP_ERRORS']
   config.action_mailer.default_url_options = { host: ESSI.config[:rails][:mailer][:host] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -73,7 +73,8 @@ Rails.application.configure do
     :user_name => ESSI.config.dig(:rails, :mailer, :user_name) || ENV["SMTP_USERNAME"],
     :password => ESSI.config.dig(:rails, :mailer, :password) || ENV["SMTP_PASSWORD"],
     :authentication => ESSI.config.dig(:rails, :mailer, :authentication) || ENV["SMTP_AUTHENTICATION"],
-    :enable_starttls_auto => true
+    :enable_starttls_auto => ESSI.config.dig(:rails, :mailer, :enable_starttls_auto) || ENV['SMTP_STARTTLS'],
+    :openssl_verify_mode => ESSI.config.dig(:rails, :mailer, :openssl_verify_mode) || ENV["SMTP_SSL_VERIFY"]
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
