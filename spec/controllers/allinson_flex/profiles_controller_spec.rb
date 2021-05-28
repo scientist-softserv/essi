@@ -19,6 +19,22 @@ RSpec.describe AllinsonFlex::ProfilesController, type: :controller do
           expect(flash[:alert]).to eq('Please select a file to upload')
         end
       end
+      context 'with invalid YAML' do
+        let(:file) { fixture_file_upload('ocr.xml') }
+        it 'redirects and alerts the YAML failure' do
+          post :import, params: { file: file }
+          expect(response).to be_redirect
+          expect(flash[:alert]).to match /Invalid YAML/
+        end
+      end
+      context 'with invalid profile data' do
+        let(:file) { fixture_file_upload('paged_resource.yml') }
+        it 'redirects and alerts the data validation failure' do
+          post :import, params: { file: file }
+          expect(response).to be_redirect
+          expect(flash[:alert]).to match /data failed schema validation/
+        end
+      end
       context 'with valid profile data' do
         let(:file) { fixture_file_upload('allinson_flex/yaml_example.yaml') }
         it 'redirects and notices the successful upload' do
