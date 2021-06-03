@@ -36,6 +36,13 @@ module Extensions
           redirect_to profiles_path, alert: @allinson_flex_profile.errors.messages.to_s.truncate(800)
         end
       end
+
+      # new logger
+      def log
+        add_breadcrumbs
+        log_path = Rails.root.join('log', 'profile_validation.log')
+        @logs = File.exists?(log_path) ? File.read(log_path) : 'No logs available'
+      end
     end
   end
 end
