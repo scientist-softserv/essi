@@ -3,9 +3,13 @@
 module Extensions
   module AllinsonFlex
     module PrependImporter
-      # unmodified from allinson_flex
+      # modified from allinson_flex to use a separate log
       def validate!
-        validator.validate(data: data, schema: schema, logger: logger)
+        validator.validate(data: data, schema: schema, logger: validation_logger)
+      end
+
+      def validation_logger
+        @validation_logger ||= Logger.new(Rails.root.join('log', 'profile_validation.log'), 10, 2.megabytes)
       end
     end
   end
