@@ -18,7 +18,7 @@ module Extensions
         rescue ::AllinsonFlex::Validator::InvalidDataError
           default_schema = ::JSONSchemer.schema(::Pathname.new(::AllinsonFlex.m3_schema_path))
           data = ::YAML.load_file(uploaded_io.path)
-          @validation_error = "Profile data failed schema validation.  See logs for full details of all errors.  Initial errors are:<br/><br/>"
+          @validation_error = 'Profile data failed schema validation.  <a href="/profiles/log">See logs for full details of all errors.</a>  Initial errors are:<br/><br/>'
           errors = default_schema.validate(data).to_a
           errors.each do |error|
             %w[type details data_pointer data schema_pointer schema].each do |key|
