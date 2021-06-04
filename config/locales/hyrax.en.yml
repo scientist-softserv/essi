@@ -47,10 +47,21 @@ en:
           title_tesim: Title
   hyrax:
     account_name: My Institution Account Id
+    admin:
+      collection_types:
+        errors:
+          no_settings_change_for_user_collections: Collection type settings cannot be altered for the User Collection type
+        index:
+          more_toggle_content_html: "<p>Typical scenarios for collection types include:</p> <ul> <li><strong>User Collections</strong> that any registered user can create to organize items they deposit.</li> <li><strong>Exhibits</strong> that staff create and curate for public display, where items can be included in any number of exhibits.</li> <li><strong>Controlled Collections</strong> created and managed by staff and not intended for public display, such as collections associated with organizational units or departments.</li> <li><strong>Community Collections</strong> that are intended for public display, similar to how DSpace communities and collections are sometimes used.</li> </ul>"
     base:
       file_manager_actions:
         save: Save changes
         saving: Saving...
+    collection_type:
+      default_title: User Collection
+    collection_types:
+      create_service:
+        default_description: A User Collection can be created by any user to organize their works.
     collections:
       show:
         list_collections: List of items in this collection
