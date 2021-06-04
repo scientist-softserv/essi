@@ -16,6 +16,12 @@ default: &default
       url: "redis://127.0.0.1:6379/2"
     sidekiq:
       url: "redis://127.0.0.1:6379/1"
+  auth:
+    cas_host: idp-stg.login.iu.edu
+    cas_login_url: /idp/profile/cas/login
+    cas_validate_url: /idp/profile/cas/serviceValidate
+    cas_logout_url: /idp/profile/cas/logout
+    cas_callback_url: /users/auth/cas/callback
   sidekiq:
     queue_names:
       - default
