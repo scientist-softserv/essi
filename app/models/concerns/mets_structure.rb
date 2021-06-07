@@ -12,7 +12,7 @@ module MetsStructure
     struct = structure_map('logical')
     node = struct.xpath(".//mets:fptr[@FILEID='#{file_id}']").first if struct
     (label_from_hierarchy(node.parent) if node) ||
-      label_from_related_objects(file_id)
+      label_for_element(related_objects(file_id))
   end
 
   private
@@ -50,11 +50,7 @@ module MetsStructure
           child_nodes << structure_recurse(child)
         end
       end
-      node_id = node["FILEID"]
-      node_id = node['ID'] if node_id.blank?
-      node_id = "#{node["TYPE"]} #{node['ORDER']}" if node_id.blank? &&
-                                                      node['TYPE'].present?
-      { label: node_id, nodes: child_nodes }
+      { label: label_for_element(node), nodes: child_nodes }
     end
 
     def section(node)
@@ -68,19 +64,19 @@ module MetsStructure
     def single_file_object(node)
       id = node['FILEID']
       label = label_from_hierarchy(node.parent) ||
-              label_from_related_objects(id)
-      label = nil if label.blank?
+              label_for_element(related_objects(id))
       { label: label, proxy: id }
     end
 
     def label_from_hierarchy(node)
-      return nil unless node['FILEID']
       current = node
-      label = current['FILEID']
-      while current.parent['FILEID'] && in_scope(current.parent)
-        label = "#{current.parent['FILEID']}. #{label}"
+      label = label_for_element(current)
+      return nil unless label.present?
+      while in_scope(current.parent) && (parent_label = label_for_element(current.parent))
+        label = "#{parent_label}. #{label}"
         current = current.parent
       end
+      label = '' if label&.gsub('. ').blank?
       label
     end
 
@@ -92,8 +88,19 @@ module MetsStructure
       end
     end
 
-    def label_from_related_objects(id)
+    def related_objects(id)
       @mets.xpath("/mets:mets/mets:structMap[@TYPE='RelatedObjects']" \
-                  "//mets:div[mets:fptr/@FILEID='#{id}']/@FILEID").to_s
+                  "//mets:div[mets:fptr/@FILEID='#{id}']")
+    end
+
+    def label_for_element(node)
+      return '' unless node.present?
+      debugger if node.class != Nokogiri::XML::Element
+      node_id = node["LABEL"]
+      node_id = node['ID'] if node_id.blank?
+      node_id = "#{node["TYPE"]} #{node['ORDER']}" if node_id.blank? &&
+                                                      node['TYPE'].present?
+      node_id = '' if node_id&.gsub(' ','').blank?
+      node_id
     end
 end
