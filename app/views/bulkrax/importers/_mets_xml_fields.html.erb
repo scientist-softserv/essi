@@ -22,6 +22,12 @@
 		], 
     selected: importer.parser_fields['import_type'],
     input_html: { class: 'form-control' }
+  %>
+
+  <%= fi.input :work_type, 
+    collection: Hyrax::SelectTypeListPresenter.new(current_user).options_for_select,
+    selected: importer.parser_fields['work_type'] || Bulkrax.default_work_type,
+    input_html: { class: 'form-control' }
     %>
   
   <h4>Visiblity</h4>

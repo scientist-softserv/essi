@@ -74,3 +74,6 @@ InheritPermissionsJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
 
 # Hyrax user lookup
 Hyrax::UsersController.prepend Extensions::Hyrax::UsersController::FindUser
+
+# Hyrax Work Type selection
+Hyrax::SelectTypeListPresenter.prepend Extensions::Hyrax::SelectTypeListPresenter::OptionsForSelect

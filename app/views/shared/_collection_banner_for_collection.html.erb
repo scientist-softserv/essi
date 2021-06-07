@@ -12,9 +12,6 @@
         <h1><%= @presenter.title.first %></h1>
         <%# @presenter.collection_type_badge %>
         <%# @presenter.permission_badge %>
-        <% if @presenter.description.any? %>
-          <p><%= @presenter.description.first %></p>
-        <% end %>
         <%= render 'hyrax/collections/collection_logo', collection_presenter: @presenter %>
       </div>
     </div>
