@@ -71,4 +71,7 @@ Rails.application.configure do
 
   # universal whitelist for docker/virtualbox
   config.web_console.whitelisted_ips = ['172.16.0.0/12', '192.168.0.0/16', '127.0.0.1']
+
+  # Local development should assume to be running secure to match server deployments
+  config.force_ssl = true
 end

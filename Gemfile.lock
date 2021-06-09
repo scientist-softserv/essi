@@ -632,7 +632,7 @@ GEM
     mime-types-data (3.2021.0225)
     mini_magick (4.11.0)
     mini_mime (1.0.2)
-    mini_portile2 (2.5.0)
+    mini_portile2 (2.5.3)
     minitest (5.14.4)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -648,7 +648,7 @@ GEM
     noid-rails (3.0.2)
       actionpack (>= 5.0.0, < 7)
       noid (~> 0.9)
-    nokogiri (1.11.1)
+    nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     nokogumbo (2.0.4)
@@ -668,7 +668,7 @@ GEM
     omniauth (1.9.1)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
-    omniauth-iu-cas (1.1.1.1)
+    omniauth-cas (2.0.0)
       addressable (~> 2.3)
       nokogiri (~> 1.5)
       omniauth (~> 1.2)
@@ -815,7 +815,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     retriable (3.1.2)
-    rexml (3.2.4)
+    rexml (3.2.5)
     riiif (2.3.0)
       deprecation (>= 1.0.0)
       iiif-image-api (>= 0.1.0)
@@ -1051,7 +1051,7 @@ DEPENDENCIES
   mysql2
   okcomputer
   omniauth
-  omniauth-iu-cas
+  omniauth-cas
   prawn
   puma
   rails (~> 5.1.6)

@@ -257,14 +257,14 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :cas,
-                  :host => 'cas.iu.edu',
-                  :login_url => '/cas/login',
-                  :service_validate_url => '/cas/serviceValidate',
-                  :logout_url => '/cas/logout',
-                  :cassvc => 'ANY',
-                  :ssl => true
 
+  config.omniauth :cas,
+                  :host => ESSI.config.dig(:auth, :cas_host),
+                  :login_url => ESSI.config.dig(:auth, :cas_login_url),
+                  :service_validate_url => ESSI.config.dig(:auth, :cas_validate_url),
+                  :logout_url => ESSI.config.dig(:auth, :cas_logout_url),
+                  :callback_url => ESSI.config.dig(:auth, :cas_callback_url),
+                  :ssl => true
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

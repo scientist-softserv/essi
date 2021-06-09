@@ -54,8 +54,11 @@ Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::SourceMetad
 
 # bulkrax overrides
 Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::Structure
+Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::CreateWithDynamicSchema
 Bulkrax::Entry.prepend Extensions::Bulkrax::Entry::AllinsonFlexFields
 Bulkrax::Entry.prepend Extensions::Bulkrax::Entry::SingularizeRightsStatement
+Bulkrax::CsvEntry.prepend Extensions::Bulkrax::Entry::DynamicSchemaField
+Bulkrax::MetsXmlEntry.prepend Extensions::Bulkrax::Entry::DynamicSchemaField
 Bulkrax::Exporter.prepend Extensions::Bulkrax::Exporter::LastRun
 Bulkrax::Importer.prepend Extensions::Bulkrax::Importer::LastRun
 
@@ -86,3 +89,6 @@ InheritPermissionsJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
 
 # Hyrax user lookup
 Hyrax::UsersController.prepend Extensions::Hyrax::UsersController::FindUser
+
+# Hyrax Work Type selection
+Hyrax::SelectTypeListPresenter.prepend Extensions::Hyrax::SelectTypeListPresenter::OptionsForSelect

@@ -315,7 +315,7 @@
    </mets:fileSec>
    <mets:structMap TYPE="logical">
       <mets:div TYPE="archivalcomponent">
-         <mets: ID="VAC1741-U-00064" ORDER="1" TYPE="archivalitem">
+         <mets:div LABEL="VAC1741-U-00064 LABEL" ID="VAC1741-U-00064" ORDER="1" TYPE="archivalitem">
             <mets:fptr FILEID="VAC1741-U-00064-printable"/>
             <mets:div ORDER="1" TYPE="page">
                <mets:fptr FILEID="VAC1741-U-00064-001-thumbnail"/>
@@ -333,7 +333,7 @@
                <mets:fptr FILEID="VAC1741-U-00064-003-large"/>
             </mets:div>
          </mets:div>
-         <mets:div ID="VAC1741-U-00065" ORDER="2" TYPE="archivalitem">
+         <mets:div FILEID="VAC1741-U-00065 FILEID" ID="VAC1741-U-00065" ORDER="2" TYPE="archivalitem">
             <mets:fptr FILEID="VAC1741-U-00065-printable"/>
             <mets:div ORDER="1" TYPE="page">
                <mets:fptr FILEID="VAC1741-U-00065-001-thumbnail"/>
@@ -349,7 +349,7 @@
                <mets:fptr FILEID="VAC1741-U-00066-001-large"/>
             </mets:div>
          </mets:div>
-         <mets:div ID="VAC1741-U-00067" ORDER="4" TYPE="archivalitem">
+         <mets:div ORDER="4" TYPE="archivalitem">
             <mets:fptr FILEID="VAC1741-U-00067-printable"/>
             <mets:div ORDER="1" TYPE="page">
                <mets:fptr FILEID="VAC1741-U-00067-001-thumbnail"/>
@@ -362,7 +362,7 @@
                <mets:fptr FILEID="VAC1741-U-00067-002-large"/>
             </mets:div>
          </mets:div>
-         <mets:div ID="VAC1741-U-00068" ORDER="5" TYPE="archivalitem">
+	 <mets:div>
             <mets:fptr FILEID="VAC1741-U-00068-printable"/>
             <mets:div ORDER="1" TYPE="page">
                <mets:fptr FILEID="VAC1741-U-00068-001-thumbnail"/>

@@ -1,5 +1,10 @@
 <div class='mets_xml_fields'>
 
+  <%= fi.input :profile_id, 
+    collection: available_profiles, 
+    selected: importer.parser_fields['profile_id'] || available_profiles.first.last
+  %>
+
   <%# @todo improve on this implementation. 
     As it stands, it's a hostage to namespaces, 
     eg. dc:title 
@@ -21,6 +26,12 @@
       ['Single Work per Metadata File', 'single']
 		], 
     selected: importer.parser_fields['import_type'],
+    input_html: { class: 'form-control' }
+  %>
+
+  <%= fi.input :work_type, 
+    collection: Hyrax::SelectTypeListPresenter.new(current_user).options_for_select,
+    selected: importer.parser_fields['work_type'] || Bulkrax.default_work_type,
     input_html: { class: 'form-control' }
     %>
   
