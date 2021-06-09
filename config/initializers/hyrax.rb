@@ -1,4 +1,9 @@
 Hyrax.config do |config|
+  # eager load Hyrax translations
+  [Pathname.new(Gem.loaded_specs['hyrax'].full_gem_path), Rails.root].each do |source_path|
+    I18n.load_path += Dir.glob(source_path.join('config', 'locales', '*'))
+  end
+
   # Injected via `rails g hyrax:work Image`
   config.register_curation_concern :image
   # Injected via `rails g hyrax:work BibRecord`
