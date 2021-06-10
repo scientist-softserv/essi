@@ -9,7 +9,7 @@ module Extensions
       end
 
       def validation_logger
-        @validation_logger ||= Logger.new(Rails.root.join('log', 'profile_validation.log'), 10, 2.megabytes)
+        @validation_logger ||= Logger.new(ESSI.config.dig(:essi, :metadata, :profile_log))
       end
     end
   end

@@ -153,6 +153,7 @@ default: &default
         - :source
         - :rights_statement
         - :holding_location
+      profile_log: <%= Rails.root.join('log', 'profile_validation.log') %>
     jp2_recipes:
       default_color: >
         -rate 2.4,1.48331273,.91673033,.56657224,.35016049,.21641118,.13374944,.08266171

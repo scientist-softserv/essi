@@ -40,7 +40,7 @@ module Extensions
       # new logger
       def log
         add_breadcrumbs
-        log_path = Rails.root.join('log', 'profile_validation.log')
+        log_path = ESSI.config.dig(:essi, :metadata, :profile_log)
         @logs = File.exists?(log_path) ? File.read(log_path) : 'No logs available'
       end
     end
