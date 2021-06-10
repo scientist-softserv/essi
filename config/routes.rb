@@ -22,6 +22,14 @@ Rails.application.routes.draw do
   end
 
   mount Bulkrax::Engine, at: '/'
+  # new route for allinson_flex
+  scope module: 'allinson_flex' do
+    resources :profiles, only: [] do
+      collection do
+        get '/log', action: :log, as: :log
+      end
+    end
+  end
   mount AllinsonFlex::Engine, at: '/'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # mount spec/javascripts/fixtures directory
