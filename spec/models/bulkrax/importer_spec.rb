@@ -33,5 +33,35 @@ module Bulkrax
         end
       end
     end
+
+    describe '#mapping', :clean do
+      context 'without a field_mapping' do
+        before do
+          allow(importer).to receive(:field_mapping).and_return(nil)
+        end
+        it 'returns default_mapping' do
+          expect(importer.mapping).to eq importer.default_mapping
+        end
+      end
+      context 'with a field_mapping' do
+        before do
+          allow(importer).to receive(:field_mapping).and_return({ test: { from:['test'] } })
+        end
+        it 'merges field_mapping into default_mapping' do
+          expect(importer.mapping.keys).to include('test')
+        end
+      end
+    end
+  
+    describe '#default_mapping' do
+      let(:import_fields) { ['title', 'description'] }
+      before do
+        allow(importer.parser).to receive(:import_fields).and_return(import_fields)
+      end
+      it 'returns a configuration for each import field' do
+        expect(importer.default_mapping.size).to eq import_fields.size
+        expect(importer.default_mapping.values.all?(ActiveSupport::HashWithIndifferentAccess)).to eq true
+      end
+    end
   end
 end

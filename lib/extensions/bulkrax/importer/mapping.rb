@@ -2,19 +2,27 @@ module Extensions
   module Bulkrax
     module Importer
       module Mapping
-        # If field_mapping is empty, setup a default based on the export_properties
+        # modified from bulkrax to merge configured mapping into default, instead of overriding
         def mapping
-          @mapping ||= if self.field_mapping.blank? || self.field_mapping == [{}]
-                         if parser.import_fields.present? || self.field_mapping == [{}]
-                           ActiveSupport::HashWithIndifferentAccess.new(
-                             parser.import_fields.reject(&:nil?).map do |m|
-                               Bulkrax.default_field_mapping.call(m)
-                             end.inject(:merge)
-                           )
-                         end
-                       else
-                         self.field_mapping
-                       end
+          return @mapping if @mapping.present?
+          @mapping = default_mapping
+          self.field_mapping&.each do |k, v|
+            if v.is_a? Hash
+              @mapping[k] ||= {}.with_indifferent_access
+              @mapping[k] = @mapping[k].merge(v)
+            else
+              @mapping[k] = v
+            end
+          end
+          @mapping
+        end
+
+        def default_mapping(properties = parser.import_fields)
+          properties&.reject!(&:nil?)
+          return {}.with_indifferent_access unless properties&.any?
+          properties.map do |m|
+            ::Bulkrax.default_field_mapping.call(m).with_indifferent_access
+          end.inject(:merge).with_indifferent_access
         end
       end
     end
