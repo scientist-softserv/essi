@@ -61,6 +61,8 @@ Bulkrax::CsvEntry.prepend Extensions::Bulkrax::Entry::DynamicSchemaField
 Bulkrax::MetsXmlEntry.prepend Extensions::Bulkrax::Entry::DynamicSchemaField
 Bulkrax::Exporter.prepend Extensions::Bulkrax::Exporter::LastRun
 Bulkrax::Importer.prepend Extensions::Bulkrax::Importer::LastRun
+Bulkrax::Exporter.prepend Extensions::Bulkrax::Exporter::Mapping
+Bulkrax::Importer.prepend Extensions::Bulkrax::Importer::Mapping
 
 # actor customizations
 Hyrax::CurationConcern.actor_factory.insert Hyrax::Actors::TransactionalRequest, ESSI::Actors::PerformLaterActor
