@@ -51,6 +51,25 @@ module Bulkrax
           expect(importer.mapping.keys).to include('test')
         end
       end
+      context 'configuring witholding split' do
+        let(:import_fields) { ['source_identifier'] }
+        before do
+          allow(importer.parser).to receive(:import_fields).and_return(import_fields)
+          allow(importer).to receive(:field_mapping).and_return({ source_identifier: { split: false } })
+        end
+        it 'assigns split: false' do
+          expect(importer.mapping[:source_identifier][:split]).to eq false
+        end
+      end
+      context 'without specifying a split value' do
+        let(:import_fields) { ['source_identifier'] }
+        before do
+          allow(importer.parser).to receive(:import_fields).and_return(import_fields)
+        end
+        it 'assumes splitting on : and |' do
+          expect(importer.mapping[:source_identifier][:split]).to eq /\s*[;|]\s*/
+        end
+      end
     end
   
     describe '#default_mapping' do

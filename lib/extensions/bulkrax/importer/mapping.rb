@@ -6,6 +6,10 @@ module Extensions
         def mapping
           return @mapping if @mapping.present?
           @mapping = default_mapping
+          # change default split (false) to custom regexp
+          @mapping.keys.each do |k|
+            @mapping[k][:split] = /\s*[;|]\s*/ # default split by ; |
+          end
           self.field_mapping&.each do |k, v|
             if v.is_a? Hash
               @mapping[k] ||= {}.with_indifferent_access
