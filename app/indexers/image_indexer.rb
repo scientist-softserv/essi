@@ -4,6 +4,7 @@ class ImageIndexer < Hyrax::WorkIndexer
   include ESSI::IndexesImageMetadata # Replaces IndexesBasicMetadata
   include ESSI::ImageIndexerBehavior
   include ESSI::IIIFThumbnailBehavior
+  include ESSI::IndexesFilesets
   include ESSI::IndexesNumPages
 
   # Uncomment this block if you want to add custom indexing behavior:

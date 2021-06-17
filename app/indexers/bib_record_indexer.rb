@@ -4,6 +4,7 @@ class BibRecordIndexer < Hyrax::WorkIndexer
   include ESSI::IndexesBibRecordMetadata # Replaces IndexesBasicMetadata
   include ESSI::BibRecordIndexerBehavior
   include ESSI::IIIFThumbnailBehavior
+  include ESSI::IndexesFilesets
   include ESSI::IndexesNumPages
 
   # Uncomment this block if you want to add custom indexing behavior:

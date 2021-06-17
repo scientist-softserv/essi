@@ -4,6 +4,7 @@ class ScientificIndexer < Hyrax::WorkIndexer
   include ESSI::IndexesScientificMetadata # Replaces IndexesBasicMetadata
   include ESSI::ScientificIndexerBehavior
   include ESSI::IIIFThumbnailBehavior
+  include ESSI::IndexesFilesets
   include ESSI::IndexesNumPages
 
   # Uncomment this block if you want to add custom indexing behavior:
