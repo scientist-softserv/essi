@@ -1,11 +1,11 @@
-# unmodified Hyrax/Blacklight methods, prepping changes for ESSI-1361, collection thumbnail selection
+# modified Hyrax/Blacklight methods, to allow arbitrary number of rows, for ESSI-1361, collection thumbnail selection
 module Extensions
   module Hyrax
     module CollectionMemberSearchBuilder
       module Rows
         def rows=(value)
           params_will_change!
-          @rows = [value, blacklight_config.max_per_page].map(&:to_i).min
+          @rows = [value, 1].map(&:to_i).max
         end
     
         # @param [#to_i] value
@@ -18,8 +18,7 @@ module Extensions
             # user-provided parameters should override any default row
             r = [:rows, :per_page].map {|k| blacklight_params[k] }.reject(&:blank?).first
             r ||= blacklight_config.default_per_page
-            # ensure we don't excede the max page size
-            r.nil? ? nil : [r, blacklight_config.max_per_page].map(&:to_i).min
+            r.nil? ? nil : [r, 1].map(&:to_i).max
           end
         end
       end
