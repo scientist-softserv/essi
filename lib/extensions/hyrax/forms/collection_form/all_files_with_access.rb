@@ -8,7 +8,13 @@ module Extensions
           private
 
           def all_files_with_access
-            member_presenters(member_work_ids).flat_map(&:file_set_presenters).map { |x| [x.to_s, x.id] }
+            member_file_set_title_ids.sort { |x,y| x[0].upcase <=> y[0].upcase }
+          end
+
+          # @return [Array] grandchild FileSet title, id pairs
+          def member_file_set_title_ids
+            docs = collection_member_service.available_member_fileset_title_ids.response.fetch('docs').select(&:present?)
+            docs.flat_map { |e| (e['file_sets_ssim'] || e['file_set_ids_ssim'] || []).zip(e['file_set_ids_ssim'] || []) }.select(&:any?)
           end
 
           # modified from hyrax to support custom solr params, specifically more rows
