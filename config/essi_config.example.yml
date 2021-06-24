@@ -55,6 +55,10 @@ default: &default
   iucat_libraries:
     url: http://iucat-feature-tadas.uits.iu.edu/api/library
     api_enabled: false
+  analytics:
+    enabled: false
+    url: //changeme
+    site_id: 0
   aws:
     endpoint: http://localhost:9000
     bucket: essi-dropbox
