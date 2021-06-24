@@ -18,7 +18,7 @@ module Extensions
         rescue ::AllinsonFlex::Validator::InvalidDataError
           default_schema = ::JSONSchemer.schema(::Pathname.new(::AllinsonFlex.m3_schema_path))
           data = ::YAML.load_file(uploaded_io.path)
-          @validation_error = "Profile data failed schema validation.  See logs for full details of all errors.  Initial errors are:<br/><br/>"
+          @validation_error = 'Profile data failed schema validation.  <a href="/profiles/log">See logs for full details of all errors.</a>  Initial errors are:<br/><br/>'
           errors = default_schema.validate(data).to_a
           errors.each do |error|
             %w[type details data_pointer data schema_pointer schema].each do |key|
@@ -35,6 +35,13 @@ module Extensions
         else
           redirect_to profiles_path, alert: @allinson_flex_profile.errors.messages.to_s.truncate(800)
         end
+      end
+
+      # new logger
+      def log
+        add_breadcrumbs
+        log_path = ESSI.config.dig(:essi, :metadata, :profile_log)
+        @logs = File.exists?(log_path) ? File.read(log_path) : 'No logs available'
       end
     end
   end

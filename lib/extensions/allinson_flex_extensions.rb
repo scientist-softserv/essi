@@ -14,3 +14,6 @@ AllinsonFlex::ProfilesController.prepend Extensions::AllinsonFlex::PrependProfil
 #  forms
 Hyrax::Forms::AdminSetForm.prepend Extensions::AllinsonFlex::PrependAdminSetForm
 Hyrax::Forms::PermissionTemplateForm.prepend Extensions::AllinsonFlex::PrependPermissionTemplateForm
+
+# importers
+AllinsonFlex::Importer.prepend Extensions::AllinsonFlex::PrependImporter
