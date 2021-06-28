@@ -33,5 +33,31 @@ module Bulkrax
         end
       end
     end
+
+    describe '#mapping', :clean do
+      context 'without a field_mapping' do
+        before do
+          allow(exporter).to receive(:field_mapping).and_return(nil)
+        end
+        it 'returns default_mapping' do
+          expect(exporter.mapping).to eq exporter.default_mapping
+        end
+      end
+      context 'with a field_mapping' do
+        before do
+          allow(exporter).to receive(:field_mapping).and_return({ test: { from:['test'] } })
+        end
+        it 'merges field_mapping into default_mapping' do
+          expect(exporter.mapping.keys).to include('test')
+        end
+      end
+    end
+  
+    describe '#default_mapping' do
+      it 'returns a configuration for each export field' do
+        expect(exporter.default_mapping.size).to eq exporter.export_properties.size
+        expect(exporter.default_mapping.values.all?(ActiveSupport::HashWithIndifferentAccess)).to eq true
+      end
+    end
   end
 end
