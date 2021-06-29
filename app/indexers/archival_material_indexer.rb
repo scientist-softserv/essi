@@ -4,6 +4,7 @@ class ArchivalMaterialIndexer < Hyrax::WorkIndexer
   include ESSI::IndexesArchivalMaterialMetadata # Replaces IndexesBasicMetadata
   include ESSI::ArchivalMaterialIndexerBehavior
   include ESSI::IIIFThumbnailBehavior
+  include ESSI::IndexesFilesets
   include ESSI::IndexesNumPages
 
   # Uncomment this block if you want to add custom indexing behavior:

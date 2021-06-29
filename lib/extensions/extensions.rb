@@ -97,3 +97,8 @@ Hyrax::SelectTypeListPresenter.prepend Extensions::Hyrax::SelectTypeListPresente
 
 # return false for render_bookmarks_control? in CollectionsController
 Hyrax::CollectionsController.prepend Extensions::Hyrax::CollectionsController::RenderBookmarksControl
+
+# ESSI-1361: select from all files for Collection thumbnail
+Hyrax::Forms::CollectionForm.prepend Extensions::Hyrax::Forms::CollectionForm::AllFilesWithAccess
+Hyrax::CollectionMemberSearchBuilder.prepend Extensions::Hyrax::CollectionMemberSearchBuilder::Rows
+Hyrax::Collections::CollectionMemberService.prepend Extensions::Hyrax::Collections::CollectionMemberService::AvailableMemberFilesetTitleIds
