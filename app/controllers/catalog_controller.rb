@@ -93,12 +93,12 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("creator", :stored_searchable), itemprop: 'creator', link_to_search: solr_name("creator", :facetable)
     config.add_index_field solr_name("contributor", :stored_searchable), itemprop: 'contributor', link_to_search: solr_name("contributor", :facetable)
     config.add_index_field solr_name("proxy_depositor", :symbol), label: "Depositor", helper_method: :link_to_profile
-    config.add_index_field solr_name("depositor"), label: "Owner", helper_method: :link_to_profile
+    config.add_index_field solr_name("depositor"), label: "Owner", helper_method: :link_to_profile, if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
     config.add_index_field solr_name("publisher", :stored_searchable), itemprop: 'publisher', link_to_search: solr_name("publisher", :facetable)
     config.add_index_field solr_name("based_near_label", :stored_searchable), itemprop: 'contentLocation', link_to_search: solr_name("based_near_label", :facetable)
     config.add_index_field solr_name("language", :stored_searchable), itemprop: 'inLanguage', link_to_search: solr_name("language", :facetable)
-    config.add_index_field solr_name("date_uploaded", :stored_sortable, type: :date), itemprop: 'datePublished', helper_method: :human_readable_date
-    config.add_index_field solr_name("date_modified", :stored_sortable, type: :date), itemprop: 'dateModified', helper_method: :human_readable_date
+    config.add_index_field solr_name("date_uploaded", :stored_sortable, type: :date), itemprop: 'datePublished', helper_method: :human_readable_date, if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
+    config.add_index_field solr_name("date_modified", :stored_sortable, type: :date), itemprop: 'dateModified', helper_method: :human_readable_date, if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
     config.add_index_field solr_name("date_created", :stored_searchable), itemprop: 'dateCreated'
     config.add_index_field solr_name("rights_statement", :stored_searchable), helper_method: :rights_statement_links
     config.add_index_field solr_name("license", :stored_searchable), helper_method: :license_links
@@ -108,7 +108,7 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("embargo_release_date", :stored_sortable, type: :date), label: "Embargo release date", helper_method: :human_readable_date
     config.add_index_field solr_name("lease_expiration_date", :stored_sortable, type: :date), label: "Lease expiration date", helper_method: :human_readable_date
     config.add_index_field solr_name('num_pages', :facetable, type: :integer), label: 'Pages'
-    config.add_index_field 'workflow_state_name_ssim', label: 'State'
+    config.add_index_field 'workflow_state_name_ssim', label: 'State', if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
@@ -121,8 +121,8 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name("publisher", :stored_searchable)
     config.add_show_field solr_name("based_near_label", :stored_searchable)
     config.add_show_field solr_name("language", :stored_searchable)
-    config.add_show_field solr_name("date_uploaded", :stored_searchable)
-    config.add_show_field solr_name("date_modified", :stored_searchable)
+    config.add_show_field solr_name("date_uploaded", :stored_searchable), if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
+    config.add_show_field solr_name("date_modified", :stored_searchable), if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
     config.add_show_field solr_name("date_created", :stored_searchable)
     config.add_show_field solr_name("rights_statement", :stored_searchable)
     config.add_show_field solr_name("license", :stored_searchable)
@@ -130,7 +130,14 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name("format", :stored_searchable)
     config.add_show_field solr_name("identifier", :stored_searchable)
     config.add_show_field solr_name('num_pages', :facetable, type: :integer)
-    config.add_show_field 'workflow_state_name_ssim', label: 'State'
+    config.add_show_field 'workflow_state_name_ssim', label: 'State', if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
+
+    # manually add if conditional for some fields
+    config.add_index_field solr_name('ocr_state', :stored_searchable), label: 'OCR State', if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
+    config.add_index_field solr_name('viewing_direction', :stored_searchable), label: 'Viewing direction', if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
+    config.add_index_field solr_name('source_identifier', :stored_searchable), label: 'Source identifier', if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
+    config.add_index_field solr_name('source_metadata_identifier', :stored_searchable), label: 'Source metadata identifier', if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
+    config.add_index_field solr_name('viewing_hint', :stored_searchable), label: 'Viewing hint', if: lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
