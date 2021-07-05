@@ -1,5 +1,8 @@
 <% presenter.dynamic_schema_service.view_properties.each_pair do | prop_key, prop_value | %>
   <%# @todo internationalisation %>
+  <% if prop_key.in? [:ocr_state, :source_metadata_identifier, :source_identifier, :viewing_direction, :viewing_hint] %>
+    <% next unless presenter.current_ability.current_user.admin? %>
+  <% end %>
   <%= presenter.attribute_to_html(prop_key, label: prop_value[:label] ,html_dl: true) %>
 <% end %>
 <%= @presenter.try(:holding_location) %>
