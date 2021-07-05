@@ -95,7 +95,6 @@ module MetsStructure
 
     def label_for_element(node)
       return '' unless node.present?
-      debugger if node.class != Nokogiri::XML::Element
       node_id = node["LABEL"]
       node_id = node['ID'] if node_id.blank?
       node_id = "#{node["TYPE"]} #{node['ORDER']}" if node_id.blank? &&
