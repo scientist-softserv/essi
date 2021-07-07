@@ -19,6 +19,12 @@ default: &default
       url: "redis://redis_jobs:6379/1"
     sidekiq:
       url: "redis://redis_jobs:6379/0"
+  auth:
+    cas_host: idp-stg.login.iu.edu
+    cas_login_url: /idp/profile/cas/login
+    cas_validate_url: /idp/profile/cas/serviceValidate
+    cas_logout_url: /idp/profile/cas/logout
+    cas_callback_url: /users/auth/cas/callback
   sidekiq:
     queue_names:
       - default
@@ -34,6 +40,9 @@ default: &default
       user_name: 'example@gmail.com'
       password: 'app_password'
       authentication: 'plain'
+      raise_delivery_errors: false
+      enable_starttls_auto: true
+      openssl_verify_mode: 'none'
     serve_static_files: true
     secret_key_base: 628b30efcdf28acbbd30a80e53e2b743d44f74bf393462badc49e0f5909ed109812ff12905e3a98bf4f81d3618fac5c061ad4e1ca5c91f9c1dce8226ca3cff25
     cache:
@@ -47,6 +56,7 @@ default: &default
     iiif_server_url: /iiif/2/
   iucat_libraries:
     url: http://iucat-feature-tadas.uits.iu.edu/api/library
+    api_enabled: false
   analytics:
     enabled: false
     url: //changeme
@@ -91,12 +101,18 @@ default: &default
     kdu_compress_path: 'opj_compress' # set as kdu_compress or opj_compress, or '' to use ImageMagick
     master_file_service_url: http://purl.dlib.indiana.edu/iudl/variations/master
     purl_redirect_url: http://server1.variations2.indiana.edu/cgi-bin/access?%s
+    skip_derivatives: false
+    derivatives_folder: false
     ocr_language: [eng]
     ocr_preprocessor_path: <%= Rails.root.join('bin', 'ocr_preprocessor') %>
     create_ocr_files: true
     index_ocr_files: true
     create_word_boundaries: true
     allow_pdf_download: false
+    link_banners: false
+    bagit:
+      default_upload_dropbox: <%= Rails.root.join("staged_files/uploaded") %>
+      default_bagit_dir: <%= Rails.root.join("staged_files/work_bags") %>
     manifest_builder:
       see_also_hash:
         id: http://dlib.indiana.edu:9000/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=%s&recordSchema=marcxml&version=1.1
