@@ -7,13 +7,31 @@
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 threads threads_count, threads_count
 
-# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-#
-port        ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
-environment ENV.fetch("RAILS_ENV") { "development" }
+rails_env = ENV.fetch("RAILS_ENV") { "development" }
+environment rails_env
+
+# Bind to public network if the server is in a docker container
+rails_host = ENV.fetch("RAILS_HOST") { "127.0.0.1" }
+
+# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
+#
+rails_port = ENV.fetch("PORT") { 3000 }
+
+in_docker = ENV.fetch("IN_DOCKER") { false }
+
+# Use SSL in development
+# SSL handled by proxy in docker
+if rails_env == 'development' && !in_docker
+  ssl_bind(rails_host, rails_port,
+           key: ENV.fetch('SSL_KEY_FILE', 'tmp/certs/localhost.key'),
+           cert: ENV.fetch('SSL_CERT_FILE', 'tmp/certs/localhost.crt'),
+           verify_mode: 'none')
+else
+  port rails_port, rails_host
+end
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
