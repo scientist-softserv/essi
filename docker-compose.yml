@@ -59,7 +59,7 @@ services:
   db:
     image: mysql:5.7
     ports:
-      - '3306'
+      - '3306:3306'
     volumes:
       - mysql:/var/lib/mysql
     environment:
@@ -125,7 +125,7 @@ services:
   redis_jobs:
     image: redis:6-alpine
     ports:
-      - '6379'
+      - '6380:6379'
     volumes:
       - 'redis:/data'
     command: redis-server --appendonly yes --maxmemory-policy noeviction
@@ -133,13 +133,13 @@ services:
   redis_cache:
     image: redis:6-alpine
     ports:
-      - '6379'
+      - '6381:6379'
     command: redis-server --maxmemory-policy allkeys-lru --maxmemory 256mb
 
   solr:
     image: solr:6.6
     ports:
-      - "8983"
+      - "8983:8983"
     volumes:
       - './solr:/myconfig:delegated'
       - solr:/opt/solr/server/solr/mycores
@@ -155,7 +155,7 @@ services:
     volumes:
       - 'fcrepo:/data'
     ports:
-      - "8080"
+      - "8984:8080"
 
   chrome:
     image: selenium/standalone-chrome-debug:3.141.59-20200525
