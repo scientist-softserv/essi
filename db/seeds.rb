@@ -14,7 +14,8 @@ ActiveRecord::Base.descendants.each(&:reset_column_information)
 Rake::Task['hyrax:default_collection_types:create'].invoke
 Rake::Task['hyrax:default_admin_set:create'].invoke
 
-# TODO Import a flexible metadata profile
+# Import a flexible metadata profile
+AllinsonFlex::Importer.load_profile_from_path(path: Rails.root.join('config', 'metadata_profile', 'essi_short.yaml').to_s) unless AllinsonFlex::Profile.any?
 
 collection_types = Hyrax::CollectionType.all
 collection_types.each do |c|
