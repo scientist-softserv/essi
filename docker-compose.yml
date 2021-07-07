@@ -171,5 +171,4 @@ volumes:
   mysql:
   redis:
   solr:
-  minio:
   rails_cache:
