@@ -50,10 +50,11 @@ default: &default
       options:
     active_job:
       queue_adapter: sidekiq
+  cantaloupe:
+    iiif_server_url: https://localhost:3000/iiif/2/
+#    iiif_server_url: http://localhost:8182/iiif/2/
   derivatives:
     path: <%= Rails.root.join("tmp/derivatives") %>
-  cantaloupe:
-    iiif_server_url: /iiif/2/
   iucat_libraries:
     url: http://iucat-feature-tadas.uits.iu.edu/api/library
     api_enabled: false
