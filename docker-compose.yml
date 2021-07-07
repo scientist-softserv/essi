@@ -36,22 +36,21 @@ services:
     image: nginxinc/nginx-unprivileged:stable-alpine
     volumes:
       - ./essi-nginx.nginx:/etc/nginx/conf.d/essi-nginx.conf
+      - ./tmp/certs:/etc/nginx/certs
     ports:
-      - "80:8980"
+      - "3000:3000"
     depends_on:
       - essi
       - worker
 
   essi:
     << : *default-app
-    command: bash -l -c "bundle exec rake db:migrate db:seed yarn:install && bundle exec puma -b tcp://0.0.0.0:3000"
+    command: bash -l -c "bundle exec rake db:migrate db:seed yarn:install && bundle exec rails s"
     environment:
       VIRTUAL_HOST: essi.docker
       VIRTUAL_PORT: 3000
       IN_DOCKER: 'true'
-      HUB_URL: http://chrome:4444/wd/hub 
-    ports:
-      - "3000:3000"
+      HUB_URL: http://chrome:4444/wd/hub
 
   worker:
     << : *default-app
