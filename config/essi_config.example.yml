@@ -213,8 +213,11 @@ test:
   solr:
     url: http://localhost:8985/solr/hydra-test
   db:
-    adapter: sqlite3
-    database: db/test.sqlite3
+    adapter: mysql2
+    host: 127.0.0.1
+    database: essi_test
+    user: essi
+    password: essi
   redis:
     rails:
       url: "redis://127.0.0.1:6379/11"
