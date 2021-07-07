@@ -7,8 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'rake'
+
+# When db:seed is run in same rake process as db:migrate column information is outdated.
+ActiveRecord::Base.descendants.each(&:reset_column_information)
+
 Rake::Task['hyrax:default_collection_types:create'].invoke
 Rake::Task['hyrax:default_admin_set:create'].invoke
+
+# TODO Import a flexible metadata profile
 
 collection_types = Hyrax::CollectionType.all
 collection_types.each do |c|
