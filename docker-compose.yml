@@ -151,7 +151,7 @@ services:
       - /myconfig
 
   fcrepo:
-    image: samvera/fcrepo4:4.7.5
+    image: ghcr.io/samvera/fcrepo4:4.7.5
     volumes:
       - 'fcrepo:/data'
     ports:
