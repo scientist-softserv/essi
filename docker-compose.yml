@@ -144,11 +144,10 @@ services:
       - './solr:/myconfig:delegated'
       - solr:/opt/solr/server/solr/mycores
       - './solr/lib/tokenizing-suggest-v1.0.1.jar:/opt/solr/contrib/tokenizing-suggest-v1.0.1.jar'
+      - './solr/50-precreate-cores.sh:/docker-entrypoint-initdb.d/50-precreate-cores.sh'
     entrypoint:
       - docker-entrypoint.sh
-      - solr-precreate
-      - "${SOLR_CORE}"
-      - /myconfig
+      - solr-foreground
 
   fcrepo:
     image: ghcr.io/samvera/fcrepo4:4.7.5
