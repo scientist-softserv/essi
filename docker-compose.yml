@@ -59,12 +59,12 @@ services:
   db:
     image: mysql:5.7
     ports:
-      - '3306:3306'
+      - '3307:3306'
     volumes:
       - mysql:/var/lib/mysql
+      - './db/50-mysql-create-db.sql:/docker-entrypoint-initdb.d/50-mysql-create-db.sql'
     environment:
       MYSQL_ROOT_PASSWORD: essi
-      MYSQL_DATABASE: essi_dev
       MYSQL_USER: essi
       MYSQL_PASSWORD: essi
 

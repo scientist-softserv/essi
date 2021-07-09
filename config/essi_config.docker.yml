@@ -216,8 +216,11 @@ test:
   solr:
     url: http://solr:8983/solr/hydra-test
   db:
-    adapter: sqlite3
-    database: db/test.sqlite3
+    adapter: mysql2
+    host: db
+    database: essi_test
+    user: essi
+    password: essi
   redis:
     host: redis
     port: 6379
