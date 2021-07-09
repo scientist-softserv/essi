@@ -56,8 +56,8 @@ default: &default
   derivatives:
     path: <%= Rails.root.join("tmp/derivatives") %>
   iucat_libraries:
-    url: http://iucat-feature-tadas.uits.iu.edu/api/library
-    api_enabled: false
+    url: https://iucat.iu.edu/api/library
+    api_enabled: true
   analytics:
     enabled: false
     url: //changeme
@@ -93,6 +93,20 @@ default: &default
     default_email_domain: iu.edu
   authorized_ldap_groups:
     - ESSI-USERS
+  aws:
+    endpoint: http://minio:9000
+    bucket: essi-dropbox
+    access_key_id: essi-minio
+    secret_access_key: Essi12345
+    region: iu-local
+  browse_everything:
+    #TODO: N8 for local development 
+    #file_system:
+    #    :home: <%= Rails.root.join("staged_files") %>
+    s3:
+      :bucket: essi-dropbox
+      :region: iu-local
+      :response_type: :public_url
   essi:
     iiif_host: essi.docker  # riiif only
     notifier_email: example@test.test

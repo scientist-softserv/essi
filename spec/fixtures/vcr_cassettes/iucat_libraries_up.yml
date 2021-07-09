@@ -2,7 +2,8 @@
 http_interactions:
 - request:
     method: get
-    uri: http://iucat-feature-tadas.uits.iu.edu/api/library/all
+    #uri: http://iucat-feature-tadas.uits.iu.edu/api/library/all
+    uri: https://iucat.iu.edu/api/library/all
     body:
       encoding: US-ASCII
       string: ''
@@ -119,7 +120,8 @@ http_interactions:
   recorded_at: Tue, 19 Mar 2019 17:47:42 GMT
 - request:
     method: get
-    uri: http://iucat-feature-tadas.uits.iu.edu/api/library/B-WELLS
+    #uri: http://iucat-feature-tadas.uits.iu.edu/api/library/B-WELLS
+    uri: https://iucat.iu.edu/api/library/B-WELLS
     body:
       encoding: US-ASCII
       string: ''
@@ -553,7 +555,8 @@ http_interactions:
   recorded_at: Tue, 19 Mar 2019 17:47:42 GMT
 - request:
     method: get
-    uri: http://iucat-feature-tadas.uits.iu.edu/api/library/foobar
+    #uri: http://iucat-feature-tadas.uits.iu.edu/api/library/foobar
+    uri: https://iucat.iu.edu/api/library/foobar
     body:
       encoding: US-ASCII
       string: ''
