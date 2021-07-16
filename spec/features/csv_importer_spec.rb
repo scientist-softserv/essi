@@ -10,24 +10,33 @@ RSpec.feature 'Create and run a CSV Importer', type: :system, js: true do
     let(:user) do
       FactoryBot.create :user
     end
-    let(:admin_set_id) { AdminSet.find_or_create_default_admin_set_id }
-    let(:permission_template) { Hyrax::PermissionTemplate.find_or_create_by!(source_id: admin_set_id) }
-    let(:workflow) { Sipity::Workflow.create!(active: true, name: 'test-workflow', permission_template: permission_template) }
+    let!(:default_admin_set) { AdminSet.find(AdminSet.find_or_create_default_admin_set_id) }
+    let(:test_admin_set) { FactoryBot.create :admin_set, title: ['Test Admin Set'] }
+    let(:default_permission_template) { Hyrax::PermissionTemplate.find_or_create_by!(source_id: default_admin_set.id) }
+    let(:test_permission_template) { Hyrax::PermissionTemplate.find_or_create_by!(source_id: test_admin_set.id) }
+    let(:default_workflow) { Sipity::Workflow.create!(active: true, name: 'default-workflow', permission_template: default_permission_template) }
+    let(:test_workflow) { Sipity::Workflow.create!(active: true, name: 'test-workflow', permission_template: test_permission_template) }
 
     before do
       # Create a single action that can be taken
-      Sipity::WorkflowAction.create!(name: 'submit', workflow: workflow)
+      Sipity::WorkflowAction.create!(name: 'submit', workflow: default_workflow)
+      Sipity::WorkflowAction.create!(name: 'submit', workflow: test_workflow)
 
-      # Grant the user access to deposit into the admin set.
-      Hyrax::PermissionTemplateAccess.create!(
-        permission_template_id: permission_template.id,
-        agent_type: 'user',
-        agent_id: user.user_key,
-        access: 'deposit'
-      )
+      # Grant the user access to deposit into the admin sets
+      [default_permission_template, test_permission_template].each do |permission_template|
+        Hyrax::PermissionTemplateAccess.create!(
+          permission_template_id: permission_template.id,
+          agent_type: 'user',
+          agent_id: user.user_key,
+          access: 'deposit'
+        )
+      end
       # Ensure empty requirement for ldap group authorization
       allow(ESSI.config[:authorized_ldap_groups]).to receive(:blank?).and_return(true)
       login_as user
+
+      # monkeypatch for default CollectionType GID issue in test environment
+      allow(Hyrax::CollectionType).to receive(:find_by_gid!).and_return(Hyrax::CollectionType.find_or_create_default_collection_type)
     end
 
     scenario do
@@ -38,14 +47,14 @@ RSpec.feature 'Create and run a CSV Importer', type: :system, js: true do
       expect(page).to have_content "New Importer"
       expect(page).to_not have_content "METS XML and files to Import"
       fill_in 'Name', with: 'CSV Test Importer'
-      select 'Default Admin Set', from: 'Administrative Set'
+      select 'Test Admin Set', from: 'Administrative Set'
       select 'Once (on save)', from: 'Frequency'
       fill_in 'Limit', with: ''
       select 'CSV - Comma Separated Values', from: 'Parser'
 
       expect(page).to have_content 'Add CSV File to Import'
       within '.csv_fields' do
-        select 'Private', from: 'Visibility'
+        select 'Public', from: 'Visibility'
         select 'In Copyright', from: 'Rights statement'
         choose 'Upload a File'
 
@@ -67,9 +76,9 @@ RSpec.feature 'Create and run a CSV Importer', type: :system, js: true do
       end
 
       within '.csv_fields' do
-        expect(page).to have_content 'spec/fixtures/rgb.png'
-        expect(page).to have_content 'spec/fixtures/world.png'
         expect(page).to have_content 'Cloud Files Added'
+        expect(page).to have_content '/rgb.png'
+        expect(page).to have_content '/world.png'
       end
 
       perform_enqueued_jobs do
@@ -89,18 +98,26 @@ RSpec.feature 'Create and run a CSV Importer', type: :system, js: true do
       click_link 'TEST-1234'
       expect(page).to have_content 'Identifier: TEST-1234'
 
-      click_link 'Image'
+      # WORKAROUND: for bulkrax issue (267) with broken work link
+      # click_link 'Image'
+      # TODO: rewrite workaround to get to the work
+      click_on('Home')
+      click_on('Go')
+      page.driver.browser.manage.window.resize_to(1400,1400)
+      click_link 'A Test Image', match: :first
+
       # On work show page
       expect(page).to have_content 'A Test Image'
       expect(page).to have_content '0-99 pages'
-
+      expect(page).to have_content 'Test Admin Set'
       click_on('Show Child Items')
       expect(find('table.related-files')).to have_content('rgb.png')
       expect(find('table.related-files')).to have_content('world.png')
+      expect(find('table.related-files')).to have_content('Public')
 
       click_link 'Testing Collection', match: :first
       expect(page).to have_content 'A Test Image'
-
     end
   end
 end
+

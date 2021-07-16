@@ -164,11 +164,24 @@ properties:
     property_uri: http://iiif.io/api/presentation/2#viewingDirection
     cardinality:
       maximum: 1
+  source_identifier:
+    display_label:
+      default: "Source Identifier"
+    available_on:
+      class:
+        - Image
+        - BibRecord
+        - PagedResource
+        - ArchivalMaterial
+    property_uri: http://example.org
+    cardinality:
+      minimum: 0
   source_metadata_identifier:
     display_label:
       default: "Source Metadata Identifier"
     available_on:
       class:
+        - Image
         - BibRecord
         - PagedResource
         - ArchivalMaterial
@@ -180,6 +193,7 @@ properties:
       default: "Source Metadata"
     available_on:
       class:
+        - Image
         - BibRecord
         - PagedResource
         - ArchivalMaterial
