@@ -19,6 +19,12 @@ default: &default
       url: "redis://redis_jobs:6379/1"
     sidekiq:
       url: "redis://redis_jobs:6379/0"
+  auth:
+    cas_host: idp-stg.login.iu.edu
+    cas_login_url: /idp/profile/cas/login
+    cas_validate_url: /idp/profile/cas/serviceValidate
+    cas_logout_url: /idp/profile/cas/logout
+    cas_callback_url: /users/auth/cas/callback
   sidekiq:
     queue_names:
       - default
@@ -34,6 +40,9 @@ default: &default
       user_name: 'example@gmail.com'
       password: 'app_password'
       authentication: 'plain'
+      raise_delivery_errors: false
+      enable_starttls_auto: true
+      openssl_verify_mode: 'none'
     serve_static_files: true
     secret_key_base: 628b30efcdf28acbbd30a80e53e2b743d44f74bf393462badc49e0f5909ed109812ff12905e3a98bf4f81d3618fac5c061ad4e1ca5c91f9c1dce8226ca3cff25
     cache:
@@ -41,16 +50,31 @@ default: &default
       options:
     active_job:
       queue_adapter: sidekiq
+  cantaloupe:
+    iiif_server_url: https://localhost:3000/iiif/2/
+#    iiif_server_url: http://localhost:8182/iiif/2/
   derivatives:
     path: <%= Rails.root.join("tmp/derivatives") %>
-  cantaloupe:
-    iiif_server_url: /iiif/2/
   iucat_libraries:
     url: http://iucat-feature-tadas.uits.iu.edu/api/library
+    api_enabled: false
   analytics:
     enabled: false
     url: //changeme
     site_id: 0
+  aws:
+    endpoint: http://s3proxy
+    bucket: essi-dropbox
+    access_key_id: essi-minio
+    secret_access_key: Essi12345
+    region: iu-local
+  browse_everything:
+    s3:
+      :bucket: essi-dropbox
+      :region: iu-local
+      :response_type: :public_url
+    file_system:
+      :home: <%= Rails.root.join("staged_files") %>
   airbrake:
     project_id:
     project_key:
@@ -69,20 +93,6 @@ default: &default
     default_email_domain: iu.edu
   authorized_ldap_groups:
     - ESSI-USERS
-  aws:
-    endpoint: http://minio:9000
-    bucket: essi-dropbox
-    access_key_id: essi-minio
-    secret_access_key: Essi12345
-    region: iu-local
-  browse_everything:
-    #TODO: N8 for local development 
-    #file_system:
-    #    :home: <%= Rails.root.join("staged_files") %>
-    s3:
-      :bucket: essi-dropbox
-      :region: iu-local
-      :response_type: :public_url
   essi:
     iiif_host: essi.docker  # riiif only
     notifier_email: example@test.test
@@ -91,12 +101,18 @@ default: &default
     kdu_compress_path: 'opj_compress' # set as kdu_compress or opj_compress, or '' to use ImageMagick
     master_file_service_url: http://purl.dlib.indiana.edu/iudl/variations/master
     purl_redirect_url: http://server1.variations2.indiana.edu/cgi-bin/access?%s
+    skip_derivatives: false
+    derivatives_folder: false
     ocr_language: [eng]
     ocr_preprocessor_path: <%= Rails.root.join('bin', 'ocr_preprocessor') %>
     create_ocr_files: true
     index_ocr_files: true
     create_word_boundaries: true
     allow_pdf_download: false
+    link_banners: false
+    bagit:
+      default_upload_dropbox: <%= Rails.root.join("staged_files/uploaded") %>
+      default_bagit_dir: <%= Rails.root.join("staged_files/work_bags") %>
     manifest_builder:
       see_also_hash:
         id: http://dlib.indiana.edu:9000/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=%s&recordSchema=marcxml&version=1.1
@@ -200,12 +216,18 @@ test:
   solr:
     url: http://solr:8983/solr/hydra-test
   db:
-    adapter: sqlite3
-    database: db/test.sqlite3
+    adapter: mysql2
+    host: db
+    database: essi_test
+    user: essi
+    password: essi
   redis:
-    host: redis
-    port: 6379
-    namespace: essi_test
+    rails:
+      url: "redis://redis_cache:6379/11"
+    cable:
+      url: "redis://redis_jobs:6379/11"
+    sidekiq:
+      url: "redis://redis_jobs:6379/10"
   rails:
       secret_key_base: c9dd75fe2cce941807d14e04c09aa1f9ae41b6e1f7ba9d2f33142659acf9491f4a7835aad0c4110bf2fa40f2a1e6f7a62048b5a1e1a32c361c8c16d772e40bf0
 

@@ -7,8 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'rake'
+
+# When db:seed is run in same rake process as db:migrate column information is outdated.
+ActiveRecord::Base.descendants.each(&:reset_column_information)
+
 Rake::Task['hyrax:default_collection_types:create'].invoke
 Rake::Task['hyrax:default_admin_set:create'].invoke
+
+# Import a flexible metadata profile
+AllinsonFlex::Importer.load_profile_from_path(path: Rails.root.join('config', 'metadata_profile', 'essi_short.yaml').to_s) unless AllinsonFlex::Profile.any?
 
 collection_types = Hyrax::CollectionType.all
 collection_types.each do |c|

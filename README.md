@@ -1,19 +1,37 @@
-# ESS Images [![CircleCI](https://circleci.com/gh/IU-Libraries-Joint-Development/essi.svg?style=svg)](https://circleci.com/gh/IU-Libraries-Joint-Development/essi)
+# ESS Images
 
-A Samvera Hyrax based image cataloging application.
+[![CircleCI](https://circleci.com/gh/IU-Libraries-Joint-Development/essi.svg?style=svg)](https://circleci.com/gh/IU-Libraries-Joint-Development/essi)
 
-To set up a development environment via Docker:
+A [Samvera](https://samvera.org/) [Hyrax](https://github.com/samvera/hyrax) based image cataloging application.
 
-1. Pull down the Github repo
-1. cd into the directory
+Features a [IIIF](https://iiif.io/) manifest structure editor,
+bulk import using [Bulkrax](https://github.com/samvera-labs/bulkrax), and flexible metadata using [Allinson Flex](https://github.com/samvera-labs/allinson_flex). 
+
+## Docker Development
+
+To set up a development environment via Docker Compose:
+
+1. Check that `docker` and `docker-compose` commands are installed and functional
+1. Clone this git repo
+1. `cd` into the `essi` directory
 1. In the `.env` file, set USER_ID and GROUP_ID to match your user. Determine using `id -u` and `id -g` respectively.
-1. Run `docker-compose up web`. If there is a missing `.env.development` error, add an empty `.env.development` file and re-run `docker-compose up web`
-1. Load the application at `http://localhost` or `http://essi.docker` (if you are using Dory)
+1. Generate self-signed SSL certificate.
+   - For example: `openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout ./tmp/certs/localhost.key -out ./tmp/certs/localhost.crt`
+   - The key file may need read permissions for group 101 (the nginx container user's group)
+1. Run `docker-compose build`
+1. Run `docker-compose up`
+1. Check that all services are "Up" using `docker-compose ps` from the `essi` directory
+   - If there is a missing `.env.development` error, add an empty `.env.development` file and re-run `docker-compose up`
+1. Load the application at https://localhost:3000
+   - Other services (Fedora, Solr, etc) are also available. Check `docker-compose ps` for port numbers.
+1. To access a shell in the essi service: `docker-compose exec essi bash`
+   - You could then `bundle exec rails c` to access the Rails console.
+     - If you have logged in to the site, this will make that user an admin: `User.first.roles << Role.find_or_create_by(name: 'admin')`
 
-If using Dory: [Dory](https://github.com/FreedomBen/dory)
+To **DELETE** the docker-compose data volumes and restart with a clean slate: From the `essi` directory: `docker-compose down -v`
 
 ## SPECS:
-1. Jasmine - Can run from terminal or by adding /specs path onto the base url (ex: <http://localhost:3000/specs>).
+1. Jasmine - Can run from terminal or by adding /specs path onto the base url (ex: <https://localhost:3000/specs>).
 1. RSPEC - May need to run `sc exec -s solr 'solr-precreate hydra-test /opt/config'`
 
 ## Hyrax Setup

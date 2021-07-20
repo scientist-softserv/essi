@@ -76,7 +76,7 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'hyrax', '~> 2.6.0'
-gem 'browse-everything', '~> 1.0.2' 
+gem 'browse-everything', '1.1.0' # held to 1.1.0 pending resolution of webpacker issues
 gem 'rsolr'
 gem 'jquery-rails'
 gem 'devise'

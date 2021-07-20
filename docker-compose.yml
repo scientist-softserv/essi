@@ -27,7 +27,7 @@ x-app:
     - solr
     - fcrepo
     - db
-    - minio
+    - s3proxy
     - cantaloupe
     - chrome
 
@@ -36,22 +36,21 @@ services:
     image: nginxinc/nginx-unprivileged:stable-alpine
     volumes:
       - ./essi-nginx.nginx:/etc/nginx/conf.d/essi-nginx.conf
+      - ./tmp/certs:/etc/nginx/certs
     ports:
-      - "80:8980"
+      - "3000:3000"
     depends_on:
       - essi
       - worker
 
   essi:
     << : *default-app
-    command: bash -l -c "bundle exec rake db:migrate db:seed yarn:install && bundle exec puma -b tcp://0.0.0.0:3000"
+    command: bash -l -c "bundle exec rake db:migrate db:seed yarn:install && bundle exec rails s"
     environment:
       VIRTUAL_HOST: essi.docker
       VIRTUAL_PORT: 3000
       IN_DOCKER: 'true'
-      HUB_URL: http://chrome:4444/wd/hub 
-    ports:
-      - "3000:3000"
+      HUB_URL: http://chrome:4444/wd/hub
 
   worker:
     << : *default-app
@@ -60,43 +59,23 @@ services:
   db:
     image: mysql:5.7
     ports:
-      - '3306'
+      - '3307:3306'
     volumes:
       - mysql:/var/lib/mysql
+      - './db/50-mysql-create-db.sql:/docker-entrypoint-initdb.d/50-mysql-create-db.sql'
     environment:
       MYSQL_ROOT_PASSWORD: essi
-      MYSQL_DATABASE: essi_dev
       MYSQL_USER: essi
       MYSQL_PASSWORD: essi
 
-  minio:
-    image: minio/minio:RELEASE.2020-03-14T02-21-58Z
+  s3proxy:
+    image: andrewgaul/s3proxy
     ports:
-      - '9000'
+      - '9000:80'
     environment:
-      MINIO_ACCESS_KEY: essi-minio
-      MINIO_SECRET_KEY: Essi12345
+      S3PROXY_AUTHORIZATION: none
     volumes:
-      - minio:/data
-      - './staged_files:/nasvol'
-    command: gateway nas /data
-    depends_on:
-      - minio_mount
-
-  minio_mount:
-    image: alpine:3.11
-    volumes:
-      - minio:/data
-    command: sh -c "ln -s /nasvol /data/essi-dropbox || exit 0"
-
-  minio_config:
-    image: minio/mc:RELEASE.2020-03-14T01-23-37Z
-    environment:
-      MC_HOST_essi: http://essi-minio:Essi12345@minio:9000
-    entrypoint: ''
-    command: sh -c "until nc -z minio 9000; do echo 'Waiting for minio...'; sleep 1; done; mc policy set public essi/essi-dropbox"
-    depends_on:
-      - minio
+      - './staged_files:/data'
 
   cantaloupe:
     image: iublibtech/cantaloupe
@@ -146,7 +125,7 @@ services:
   redis_jobs:
     image: redis:6-alpine
     ports:
-      - '6379'
+      - '6380:6379'
     volumes:
       - 'redis:/data'
     command: redis-server --appendonly yes --maxmemory-policy noeviction
@@ -154,29 +133,28 @@ services:
   redis_cache:
     image: redis:6-alpine
     ports:
-      - '6379'
+      - '6381:6379'
     command: redis-server --maxmemory-policy allkeys-lru --maxmemory 256mb
 
   solr:
-    image: solr:7.7
+    image: solr:6.6
     ports:
-      - "8983"
+      - "8983:8983"
     volumes:
       - './solr:/myconfig:delegated'
       - solr:/opt/solr/server/solr/mycores
       - './solr/lib/tokenizing-suggest-v1.0.1.jar:/opt/solr/contrib/tokenizing-suggest-v1.0.1.jar'
+      - './solr/50-precreate-cores.sh:/docker-entrypoint-initdb.d/50-precreate-cores.sh'
     entrypoint:
       - docker-entrypoint.sh
-      - solr-precreate
-      - "${SOLR_CORE}"
-      - /myconfig
+      - solr-foreground
 
   fcrepo:
-    image: samvera/fcrepo4:4.7.5
+    image: ghcr.io/samvera/fcrepo4:4.7.5
     volumes:
       - 'fcrepo:/data'
     ports:
-      - "8080"
+      - "8984:8080"
 
   chrome:
     image: selenium/standalone-chrome-debug:3.141.59-20200525
@@ -192,5 +170,4 @@ volumes:
   mysql:
   redis:
   solr:
-  minio:
   rails_cache:
