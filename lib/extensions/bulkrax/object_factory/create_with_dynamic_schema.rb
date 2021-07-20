@@ -5,7 +5,8 @@ module Extensions
         # modified to apply a supplied dynamic_schema_id to initial object build
         def create
           attrs = create_attributes
-          @object = klass.new(dynamic_schema_id: attrs[:dynamic_schema_id])
+          init_attrs = { dynamic_schema_id: attrs[:dynamic_schema_id] } if attrs[:dynamic_schema_id].present? && klass.new.respond_to?(:dynamic_schema_id)
+          @object = klass.new(init_attrs)
           object.reindex_extent = ::Hyrax::Adapters::NestingIndexAdapter::LIMITED_REINDEX
           run_callbacks :save do
             run_callbacks :create do
