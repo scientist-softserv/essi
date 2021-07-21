@@ -2,125 +2,6 @@
 http_interactions:
 - request:
     method: get
-    #uri: http://iucat-feature-tadas.uits.iu.edu/api/library/all
-    uri: https://iucat.iu.edu/api/library/all
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.12.2
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 19 Mar 2019 17:47:42 GMT
-      Server:
-      - Apache/2.2.15 (Red Hat)
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Vary:
-      - Accept-Encoding
-      Etag:
-      - W/"90ae5a99dd7880fe142aef426f96b46e"
-      X-Frame-Options:
-      - ALLOWALL
-      X-Runtime:
-      - '0.094936'
-      X-Request-Id:
-      - 342592af-1617-46ab-a879-ebc9a97e6986
-      X-Powered-By:
-      - Phusion Passenger 5.1.3
-      Set-Cookie:
-      - _Blacklight5_session=95a701bea4ef2014eff9ae387f70611b; path=/; HttpOnly
-      Status:
-      - 200 OK
-      Access-Control-Allow-Origin:
-      - "*"
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-      Content-Type:
-      - application/json; charset=utf-8
-    body:
-      encoding: ASCII-8BIT
-      string: '{"success":true,"data":{"libraries":[{"id":41,"code":"B-AAAMC","label":"Bloomington
-        - Archives of African American Music \u0026 Culture","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:53:00.000Z"},{"id":5,"code":"B-ALF","label":"Bloomington
-        - Auxiliary Library Facility","address":"851 N. Range Road","address2":"","city":"Bloomington","state":"IN","zip":"47408","phone":"812-856-0832","email":"libalf@iu.edu","url":"","urlHours":"","latitude":"39.1751","longitude":"-86.4975","parking":null,"notes":"","no_display":true,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-01-17T16:51:47.000Z"},{"id":3,"code":"B-ARCHIVES","label":"Bloomington
-        - University Archives","address":"Wells Library E460","address2":"1320 E 10th
-        St.","city":"Bloomington","state":"IN","zip":"47405","phone":"8128551127","email":"archives@indiana.edu","url":"https://libraries.indiana.edu/archives","urlHours":"https://libraries.indiana.edu/archives/hours","latitude":"39.17098","longitude":"-86.516189","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:59:08.000Z"},{"id":14,"code":"B-ATM","label":"Bloomington-
-        Archives of Traditional Music","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:53:16.000Z"},{"id":2,"code":"B-BCC","label":"Bloomington
-        - Neal-Marshall Black Culture Center Library","address":"Neal-Marshall Center
-        A113","address2":"275 N Jordan Ave","city":"Bloomington","state":"IN","zip":"47405","phone":"(812)
-        855-9271","email":"bcclib@indiana.edu","url":"https://libraries.indiana.edu/NMBCC-Library","urlHours":"https://libraries.indiana.edu/NMBCC-Library/hours","latitude":"39.1682904","longitude":"-86.5168656","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:58:36.000Z"},{"id":6,"code":"B-BUSSPEA","label":"Bloomington
-        - Business/SPEA Information Commons","address":"1315 E. 10th Street","address2":"","city":"Bloomington","state":"IN","zip":"47405","phone":"812-855-1957","email":"libbus@indiana.edu","url":"https://libraries.indiana.edu/bsic","urlHours":"https://libraries.indiana.edu/bsic/hours","latitude":"39.17259","longitude":"-86.51771","parking":null,"notes":"\u003cp\u003eTesting
-        the cool \u003cb\u003enotes\u003c/b\u003e \u003cspan style=\"background-color:
-        rgb(255, 255, 0);\"\u003ethingy\u003c/span\u003e..\u003c/p\u003e","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:56:25.000Z"},{"id":50,"code":"B-CEDIR","label":"Bloomington
-        - Indiana Institute on Disability","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:57:13.000Z"},{"id":7,"code":"B-CHEM","label":"Bloomington
-        - Sciences Library","address":"","address2":"800 E. Kirkwood Avenue","city":"Bloomington","state":"IN","zip":"47405-7005","phone":"812-855-9452","email":"libsci@indiana.edu","url":"https://libraries.indiana.edu/sciences-library","urlHours":"https://libraries.indiana.edu/sciences-library/hours","latitude":"39.165949","longitude":"-86.522658","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:58:56.000Z"},{"id":9,"code":"B-EDUC","label":"Bloomington
-        - Education Library","address":"201 N. Rose Street","address2":"","city":"Bloomington","state":"IN","zip":"47405","phone":"812-856-8590","email":"libeduc@indiana.edu","url":"https://libraries.indiana.edu/education-library","urlHours":"https://libraries.indiana.edu/libeduc/hours","latitude":"39.167360","longitude":"-86.512497","parking":"","notes":"","no_display":null,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-03-04T19:09:24.000Z"},{"id":16,"code":"B-KINSEY","label":"Bloomington
-        - Kinsey Institute Library","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"\u003cp\u003eBy
-        Appointment Only\u003c/p\u003e","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:57:38.000Z"},{"id":17,"code":"B-LAW","label":"Bloomington
-        - Law Library","address":"211 S Indiana Ave","address2":"","city":"Bloomington","state":"IN","zip":"47405","phone":"(812)
-        855-9666","email":"","url":"http://www.law.indiana.edu/","urlHours":"","latitude":"39.148693","longitude":"-86.5327101","parking":null,"notes":"","no_display":null,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-01-14T20:11:56.000Z"},{"id":18,"code":"B-LIFESCI","label":"Bloomington
-        - Life Sciences Library","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:58:05.000Z"},{"id":19,"code":"B-LILLY","label":"Bloomington
-        - Lilly Library","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:58:15.000Z"},{"id":20,"code":"B-MUSIC","label":"Bloomington
-        - Music Library","address":"200 S Jordan Ave","address2":"","city":"Bloomington","state":"IN","zip":"47401","phone":"(812)
-        855-2970","email":"libmus@ indiana.edu","url":"https://libraries.indiana.edu/music","urlHours":"","latitude":"39.1488401","longitude":"-86.5308672","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:58:26.000Z"},{"id":21,"code":"B-OPTOMTRY","label":"Bloomington
-        - Optometry Library","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:58:46.000Z"},{"id":1,"code":"B-WELLS","label":"Bloomington
-        - Herman B Wells Library","address":"1320 E 10th St.","address2":"","city":"Bloomington","state":"IN","zip":"47405","phone":"(812)
-        855-0100","email":"libref@indiana.edu","url":"https://libraries.indiana.edu/wells","urlHours":"https://libraries.indiana.edu/wells/hours","latitude":"39.17098","longitude":"-86.51689","parking":null,"notes":"\u003ch2\u003eMy
-        \u003cspan style=\"background-color: rgb(255, 255, 0);\"\u003elibrary\u003c/span\u003e
-        \u003cb\u003enotes\u003c/b\u003e...\u0026nbsp; \u003c/h2\u003e\u003col\u003e\u003cli\u003e\u003ca
-        href=\"https://libraries.indiana.edu/\" target=\"_blank\"\u003eIU Libraries\u003c/a\u003e\u0026nbsp;website\u003c/li\u003e\u003cli\u003e\u003cbr\u003e\u003c/li\u003e\u003c/ol\u003e","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:56:58.000Z"},{"id":24,"code":"BH-APTLIB","label":"Bloomington
-        Res Halls - Campus View Apartments Lib \u0026 Res Ctr","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:01:08.000Z"},{"id":25,"code":"BH-BRISCOE","label":"Bloomington
-        Res Halls - Briscoe Movies Music \u0026 More","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:59:58.000Z"},{"id":26,"code":"BH-COLLINS","label":"Bloomington
-        Res Halls - Collins Comm Lib \u0026 Res Ctr","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:01:17.000Z"},{"id":28,"code":"BH-EIGENMN","label":"Bloomington
-        Res Halls - Eigenmann Comm Lib \u0026 Res Ctr","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:01:28.000Z"},{"id":29,"code":"BH-FOREST","label":"Bloomington
-        Res Halls - Forest Movies Music \u0026 More","address":"1725 E 3rd St","address2":"","city":"Bloomington","state":"Indiana","zip":"47406","phone":"(812)
-        855-9863","email":"rpslib@indiana.edu","url":"https://www.rps.indiana.edu/experience/Libraries/index.html","urlHours":"","latitude":"39.165053","longitude":"-86.512465","parking":null,"notes":"\u003cp\u003eRPS
-        Libraries (except our\u0026nbsp;Campus View location) are closed during summer
-        sessions.\u0026nbsp;\u003c/p\u003e","no_display":null,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-01-23T14:07:40.000Z"},{"id":30,"code":"BH-FOSTER","label":"Bloomington
-        Res Halls - Foster Comm Lib \u0026 Res Ctr","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:01:53.000Z"},{"id":31,"code":"BH-MCNUTT","label":"Bloomington
-        Res Halls - McNutt Comm Lib \u0026 Res Ctr","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:02:03.000Z"},{"id":32,"code":"BH-READ","label":"Bloomington
-        Res Halls - Read Movies Music \u0026 More","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:02:12.000Z"},{"id":27,"code":"BH-ROSE","label":"Bloomington
-        Res Halls - Spruce Movies Music \u0026 More","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:02:22.000Z"},{"id":33,"code":"BH-TETER","label":"Bloomington
-        Res Halls - Teter Comm Lib \u0026 Res Ctr","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:02:32.000Z"},{"id":15,"code":"BH-UNIONST","label":"Bloomington
-        Res Halls - Union Street Movies Music \u0026 More","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:02:43.000Z"},{"id":34,"code":"BH-WILLKIE","label":"Bloomington
-        Res Halls - Willkie Comm Lib \u0026 Res Ctr","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:03:01.000Z"},{"id":22,"code":"BH-WQUAD","label":"Bloomington
-        Res Halls - Wells Quad Movies Music \u0026 More","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:02:52.000Z"},{"id":35,"code":"BH-WRIGHT","label":"Bloomington
-        Res Halls - Wright Movies Music \u0026 More","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T16:03:09.000Z"},{"id":36,"code":"COLUMBUS","label":"Columbus
-        - University Library of Columbus","address":"4555 Central Ave","address2":"","city":"Columbus","state":"IN","zip":"47203","phone":"","email":"","url":"","urlHours":"","latitude":"39.2923","longitude":"-85.9020","parking":"","notes":"","no_display":true,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-03-18T19:43:00.000Z"},{"id":45,"code":"EAST","label":"East
-        Library - Richmond","address":"2325 Chester Blvd","address2":"","city":"Richmond","state":"IN","zip":"47374","phone":"765-973-8311
-        ","email":"iueref@iue.edu","url":"https://www.iue.edu/library/","urlHours":"","latitude":"39.868168","longitude":"-84.879776","parking":"","notes":"","no_display":true,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-03-19T13:57:09.000Z"},{"id":39,"code":"I-ART","label":"Indianapolis
-        - Herron Art Library","address":"735 West New York Street","address2":"","city":"
-        Indianapolis","state":"IN","zip":"46202","phone":"317-278-9484","email":"herron@iupui.edu","url":"https://ulib.iupui.edu/herron","urlHours":"","latitude":"39.771229","longitude":"-86.171475","parking":"","notes":"","no_display":true,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-03-19T14:28:04.000Z"},{"id":38,"code":"I-DENTSTRY","label":"Indianapolis
-        - Dentistry Library","address":"1121 W Michigan St, DS 128","address2":"","city":"Indianapolis","state":"IN","zip":"46202","phone":"317-274-7204","email":"dentlib@iupui.edu","url":"https://www.dentistry.iu.edu/library/","urlHours":"","latitude":"39.774080","longitude":"-86.179951","parking":"","notes":"","no_display":true,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-03-19T14:11:00.000Z"},{"id":40,"code":"I-LAW","label":"Indianapolis
-        - Ruth Lilly Law Library","address":"530 West New York Street","address2":"","city":"Indianapolis","state":"IN","zip":"46202","phone":"(317)
-        274-4028","email":"lawlibry@iupui.edu","url":"http://mckinneylaw.iu.edu/library/","urlHours":"","latitude":"39.4522843","longitude":"-86.6466591","parking":"","notes":"","no_display":null,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-03-19T14:51:06.000Z"},{"id":49,"code":"I-MEDICINE","label":"Indianapolis
-        - Ruth Lilly Medical Library","address":"975 W. Walnut St., IB 100","address2":"","city":"Indianapolis","state":"IN","zip":"46202","phone":"317-274-7182","email":"medlref@iu.edu","url":"https://library.mednet.iu.edu/","urlHours":"","latitude":"39.776624","longitude":"-86.176676","parking":"","notes":"","no_display":true,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-03-19T15:05:50.000Z"},{"id":42,"code":"I-UNIVLIB","label":"Indianapolis
-        - IUPUI University Library","address":"755 W Michigan St, Indianapolis, IN
-        ","address2":"","city":"Indianapolis","state":"IN","zip":"46202","phone":"317-274-8278","email":"http://www.ulib.iupui.edu/form/info_request","url":"http://www.ulib.iupui.edu/","urlHours":"http://www.ulib.iupui.edu/about/hours","latitude":"39.773223","longitude":"-86.172097","parking":"","notes":"","no_display":true,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-03-13T14:51:23.000Z"},{"id":43,"code":"KOKOMO","label":"Kokomo
-        Library","address":"2500 S. Washington Street","address2":"","city":"Kokomo","state":"IN","zip":"46902","phone":"(765)
-        455-9513","email":"iuklib@iuk.edu","url":"","urlHours":"","latitude":"39.1335604","longitude":"-86.5090041","parking":"","notes":"","no_display":true,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-03-18T19:39:31.000Z"},{"id":44,"code":"NORTHWEST","label":"Northwest
-        Library (Gary)","address":"3400 Broadway ","address2":"","city":"Gary","state":"IN","zip":"46408","phone":"219-980-6580","email":"","url":"https://www.iun.edu/library/","urlHours":"","latitude":"41.5553","longitude":"-87.3381","parking":"","notes":"","no_display":true,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-03-18T20:41:01.000Z"},{"id":46,"code":"SBEND","label":"South
-        Bend - Schurz Library","address":"1700 E Mishawaka Ave","address2":"","city":"South
-        Bend","state":"IN","zip":"46615","phone":" (574) 520-4440","email":"","url":"https://www.iusb.edu/library/","urlHours":"https://library.iusb.edu/about-us/hdp.html","latitude":"41.662806","longitude":"-86.222076","parking":null,"notes":"","no_display":true,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-01-10T17:48:57.000Z"},{"id":47,"code":"SBENDLRC","label":"South
-        Bend - Educational Resource Commons","address":"","address2":"","city":"","state":"","zip":"","phone":"","email":"","url":"","urlHours":"","latitude":"","longitude":"","parking":null,"notes":"","no_display":true,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-01-10T17:45:21.000Z"},{"id":48,"code":"SOUTHEAST","label":"Southeast
-        Library - New Albany","address":"4201 Grant Line Rd","address2":"","city":"New
-        Albany","state":"IN","zip":"47150","phone":"(812) 941-2485","email":"","url":"http://www.ius.edu/library","urlHours":"","latitude":"38.7077022","longitude":"-86.7140772","parking":null,"notes":"","no_display":null,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-02-13T17:22:26.000Z"}]}}'
-    http_version: 
-  recorded_at: Tue, 19 Mar 2019 17:47:42 GMT
-- request:
-    method: get
-    #uri: http://iucat-feature-tadas.uits.iu.edu/api/library/B-WELLS
     uri: https://iucat.iu.edu/api/library/B-WELLS
     body:
       encoding: US-ASCII
@@ -137,474 +18,404 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Date:
-      - Tue, 19 Mar 2019 17:47:42 GMT
       Server:
-      - Apache/2.2.15 (Red Hat)
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      - Apache/2.4.6 (CentOS)
       Vary:
       - Accept-Encoding
-      Etag:
-      - W/"8cd7aba0b15afcef9db41ec25f9b165e"
-      X-Frame-Options:
-      - ALLOWALL
-      X-Runtime:
-      - '0.169683'
-      X-Request-Id:
-      - 174c5660-26ed-431c-b23d-3254eb386bb2
-      X-Powered-By:
-      - Phusion Passenger 5.1.3
-      Set-Cookie:
-      - _Blacklight5_session=53a2d906d62883790aa49121a986b53e; path=/; HttpOnly
-      Status:
-      - 200 OK
-      Access-Control-Allow-Origin:
-      - "*"
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
+      Cache-Control:
+      - max-age=0, private, must-revalidate
       Content-Type:
       - application/json; charset=utf-8
+      Date:
+      - Wed, 21 Jul 2021 02:36:34 GMT
+      X-Request-Id:
+      - 69c43b57-81ab-4f90-a8d4-ec0b439c058c
+      Status:
+      - 200 OK
+      X-Runtime:
+      - '0.188881'
+      Transfer-Encoding:
+      - chunked
+      Etag:
+      - W/"d23b89ec048d580884ee99156a6b807a"
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _Blacklight5_session=f24d6d0d3fb944a07feb034d1bb219bb; path=/; HttpOnly
+      X-Frame-Options:
+      - ALLOWALL
+      X-Powered-By:
+      - Phusion Passenger 5.1.2
     body:
       encoding: ASCII-8BIT
       string: '{"success":true,"data":{"library":{"id":1,"code":"B-WELLS","label":"Bloomington
         - Herman B Wells Library","address":"1320 E 10th St.","address2":"","city":"Bloomington","state":"IN","zip":"47405","phone":"(812)
-        855-0100","email":"libref@indiana.edu","url":"https://libraries.indiana.edu/wells","urlHours":"https://libraries.indiana.edu/wells/hours","latitude":"39.17098","longitude":"-86.51689","parking":null,"notes":"\u003ch2\u003eMy
-        \u003cspan style=\"background-color: rgb(255, 255, 0);\"\u003elibrary\u003c/span\u003e
-        \u003cb\u003enotes\u003c/b\u003e...\u0026nbsp; \u003c/h2\u003e\u003col\u003e\u003cli\u003e\u003ca
-        href=\"https://libraries.indiana.edu/\" target=\"_blank\"\u003eIU Libraries\u003c/a\u003e\u0026nbsp;website\u003c/li\u003e\u003cli\u003e\u003cbr\u003e\u003c/li\u003e\u003c/ol\u003e","no_display":false,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2018-12-21T15:56:58.000Z"},"pretty_hours":{"sunday":{"start":"11:00","start_meridian":"\u003cspan\u003eAM\u003c/span\u003e","end":"12:00","end_meridian":"\u003cspan\u003ePM\u003c/span\u003e","closed":null},"monday":{"start":"
-        8:00","start_meridian":"\u003cspan\u003eAM\u003c/span\u003e","end":"12:00","end_meridian":"\u003cspan\u003eAM\u003c/span\u003e","closed":null},"tuesday":{"start":"
-        8:00","start_meridian":"\u003cspan\u003eAM\u003c/span\u003e","end":"12:00","end_meridian":"\u003cspan\u003ePM\u003c/span\u003e","closed":null},"wednesday":{"start":"
-        8:00","start_meridian":"\u003cspan\u003eAM\u003c/span\u003e","end":"12:00","end_meridian":"\u003cspan\u003ePM\u003c/span\u003e","closed":null},"thursday":{"start":"
-        8:00","start_meridian":"\u003cspan\u003eAM\u003c/span\u003e","end":"12:00","end_meridian":"\u003cspan\u003ePM\u003c/span\u003e","closed":null},"friday":{"start":"
-        8:00","start_meridian":"\u003cspan\u003eAM\u003c/span\u003e","end":" 9:00","end_meridian":"\u003cspan\u003ePM\u003c/span\u003e","closed":null},"saturday":{"start":"10:00","start_meridian":"\u003cspan\u003eAM\u003c/span\u003e","end":"
-        9:00","end_meridian":"\u003cspan\u003ePM\u003c/span\u003e","closed":null}},"hours":null,"today":{"start":"
-        8:00","start_meridian":"\u003cspan\u003eAM\u003c/span\u003e","end":"12:00","end_meridian":"\u003cspan\u003ePM\u003c/span\u003e","exception":null,"dow":"tuesday","month":"03","day":"19","year":"2019"},"exceptions":[{"id":78,"library_hours_id":18,"exception_date":"2019-03-09","start_time":"13:00","end_time":"17:00","closed":false,"reason":"Spring
-        Break","created_at":"2018-12-04T19:43:42.000Z","updated_at":"2018-12-04T19:43:42.000Z"},{"id":79,"library_hours_id":18,"exception_date":"2019-03-10","start_time":"13:00","end_time":"17:00","closed":false,"reason":"Spring
-        Break","created_at":"2018-12-04T19:43:56.000Z","updated_at":"2018-12-04T19:43:56.000Z"},{"id":80,"library_hours_id":18,"exception_date":"2019-03-11","start_time":"13:00","end_time":"17:00","closed":false,"reason":"Spring
-        Break","created_at":"2018-12-04T19:44:11.000Z","updated_at":"2018-12-04T19:44:11.000Z"},{"id":81,"library_hours_id":18,"exception_date":"2019-03-12","start_time":"13:00","end_time":"17:00","closed":false,"reason":"Spring
-        Break","created_at":"2018-12-04T19:44:14.000Z","updated_at":"2018-12-04T19:44:14.000Z"},{"id":82,"library_hours_id":18,"exception_date":"2019-03-13","start_time":"13:00","end_time":"17:00","closed":false,"reason":"Spring
-        Break","created_at":"2018-12-04T19:44:18.000Z","updated_at":"2018-12-04T19:44:18.000Z"},{"id":83,"library_hours_id":18,"exception_date":"2019-03-14","start_time":"13:00","end_time":"17:00","closed":false,"reason":"Spring
-        Break","created_at":"2018-12-04T19:44:21.000Z","updated_at":"2018-12-04T19:44:21.000Z"},{"id":84,"library_hours_id":18,"exception_date":"2019-03-15","start_time":"13:00","end_time":"17:00","closed":false,"reason":"Spring
-        Break","created_at":"2018-12-04T19:44:26.000Z","updated_at":"2018-12-04T19:44:26.000Z"},{"id":85,"library_hours_id":18,"exception_date":"2019-03-16","start_time":"13:00","end_time":"17:00","closed":false,"reason":"Spring
-        Break","created_at":"2018-12-04T19:44:29.000Z","updated_at":"2018-12-04T19:44:29.000Z"},{"id":90,"library_hours_id":18,"exception_date":"2019-04-26","start_time":"08:00","end_time":"02:00","closed":false,"reason":"Finals
-        Week","created_at":"2018-12-04T19:47:38.000Z","updated_at":"2018-12-04T19:47:38.000Z"},{"id":91,"library_hours_id":18,"exception_date":"2019-04-27","start_time":"08:00","end_time":"02:00","closed":false,"reason":"Finals
-        Week","created_at":"2018-12-04T19:47:38.000Z","updated_at":"2018-12-04T19:47:38.000Z"},{"id":92,"library_hours_id":18,"exception_date":"2019-04-28","start_time":"08:00","end_time":"02:00","closed":false,"reason":"Finals
-        Week","created_at":"2018-12-04T19:47:38.000Z","updated_at":"2018-12-04T19:47:38.000Z"},{"id":93,"library_hours_id":18,"exception_date":"2019-04-29","start_time":"08:00","end_time":"02:00","closed":false,"reason":"Finals
-        Week","created_at":"2018-12-04T19:47:38.000Z","updated_at":"2018-12-04T19:47:38.000Z"},{"id":94,"library_hours_id":18,"exception_date":"2019-04-30","start_time":"08:00","end_time":"02:00","closed":false,"reason":"Finals
-        Week","created_at":"2018-12-04T19:47:38.000Z","updated_at":"2018-12-04T19:47:38.000Z"},{"id":95,"library_hours_id":18,"exception_date":"2019-05-01","start_time":"08:00","end_time":"02:00","closed":false,"reason":"Finals
-        Week","created_at":"2018-12-04T19:48:16.000Z","updated_at":"2018-12-04T19:48:16.000Z"},{"id":96,"library_hours_id":18,"exception_date":"2019-05-02","start_time":"08:00","end_time":"02:00","closed":false,"reason":"Finals
-        Week","created_at":"2018-12-04T19:48:16.000Z","updated_at":"2018-12-04T19:48:16.000Z"},{"id":98,"library_hours_id":18,"exception_date":"2019-05-03","start_time":"08:00","end_time":"21:00","closed":false,"reason":"Finals
-        Week","created_at":"2018-12-04T19:48:50.000Z","updated_at":"2018-12-04T19:48:50.000Z"}],"floors":[{"id":208,"library_code":"B-WELLS","location":"_ALFBRAD
-        ","description":"Blmgtn - Herman B Wells Library - IU Libraries Moving Image
-        Archive - Bradley Film Collection","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        855-0100","email":"libref@indiana.edu","url":"https://libraries.indiana.edu/wells","urlHours":"https://libraries.indiana.edu/wells/hours","latitude":"39.17098","longitude":"-86.51689","parking":"https://parking.indiana.edu/","notes":"","no_display":null,"created_at":"2018-12-11T21:47:17.000Z","updated_at":"2019-07-28T12:25:45.000Z"},"hours":null,"today":{},"exceptions":[],"floors":[{"id":208,"library_code":"B-WELLS","location":"_ALFBRAD
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - IU Libraries Moving Image Archive - Bradley Film Collection","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-11T15:10:39.000Z"},{"id":209,"library_code":"B-WELLS","location":"_ALFEDFILM
-        ","description":"Blmgtn - Herman B Wells Library - IU Libraries Moving Image
-        Archive - Educational Film Coll.","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - IU Libraries Moving Image Archive - Educational Film Coll.","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":210,"library_code":"B-WELLS","location":"_C-ARCH
-        ","description":"Blmgtn - Herman B Wells Library - Miller Master of Architecture
-        Columbus Indiana","call_number_range":"","call_number_start":"","call_number_end":"","floor":"The
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Miller Master of Architecture Columbus Indiana","call_number_range":"","call_number_start":"","call_number_end":"","floor":"The
         Republic Building","notes":"Located in Columbus Indiana ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":211,"library_code":"B-WELLS","location":"_DOCSASK
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Ask Staff","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Info - Ask Staff","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":212,"library_code":"B-WELLS","location":"_DOCSCAT
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Information","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Information","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":213,"library_code":"B-WELLS","location":"_DOCSCOMP
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Computer Disks","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Computer Disks","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":214,"library_code":"B-WELLS","location":"_DOCSFROG
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Frontlog","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Info - Frontlog","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":216,"library_code":"B-WELLS","location":"_DOCSIND
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Indiana Collection","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Indiana Collection","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":215,"library_code":"B-WELLS","location":"_DOCSINDRF
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Indiana Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":217,"library_code":"B-WELLS","location":"_DOCSINMAP
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Indiana Maps","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
+        - Herman B Wells Library - Wells Library - EastTower2 - Indiana Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:26.000Z"},{"id":217,"library_code":"B-WELLS","location":"_DOCSINMAP
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Indiana Maps","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":218,"library_code":"B-WELLS","location":"_DOCSINOV
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Indiana Oversize","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Indiana Oversize","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":219,"library_code":"B-WELLS","location":"_DOCSMAPS
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - SuDoc Maps","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - SuDoc Maps","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":220,"library_code":"B-WELLS","location":"_DOCSMFIC
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Microforms - SuDocs Fiche","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Microforms - SuDocs Fiche","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":221,"library_code":"B-WELLS","location":"_DOCSMFLM
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Microforms - SuDocs Film","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Microforms - SuDocs Film","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":222,"library_code":"B-WELLS","location":"_DOCSNEW
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - New Receipts","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Info - New Receipts","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":223,"library_code":"B-WELLS","location":"_DOCSOFF
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Floppy Disk Project","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Floppy Disk Project","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":224,"library_code":"B-WELLS","location":"_DOCSOVER
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Oversize","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Info - Oversize","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":228,"library_code":"B-WELLS","location":"_DOCSREF
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - General Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Info - General Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":225,"library_code":"B-WELLS","location":"_DOCSREFD
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Ref Desk","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":226,"library_code":"B-WELLS","location":"_DOCSREFL
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Ref - LC","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"alfordem@indiana.edu","email_request":false,"description":"Blmgtn
+        - Herman B Wells Library - Wells Library - EastTower2 - Gov''t Info - Ref
+        Desk","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:28.000Z"},{"id":226,"library_code":"B-WELLS","location":"_DOCSREFL
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Info - Ref - LC","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":227,"library_code":"B-WELLS","location":"_DOCSREFS
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Ref - SuDocs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":229,"library_code":"B-WELLS","location":"_DOCSSEC
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Secure Area","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":230,"library_code":"B-WELLS","location":"_DOCSSTKL
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Stacks - LC","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"alfordem@indiana.edu","email_request":false,"description":"Blmgtn
+        - Herman B Wells Library - Wells Library - EastTower2 - Gov''t Info - Ref
+        - SuDocs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:29.000Z"},{"id":229,"library_code":"B-WELLS","location":"_DOCSSEC
+        ","email":"alfordem@indiana.edu","email_request":false,"description":"Blmgtn
+        - Herman B Wells Library - Wells Library - EastTower2 - Gov''t Info - Secure
+        Area","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:30.000Z"},{"id":230,"library_code":"B-WELLS","location":"_DOCSSTKL
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Info - Stacks - LC","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":231,"library_code":"B-WELLS","location":"_DOCSSTLC
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Storage - LC","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Info - Storage - LC","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":232,"library_code":"B-WELLS","location":"_DOCSSTOV
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Storage Oversize","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Info - Storage Oversize","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":233,"library_code":"B-WELLS","location":"_DOCSSTS
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Storage - SuDocs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Info - Storage - SuDocs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":234,"library_code":"B-WELLS","location":"_DOCSUS
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Gov''t Info - Stacks - SuDocs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Gov''t Info - Stacks - SuDocs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":235,"library_code":"B-WELLS","location":"_KENTCOOP
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Reference
-        Reading Room - Current Periodicals","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Reference Reading Room - Current Periodicals","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":251,"library_code":"B-WELLS","location":"_MDIA
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":236,"library_code":"B-WELLS","location":"_MDIAAUCD
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Audio CD","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Audio CD","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":237,"library_code":"B-WELLS","location":"_MDIAAUDI
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Audio Cassettes","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Audio Cassettes","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":238,"library_code":"B-WELLS","location":"_MDIABDOC
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Browsing Documentary","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Browsing Documentary","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":239,"library_code":"B-WELLS","location":"_MDIABOARD
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Board Games","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Board Games","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":240,"library_code":"B-WELLS","location":"_MDIABOOK
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Media Book","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Media Book","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":241,"library_code":"B-WELLS","location":"_MDIABRAD
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Bradley DVDs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Bradley DVDs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":242,"library_code":"B-WELLS","location":"_MDIABROW
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Video Browsing","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Video Browsing","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":243,"library_code":"B-WELLS","location":"_MDIACD
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Circulating CD-ROM","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Circulating CD-ROM","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":244,"library_code":"B-WELLS","location":"_MDIADVD
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - DVDs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - DVDs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":245,"library_code":"B-WELLS","location":"_MDIAEQP
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Equipment","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Equipment","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":246,"library_code":"B-WELLS","location":"_MDIAISS
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - ISS","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - ISS","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":247,"library_code":"B-WELLS","location":"_MDIALSRD
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Laserdiscs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Laserdiscs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":248,"library_code":"B-WELLS","location":"_MDIAPERS
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - A/V Personal Copies","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - A/V Personal Copies","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":249,"library_code":"B-WELLS","location":"_MDIARESV
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Reserve Desk","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Reserve Desk","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":250,"library_code":"B-WELLS","location":"_MDIAVIDE
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Media Services
-        - Videocassettes","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Media Services - Videocassettes","call_number_range":"","call_number_start":"","call_number_end":"","floor":"Ground
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":252,"library_code":"B-WELLS","location":"_MFASKSTF
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Microforms - Ask Staff","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Microforms - Ask Staff","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":253,"library_code":"B-WELLS","location":"_MFMCRD
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Microforms - Microcard","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Microforms - Microcard","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":254,"library_code":"B-WELLS","location":"_MFMFICHE
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Microforms - LC Fiche","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Microforms - LC Fiche","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":255,"library_code":"B-WELLS","location":"_MFMFLM
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Microforms - LC Film","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Microforms - LC Film","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":256,"library_code":"B-WELLS","location":"_MFMFORM
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Microforms","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Microforms","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":257,"library_code":"B-WELLS","location":"_MFMPRINT
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Microforms - Microprint","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Microforms - Microprint","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":258,"library_code":"B-WELLS","location":"_MFREF
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Microforms - Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Microforms - Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":259,"library_code":"B-WELLS","location":"_MFULTFIC
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Microforms - Ultrafiche","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Microforms - Ultrafiche","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":260,"library_code":"B-WELLS","location":"_RCAPPROV
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Tech. Services
-        - Being Cataloged (Ask Staff)","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Tech. Services - Being Cataloged (Ask Staff)","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
         Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":261,"library_code":"B-WELLS","location":"_RCCHINESE
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - Chinese","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Research Coll. - Chinese","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":262,"library_code":"B-WELLS","location":"_RCCHINOV
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - Chinese - Oversized","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Research Coll. - Chinese - Oversized","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":266,"library_code":"B-WELLS","location":"_RCEAST
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - East Asian Collection","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Research Coll. - East Asian Collection","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":263,"library_code":"B-WELLS","location":"_RCEASTRA
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - East Asian - Rare Books","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Research Coll. - East Asian - Rare Books","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":264,"library_code":"B-WELLS","location":"_RCEASTRF
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - East Asian - Ref. Coll.","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":265,"library_code":"B-WELLS","location":"_RCEASTRO
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - East Asian Ref. - Oversized","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":269,"library_code":"B-WELLS","location":"_RCFOLK
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - Folklore Collection","call_number_range":"","call_number_start":"","call_number_end":"","floor":"7th
+        ","email":"wliu@indiana.edu","email_request":false,"description":"Blmgtn -
+        Herman B Wells Library - Wells Library - Research Coll. - East Asian - Ref.
+        Coll.","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:34.000Z"},{"id":265,"library_code":"B-WELLS","location":"_RCEASTRO
+        ","email":"wliu@indiana.edu","email_request":false,"description":"Blmgtn -
+        Herman B Wells Library - Wells Library - Research Coll. - East Asian Ref.
+        - Oversized","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:35.000Z"},{"id":269,"library_code":"B-WELLS","location":"_RCFOLK
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Research Coll. - Folklore Collection","call_number_range":"","call_number_start":"","call_number_end":"","floor":"7th
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":267,"library_code":"B-WELLS","location":"_RCFOLKOV
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - Folklore Oversized","call_number_range":"","call_number_start":"","call_number_end":"","floor":"7th
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Research Coll. - Folklore Oversized","call_number_range":"","call_number_start":"","call_number_end":"","floor":"7th
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":268,"library_code":"B-WELLS","location":"_RCFOLKRF
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - Folklore Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"7th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":270,"library_code":"B-WELLS","location":"_RCFRNTLG
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Tech. Services
-        - Being Cataloged (Ask Staff)","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
+        ","email":"molsmith@indiana.edu","email_request":false,"description":"Blmgtn
+        - Herman B Wells Library - Wells Library - Research Coll. - Folklore Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"7th
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:36.000Z"},{"id":270,"library_code":"B-WELLS","location":"_RCFRNTLG
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Tech. Services - Being Cataloged (Ask Staff)","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
         Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":271,"library_code":"B-WELLS","location":"_RCHUMAN
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Human Relations Area Files","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Human Relations Area Files","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":273,"library_code":"B-WELLS","location":"_RCJAPAN
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - Japanese","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Research Coll. - Japanese","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":272,"library_code":"B-WELLS","location":"_RCJAPANOV
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - Japanese - Oversized","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Research Coll. - Japanese - Oversized","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":274,"library_code":"B-WELLS","location":"_RCKOREAN
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - Korean","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Research Coll. - Korean","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":275,"library_code":"B-WELLS","location":"_RCKOREOV
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Research
-        Coll. - Korean - Oversized","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Research Coll. - Korean - Oversized","call_number_range":"","call_number_start":"","call_number_end":"","floor":"8th
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":276,"library_code":"B-WELLS","location":"_RCLIBERA
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Tech. Services
-        - Being Cataloged (Ask Staff)","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Tech. Services - Being Cataloged (Ask Staff)","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
         Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":279,"library_code":"B-WELLS","location":"_RCMAPS
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Maps","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Maps","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":277,"library_code":"B-WELLS","location":"_RCMAPSRAR
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Rare Maps","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Rare Maps","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":278,"library_code":"B-WELLS","location":"_RCMAPSREF
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - EastTower2
-        - Maps Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":280,"library_code":"B-WELLS","location":"_RCORIGCAT
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Tech. Services
-        - Being Cataloged (Ask Staff)","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":281,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - EastTower2 - Maps Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":628,"library_code":"B-WELLS","location":"_RCMEMCAT","email":"","email_request":false,"description":"Blmgtn
+        - Herman B Wells Library - Wells Library - Tech. Services - Being Cataloged
+        (Ask Staff)","call_number_range":null,"call_number_start":"","call_number_end":"","floor":"1st
+        Floor, East Tower","notes":"Ask at Circulation","created_at":"2020-12-18T02:17:44.000Z","updated_at":"2020-12-18T02:17:44.000Z"},{"id":280,"library_code":"B-WELLS","location":"_RCORIGCAT
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Tech. Services - Being Cataloged (Ask Staff)","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
+        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":281,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"A
         - DA99","call_number_start":"A","call_number_end":"DA99","floor":"4th Floor,
-        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:05.000Z"},{"id":282,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:05.000Z"},{"id":282,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"DA100
         - DG208","call_number_start":"DA100","call_number_end":"DG208","floor":"5th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:11.000Z"},{"id":283,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:11.000Z"},{"id":283,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"DG209
         - GN","call_number_start":"DG209","call_number_end":"GN","floor":"6th Floor,
-        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:17.000Z"},{"id":284,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:17.000Z"},{"id":284,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"GR
         - LT","call_number_start":"GR","call_number_end":"LT","floor":"7th Floor,
-        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:26.000Z"},{"id":285,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:26.000Z"},{"id":285,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"N
         - NX","call_number_start":"N","call_number_end":"NX","floor":"9th Floor, East
-        Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:31.000Z"},{"id":286,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:31.000Z"},{"id":286,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"P
         - PF","call_number_start":"P","call_number_end":"PF","floor":"7th Floor, East
-        Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:36.000Z"},{"id":287,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:36.000Z"},{"id":287,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"PH","call_number_start":"PH","call_number_end":"PH9999","floor":"7th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-15T14:36:28.000Z"},{"id":288,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-15T14:36:28.000Z"},{"id":288,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"PG","call_number_start":"PG","call_number_end":"PG9999","floor":"5th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-15T14:36:51.000Z"},{"id":289,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-15T14:36:51.000Z"},{"id":289,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"PJ
         - PN","call_number_start":"PJ","call_number_end":"PN","floor":"8th Floor,
-        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:45.000Z"},{"id":290,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:45.000Z"},{"id":290,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"PQ1
         - PQ6599","call_number_start":"PQ1","call_number_end":"PQ6599","floor":"9th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:57.000Z"},{"id":291,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:04:57.000Z"},{"id":291,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"PQ6600
         - PQ7080","call_number_start":"PQ6600","call_number_end":"PQ7080","floor":"10th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:05:04.000Z"},{"id":292,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:05:04.000Z"},{"id":292,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"PQ7081
         - PQ9999","call_number_start":"PQ7081","call_number_end":"PQ9999","floor":"6th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:05:11.000Z"},{"id":293,"library_code":"B-WELLS","location":"_RCOVER","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:05:11.000Z"},{"id":293,"library_code":"B-WELLS","location":"_RCOVER","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Oversized","call_number_range":"PR
         - Z","call_number_start":"PR","call_number_end":"Z","floor":"10th Floor, East
-        Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:05:15.000Z"},{"id":294,"library_code":"B-WELLS","location":"_RCREFATL","description":"Blmgtn
+        Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:05:15.000Z"},{"id":294,"library_code":"B-WELLS","location":"_RCREFATL","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Reference Dept.
         - Atlases","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":295,"library_code":"B-WELLS","location":"_RCREFCAT","description":"Blmgtn
+        Floor Reference Reading Room, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-09-12T19:31:09.000Z"},{"id":295,"library_code":"B-WELLS","location":"_RCREFCAT","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Ref. Dept. - Print
         Catalogs","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":296,"library_code":"B-WELLS","location":"_RCREFDPT","description":"Blmgtn
+        Floor Reference Reading Room, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-09-12T19:31:35.000Z"},{"id":296,"library_code":"B-WELLS","location":"_RCREFDPT","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Reference Reading
         Room","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":297,"library_code":"B-WELLS","location":"_RCREFDSK","description":"Blmgtn
+        Floor Reference Reading Room, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:41.000Z"},{"id":297,"library_code":"B-WELLS","location":"_RCREFDSK","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Reference Desk","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":298,"library_code":"B-WELLS","location":"_RCREFIU","description":"Blmgtn
+        Floor Reference Reading Room, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-09-12T19:31:43.000Z"},{"id":298,"library_code":"B-WELLS","location":"_RCREFIU","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - IU Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":299,"library_code":"B-WELLS","location":"_RCREFNDX","description":"Blmgtn
+        Floor Reference Reading Room, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:42.000Z"},{"id":299,"library_code":"B-WELLS","location":"_RCREFNDX","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Reference Dept.
         - Indx Tbls","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":300,"library_code":"B-WELLS","location":"_RCSECFCL","description":"Blmgtn
+        Floor Reference Reading Room, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-09-12T19:31:57.000Z"},{"id":300,"library_code":"B-WELLS","location":"_RCSECFCL","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Secure Area -
         Fscl.","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":301,"library_code":"B-WELLS","location":"_RCSECMIN","description":"Blmgtn
+        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":301,"library_code":"B-WELLS","location":"_RCSECMIN","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Secure Area -
         Miniatures","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":302,"library_code":"B-WELLS","location":"_RCSECOVR","description":"Blmgtn
+        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":302,"library_code":"B-WELLS","location":"_RCSECOVR","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Secure Area -
         Oversized","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":303,"library_code":"B-WELLS","location":"_RCSECURE","description":"Blmgtn
+        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":303,"library_code":"B-WELLS","location":"_RCSECURE","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Secure Area","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":304,"library_code":"B-WELLS","location":"_RCSERCAT","description":"Blmgtn
+        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":304,"library_code":"B-WELLS","location":"_RCSERCAT","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Tech. Services - Being Cataloged
         (Ask Staff)","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":305,"library_code":"B-WELLS","location":"_RCSLAVRF","description":"Blmgtn
-        - Herman B Wells Library - Wells Library - Research Coll. - Slavic Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"5th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":306,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
+        Floor, East Tower","notes":"Ask at Circulation ","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":305,"library_code":"B-WELLS","location":"_RCSLAVRF","email":"wcheun@
+        indiana.edu","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Research Coll. - Slavic Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"5th
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:45.000Z"},{"id":306,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"A-DA99","call_number_start":"A","call_number_end":"DA99","floor":"4th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T19:32:31.000Z"},{"id":307,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:45.000Z"},{"id":307,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"DA100
         - DG208","call_number_start":"DA100","call_number_end":"DG208","floor":"5th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T19:32:39.000Z"},{"id":308,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:46.000Z"},{"id":308,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"DG209
         - GN","call_number_start":"DG209","call_number_end":"GN","floor":"6th Floor,
-        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T19:32:46.000Z"},{"id":309,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
+        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:47.000Z"},{"id":309,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"GR
         - LT","call_number_start":"GR","call_number_end":"LT","floor":"7th Floor,
-        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:05:54.000Z"},{"id":310,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
+        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:47.000Z"},{"id":310,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"N
         - NX","call_number_start":"N","call_number_end":"NX","floor":"9th Floor, East
-        Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:06:00.000Z"},{"id":311,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
+        Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:49.000Z"},{"id":311,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"P
         - PF","call_number_start":"P","call_number_end":"PF","floor":"7th Floor, East
-        Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:06:05.000Z"},{"id":312,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
-        - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"PH","call_number_start":"PH","call_number_end":"","floor":"7th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":313,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
-        - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"PG","call_number_start":"PG","call_number_end":"","floor":"5th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":314,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
+        Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:51.000Z"},{"id":312,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
+        - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"PH","call_number_start":"PH","call_number_end":"PH","floor":"7th
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:51.000Z"},{"id":313,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
+        - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"PG","call_number_start":"PG","call_number_end":"PG","floor":"5th
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:53.000Z"},{"id":314,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"PJ
         - PN","call_number_start":"PJ","call_number_end":"PN","floor":"8th Floor,
-        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:06:09.000Z"},{"id":315,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
+        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:53.000Z"},{"id":315,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"PQ1
         - PQ6599","call_number_start":"PQ1","call_number_end":"PQ6599","floor":"9th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:06:16.000Z"},{"id":316,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:55.000Z"},{"id":316,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"PQ6600
         - PQ7080","call_number_start":"PQ6600","call_number_end":"PQ7080","floor":"10th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:06:22.000Z"},{"id":317,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:56.000Z"},{"id":317,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"PQ7081
         - PQ9999","call_number_start":"PQ7081","call_number_end":"PQ9999","floor":"6th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:06:28.000Z"},{"id":318,"library_code":"B-WELLS","location":"_RCSTACKS","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:58.000Z"},{"id":318,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":"PR
-        - Z","call_number_start":"PR","call_number_end":"Z","floor":"10th Floor, East
-        Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:06:33.000Z"},{"id":319,"library_code":"B-WELLS","location":"_RCTIBA","description":"Blmgtn
+        - Z","call_number_start":"PR","call_number_end":"Z6619","floor":"10th Floor,
+        East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:02:58.000Z"},{"id":624,"library_code":"B-WELLS","location":"_RCSTACKS","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
+        - Herman B Wells Library - Wells Library - Research Coll. - Stacks","call_number_range":null,"call_number_start":"Z6620","call_number_end":"ZA9999","floor":"1st
+        Floor Reference Reading Room, East Tower - Circulating Item","notes":"","created_at":"2019-09-12T20:03:13.000Z","updated_at":"2021-07-06T13:02:59.000Z"},{"id":319,"library_code":"B-WELLS","location":"_RCTIBA","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Tibetan-A","call_number_range":"","call_number_start":"","call_number_end":"","floor":"5th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":320,"library_code":"B-WELLS","location":"_RCTIBB","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":320,"library_code":"B-WELLS","location":"_RCTIBB","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Tibetan-B","call_number_range":"","call_number_start":"","call_number_end":"","floor":"5th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":321,"library_code":"B-WELLS","location":"_RCTIBC","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":321,"library_code":"B-WELLS","location":"_RCTIBC","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Tibetan-C","call_number_range":"","call_number_start":"","call_number_end":"","floor":"5th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":322,"library_code":"B-WELLS","location":"_RCTIBD","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":322,"library_code":"B-WELLS","location":"_RCTIBD","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Research Coll. - Tibetan-D","call_number_range":"","call_number_start":"","call_number_end":"","floor":"5th
-        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":323,"library_code":"B-WELLS","location":"_UGASK","description":"Blmgtn
+        Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":323,"library_code":"B-WELLS","location":"_UGASK","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Undergraduate Services - Ask Staff","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
-        Floor, West Tower","notes":"Learning Commons Service Desk","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":324,"library_code":"B-WELLS","location":"_UGBROWSE","description":"Blmgtn
+        Floor, West Tower","notes":"Learning Commons Service Desk","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":324,"library_code":"B-WELLS","location":"_UGBROWSE","email":"","email_request":false,"description":"Blmgtn
         - Herman B Wells Library - Wells Library - Undergraduate Services - Browsing
         Collection","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":325,"library_code":"B-WELLS","location":"_UGCARREF
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Undergraduate
-        Services - Career Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"3rd
-        Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":326,"library_code":"B-WELLS","location":"_UGLIB
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Undergraduate
-        Services - Core Collection","call_number_range":"A-J","call_number_start":"A","call_number_end":"J","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Undergraduate Services - Career Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"3rd
+        Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2020-10-26T13:19:56.000Z"},{"id":326,"library_code":"B-WELLS","location":"_UGLIB
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Undergraduate Services - Core Collection","call_number_range":"A-J","call_number_start":"A","call_number_end":"J","floor":"2nd
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:07:51.000Z"},{"id":327,"library_code":"B-WELLS","location":"_UGLIB
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Undergraduate
-        Services - Core Collection","call_number_range":"K-Z","call_number_start":"K","call_number_end":"Z","floor":"3rd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Undergraduate Services - Core Collection","call_number_range":"K-Z","call_number_start":"K","call_number_end":"Z","floor":"3rd
         Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-14T20:07:56.000Z"},{"id":328,"library_code":"B-WELLS","location":"_UGREFER
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Undergraduate
-        Services - Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"3rd
-        Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":329,"library_code":"B-WELLS","location":"_UGRESV
-        ","description":"Blmgtn - Herman B Wells Library - Wells Library - Undergraduate
-        Services - Reserve Desk","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
+        ","email":"libref@indiana.edu","email_request":false,"description":"Blmgtn
+        - Herman B Wells Library - Wells Library - Undergraduate Services - Reference","call_number_range":"","call_number_start":"","call_number_end":"","floor":"3rd
+        Floor, West Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2021-07-06T13:03:03.000Z"},{"id":329,"library_code":"B-WELLS","location":"_UGRESV
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Wells Library - Undergraduate Services - Reserve Desk","call_number_range":"","call_number_start":"","call_number_end":"","floor":"1st
         Floor, West Tower","notes":"Learning Commons Service Desk","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-01-09T21:36:49.000Z"},{"id":207,"library_code":"B-WELLS","location":"MAPS
-        ","description":"Blmgtn - Herman B Wells Library - Maps","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
+        ","email":"","email_request":false,"description":"Blmgtn - Herman B Wells
+        Library - Maps","call_number_range":"","call_number_start":"","call_number_end":"","floor":"2nd
         Floor, East Tower","notes":"","created_at":"2019-01-09T21:36:49.000Z","updated_at":"2019-03-04T15:08:16.000Z"}]}}'
-    http_version: 
-  recorded_at: Tue, 19 Mar 2019 17:47:42 GMT
-- request:
-    method: get
-    #uri: http://iucat-feature-tadas.uits.iu.edu/api/library/foobar
-    uri: https://iucat.iu.edu/api/library/foobar
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.12.2
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 19 Mar 2019 17:47:42 GMT
-      Server:
-      - Apache/2.2.15 (Red Hat)
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Vary:
-      - Accept-Encoding
-      Etag:
-      - W/"3af3cc2a8dc1f07479fac88bf4543456"
-      X-Frame-Options:
-      - ALLOWALL
-      X-Runtime:
-      - '0.077227'
-      X-Request-Id:
-      - a203296a-54ca-4794-ab91-7ef589dca44f
-      X-Powered-By:
-      - Phusion Passenger 5.1.3
-      Set-Cookie:
-      - _Blacklight5_session=a75a19d186f96ba6ca6cfd2ca6c665e5; path=/; HttpOnly
-      Status:
-      - 200 OK
-      Access-Control-Allow-Origin:
-      - "*"
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-      Content-Type:
-      - application/json; charset=utf-8
-    body:
-      encoding: ASCII-8BIT
-      string: '{"success":false,"data":"invalid id"}'
-    http_version: 
-  recorded_at: Tue, 19 Mar 2019 17:47:42 GMT
-recorded_with: VCR 4.0.0
+  recorded_at: Wed, 21 Jul 2021 02:36:34 GMT
+recorded_with: VCR 6.0.0
