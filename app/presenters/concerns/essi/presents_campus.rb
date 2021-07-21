@@ -11,10 +11,14 @@ module ESSI
       def delegated_properties
         super - [:campus]
       end
+
+      def custom_rendered_properties
+        (defined?(super) ? super : [] ) + [:campus]
+      end
     end
 
-    def campus
-      CampusAttributeRenderer.new(solr_document.campus).render_dl_row
+    def campus(options: {})
+      CampusAttributeRenderer.new(solr_document.campus, options).render_dl_row
     end
   end
 end

@@ -11,10 +11,14 @@ module ESSI
       def delegated_properties
         super - [:holding_location]
       end
+
+      def custom_rendered_properties
+        (defined?(super) ? super : [] ) + [:holding_location]
+      end
     end
 
-    def holding_location
-      HoldingLocationAttributeRenderer.new(solr_document.holding_location).render_dl_row
+    def holding_location(options: {})
+      HoldingLocationAttributeRenderer.new(solr_document.holding_location, options).render_dl_row
     end
   end
 end
