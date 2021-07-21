@@ -102,3 +102,7 @@ Hyrax::CollectionsController.prepend Extensions::Hyrax::CollectionsController::R
 Hyrax::Forms::CollectionForm.prepend Extensions::Hyrax::Forms::CollectionForm::AllFilesWithAccess
 Hyrax::CollectionMemberSearchBuilder.prepend Extensions::Hyrax::CollectionMemberSearchBuilder::Rows
 Hyrax::Collections::CollectionMemberService.prepend Extensions::Hyrax::Collections::CollectionMemberService::AvailableMemberFilesetTitleIds
+
+# ESSI-1337: apply custom renderers to catalog index, as well as on Show page
+Blacklight::IndexPresenter.include ESSI::PresentsCampus
+Blacklight::IndexPresenter.include ESSI::PresentsHoldingLocation

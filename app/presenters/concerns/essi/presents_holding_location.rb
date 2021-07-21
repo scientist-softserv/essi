@@ -9,7 +9,7 @@ module ESSI
     module ClassMethods
       # override allinson_flex delegation
       def delegated_properties
-        super - [:holding_location]
+        (defined?(super) ? super : []) - [:holding_location]
       end
 
       def custom_rendered_properties
