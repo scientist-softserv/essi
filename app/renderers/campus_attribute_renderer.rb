@@ -19,7 +19,7 @@ class CampusAttributeRenderer < Hyrax::Renderers::AttributeRenderer
    def location_string(loc)
      return unless loc
      content_tag(:a,
-                 loc.dig(:label),
+                 loc.dig(:term),
                  href: loc.dig(:url))
    end
 end
