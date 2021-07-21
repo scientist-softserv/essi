@@ -2,6 +2,9 @@
   <%# @todo internationalisation %>
   <% if prop_key.in? [:ocr_state, :source_metadata_identifier, :source_identifier, :viewing_direction, :viewing_hint] %>
     <% next unless presenter.current_ability.current_user.admin? %>
+  <% elsif prop_key.in? [:campus, :holding_location] %>
+    <%= presenter.try(prop_key) %>
+  <% else %>
+    <%= presenter.attribute_to_html(prop_key, label: prop_value[:label] ,html_dl: true) %>
   <% end %>
-  <%= presenter.attribute_to_html(prop_key, label: prop_value[:label] ,html_dl: true) %>
 <% end %>
