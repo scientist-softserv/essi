@@ -4,7 +4,7 @@ RSpec.describe Qa::Authorities::IucatLibraries do
   let(:authority) { described_class.new }
   let(:matching_id) { 'B-WELLS' }
   let(:nonmatching_id) { 'foobar' }
-  let(:api_config) { { url: 'http://iucat-feature-tadas.uits.iu.edu/api/library',
+  let(:api_config) { { url: 'https://iucat.iu.edu/api/library',
                        api_enabled: true } }
 
   context 'when configuration does not exist' do

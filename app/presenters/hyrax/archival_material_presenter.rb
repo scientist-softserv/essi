@@ -2,13 +2,11 @@
 #  `rails generate hyrax:work ArchivalMaterial`
 module Hyrax
   class ArchivalMaterialPresenter < Hyrax::WorkShowPresenter
-    include ESSI::PresentsHoldingLocation
     include ESSI::PresentsNumPages
     include ESSI::PresentsOCR
     include ESSI::PresentsPDF
     include ESSI::PresentsRelatedUrl
     include ESSI::PresentsStructure
-    include ESSI::PresentsCampus
 
     delegate :series, :viewing_direction, :viewing_hint,
              to: :solr_document
@@ -37,6 +35,8 @@ module Hyrax
     end
     include AllinsonFlex::DynamicPresenterBehavior
     self.model_class = ::ArchivalMaterial
+    include ESSI::PresentsCampus
+    include ESSI::PresentsHoldingLocation
     delegate(*delegated_properties, to: :solr_document)
   end
 end

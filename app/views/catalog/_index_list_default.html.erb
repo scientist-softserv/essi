@@ -4,13 +4,18 @@
     <% doc_presenter = index_presenter(document) %>
     <% index_fields(document).each do |field_name, field| -%>
       <% if should_render_index_field? document, field %>
-          <dt><%= render_index_field_label document, field: field_name %></dt>
-          <% field_value = doc_presenter.field_value(Blacklight::Configuration::Field.new(field: field_name)) %>          
-          <% if field_value.match(/(<([^>]+)>)/i) %>
-            <dd><%= field_value %></dd>
-          <% else %>
-            <dd><%= truncate field_value, length:160 %></dd>
-          <% end %>
+        <% field_label = render_index_field_label document, field: field_name %>
+        <% field_value = doc_presenter.field_value(Blacklight::Configuration::Field.new(field: field_name)) %>
+        <% if field.itemprop&.to_sym.in?(doc_presenter.class.try(:custom_rendered_properties) || []) %>
+          <% custom_renderer = "#{field.itemprop.titleize.gsub(' ','')}AttributeRenderer".constantize %>
+          <% field_value = custom_renderer.new(field_value, { label: field_label }).value_html.html_safe %>
+        <% end %>
+        <dt><%= field_label %></dt>
+        <% if field_value.match(/(<([^>]+)>)/i) %>
+          <dd><%= field_value %></dd>
+        <% else %>
+          <dd><%= truncate field_value, length:160 %></dd>
+        <% end %>
       <% end %>
     <% end %>
     </dl>

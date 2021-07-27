@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe HoldingLocationService do
   let(:service) { described_class }
-  let(:api_config) { { url: 'http://iucat-feature-tadas.uits.iu.edu/api/library',
+  let(:api_config) { { url: 'https://iucat.iu.edu/api/library',
                        api_enabled: true } }
 
   let(:id) { 'B-WELLS' }
