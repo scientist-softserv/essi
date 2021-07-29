@@ -39,6 +39,8 @@ Hyrax::WorkShowPresenter.include Extensions::Hyrax::WorkShowPresenter::Collectio
 Hyrax::Forms::WorkForm.include Extensions::Hyrax::Forms::WorkForm::PrimaryFields
 # support for worktype-specific #work_requires_files?
 Hyrax::Forms::WorkForm.include Extensions::Hyrax::Forms::WorkForm::WorkRequiresFiles
+# speedup work_members list generation by using solr
+Hyrax::Forms::WorkForm.prepend Extensions::Hyrax::Forms::WorkForm::WorkMembersSpeedy
 
 # IIIF Thumbnails for both types of Collections
 Hyrax::AdminSetIndexer.include ESSI::IIIFCollectionThumbnailBehavior
