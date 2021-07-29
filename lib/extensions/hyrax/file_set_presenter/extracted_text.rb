@@ -3,8 +3,10 @@ module Extensions
   module Hyrax
     module FileSetPresenter
       module ExtractedText
+        delegate :extracted_text, to: :solr_document
+        
         def extracted_text?
-          ::FileSet.find(id).extracted_text.present?
+          extracted_text.present?
         end
       
         def extracted_text_link
