@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -20,6 +20,6 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_AUTH_TOKEN }}
         buildargs: SOURCE_COMMIT
-        tags: "latest,master"
+        tags: "latest,main"
       env: 
         SOURCE_COMMIT: ${{ github.sha }}
