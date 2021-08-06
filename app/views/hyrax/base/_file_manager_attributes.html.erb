@@ -1,4 +1,4 @@
-OCR: <%= ocr_check(node.id) %>
+OCR: <%= ocr_check(node) %>
 
 <% hints = ['', 'non-paged', 'facing-pages'] %>
 <% hints_t = I18n.t('simple_form.options.file_set.viewing_hint').map{|key,val| [key.to_sym, val.to_s] }.to_h %>
