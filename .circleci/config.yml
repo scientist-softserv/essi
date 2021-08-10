@@ -27,7 +27,8 @@ jobs:
         CATALINA_OPTS: "-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1024m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
     - image: solr:7
       command: bin/solr -cloud -noprompt -f -p 8985
-    - image: circleci/mysql:5.7-ram
+    - image: circleci/mysql:8.0-ram
+      command: --default-authentication-plugin=mysql_native_password
       environment:
         MYSQL_DATABASE: essi_test
         MYSQL_USER: essi

@@ -57,7 +57,7 @@ services:
     command: sidekiq -c 10
 
   db:
-    image: mysql:5.7
+    image: mysql:8.0
     ports:
       - '3307:3306'
     volumes:
@@ -65,8 +65,6 @@ services:
       - './db/50-mysql-create-db.sql:/docker-entrypoint-initdb.d/50-mysql-create-db.sql'
     environment:
       MYSQL_ROOT_PASSWORD: essi
-      MYSQL_USER: essi
-      MYSQL_PASSWORD: essi
 
   s3proxy:
     image: andrewgaul/s3proxy
