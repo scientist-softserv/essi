@@ -120,7 +120,7 @@ module AllinsonFlex
     # @param locale_key - valid keys are: label, help_text
     # @return [String] the value for the given locale
     def property_locale(property, locale_key)
-      return property.to_s.capitalize unless locale_key.match('label' || 'help_text')
+      return property.to_s.capitalize unless locale_key.match(/(label|help_text)/)
 
       label = I18n.t("allinson_flex.#{context}.#{model}.#{locale_key}.#{property}")
       label = nil if label.include?('translation missing')
