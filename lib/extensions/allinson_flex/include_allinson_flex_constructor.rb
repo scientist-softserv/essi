@@ -5,7 +5,7 @@ module Extensions
     module IncludeAllinsonFlexConstructor
       def self.included(base)
         base.class_eval do
-          # unmodified from allinson_flex
+          # modified from allinson_flex: property texts built in separate method
           def self.construct_profile_properties(profile:, profile_context:, profile_class:, logger: default_logger)
             properties_hash = profile.profile.dig('properties')
     
@@ -25,33 +25,31 @@ module Extensions
     
               classes = properties_hash.dig(name, 'available_on', 'class')
               property.available_on_classes << profile_class if classes.blank? || classes.include?(profile_class.name)
-    
-              property_text = property.texts.build(
-                name: 'display_label',
-                value: properties_hash.dig(name, 'display_label', 'default')
-              )
-    
-              logger.info(%(Constructed AllinsonFlex::ProfileText "#{property_text.value}" for AllinsonFlex::ProfileProperty "#{property.name}"))
-    
-              if properties_hash.dig(name, 'display_label').keys.include? profile_context.name
-                property_text = property.texts.build(
-                  name: 'display_label',
-                  value: properties_hash.dig(name, 'display_label', profile_context.name),
-                  textable: profile_context
-                )
-                logger.info(%(Constructed AllinsonFlex::ProfileText "#{property_text.value}" for AllinsonFlex::ProfileProperty "#{property.name} on #{profile_context.name}"))
-              end
-    
-              if properties_hash.dig(name, 'display_label').keys.include? profile_class.name
-                property_text = property.texts.build(
-                  name: 'display_label',
-                  value: properties_hash.dig(name, 'display_label', profile_class.name),
-                  textable: profile_class
-                )
-                logger.info(%(Constructed AllinsonFlex::ProfileText "#{property_text.value}" for AllinsonFlex::ProfileProperty "#{property.name}" on #{profile_class.name}))
-              end
+   
+              construct_profile_property_texts(key: 'display_label', name: name, property: property, properties_hash: properties_hash, profile_context: profile_context, profile_class: profile_class, logger: logger)
     
               property
+            end
+          end
+
+          # new method for building property texts
+          def self.construct_profile_property_texts(key:, name:, property:, properties_hash:, profile_context:, profile_class:, logger: default_logger)
+            property_text = property.texts.build(
+              name: key,
+              value: properties_hash.dig(name, key, 'default')
+            )
+
+            logger.info(%(Constructed AllinsonFlex::ProfileText "#{property_text.value}" for AllinsonFlex::ProfileProperty "#{property.name}"))
+
+            [profile_context, profile_class].each do |textable|
+              if properties_hash.dig(name, key).keys.include? textable.name
+                property_text = property.texts.build(
+                  name: key,
+                  value: properties_hash.dig(name, key, textable.name),
+                  textable: textable
+                )
+                logger.info(%(Constructed AllinsonFlex::ProfileText "#{property_text.value}" for AllinsonFlex::ProfileProperty "#{property.name} on #{textable.name}"))
+              end
             end
           end
     
