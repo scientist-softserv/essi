@@ -27,13 +27,17 @@ module Extensions
               property.available_on_classes << profile_class if classes.blank? || classes.include?(profile_class.name)
    
               construct_profile_property_texts(key: 'display_label', name: name, property: property, properties_hash: properties_hash, profile_context: profile_context, profile_class: profile_class, logger: logger)
+              construct_profile_property_texts(key: 'usage_guidelines', name: name, property: property, properties_hash: properties_hash, profile_context: profile_context, profile_class: profile_class, logger: logger)
     
               property
             end
           end
 
           # new method for building property texts
+          # modified to handle optional keys, possibly absent from properties_hash
           def self.construct_profile_property_texts(key:, name:, property:, properties_hash:, profile_context:, profile_class:, logger: default_logger)
+            return unless properties_hash.dig(name, key)&.any?
+
             property_text = property.texts.build(
               name: key,
               value: properties_hash.dig(name, key, 'default')
