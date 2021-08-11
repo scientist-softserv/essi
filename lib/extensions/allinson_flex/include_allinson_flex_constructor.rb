@@ -57,7 +57,7 @@ module Extensions
             end
           end
     
-          # unmodified from allinson_flex
+          # modified from allinson_flex: includes usage_guidelines
           def self.build_schema(klass, context = nil)
             {
               'type' => klass.schema_uri || "http://example.com/#{klass.name}",
@@ -68,6 +68,7 @@ module Extensions
                     property.name => {
                       'predicate' => property.property_uri,
                       'display_label' => display_label(property, klass, context),
+                      'usage_guidelines' => display_value('usage_guidelines', property, klass, context),
                       'required' => required?(property.cardinality_minimum),
                       'singular' => singular?(property.cardinality_maximum),
                       'indexing' => property.indexing
@@ -77,15 +78,20 @@ module Extensions
             }
           end
     
-          # unmodified from allinson_flex
+          # modified from allinson_flex: uses new helper method
           def self.display_label(property, klass, context = nil)
+            display_value('display_label', property, klass, context)
+          end
+
+          # new method: abstracted display value lookup
+          def self.display_value(name, property, klass, context = nil)
             if context.present?
-              context_label = context.context_texts.detect { |t| t.value if t.name == 'display_label' && t.profile_property_id == property.id }&.value
+              context_label = context.context_texts.detect { |t| t.value if t.name == name && t.profile_property_id == property.id }&.value
               return context_label unless context_label.blank?
             end
-            class_label = klass.class_texts.detect { |t| t.value if t.name == 'display_label' && t.profile_property_id == property.id }&.value
+            class_label = klass.class_texts.detect { |t| t.value if t.name == name && t.profile_property_id == property.id }&.value
             return class_label unless class_label.blank?
-            property.texts.map { |t| t.value if t.name == 'display_label' && t.textable_type.nil? }.compact.first
+            property.texts.map { |t| t.value if t.name == name && t.textable_type.nil? }.compact.first
           end
         end
       end
