@@ -1,10 +1,12 @@
-<%# imported from allinson_flex %>
+<%# modified from allinson_flex: adds hint value if available and not redundant %>
 <% if defined?(dynamic_schema_service) %>
   <% label_value = dynamic_schema_service.property_locale(key, 'label') %>
+  <% hint_value = dynamic_schema_service.property_locale(key, 'help_text') %>
+  <% hint_value = nil if hint_value.to_s == key.to_s.capitalize %>
   <% if f.object.multiple? key %>
-    <%= f.input key, as: :multi_value, label: label_value, input_html: { class: 'form-control' }, required: f.object.required?(key) %>
+    <%= f.input key, as: :multi_value, label: label_value, input_html: { class: 'form-control' }, required: f.object.required?(key), hint: hint_value %>
   <% else %>
-    <%= f.input key, label: label_value, required: f.object.required?(key) %>
+    <%= f.input key, label: label_value, required: f.object.required?(key), hint: hint_value %>
   <% end %>
 <% else %>
   <% if f.object.multiple? key %>
