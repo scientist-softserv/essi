@@ -29,4 +29,16 @@ module ApplicationHelper
     CODE
     tag.html_safe
   end
+
+  def dynamic_hint(key)
+    hint_value = dynamic_schema_service.property_locale(key, 'help_text') if defined?(dynamic_schema_service)
+    hint_value = nil if hint_value.blank? || hint_value.to_s == key.to_s.capitalize
+    hint_value
+  end
+
+  def dynamic_label(key)
+    label_value = dynamic_schema_service.property_locale(key, 'label') if defined?(dynamic_schema_service)
+    label_value = nil if label_value.blank?
+    label_value
+  end
 end

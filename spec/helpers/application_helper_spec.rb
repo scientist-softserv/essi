@@ -28,4 +28,54 @@ describe ApplicationHelper do
       end
     end
   end
+
+  describe '#dynamic_hint(key)' do
+    context 'without a dynamic_schema_service' do
+      it 'returns nil' do
+        expect(dynamic_hint(:key)).to be_nil
+      end
+    end
+    context 'with a dynamic_schema_service' do
+      context 'with a blank lookup result' do
+        let(:dynamic_schema_service) { double('Dynamic Schema Service', property_locale: '') }
+        it 'returns nil' do
+          expect(dynamic_hint(:key)).to be_nil
+        end
+      end
+      context 'with a redundant lookup result' do
+        let(:dynamic_schema_service) { double('Dynamic Schema Service', property_locale: 'Key') }
+        it 'returns nil' do
+          expect(dynamic_hint(:key)).to be_nil
+        end
+      end
+      context 'with a valid lookup result' do
+        let(:dynamic_schema_service) { double('Dynamic Schema Service', property_locale: 'Real help text') }
+        it 'returns nil' do
+          expect(dynamic_hint(:key)).to eq 'Real help text'
+        end
+      end
+    end
+  end
+
+  describe '#dynamic_label(key)' do
+    context 'without a dynamic_schema_service' do
+      it 'returns nil' do
+        expect(dynamic_label(:key)).to be_nil
+      end
+    end
+    context 'with a dynamic_schema_service' do
+      context 'with a blank lookup result' do
+        let(:dynamic_schema_service) { double('Dynamic Schema Service', property_locale: '') }
+        it 'returns nil' do
+          expect(dynamic_label(:key)).to be_nil
+        end
+      end
+      context 'with a lookup result' do
+        let(:dynamic_schema_service) { double('Dynamic Schema Service', property_locale: 'Key') }
+        it 'returns nil' do
+          expect(dynamic_label(:key)).to eq 'Key'
+        end
+      end
+    end
+  end
 end

@@ -1,5 +1,7 @@
-<%= f.input :viewing_hint, as: :select,
+<%= f.input key, as: :select,
+    label: dynamic_label(key),
     collection: ['individuals', 'paged', 'continuous'],
     include_blank: true,
-    input_html: { class: 'form-control' }
+    input_html: { class: 'form-control' },
+    hint: dynamic_hint(:viewing_hint)
 %>
