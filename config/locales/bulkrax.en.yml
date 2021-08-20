@@ -1,0 +1,5 @@
+en:
+  bulkrax:
+    exporter:
+      labels:
+        make_round_trippable: Make Round Trippable

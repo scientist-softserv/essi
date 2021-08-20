@@ -83,6 +83,10 @@
   <%= form.input :parser_klass, 
     collection: Bulkrax.parsers.map {|p| [p[:name], p[:class_name], {'data-partial' => p[:partial]}] if p[:class_name].constantize.export_supported? }.compact, 
     label: t('bulkrax.exporter.labels.export_format') %>
+
+  <%= form.input :make_round_trippable,
+    collection: [['No', false], ['Yes', true]],
+    label: t('bulkrax.exporter.labels.make_round_trippable') %>
 </div>
 
 <%# Find definitions for the functions called in this script in
