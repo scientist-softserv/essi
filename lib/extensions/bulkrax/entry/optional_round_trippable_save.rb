@@ -1,4 +1,4 @@
-# unmodified from bulkrax
+# modified from bulkrax: skip redundant save
 module Extensions
   module Bulkrax
     module Entry
@@ -8,6 +8,7 @@ module Extensions
         # add the existing hyrax_record id to Bulkrax.system_identifier_field
         def make_round_trippable
           values = hyrax_record.send(::Bulkrax.system_identifier_field.to_s).to_a
+          return if values.include? hyrax_record.id
           values << hyrax_record.id
           hyrax_record.send("#{::Bulkrax.system_identifier_field}=", values)
           hyrax_record.save
