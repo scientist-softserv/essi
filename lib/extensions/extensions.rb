@@ -61,6 +61,7 @@ Bulkrax::Entry.prepend Extensions::Bulkrax::Entry::AllinsonFlexFields
 Bulkrax::Entry.prepend Extensions::Bulkrax::Entry::SingularizeRightsStatement
 Bulkrax::CsvEntry.prepend Extensions::Bulkrax::Entry::DynamicSchemaField
 Bulkrax::MetsXmlEntry.prepend Extensions::Bulkrax::Entry::DynamicSchemaField
+Bulkrax::CsvEntry.prepend Extensions::Bulkrax::Entry::OptionalRoundTrippableSave
 Bulkrax::Exporter.prepend Extensions::Bulkrax::Exporter::LastRun
 Bulkrax::Importer.prepend Extensions::Bulkrax::Importer::LastRun
 Bulkrax::Exporter.prepend Extensions::Bulkrax::Exporter::Mapping
