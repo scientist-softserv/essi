@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210802164419) do
+ActiveRecord::Schema.define(version: 20210820144015) do
 
   create_table "allinson_flex_contexts", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
     t.string "name"
@@ -167,6 +167,7 @@ ActiveRecord::Schema.define(version: 20210802164419) do
     t.date "finish_date"
     t.string "work_visibility"
     t.string "workflow_status"
+    t.boolean "make_round_trippable"
     t.index ["user_id"], name: "index_bulkrax_exporters_on_user_id"
   end
 
