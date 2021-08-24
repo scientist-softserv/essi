@@ -52,7 +52,7 @@ RSpec.feature 'Create a BibRecord', type: :system, js: true do
       end
       click_link "Descriptions" # switch tab
       fill_in('Title', with: 'My Test Work')
-      fill_in('Source metadata ID', with: ' ') # Workaround until the form is fixed for blank field
+      fill_in('Source Metadata Identifier', with: ' ') # Workaround until the form is fixed for blank field
       click_link 'Additional fields'
       fill_in('Publication Place', with: 'Wells')
 

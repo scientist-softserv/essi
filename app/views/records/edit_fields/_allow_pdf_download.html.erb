@@ -1,3 +1,6 @@
 <% if current_user.admin? %>
-  <%= f.input :allow_pdf_download, as: :radio_buttons, value: f.object.allow_pdf_download %>
+  <%= f.input key, as: :radio_buttons,
+      label: dynamic_label(key),
+      value: f.object.allow_pdf_download,
+      hint: dynamic_hint(key) %>
 <% end %>

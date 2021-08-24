@@ -1,4 +1,6 @@
-<%= f.input :campus, as: :select,
+<%= f.input key, as: :select,
+    label: dynamic_label(key),
     collection: CampusService.select_all_options,
-    input_html: { class: 'form-control', multiple: false }
+    input_html: { class: 'form-control', multiple: false },
+    hint: dynamic_hint(key)
 %>
