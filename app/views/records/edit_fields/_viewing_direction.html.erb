@@ -1,5 +1,7 @@
-<%= f.input :viewing_direction, as: :select,
+<%= f.input key, as: :select,
+    label: dynamic_label(key),
     collection: ['left-to-right', 'right-to-left', 'top-to-bottom', 'bottom-to-top'],
     include_blank: true,
-    input_html: { class: 'form-control' }
+    input_html: { class: 'form-control' },
+    hint: dynamic_hint(key)
 %>

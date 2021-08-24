@@ -1,5 +1,7 @@
-<%= f.input :holding_location, as: :select,
+<%= f.input key, as: :select,
+    label: dynamic_label(key),
     collection: HoldingLocationService.select_all_options,
     include_blank: true,
-    input_html: { class: 'form-control' }
+    input_html: { class: 'form-control' },
+    hint: dynamic_hint(key)
 %>
