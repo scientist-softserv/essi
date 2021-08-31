@@ -9,7 +9,12 @@ module Bulkrax
     let(:replace_files) { false }
     let(:user) { FactoryBot.build(:user) }
     let(:klass) { Image }
-    subject(:object_factory) { described_class.new(attributes, unique_identifier, replace_files, user, klass) }
+    subject(:object_factory) { described_class.new(attributes: attributes,
+                                                   source_identifier_value: unique_identifier,
+                                                   work_identifier: unique_identifier,
+                                                   replace_files: replace_files,
+                                                   user: user,
+                                                   klass: klass) }
 
     describe '#permitted_attributes' do
       it 'includes all importer form fields' do

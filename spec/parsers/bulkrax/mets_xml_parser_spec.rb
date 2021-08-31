@@ -11,8 +11,8 @@ module Bulkrax
 
       before do
         Bulkrax.default_work_type = 'Work'
-        Bulkrax.source_identifier_field_mapping = { 'Bulkrax::MetsXmlEntry' => 'OBJID' }
         Bulkrax.field_mappings['Bulkrax::MetsXmlParser'] = {
+          "source" => { from: ["OBJID"], source_identifier: true },
           "source_identifier" => { from: ["identifier"] },
           "work_type" => 'PagedResource'
         }
