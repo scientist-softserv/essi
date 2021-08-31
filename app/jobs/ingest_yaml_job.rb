@@ -1,5 +1,5 @@
 # Refactor as custom actor
-class IngestYAMLJob < ActiveJob::Base
+class IngestYAMLJob < ApplicationJob
   queue_as Hyrax.config.ingest_queue_name
 
   # @param [File] yaml_file

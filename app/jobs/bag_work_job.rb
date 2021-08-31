@@ -1,4 +1,4 @@
-class BagWorkJob < ActiveJob::Base
+class BagWorkJob < ApplicationJob
   queue_as Hyrax.config.ingest_queue_name
 
   def perform(identifier, dropbox_path = nil, bags_path = nil, bag_info = {})

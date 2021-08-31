@@ -1,4 +1,4 @@
-class PerformLaterActorJob < ActiveJob::Base
+class PerformLaterActorJob < ApplicationJob
   queue_as Hyrax.config.ingest_queue_name
 
   def perform(action, curation_concern, ability_user, attributes_for_actor)
