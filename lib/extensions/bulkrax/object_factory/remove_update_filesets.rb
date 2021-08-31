@@ -2,6 +2,8 @@ module Extensions
   module Bulkrax
     module ObjectFactory
       module RemoveUpdateFilesets
+        delegate :characterize_files?, :store_files?, to: ::Hyrax::Actors::FileActor
+
         # modifies an existing fileset, injecting an additional File into original_file
         def modify_fileset(fileset:, original_name:, mime_type:, file_path:)
           original_file = fileset.original_file
@@ -14,11 +16,11 @@ module Extensions
 
           fileset.add_file(::File.open(file_path), opts)
           fileset.save
-          ::CreateDerivativesJob.set(wait: 1.minute).perform_later(fileset, original_file.id)
+          ::CharacterizeJob.set(wait: 1.minute).perform_later(fileset, original_file.id) if characterize_files?(fileset)
           nil
         end
 
-        # modified from bulkrax: uses helper method, original_file use
+        # modified from bulkrax: uses helper method, original_file use, Job logic as in FileActor
         def set_removed_filesets
           local_file_sets.each do |fileset|
             modify_fileset(fileset: fileset,
@@ -28,7 +30,7 @@ module Extensions
           end
         end
 
-        # modified from bulkrax: uses helper method, original_file use
+        # modified from bulkrax: uses helper method, original_file use, Job logic as in FileActor
         def update_filesets(current_file)
           if @update_files && local_file_sets.present?
             fileset = local_file_sets.shift

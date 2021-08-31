@@ -5,6 +5,7 @@ module Hyrax
     # @note Spawns asynchronous jobs
     class FileActor
       attr_reader :file_set, :relation, :user
+      delegate :characterize_files?, :store_files?, to: ::Hyrax::Actors::FileActor
 
       # @param [FileSet] file_set the parent FileSet
       # @param [Symbol, #to_sym] relation the type/use for the file
@@ -71,15 +72,19 @@ module Hyrax
         file_set.id == other.file_set.id && relation == other.relation && user == other.user
       end
 
+      def self.characterize_files?(file_set)
+        store_files? && !file_set.collection_branding?
+      end
+
+      def self.store_files?
+        ESSI.config.dig :essi, :store_original_files
+      end
+
       private
 
         # @return [Hydra::PCDM::File] the file referenced by relation
         def related_file
           file_set.public_send(relation) || raise("No #{relation} returned for FileSet #{file_set.id}")
-        end
-
-        def characterize_files?(file_set)
-          store_files? && !file_set.collection_branding?
         end
 
         def infer_source_metadata_identifier(file_set, io)
@@ -96,10 +101,6 @@ module Hyrax
           return nil unless master_file_service_url.present?
           return nil unless file_set.source_metadata_identifier.present?
           master_file_service_url + '/' + file_set.source_metadata_identifier
-        end
-
-        def store_files?
-          ESSI.config.dig :essi, :store_original_files
         end
 
         def store_masters?
