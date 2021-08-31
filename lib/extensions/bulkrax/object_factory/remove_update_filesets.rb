@@ -2,21 +2,23 @@ module Extensions
   module Bulkrax
     module ObjectFactory
       module RemoveUpdateFilesets
-        # modifies an existing fileset, injecting an additional File into the first file
+        # modifies an existing fileset, injecting an additional File into original_file
         def modify_fileset(fileset:, original_name:, mime_type:, file_path:)
-          fileset.files.first.create_version
+          original_file = fileset.original_file
+          return unless original_file
+          original_file.create_version
           opts = {}
-          opts[:path] = fileset.files.first.id.split('/', 2).last
+          opts[:path] = original_file.id.split('/', 2).last
           opts[:original_name] = original_name
           opts[:mime_type] = mime_type
 
           fileset.add_file(::File.open(file_path), opts)
           fileset.save
-          ::CreateDerivativesJob.set(wait: 1.minute).perform_later(fileset, fileset.files.first.id)
+          ::CreateDerivativesJob.set(wait: 1.minute).perform_later(fileset, original_file.id)
           nil
         end
 
-        # modified from bulkrax: uses helper method
+        # modified from bulkrax: uses helper method, original_file use
         def set_removed_filesets
           local_file_sets.each do |fileset|
             modify_fileset(fileset: fileset,
@@ -26,11 +28,11 @@ module Extensions
           end
         end
 
-        # modified from bulkrax: uses helper method
+        # modified from bulkrax: uses helper method, original_file use
         def update_filesets(current_file)
           if @update_files && local_file_sets.present?
             fileset = local_file_sets.shift
-            return nil if fileset.files.first.checksum.value == Digest::SHA1.file(current_file.file.path).to_s
+            return nil if fileset.original_file&.checksum&.value == Digest::SHA1.file(current_file.file.path).to_s
    
             modify_fileset(fileset: fileset,
                            original_name: current_file.file.file.original_filename,
