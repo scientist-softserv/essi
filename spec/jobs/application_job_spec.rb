@@ -19,7 +19,7 @@ class ApplicationTestJob < ApplicationJob
   end
 end
 
-describe 'ApplicationJobSpec' do
+describe ApplicationJob do
   before do
     ApplicationTestJob.class_job_log = Concurrent::Agent.new([])
     ApplicationTestJob.jobs_done = false
