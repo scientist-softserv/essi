@@ -57,6 +57,7 @@ Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::SourceMetad
 # bulkrax overrides
 Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::Structure
 Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::CreateWithDynamicSchema
+Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::CreateAttributes
 Bulkrax::Entry.prepend Extensions::Bulkrax::Entry::AllinsonFlexFields
 Bulkrax::Entry.prepend Extensions::Bulkrax::Entry::SingularizeRightsStatement
 Bulkrax::CsvEntry.prepend Extensions::Bulkrax::Entry::DynamicSchemaField
