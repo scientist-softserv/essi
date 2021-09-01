@@ -23,7 +23,7 @@ Rails.application.configure do
     redis_url = ESSI.config[:redis][:rails][:url]
     checks.register "redis", OkComputer::RedisCheck.new(url: redis_url)
 
-    checks.register "sidekiq", EssiDevOps::SidekiqProcessCheck.new
+    checks.register "sidekiq", EssiDevOps::SidekiqProcessCheck.new if ESSI.config.dig(:sidekiq, :processes_locally)
 
     checks.register "ruby", OkComputer::RubyVersionCheck.new
 

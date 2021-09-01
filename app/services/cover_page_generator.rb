@@ -78,8 +78,12 @@ class CoverPageGenerator # rubocop:disable Metrics/ClassLength
       prawn_document.stroke_color "000000"
       prawn_document.move_down(20)
       header(prawn_document, paged_resource.title, size: 24)
-      paged_resource.rights_statement.each do |statement|
+      if paged_resource.rights_statement.is_a? String
         text(prawn_document, rights_statement_label(statement))
+      else
+        paged_resource.rights_statement.each do |statement|
+          text(prawn_document, rights_statement_label(statement))
+        end
       end
       prawn_document.move_down 20
 

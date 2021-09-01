@@ -23,6 +23,8 @@ default: &default
     cas_logout_url: /idp/profile/cas/logout
     cas_callback_url: /users/auth/cas/callback
   sidekiq:
+    # This only signals whether Sidekiq runs locally and to check with OKComputer; doesn't alter Sidekiq config or behavior
+    processes_locally: true
     queue_names:
       - default
       - ingest
