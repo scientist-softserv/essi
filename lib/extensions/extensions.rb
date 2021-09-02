@@ -93,6 +93,12 @@ Hyrax::Forms::AdminSetForm.include Extensions::Hyrax::Forms::AdminSetForm::Custo
 VisibilityCopyJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
 InheritPermissionsJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
 
+# ESSI-1438 Large works cause solr URI Too Long error
+# TODO: Method is moved in hyrax 3
+Hyrax::GrantReadToMembersJob.prepend Extensions::Hyrax::Jobs::FileSetIdsPost
+Hyrax::GrantEditToMembersJob.prepend Extensions::Hyrax::Jobs::FileSetIdsPost
+Hyrax::RevokeEditFromMembersJob.prepend Extensions::Hyrax::Jobs::FileSetIdsPost
+
 # Hyrax user lookup
 Hyrax::UsersController.prepend Extensions::Hyrax::UsersController::FindUser
 
