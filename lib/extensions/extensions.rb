@@ -90,6 +90,7 @@ Hyrax::CollectionPresenter.include Extensions::Hyrax::CollectionPresenter::Custo
 AdminSet.include Extensions::Hyrax::AdminSet::CampusOnAdminSet
 Hyrax::Forms::AdminSetForm.include Extensions::Hyrax::Forms::AdminSetForm::CustomizedTerms
 
+# Skip these jobs when they sometimes get nil arguments
 VisibilityCopyJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
 InheritPermissionsJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
 
