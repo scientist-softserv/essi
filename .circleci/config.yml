@@ -84,9 +84,9 @@ jobs:
     # Download and cache dependencies
     - restore_cache:
         keys:
-        - dependencies-v4-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-        - dependencies-v4-{{ .Branch }}
-        - dependencies-v4-
+        - dependencies-v5-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+        - dependencies-v5-{{ .Branch }}
+        - dependencies-v5-
 
     - run:
         name: Install dependencies
@@ -106,7 +106,7 @@ jobs:
         - ./node_modules
         - ./vendor/bundle
         - ./webdriver
-        key: dependencies-v4-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+        key: dependencies-v5-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
 
 #    - run:
 #        name: Call Rubocop
