@@ -1,4 +1,4 @@
-class SaveStructureJob < ActiveJob::Base
+class SaveStructureJob < ApplicationJob
   prepend ::LockableJob
   queue_as Hyrax.config.ingest_queue_name
 
