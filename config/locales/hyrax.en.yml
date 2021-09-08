@@ -48,6 +48,10 @@ en:
   hyrax:
     account_name: My Institution Account Id
     admin:
+      admin_sets:
+        form_metadata_context:
+          no_metadata_context: No metadata contexts available
+          page_description: Metadata context for the admin set
       collection_types:
         errors:
           no_settings_change_for_user_collections: Collection type settings cannot be altered for the Collection type
