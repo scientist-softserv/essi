@@ -8,7 +8,6 @@ module Bulkrax
 
     def self.fields_from_data(data); end
 
-
     # @param [String] path
     # @return [Nokogiri::XML::Document]
     def self.read_data(path)
@@ -16,13 +15,25 @@ module Bulkrax
       # Nokogiri::XML(open(path), nil, 'UTF-8').remove_namespaces!
       Nokogiri::XML(open(path))
     end
-    
-    
+
+    # replacement for bulkrax 0.1.0 method
+    def self.source_identifier_field
+      source_identifier_config.last&.[](:from)&.first
+    end
+
+    def self.source_identifier_export
+      source_identifier_config.first
+    end
+
+    def self.source_identifier_config
+      Bulkrax.field_mappings['Bulkrax::MetsXmlParser'].select { |k,v| v.is_a?(Hash) && v[:source_identifier] }.first
+    end
+
     # @param [Nokogiri::XML::Element] data
     def self.data_for_entry(data)
       collections = []
       children = []
-      
+
       source_identifier = data.attributes[source_identifier_field].text
       return {
         source_identifier: source_identifier,
@@ -54,9 +65,8 @@ module Bulkrax
       raise StandardError, 'Missing source identifier' if source_identifier.blank?
       self.parsed_metadata = {}
       self.parsed_metadata['admin_set_id'] = self.importerexporter.admin_set_id
-      self.parsed_metadata[Bulkrax.system_identifier_field] = [source_identifier]
+      self.parsed_metadata[self.class.source_identifier_export] = [source_identifier]
       self.parsed_metadata['work_type'] = [parser.parser_fields['work_type'] || 'PagedResource']
-
       record.attributes.each do |k,v|
         add_metadata(k, v) unless v.blank?
       end
