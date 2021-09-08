@@ -38,7 +38,7 @@ module Extensions
    
             modify_fileset(fileset: fileset,
                            original_name: current_file.file.file.original_filename,
-                           content_type: current_file.file.content_type,
+                           mime_type: current_file.file.content_type,
                            file_path: current_file.file.to_s) 
           else
             current_file.save

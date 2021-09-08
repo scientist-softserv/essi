@@ -81,6 +81,7 @@ jobs:
           curl -fSL -o /tmp/fits-1.5.0.zip https://github.com/harvard-lts/fits/releases/download/1.5.0/fits-1.5.0.zip
           sudo mv /tmp/fits-1.5.0.zip /opt/fits
           cd /opt/fits && sudo unzip fits-1.5.0.zip && sudo chmod +X fits.sh
+          sudo sed -i 's/\(<tool.*TikaTool.*>\)/<!--\1-->/' /opt/fits/xml/fits.xml
           echo 'export PATH=/opt/fits:$PATH' >> $BASH_ENV
 
     # Download and cache dependencies
