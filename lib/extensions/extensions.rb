@@ -57,6 +57,8 @@ Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::SourceMetad
 # bulkrax overrides
 Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::Structure
 Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::CreateWithDynamicSchema
+Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::CreateAttributes
+Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::RemoveUpdateFilesets
 Bulkrax::Entry.prepend Extensions::Bulkrax::Entry::AllinsonFlexFields
 Bulkrax::Entry.prepend Extensions::Bulkrax::Entry::SingularizeRightsStatement
 Bulkrax::CsvEntry.prepend Extensions::Bulkrax::Entry::DynamicSchemaField
@@ -67,6 +69,7 @@ Bulkrax::Importer.prepend Extensions::Bulkrax::Importer::LastRun
 Bulkrax::Exporter.prepend Extensions::Bulkrax::Exporter::Mapping
 Bulkrax::Importer.prepend Extensions::Bulkrax::Importer::Mapping
 Bulkrax::ExportersController.prepend Extensions::Bulkrax::ExportersController::SupportMakeRoundTrippable
+Bulkrax::ApplicationParser.prepend Extensions::Bulkrax::ApplicationParser::IdentifierHash
 
 # actor customizations
 Hyrax::CurationConcern.actor_factory.insert Hyrax::Actors::TransactionalRequest, ESSI::Actors::PerformLaterActor

@@ -107,7 +107,7 @@ gem 'okcomputer'
 
 # Bulk Import / Export
 #TODO: N8 specific - use local for dev; use github for test/staging
-gem 'bulkrax', git: 'https://github.com/samvera-labs/bulkrax.git'
+gem 'bulkrax', '~> 1.0.0'
 #gem 'bulkrax', path: 'vendor/engines/bulkrax'
 gem 'willow_sword', github: 'notch8/willow_sword'
 gem 'webpacker'

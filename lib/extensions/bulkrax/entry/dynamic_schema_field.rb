@@ -17,7 +17,12 @@ module Extensions
         end
 
         def profile_id
-          [self.parsed_metadata['profile_version'], self.parsed_metadata['profile_id'], parser.parser_fields&.[]('profile_id')].map(&:to_i).select(&:positive?).first
+          profile_version = self.parsed_metadata['profile_version']
+          if profile_version.to_i.positive?
+            ::AllinsonFlex::Profile.where(profile_version: profile_version.to_f).first&.id
+          else
+            [self.parsed_metadata['profile_id'], parser.parser_fields&.[]('profile_id')].map(&:to_i).select(&:positive?).first
+          end
         end
 
         def find_metadata_context_for(admin_set_id:, profile_id:)

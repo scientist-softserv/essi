@@ -23,19 +23,6 @@ Bulkrax.setup do |config|
   # Server name for oai request header
   # config.server_name = 'my_server@name.com'
 
-  # Field_mapping for establishing the source_identifier
-  # This value IS NOT used for OAI, so setting the OAI Entries here will have no effect
-  # The mapping is supplied per Entry, provide the full class name as a string, eg. 'Bulkrax::CsvEntry'
-  # Example:
-  #   {
-  #     'Bulkrax::RdfEntry'  => 'http://opaquenamespace.org/ns/identifier',
-  #     'Bulkrax::CsvEntry'  => 'MyIdentifierField'
-  #   }
-  # The default value for CSV is 'source_identifier'
-  config.source_identifier_field_mapping = {
-    'Bulkrax::MetsXmlEntry'  => 'OBJID'
-  }
-
   # Field_mapping for establishing a parent-child relationship (FROM parent TO child)
   # This can be a Collection to Work, or Work to Work relationship
   # This value IS NOT used for OAI, so setting the OAI Entries here will have no effect
@@ -66,11 +53,13 @@ Bulkrax.setup do |config|
       'profile_id' => { split: false },
       'profile_version' => { split: false },
       'purl' => { split: false },
-      'source' => { split: false },
+
+      'source' => { from: ['source'], source_identifier: true, split: false },
       'source_identifier' => { split: false },
       'source_metadata_identifier' => { split: false }
     },
     "Bulkrax::MetsXmlParser" => {
+      'source' => { from: ['OBJID'], source_identifier: true, split: false },
       "source_identifier" => { from: ["identifier"] },
       "work_type" => 'PagedResource'
     }
