@@ -20,3 +20,6 @@ Hyrax::Forms::PermissionTemplateForm.prepend Extensions::AllinsonFlex::PrependPe
 
 # importers
 AllinsonFlex::Importer.prepend Extensions::AllinsonFlex::PrependImporter
+
+# profiles
+AllinsonFlex::Profile.prepend Extensions::AllinsonFlex::PrependProfile
