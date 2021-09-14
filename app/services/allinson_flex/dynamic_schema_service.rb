@@ -82,6 +82,7 @@ module AllinsonFlex
     end
 
     # @return [Hash] property => array of indexing
+    # modified for essi to exclude modifier values like admin_only
     def indexing_properties
       indexers = {}
       properties.each_pair do |prop_name, prop_value|
@@ -89,8 +90,8 @@ module AllinsonFlex
                                 ["#{prop_name}#{default_indexing}"]
                               else
                                 prop_value[:indexing].map do |indexing_key|
-                                  "#{prop_name}#{index_as(indexing_key)}"
-                                end
+                                  "#{prop_name}#{index_as(indexing_key)}" if index_as(indexing_key)
+                                end.compact.uniq
         end
       end
       indexers[:profile_version] = ['profile_version_ssi']
@@ -194,8 +195,11 @@ module AllinsonFlex
       #
       # default behaviour is to return the string/text variant
       # @todo comine with data type to determine indexing value
+      # essi modification: handle admin_only modifier value
       def index_as(indexing_key)
         case indexing_key
+        when 'admin_only'
+          nil
         when 'stored_searchable'
           '_tesim'
         when 'facetable'

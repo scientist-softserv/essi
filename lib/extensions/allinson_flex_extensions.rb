@@ -23,3 +23,6 @@ AllinsonFlex::Importer.prepend Extensions::AllinsonFlex::PrependImporter
 
 # profiles
 AllinsonFlex::Profile.prepend Extensions::AllinsonFlex::PrependProfile
+
+# profile properties
+AllinsonFlex::ProfileProperty.include Extensions::AllinsonFlex::IncludeProfileProperty
