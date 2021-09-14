@@ -1,4 +1,4 @@
-# unmodified copy from allinson_flex
+# modified from allinson_flex with admin_only check
 module ESSI
   module DynamicCatalogBehavior
     extend ActiveSupport::Concern
@@ -17,8 +17,13 @@ module ESSI
                 label: label
               }
 
+              if prop.indexing.include?("admin_only")
+                index_args[:if] = lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
+              end
+
+              # @fixme this does not seem to have the intended effect
               if prop.indexing.include?("facetable")
-                index_args[:link_to_search] = solr_name(prop.name.to_s, :facetable)
+                index_args[:link_to_facet] = solr_name(prop.name.to_s, :facetable)
               end
 
               name = solr_name(prop.name.to_s, :stored_searchable)
@@ -29,8 +34,12 @@ module ESSI
 
             if prop.indexing.include?("facetable")
               name = solr_name(prop.name.to_s, :facetable)
+              facet_args = { label: label }
+              if prop.indexing.include?("admin_only")
+                facet_args[:if] = lambda { |context, _field_config, _document| context.try(:current_user)&.admin? }
+              end
               unless blacklight_config.facet_fields[name].present?
-                blacklight_config.add_facet_field(name, label: label)
+                blacklight_config.add_facet_field(name, **facet_args)
               end
             end
           end
