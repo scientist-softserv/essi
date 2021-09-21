@@ -1,2 +1,2 @@
-file,source_identifier,model,resource_type,ocr_state,source_metadata_identifier,purl,title,date_created,creator,holding_location,related_url,collection
-rgb.png;world.png,TEST-1234,Image,Image,searchable,TEST-1234,http://purl.dlib.indiana.edu/iudl/test/TEST-1234,A Test Image,2015-03,"Technologies, Library",EAST,https://iu.box.com/Test,Testing Collection
+file,source_identifier,source,model,resource_type,ocr_state,source_metadata_identifier,purl,title,date_created,creator,holding_location,related_url,collection
+rgb.png;world.png,TEST-1234,TEST-1234,Image,Image,searchable,TEST-1234,http://purl.dlib.indiana.edu/iudl/test/TEST-1234,A Test Image,2015-03,"Technologies, Library",EAST,https://iu.box.com/Test,Testing Collection

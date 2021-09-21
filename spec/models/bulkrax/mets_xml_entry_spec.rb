@@ -8,7 +8,11 @@ module Bulkrax
     let(:data) { described_class.read_data(path) }
 
     before do
-      Bulkrax.source_identifier_field_mapping = { 'Bulkrax::MetsXmlEntry' => 'OBJID' }
+      Bulkrax.field_mappings.merge!(
+        'Bulkrax::XmlParser' => {
+          "source" => { source_identifier: true, from: ["OBJID"] },
+        }
+      )
     end
 
     describe 'class methods' do
@@ -38,9 +42,9 @@ module Bulkrax
 
       before do
         Bulkrax.default_work_type = 'Work'
-        Bulkrax.source_identifier_field_mapping = { 'Bulkrax::MetsXmlEntry' => 'OBJID' }
         Bulkrax.field_mappings.merge!(
           'Bulkrax::XmlParser' => {
+            "source" => { source_identifier: true, from: ["OBJID"] },
             "source_identifier" => { from: ["identifier"] },
             "work_type" => 'PagedResource',
             'abstract' => { from: ['Abstract'] }
@@ -64,6 +68,7 @@ module Bulkrax
         end
 
         it 'builds entry' do
+          xml_entry.build_metadata
           expect(xml_entry.parsed_metadata).to include('admin_set_id' => 'MyString',
                                                        'rights_statement' => [nil],
                                                        'source' => ["http://purl.dlib.indiana.edu/iudl/archives/VAC1741-00310"],
