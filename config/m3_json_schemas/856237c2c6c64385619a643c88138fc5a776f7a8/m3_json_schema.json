@@ -274,6 +274,7 @@
             "items": {
               "type": "string",
               "enum": [
+                "admin_only",
                 "displayable",
                 "facetable",
                 "searchable",

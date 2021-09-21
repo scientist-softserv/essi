@@ -1,8 +1,7 @@
 <% presenter.dynamic_schema_service.view_properties.each_pair do | prop_key, prop_value | %>
   <%# @todo internationalisation %>
-  <% if prop_key.in? [:ocr_state, :source_metadata_identifier, :source_identifier, :viewing_direction, :viewing_hint] %>
-    <% next unless presenter.current_ability.current_user.admin? %>
-  <% elsif prop_key.in?(presenter.class.try(:custom_rendered_properties) || []) %>
+  <% next if prop_value[:admin_only] && !presenter.current_ability.current_user.admin? %>
+  <% if prop_key.in?(presenter.class.try(:custom_rendered_properties) || []) %>
     <%= presenter.try(prop_key, options: { label: prop_value[:label] }) %>
   <% else %>
     <%= presenter.attribute_to_html(prop_key, label: prop_value[:label] ,html_dl: true) %>
