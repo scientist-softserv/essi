@@ -4,8 +4,11 @@ module Extensions
     module IncludeProfileText
       def self.included(base)
         base.class_eval do
-          # unmodified from allinson_flex
-          validates :name, :value, presence: true
+          # modified from allinson_flex: more specific messaging
+          validates :name, :value, presence: { message: ->(object, data) do
+            "required: name (#{object.name}) or value (#{object.value}) is missing"
+            end
+          }
         end
       end
     end
