@@ -5,7 +5,7 @@ module Extensions
     module IncludeAllinsonFlexConstructor
       def self.included(base)
         base.class_eval do
-          # unmodified from allinson_flex
+          # modified from allinson_flex: log construction errors
           def self.find_or_create_from(profile_id:, data:, logger: default_logger)
             profile = ::AllinsonFlex::Profile.find(profile_id) unless profile_id.nil?
       
@@ -24,18 +24,29 @@ module Extensions
             profile.profile_type = data.dig('profile', 'type')
       
             construct_profile_contexts(profile: profile)
+            log_profile_construction_errors(profile: profile, logger: logger)
             profile.save!
             logger.info(%(LoadedAllinsonFlex::Profile ID=#{profile.id}))
-            create_dynamic_schemas(profile: profile)
+            create_dynamic_schemas(profile: profile, logger: logger)
             profile
           end
 
-          # unmodified from allinson_flex
+          # modified from allinson_flex: log construction errors
           def self.create_dynamic_schemas(profile:, logger: default_logger)
             profile = construct_default_dynamic_schemas(profile: profile)
             profile = construct_dynamic_schemas(profile: profile)
+            log_profile_construction_errors(profile: profile, logger: logger)
             profile.save!
             logger.info(%(Created AllinsonFlex::Context and AllinsonFlex::DynamicSchema objects for ID=#{profile.id}))
+          end
+
+          # essi method for logging errors
+          def self.log_profile_construction_errors(profile:, logger: default_logger)
+            unless profile.valid?
+              profile.errors.full_messages.each_with_index do |message, index|
+                logger.error "Profile error #{index+1} of #{profile.errors.full_messages.count}: #{message}"
+              end
+            end
           end
 
           # modified from allinson_flex: property texts built in separate method

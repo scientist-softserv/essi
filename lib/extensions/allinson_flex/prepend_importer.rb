@@ -3,11 +3,12 @@
 module Extensions
   module AllinsonFlex
     module PrependImporter
-      # unmodified from allinson_flex
+      # modified from allinson_flex to use a separate log
       def construct
         ::AllinsonFlex::AllinsonFlexConstructor.find_or_create_from(
           profile_id: profile_id,
-          data: ::ActiveSupport::HashWithIndifferentAccess.new(data)
+          data: ::ActiveSupport::HashWithIndifferentAccess.new(data),
+          logger: validation_logger
         )
       end
 
