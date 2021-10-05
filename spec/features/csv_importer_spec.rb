@@ -98,13 +98,7 @@ RSpec.feature 'Create and run a CSV Importer', type: :system, js: true do
       click_link 'TEST-1234'
       expect(page).to have_content 'Identifier: TEST-1234'
 
-      # WORKAROUND: for bulkrax issue (267) with broken work link
-      # click_link 'Image'
-      # TODO: rewrite workaround to get to the work
-      click_on('Home')
-      click_on('Go')
-      page.driver.browser.manage.window.resize_to(1400,1400)
-      click_link 'A Test Image', match: :first
+      click_link 'Image'
 
       # On work show page
       expect(page).to have_content 'A Test Image'
