@@ -26,3 +26,6 @@ AllinsonFlex::Profile.prepend Extensions::AllinsonFlex::PrependProfile
 
 # profile properties
 AllinsonFlex::ProfileProperty.include Extensions::AllinsonFlex::IncludeProfileProperty
+
+# profile texts
+AllinsonFlex::ProfileText.include Extensions::AllinsonFlex::IncludeProfileText
