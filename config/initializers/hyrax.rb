@@ -119,7 +119,7 @@ Hyrax.config do |config|
 
   # Location autocomplete uses geonames to search for named regions
   # Username for connecting to geonames
-  # config.geonames_username = ''
+  config.geonames_username = ESSI.config.dig(:geonames, :username)
 
   # Should the acceptance of the licence agreement be active (checkbox), or
   # implied when the save button is pressed? Set to true for active

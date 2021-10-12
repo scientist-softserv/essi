@@ -202,7 +202,9 @@ default: &default
     homepage_banner: images/homepage_banner.png
     whitelisted_ingest_dirs: []
     contact_email: example@test.test
-        
+  geonames:
+    username: demo # change in deployment
+
 development:
   <<: *default
 
