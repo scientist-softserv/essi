@@ -25,12 +25,12 @@ class PurlController < ApplicationController
 
   private
     FILESET_LOOKUPS = { FileSet => nil }.freeze
-    WORK_LOOKUPS = {
-      BibRecord => /^[a-zA-Z\/]{0,}\w{3}\d{4}$/,
-      Image => /^[a-zA-Z\/]{0,}\w{3,}\d{4,}$/,
-      PagedResource => /^[a-zA-Z\/]{0,}\w{3}\d{4}$/,
-      Scientific => /^[a-zA-Z\/]{0,}\w{3}\d{4}$/,
-    }.freeze
+    DEFAULT_WORK_PATTERN = /^[a-zA-Z\/]{0,}\w{3}\d{4}$/.freeze
+    DEFAULT_WORK_LOOKUPS = Hyrax.config.registered_curation_concern_types.sort.map do |klass|
+      [klass.constantize, DEFAULT_WORK_PATTERN.dup]
+    end.to_h.freeze
+    CUSTOM_WORK_LOOKUPS = {}.freeze
+    WORK_LOOKUPS = DEFAULT_WORK_LOOKUPS.dup.merge(CUSTOM_WORK_LOOKUPS.dup).freeze
    
     # sets @solr_hit (if found), @url (always)
     def set_object(lookup_rules, split_id: false)
