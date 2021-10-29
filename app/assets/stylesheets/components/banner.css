@@ -1,0 +1,36 @@
+/* Styles for banners on works and filesets */
+div.hyc-generic-container {
+  padding-top: 15px;
+  background-color: #333;
+  min-height: 100px;
+}
+
+.hyc-generic-container .col-md-6 {
+  padding-left: 0px;
+}
+
+.hyc-generic-container .hyc-generic .hyc-title h1 {
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.hyc-banner-container {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: -62px;
+}
+
+.hyc-banner .hyc-title {
+  margin-left: 0px;
+}
+
+.extended-banner header.hyc-generic {
+  padding-top: 0px;
+  padding-left: 15px;
+}
+
+.extended-banner header.hyc-generic p {
+  color: #fff;
+  padding-top:15px;
+}
