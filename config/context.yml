@@ -55,8 +55,11 @@
     "@id": dcterms:created
   extent:
     "@id": dcterms:extent
+  # below for purl/identifier swap
   identifier:
     "@id": dcterms:identifier
+  purl:
+    "@id": dc:identifier
   date_published:
     "@id": dcterms:issued
   modified:

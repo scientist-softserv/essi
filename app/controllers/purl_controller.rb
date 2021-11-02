@@ -25,12 +25,12 @@ class PurlController < ApplicationController
 
   private
     FILESET_LOOKUPS = { FileSet => nil }.freeze
-    WORK_LOOKUPS = {
-      BibRecord => /^[a-zA-Z\/]{0,}\w{3}\d{4}$/,
-      Image => /^[a-zA-Z\/]{0,}\w{3,}\d{4,}$/,
-      PagedResource => /^[a-zA-Z\/]{0,}\w{3}\d{4}$/,
-      Scientific => /^[a-zA-Z\/]{0,}\w{3}\d{4}$/,
-    }.freeze
+    DEFAULT_WORK_PATTERN = /^[a-zA-Z\/]{0,}\w{3}\d{4}$/.freeze
+    DEFAULT_WORK_LOOKUPS = Hyrax.config.registered_curation_concern_types.sort.map do |klass|
+      [klass.constantize, DEFAULT_WORK_PATTERN.dup]
+    end.to_h.freeze
+    CUSTOM_WORK_LOOKUPS = {}.freeze
+    WORK_LOOKUPS = DEFAULT_WORK_LOOKUPS.dup.merge(CUSTOM_WORK_LOOKUPS.dup).freeze
    
     # sets @solr_hit (if found), @url (always)
     def set_object(lookup_rules, split_id: false)
@@ -47,8 +47,9 @@ class PurlController < ApplicationController
 
     # TODO: reconsider how not all work types support source_metadata_identifier?
     def find_object(id, klass, match_pattern)
+      klass.new # load allinson_flex properties
       terms = { source_metadata_identifier: id } if klass.properties['source_metadata_identifier']
-      terms = { identifier_tesim: id } if id.match('/') && klass.properties['identifier']
+      terms = { purl: id } if id.match('/') && klass.properties['purl']
       return unless terms
       if match_pattern.nil? || id.match(match_pattern)
         klass.search_with_conditions(terms, rows: 1).first

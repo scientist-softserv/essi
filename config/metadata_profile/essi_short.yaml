@@ -164,6 +164,18 @@ properties:
     property_uri: http://iiif.io/api/presentation/2#viewingDirection
     cardinality:
       maximum: 1
+  purl:
+    display_label:
+      default: "Purl"
+    available_on:
+      class:
+        - Image
+        - BibRecord
+        - PagedResource
+        - ArchivalMaterial
+    property_uri: http://purl.org/dc/elements/1.1/identifier
+    cardinality:
+      minimum: 0
   source_identifier:
     display_label:
       default: "Source Identifier"
