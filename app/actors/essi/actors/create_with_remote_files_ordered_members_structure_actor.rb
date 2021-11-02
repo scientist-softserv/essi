@@ -93,11 +93,11 @@ module ESSI
         end
 
       def copy_visibility(env)
-        VisibilityCopyJob.perform_later(env.curation_concern)
+        VisibilityCopyJob.perform_now(env.curation_concern)
       end
 
       def inherit_permissions(env)
-        InheritPermissionsJob.perform_later(env.curation_concern)
+        InheritPermissionsJob.perform_now(env.curation_concern)
       end
 
     end
