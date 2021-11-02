@@ -1,24 +1,21 @@
 <div class="row hyc-banner-row">
-  <div class="col-md-12">
+  <% unless @presenter.banner_file.blank? %>
+    <div class="col-md-12 hyc-banner-container" style="background-image:url(<%= @presenter.banner_file %>)">
+      <header class="hyc-banner container-fluid">
+  <% else %>
+    <div class="col-md-12 hyc-generic-container">
+      <header class="hyc-generic container-fluid">
+  <% end %>
 
-    <% unless @presenter.banner_file.blank? %>
-      <header class="hyc-banner" style="background-image:url(<%= @presenter.banner_file %>)">
-    <% else %>
-      <header class="hyc-generic">
-    <% end %>
-
-    <div class="col-md-6">
-      <div class="hyc-title">
-        <h1><%= @presenter.title.first %></h1>
-        <%# @presenter.collection_type_badge %>
-        <%# @presenter.permission_badge %>
-        <%= render 'hyrax/collections/collection_logo', collection_presenter: @presenter %>
+      <div class="col-md-6">
+        <div class="hyc-title">
+          <h1><%= @presenter.title.first %></h1>
+          <%# @presenter.collection_type_badge %>
+          <%# @presenter.permission_badge %>
+          <%= render 'hyrax/collections/collection_logo', collection_presenter: @presenter %>
+        </div>
       </div>
-    </div>
-
-    <%# render 'collection_bugs', collection_presenter: @presenter %>
-
-    </header>
+      <%# render 'collection_bugs', collection_presenter: @presenter %>
     </header>
   </div>
 </div>

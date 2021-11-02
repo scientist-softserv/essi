@@ -1,13 +1,13 @@
 <% @collection_presenter = Hyrax::CollectionPresenter.new(@presenter.collection, current_ability) %>
 
-  <div class="row extended-banner extended-banner-title-linked hyc-banner-row">
-    <div class="col-md-12">
-
-      <% unless @collection_presenter.banner_file.blank? %>
-          <header class="hyc-banner" style="background-image:url(<%= @collection_presenter.banner_file %>)">
-      <% else %>
-          <header class="hyc-generic">
-      <% end %>
+<div class="row extended-banner extended-banner-title-linked hyc-banner-row">
+  <% unless @collection_presenter.banner_file.blank? %>
+    <div class="col-md-12 hyc-banner-container" style="background-image:url(<%= @collection_presenter.banner_file %>)">
+      <header class="hyc-banner container-fluid">
+  <% else %>
+    <div class="col-md-12 hyc-generic-container">
+      <header class="hyc-generic container-fluid">
+  <% end %>
 
       <div class="col-md-6">
         <div class="hyc-title">
@@ -19,8 +19,7 @@
           <% end %>
           <%= render 'hyrax/collections/collection_logo', collection_presenter: @collection_presenter %>
         </div>
-     </div>
-
-      </header>
-    </div>
+      </div>
+    </header>
   </div>
+</div>
