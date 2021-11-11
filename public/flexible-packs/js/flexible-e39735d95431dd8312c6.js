@@ -5336,7 +5336,7 @@ var ArrayField = /*#__PURE__*/function (_Component) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_11__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_9__["default"])(_this), "onDropIndexClick", function (index) {
       return function (event) {
-          var response = confirm("Are you sure ?");
+          var response = confirm("Are you sure you want to remove this property definition?");
           if (response == true) {
               if (event) {
                   event.preventDefault();
