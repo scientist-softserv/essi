@@ -76,7 +76,6 @@ Bulkrax::ImportWorkCollectionJob.prepend Extensions::Bulkrax::ImportWorkCollecti
 Hyrax::CurationConcern.actor_factory.insert Hyrax::Actors::TransactionalRequest, ESSI::Actors::PerformLaterActor
 Hyrax::CurationConcern.actor_factory.swap Hyrax::Actors::CreateWithRemoteFilesActor, ESSI::Actors::CreateWithRemoteFilesOrderedMembersStructureActor
 Hyrax::CurationConcern.actor_factory.swap Hyrax::Actors::CreateWithFilesActor, Hyrax::Actors::CreateWithFilesOrderedMembersActor
-
 Hyrax::Actors::BaseActor.prepend Extensions::Hyrax::Actors::BaseActor::UndoAttributeArrayWrap
 
 # .jp2 conversion settings
@@ -99,7 +98,7 @@ VisibilityCopyJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
 InheritPermissionsJob.prepend Extensions::Hyrax::Jobs::ShortCircuitOnNil
 
 # ESSI-1438 Large works cause solr URI Too Long error
-# TODO: Method is moved in hyrax 3
+# @todo method is moved after upgrade to Hyrax 3.x
 Hyrax::GrantReadToMembersJob.prepend Extensions::Hyrax::Jobs::FileSetIdsPost
 Hyrax::GrantEditToMembersJob.prepend Extensions::Hyrax::Jobs::FileSetIdsPost
 Hyrax::RevokeEditFromMembersJob.prepend Extensions::Hyrax::Jobs::FileSetIdsPost
@@ -121,3 +120,7 @@ Hyrax::Collections::CollectionMemberService.prepend Extensions::Hyrax::Collectio
 # ESSI-1337: apply custom renderers to catalog index, as well as on Show page
 Blacklight::IndexPresenter.include ESSI::PresentsCampus
 Blacklight::IndexPresenter.include ESSI::PresentsHoldingLocation
+
+# Fix raw SQL queries
+# @todo remove after upgrade to Hyrax 3.x
+Hyrax::Collections::PermissionsService.include Extensions::Hyrax::Collections::PermissionsService::SourceIds
