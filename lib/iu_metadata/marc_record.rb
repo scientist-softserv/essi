@@ -12,7 +12,7 @@ module IuMetadata
     class MarcParsingError < StandardError; end
 
     ATTRIBUTES = %i[
-      identifier
+      purl
       title
       sort_title
       responsibility_note
@@ -128,7 +128,7 @@ module IuMetadata
       parts
     end
 
-    def identifier
+    def purl
       formatted_subfields_as_array(['856'], codes: ['u']).first
     end
 
