@@ -124,3 +124,6 @@ Blacklight::IndexPresenter.include ESSI::PresentsHoldingLocation
 # Fix raw SQL queries
 # @todo remove after upgrade to Hyrax 3.x
 Hyrax::Collections::PermissionsService.include Extensions::Hyrax::Collections::PermissionsService::SourceIds
+
+# Collections search
+Qa::Authorities::Collections.prepend Extensions::Qa::Authorities::Collections::CollectionsSearch
