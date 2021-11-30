@@ -47,9 +47,9 @@ module ESSI
       end
     end
 
-    def initialize
-      self.class.load_allinson_flex
-      super
+    def initialize(skip_allinson_flex: false)
+      self.class.load_allinson_flex unless skip_allinson_flex
+      super()
     end
   end
 end

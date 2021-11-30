@@ -3,11 +3,11 @@ module Extensions
     module Authorities
       module Collections
         module CollectionsSearch
-          # unmodified from hyrax
+          # modified from hyrax: skips loading allinson_flex for performance improvement
           def search(_q, controller)
             # The Hyrax::CollectionSearchBuilder expects a current_user
             return [] unless controller.current_user
-            repo = ::CatalogController.new.repository
+            repo = ::CatalogController.new(skip_allinson_flex: true).repository
             builder = search_builder(controller)
             response = repo.search(builder)
             docs = response.documents
