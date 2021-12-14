@@ -4,7 +4,7 @@ module Extensions
       module ParseSubject
         # Do not modify subject capitilization
         def parse_subject(src)
-          string = src.strip.downcase
+          string = src.strip
           return if string.blank?
 
           string
