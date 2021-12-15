@@ -70,6 +70,7 @@ Bulkrax::Exporter.prepend Extensions::Bulkrax::Exporter::Mapping
 Bulkrax::Importer.prepend Extensions::Bulkrax::Importer::Mapping
 Bulkrax::ExportersController.prepend Extensions::Bulkrax::ExportersController::SupportMakeRoundTrippable
 Bulkrax::ApplicationParser.prepend Extensions::Bulkrax::ApplicationParser::IdentifierHash
+Bulkrax::ApplicationMatcher.prepend Extensions::Bulkrax::ApplicationMatcher::ParseSubject
 Bulkrax::ImportWorkCollectionJob.prepend Extensions::Bulkrax::ImportWorkCollectionJob::AddUserToPermissionTemplate
 
 # actor customizations
