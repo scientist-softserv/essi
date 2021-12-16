@@ -76,7 +76,7 @@ services:
       - './staged_files:/data'
 
   cantaloupe:
-    image: iublibtech/cantaloupe
+    image: iublibtech/cantaloupe:4.1.11
     ports:
       - '8182:8182'
     environment:
@@ -93,7 +93,7 @@ services:
       FEDORA_BASE: http://fcrepo:8080
       FEDORA_PATH: /rest/dev
       PROCESSOR_SELECTION_STRATEGY: ManualSelectionStrategy
-      PROCESSOR_MANUAL_SELECTIONSTRATEGY_JP2: OpenJpegProcessor
+      PROCESSOR_MANUALSELECTIONSTRATEGY_JP2: OpenJpegProcessor
       PROCESSOR_STREAM_RETRIEVAL_STRATEGY: CacheStrategy
       CACHE_SERVER_SOURCE_ENABLED: "true"
       CACHE_SERVER_SOURCE: FilesystemCache
