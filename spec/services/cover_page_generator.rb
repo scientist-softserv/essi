@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CoverPageGenerator do
-  # FIXME: change resource to a SolrDocument after resolving dynamic indexing of ActiveTriples to Arrays
-  let(:resource) { build(:paged_resource) }
+  let(:resource) { SolrDocument.new(build(:paged_resource).to_solr) }
   let(:service) { described_class.new(resource) }
   let(:pdf) { Prawn::Document.new }
   let(:rights_statements) { ["http://rightsstatements.org/vocab/NKC/1.0/",
