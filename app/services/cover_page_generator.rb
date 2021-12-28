@@ -5,6 +5,7 @@ class CoverPageGenerator # rubocop:disable Metrics/ClassLength
   LETTER_WIDTH = PDF::Core::PageGeometry::SIZES["LETTER"].first
   LETTER_HEIGHT = PDF::Core::PageGeometry::SIZES["LETTER"].last
 
+  # @param [SolrDocument] resource
   def initialize(paged_resource)
     @paged_resource = paged_resource
   end
@@ -78,12 +79,8 @@ class CoverPageGenerator # rubocop:disable Metrics/ClassLength
       prawn_document.stroke_color "000000"
       prawn_document.move_down(20)
       header(prawn_document, paged_resource.title, size: 24)
-      if paged_resource.rights_statement.is_a? String
+      Array.wrap(paged_resource.rights_statement).each do |statement|
         text(prawn_document, rights_statement_label(statement))
-      else
-        paged_resource.rights_statement.each do |statement|
-          text(prawn_document, rights_statement_label(statement))
-        end
       end
       prawn_document.move_down 20
 
@@ -107,7 +104,11 @@ class CoverPageGenerator # rubocop:disable Metrics/ClassLength
   private
 
   def rights_statement_label(statement)
-    Hyrax::RightsStatementService.new.label(statement)
+    begin
+      Hyrax::RightsStatementService.new.label(statement)
+    rescue KeyError
+      ''
+    end
   end
 
 end
