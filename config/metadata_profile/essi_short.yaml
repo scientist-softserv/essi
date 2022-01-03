@@ -129,6 +129,16 @@ properties:
     property_uri: http://dlib.indiana.edu/vocabulary/OCRState
     cardinality:
       maximum: 1
+  pdf_state:
+    display_label:
+      default: "PDF Download"
+    available_on:
+      class:
+        - PagedResource
+        - ArchivalMaterial
+    property_uri: http://dlib.indiana.edu/vocabulary/PDFState
+    cardinality:
+      maximum: 1
   publication_place:
     display_label:
       default: "Publication Place"
