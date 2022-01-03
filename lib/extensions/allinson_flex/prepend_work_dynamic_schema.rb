@@ -9,6 +9,14 @@ module Extensions
         @dynamic_schema ||= ::AllinsonFlex::DynamicSchema.find_by(id: self.dynamic_schema_id) || self.dynamic_schema_service(update: true)&.dynamic_schema
       end
 
+      # new method to facilitate updating schema via edit action
+      # defaults to newest schema if no id is provided
+      def update_dynamic_schema(schema_id: nil)
+        @dynamic_schema = ::AllinsonFlex::DynamicSchema.find_by(id: schema_id) || self.dynamic_schema_service(update: true)&.dynamic_schema
+        self.dynamic_schema_id = @dynamic_schema&.id
+        self.profile_version = @dynamic_schema&.profile&.profile_version
+      end
+
       # @todo remove after issue is resolved within allinson_flex
       # method from allinson_flex, to resolve issue #63
       def initialize(attributes = nil, &_block)
