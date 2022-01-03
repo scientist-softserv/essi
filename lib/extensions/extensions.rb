@@ -128,3 +128,8 @@ Hyrax::Collections::PermissionsService.include Extensions::Hyrax::Collections::P
 
 # Collections search
 Qa::Authorities::Collections.prepend Extensions::Qa::Authorities::Collections::CollectionsSearch
+
+# update obsolete URI escaping methods
+Hydra::AccessControls::Permission.prepend Extensions::Hydra::AccessControls::Permission::EscapingObsoletions
+ActiveFedora::File.prepend Extensions::ActiveFedora::File::EscapingObsoletions
+
