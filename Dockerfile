@@ -1,5 +1,5 @@
 # system dependency image
-FROM ruby:2.7-bullseye AS essi-sys-deps
+FROM ruby:2.7.4-bullseye AS essi-sys-deps
 
 ARG USER_ID=1000
 ARG GROUP_ID=1000
