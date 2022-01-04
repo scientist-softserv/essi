@@ -3,8 +3,7 @@ module ESSI
     extend ActiveSupport::Concern
 
     def ocr_searchable?
-      return true if self.ocr_state == 'searchable'
-      return false
+      self.ocr_state == 'searchable'
     end
 
     def to_solr(solr_doc = {})

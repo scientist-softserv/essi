@@ -1,7 +1,7 @@
 module ESSI
-  module PDFBehavior
+  module PDFDownload
     def pdf
-      if presenter.allow_pdf_download == "true" || current_ability.current_user.admin?
+      if presenter.allow_pdf_download?
         pdf = ESSI::GeneratePdfService.new(presenter.solr_document).generate
 
         send_file pdf[:file_path],
