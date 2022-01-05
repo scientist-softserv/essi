@@ -14,6 +14,8 @@ module ESSI
       def update(env)
         # Short circuit to next actor if we are running from a job.
         if env.attributes.delete 'in_perform_later_actor_job'
+          env.curation_concern.class.new # force-load newest profile
+          env.curation_concern.update_dynamic_schema
           super
         else
           env.attributes['in_perform_later_actor_job'] = true
