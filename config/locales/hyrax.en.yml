@@ -69,10 +69,7 @@ en:
     collection:
       actions:
         nested_subcollection:
-          button_label: Add to collection
           desc: Add this collection to an existing collection.
-          modal_title: Add this Collection Within Another Collection
-          select_label: Select collection
     collections:
       show:
         list_collections: List of items in this collection
