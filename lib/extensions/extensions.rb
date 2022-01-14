@@ -70,6 +70,7 @@ Bulkrax::Exporter.prepend Extensions::Bulkrax::Exporter::Mapping
 Bulkrax::Importer.prepend Extensions::Bulkrax::Importer::Mapping
 Bulkrax::ExportersController.prepend Extensions::Bulkrax::ExportersController::SupportMakeRoundTrippable
 Bulkrax::ApplicationParser.prepend Extensions::Bulkrax::ApplicationParser::IdentifierHash
+Bulkrax::ApplicationMatcher.prepend Extensions::Bulkrax::ApplicationMatcher::ParseSubject
 Bulkrax::ImportWorkCollectionJob.prepend Extensions::Bulkrax::ImportWorkCollectionJob::AddUserToPermissionTemplate
 
 # actor customizations
@@ -127,3 +128,8 @@ Hyrax::Collections::PermissionsService.include Extensions::Hyrax::Collections::P
 
 # Collections search
 Qa::Authorities::Collections.prepend Extensions::Qa::Authorities::Collections::CollectionsSearch
+
+# update obsolete URI escaping methods
+Hydra::AccessControls::Permission.prepend Extensions::Hydra::AccessControls::Permission::EscapingObsoletions
+ActiveFedora::File.prepend Extensions::ActiveFedora::File::EscapingObsoletions
+

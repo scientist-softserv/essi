@@ -11,7 +11,7 @@ module Hyrax
     include Hyrax::BreadcrumbsForWorks
     include ESSI::BreadcrumbsForWorks
     include ESSI::OCRSearch
-    include ESSI::PDFBehavior
+    include ESSI::PDFDownload
     include ESSI::StructureBehavior
     include AllinsonFlex::DynamicControllerBehavior
     self.curation_concern_type = ::ArchivalMaterial

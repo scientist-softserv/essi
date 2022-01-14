@@ -14,6 +14,7 @@ class ImageIndexer < Hyrax::WorkIndexer
   #  end
   # end
   include AllinsonFlex::DynamicIndexerBehavior
+  include ESSI::DynamicIndexerBehavior
   self.model_class = ::Image
 
 end

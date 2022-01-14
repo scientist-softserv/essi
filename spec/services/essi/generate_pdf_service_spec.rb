@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-
 RSpec.describe ESSI::GeneratePdfService do
-  let(:resource) { create(:paged_resource) }
+  let(:resource) { SolrDocument.new(build(:paged_resource).to_solr) }
   let(:service) { described_class.new(resource) }
   let(:pdf) { service.generate }
 

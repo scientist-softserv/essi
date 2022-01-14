@@ -14,6 +14,7 @@ class BibRecordIndexer < Hyrax::WorkIndexer
   #  end
   # end
   include AllinsonFlex::DynamicIndexerBehavior
+  include ESSI::DynamicIndexerBehavior
   self.model_class = ::BibRecord
 
 end
