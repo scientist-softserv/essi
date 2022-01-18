@@ -13,4 +13,10 @@ class ApplicationController < ActionController::Base
   include Hyrax::ThemedLayoutController
   with_themed_layout '1_column'
   protect_from_forgery with: :exception
+
+  before_action do
+    if current_user && current_user.admin?
+      Rack::MiniProfiler.authorize_request
+    end
+  end
 end
