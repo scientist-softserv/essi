@@ -70,8 +70,6 @@ group :development do
 
   gem 'debase'
   gem 'ruby-debug-ide'
-  gem 'rack-mini-profiler'
-  gem 'stackprof'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -109,6 +107,10 @@ gem 'bulkrax', '~> 1.0.0'
 gem 'willow_sword', github: 'notch8/willow_sword'
 gem 'webpacker'
 gem 'react-rails'
+
+# Profiling
+gem 'rack-mini-profiler'
+gem 'stackprof'
 
 # hold back hydra-head due to implicit Blacklight 7 requirement in newer versions
 gem 'hydra-head', '10.6.1'
