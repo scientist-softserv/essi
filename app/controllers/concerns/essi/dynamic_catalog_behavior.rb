@@ -5,7 +5,7 @@ module ESSI
 
     class_methods do
       def load_allinson_flex
-        profile = AllinsonFlex::Profile.current_version
+        profile = AllinsonFlex::Profile.includes(properties: :texts).order("created_at desc").first
         unless profile.blank?
           profile.properties.each do |prop|
             # blacklight wants 1 label for all classes with this property

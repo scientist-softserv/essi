@@ -66,6 +66,10 @@ en:
     collection_types:
       create_service:
         default_description: A Collection can be created by any user to organize their works.
+    collection:
+      actions:
+        nested_subcollection:
+          desc: Add this collection to an existing collection.
     collections:
       show:
         list_collections: List of items in this collection
