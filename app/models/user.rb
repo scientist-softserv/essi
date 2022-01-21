@@ -45,8 +45,11 @@ class User < ApplicationRecord
 
   # Roles to add depending on user's LDAP groups and ESSI configuration
   def ldap_roles
-    mappings = ESSI.config.dig(:ldap, :group_roles) || {}
-    mappings.select { |role, groups| member_of_ldap_group?(groups) }.keys
+    Rails.cache.fetch("ldap_roles-v1-#{cache_key_with_version}",
+                      expires_in: 1.hour, race_condition_ttl: 1.hour) do
+      mappings = ESSI.config.dig(:ldap, :group_roles) || {}
+      mappings.select { |role, groups| member_of_ldap_group?(groups) }.keys
+    end
   end
 
   # Modified method from hydra-role-management Hydra::RoleManagement::UserRoles
