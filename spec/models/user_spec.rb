@@ -111,6 +111,7 @@ RSpec.describe User, type: :model do
     before do
       groups1 = ['groupA', 'groupB']
       groups2 = ['groupB', 'groupC']
+      user = FactoryBot.create :user
       allow(user).to receive(:member_of_ldap_group?).with(groups1).and_return(true)
       allow(user).to receive(:member_of_ldap_group?).with(groups2).and_return(false)
       allow(ESSI.config).to receive(:dig).with(:ldap, :group_roles).and_return({ roles[0].name => groups1, roles[1].name => groups2  })
