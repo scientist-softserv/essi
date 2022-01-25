@@ -110,6 +110,7 @@ RSpec.describe User, type: :model do
   shared_examples "ldap_role behavior" do |method|
     describe "performs group lookup", :clean do
       before do
+        Rails.cache.clear
         groups1 = ['groupA', 'groupB']
         groups2 = ['groupB', 'groupC']
         allow(user).to receive(:member_of_ldap_group?).with(groups1).and_return(true)

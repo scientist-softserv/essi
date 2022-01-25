@@ -13,7 +13,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Disable cache storage during tests
-  config.cache_store = :null_store
+  config.cache_store = :memory_store
 
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
