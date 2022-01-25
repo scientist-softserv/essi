@@ -107,17 +107,29 @@ RSpec.describe User, type: :model do
     end
   end
 
+  shared_examples "ldap_role behavior" do |method|
+    describe "performs group lookup", :clean do
+      before do
+        Rails.cache.clear
+        groups1 = ['groupA', 'groupB']
+        groups2 = ['groupB', 'groupC']
+        allow(user).to receive(:member_of_ldap_group?).with(groups1).and_return(true)
+        allow(user).to receive(:member_of_ldap_group?).with(groups2).and_return(false)
+        allow(ESSI.config).to receive(:dig).with(:ldap, :group_roles).and_return({ roles[0].name => groups1, roles[1].name => groups2  })
+      end
+      it "returns ESSI-configured roles for the user's ldap_groups" do
+        results = user.send(method)
+        expect(results).to include roles[0].name
+        expect(results).not_to include roles[1].name
+      end
+    end
+  end
+
   describe "#ldap_roles", :clean do
-    before do
-      groups1 = ['groupA', 'groupB']
-      groups2 = ['groupB', 'groupC']
-      allow(user).to receive(:member_of_ldap_group?).with(groups1).and_return(true)
-      allow(user).to receive(:member_of_ldap_group?).with(groups2).and_return(false)
-      allow(ESSI.config).to receive(:dig).with(:ldap, :group_roles).and_return({ roles[0].name => groups1, roles[1].name => groups2  })
-    end
-    it "returns ESSI-configured roles for the user's ldap_groups" do
-      expect(user.ldap_roles).to include roles[0].name
-      expect(user.ldap_roles).not_to include roles[1].name
-    end
+    include_examples "ldap_role behavior", :ldap_roles
+  end
+
+  describe "#ldap_roles_lookup", :clean do
+    include_examples "ldap_role behavior", :ldap_roles_lookup
   end
 end
