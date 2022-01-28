@@ -25,7 +25,7 @@ module Qa::Authorities
         begin
           result = json(api_url(id)).with_indifferent_access
           result[:success] ? result[:data] : {}
-        rescue TypeError, JSON::ParserError, Faraday::ConnectionFailed
+        rescue TypeError, JSON::ParserError, Faraday::ConnectionFailed, URI::InvalidURIError
           {}
         end
       end

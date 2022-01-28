@@ -4,6 +4,7 @@ RSpec.describe Qa::Authorities::IucatLibraries do
   let(:authority) { described_class.new }
   let(:matching_id) { 'B-WELLS' }
   let(:nonmatching_id) { 'foobar' }
+  let(:invalid_id) { 'B-WELLS and more' }
   let(:api_config) { { url: 'https://iucat.iu.edu/api/library',
                        api_enabled: true } }
 
@@ -54,6 +55,14 @@ RSpec.describe Qa::Authorities::IucatLibraries do
       end
       context 'with a non-matching id' do
         let(:result) { authority.find(nonmatching_id) }
+        it 'returns an empty Hash' do
+          allow(ESSI.config).to receive(:[]).with(:iucat_libraries).and_return(api_config)
+          expect(result).to be_a Hash
+          expect(result).to be_empty
+        end
+      end
+      context 'with an invalid id' do
+        let(:result) { authority.find(invalid_id) }
         it 'returns an empty Hash' do
           allow(ESSI.config).to receive(:[]).with(:iucat_libraries).and_return(api_config)
           expect(result).to be_a Hash
