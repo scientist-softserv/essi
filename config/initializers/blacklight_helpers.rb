@@ -1,4 +1,5 @@
 Blacklight::UrlHelperBehavior.module_eval do
+  # modified from blacklight wih the new #add_highlight_url
   # link_to_document(doc, 'VIEW', :counter => 3)
   # Use the catalog_path RESTful route to create a link to the show page for a specific item.
   # catalog_path accepts a hash. The solr query params are stored in the session,
@@ -18,12 +19,14 @@ Blacklight::UrlHelperBehavior.module_eval do
     link_to label, url, document_link_params(doc, opts)
   end
 
-  # Adds search term to be highlighed on item
-  # to catalog search URL
+  # Adds search term to be highlighed on item to catalog search URL
   #
-  # @param [Object] SOLR document
-  # @return [String] url string
+  # @param [Object] SolrDocument
+  # @return <Array(ActionDispatch::Routing::RoutesProxy, SolrDocument)> if no highlight parameter added
+  # @return <Array(ActionDispatch::Routing::RoutesProxy, SolrDocument, Hash)> if highlight parameter added
   def add_highlight_url(doc)
-    params['q'].present? ? [doc, query: CGI.escape(params['q'])] : url_for_document(doc)
+    modified_url = url_for_document(doc)
+    modified_url += [{ query: params['q'] }] if params['q'].present?
+    modified_url
   end
 end
