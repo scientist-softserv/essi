@@ -1,5 +1,11 @@
 module ESSI
   module PDFDownload
+    def self.included(base)
+      base.class_eval do
+        skip_load_and_authorize_resource only: :pdf
+      end
+    end
+  
     def pdf
       if presenter.allow_pdf_download?
         pdf = ESSI::GeneratePdfService.new(presenter.solr_document).generate

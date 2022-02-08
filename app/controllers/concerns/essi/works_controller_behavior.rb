@@ -1,5 +1,13 @@
 module ESSI
   module WorksControllerBehavior
+    # @todo review after upgrade to Hyrax 3.x
+    def self.included(base) 
+      base.class_eval do
+        # hyrax claims the presenter handles authorization
+        # in practice, it generates a ruby error
+        load_and_authorize_resource only: :file_manager
+      end
+    end
 
     def additional_response_formats(wants)
       wants.uv do
