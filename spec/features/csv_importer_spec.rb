@@ -75,6 +75,8 @@ RSpec.feature 'Create and run a CSV Importer', type: :system, js: true do
         click_button 'Submit'
       end
 
+      expect(page).to have_no_selector 'div#browse-everything', visible: true
+
       within '.csv_fields' do
         expect(page).to have_content 'Cloud Files Added'
         expect(page).to have_content '/rgb.png'
