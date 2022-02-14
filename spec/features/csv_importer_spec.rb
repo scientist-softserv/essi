@@ -75,13 +75,9 @@ RSpec.feature 'Create and run a CSV Importer', type: :system, js: true do
         click_button 'Submit'
       end
 
-      expect(page).to have_no_selector 'div#browse-everything', visible: true
-
-      within '.csv_fields' do
-        expect(page).to have_content 'Cloud Files Added'
-        expect(page).to have_content '/rgb.png'
-        expect(page).to have_content '/world.png'
-      end
+      expect(page).to have_field 'selected_files[0][url]', type: 'hidden', with: /rgb\.png/
+      expect(page).to have_field 'selected_files[1][url]', type: 'hidden', with: /world\.png/
+      expect(page).to have_content 'Cloud Files Added'
 
       perform_enqueued_jobs do
         click_button 'Create and Import'
