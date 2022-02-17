@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://dlib.indiana.edu:9000/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=BHR9405&recordSchema=marcxml&version=1.1
+    uri: http://metadata.remote.service.url/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=BHR9405&recordSchema=marcxml&version=1.1
     body:
       encoding: US-ASCII
       string: ''
@@ -123,7 +123,7 @@ http_interactions:
   recorded_at: Tue, 19 Mar 2019 17:47:52 GMT
 - request:
     method: get
-    uri: http://dlib.indiana.edu:9000/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=BHR9405&recordSchema=mods&version=1.1
+    uri: http://metadata.remote.service.url/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=BHR9405&recordSchema=MODS&version=1.1
     body:
       encoding: US-ASCII
       string: ''
@@ -208,7 +208,7 @@ http_interactions:
   recorded_at: Tue, 19 Mar 2019 17:47:53 GMT
 - request:
     method: get
-    uri: http://dlib.indiana.edu:9000/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=VAC1741-00231&recordSchema=marcxml&version=1.1
+    uri: http://metadata.remote.service.url/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=VAC1741-00231&recordSchema=marcxml&version=1.1
     body:
       encoding: US-ASCII
       string: ''
@@ -239,7 +239,7 @@ http_interactions:
   recorded_at: Thu, 14 May 2020 18:21:18 GMT
 - request:
     method: get
-    uri: http://dlib.indiana.edu:9000/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=VAC1741-00231&recordSchema=mods&version=1.1
+    uri: http://metadata.remote.service.url/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=VAC1741-00231&recordSchema=MODS&version=1.1
     body:
       encoding: US-ASCII
       string: ''

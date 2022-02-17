@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://dlib.indiana.edu:9000/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=VAD5427&recordSchema=marcxml&version=1.1
+    uri: http://metadata.remote.service.url/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=VAD5427&recordSchema=marcxml&version=1.1
     body:
       encoding: US-ASCII
       string: ''
