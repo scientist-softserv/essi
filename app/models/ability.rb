@@ -19,7 +19,8 @@ class Ability
     #   can [:create], ActiveFedora::Base
     # end
     if current_user.admin?
-        can [:create, :show, :add_user, :remove_user, :index, :edit, :update, :destroy, :pdf], Role
+      can [:create, :show, :add_user, :remove_user, :index, :edit, :update, :destroy, :pdf], Role
+      can :manage, :sidekiq_dashboard
     end
   end
 
