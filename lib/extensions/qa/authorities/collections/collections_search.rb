@@ -8,6 +8,7 @@ module Extensions
             # The Hyrax::CollectionSearchBuilder expects a current_user
             return [] unless controller.current_user
             repo = ::CatalogController.new(skip_allinson_flex: true).repository
+            controller.params[:q] << '*' if controller.params[:q].to_s.size >= 2
             builder = search_builder(controller)
             response = repo.search(builder)
             docs = response.documents
