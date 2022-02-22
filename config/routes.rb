@@ -104,5 +104,9 @@ Rails.application.routes.draw do
   get '/purl/formats/:id', to: 'purl#formats', as: 'formats_purl'
   get '/purl/*id', to: 'purl#default', as: 'default_purl'
 
+  # Send ActionController::RoutingError to 404 page
+  # Must be the last route defined
+  match '*unmatched', to: 'application#rescue_404', via: :all
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
