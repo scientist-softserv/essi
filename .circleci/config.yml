@@ -1,8 +1,12 @@
-# Ruby CircleCI 2.0 configuration file
+# Ruby CircleCI 2.1 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
-version: 2
+version: 2.1
+
+orbs:
+  browser-tools: circleci/browser-tools@1.2.4
+  ruby: circleci/ruby@1.4.0
 
 default_environment: &default_environment
   RAILS_ENV: test
@@ -19,25 +23,19 @@ default_environment: &default_environment
 jobs:
   build:
     docker:
-    # legacy needed for phantomjs
-    - image: circleci/ruby:2.7.4-bullseye-browsers-legacy
-    - image: circleci/redis:6
-    - image: ghcr.io/samvera/fcrepo4:4.7.5
-      environment:
-        CATALINA_OPTS: "-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1024m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
-    - image: solr:7
-      command: bin/solr -cloud -noprompt -f -p 8985
-    - image: circleci/mysql:8.0-ram
-      command: --default-authentication-plugin=mysql_native_password
-      environment:
-        MYSQL_DATABASE: essi_test
-        MYSQL_USER: essi
-        MYSQL_PASSWORD: essi
-
-    # Specify service dependencies here if necessary
-    # CircleCI maintains a library of pre-built images
-    # documented at https://circleci.com/docs/2.0/circleci-images/
-    # - image: circleci/postgres:9.4
+      - image: cimg/ruby:2.7.4-browsers
+      - image: circleci/redis:6
+      - image: ghcr.io/samvera/fcrepo4:4.7.5
+        environment:
+          CATALINA_OPTS: "-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1024m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
+      - image: solr:7
+        command: bin/solr -cloud -noprompt -f -p 8985
+      - image: circleci/mysql:8.0-ram
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+          MYSQL_DATABASE: essi_test
+          MYSQL_USER: essi
+          MYSQL_PASSWORD: essi
 
     working_directory: ~/repo
 
@@ -45,105 +43,84 @@ jobs:
       <<: *default_environment
 
     steps:
-    - restore_cache:
-        keys:
-        - source-v1-{{ .Branch }}-{{ .Revision }}
-        - source-v1-{{ .Branch }}-
-        - source-v1-
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - checkout
 
-    - checkout
+      # BUNDLE_PATH is unset to allow for `bundle config path` to take precedence.
+      - run:
+          name: Extra environment setup
+          command: |
+            echo 'unset BUNDLE_PATH' >> $BASH_ENV
 
-    - save_cache:
-        key: source-v1-{{ .Branch }}-{{ .Revision }}
-        paths:
-        - ".git"
+      - run:
+          name: Install system deps
+          command: |
+            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+            echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+            curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends build-essential default-jre-headless libpq-dev nodejs \
+                                    libreoffice-writer libreoffice-impress imagemagick unzip ghostscript \
+                                    libtesseract-dev libleptonica-dev liblept5 tesseract-ocr \
+                                    yarn libopenjp2-tools libxml2-dev libsqlite3-dev
+            sudo mkdir -p -m 777 /opt/fits
+            curl -fSL -o /tmp/fits-1.5.1.zip https://github.com/harvard-lts/fits/releases/download/1.5.1/fits-1.5.1.zip
+            sudo mv /tmp/fits-1.5.1.zip /opt/fits
+            cd /opt/fits && sudo unzip fits-1.5.1.zip && sudo chmod +X fits.sh
+            sudo sed -i 's/\(<tool.*TikaTool.*>\)/<!--\1-->/' /opt/fits/xml/fits.xml
+            echo 'export PATH=/opt/fits:$PATH' >> $BASH_ENV
 
-    # BUNDLE_PATH is unset to allow for `bundle config path` to take precedence.
-    - run:
-        name: Extra environment setup
-        command: |
-          echo 'unset BUNDLE_PATH' >> $BASH_ENV
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - dependencies-v6-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - dependencies-v6-{{ .Branch }}
+            - dependencies-v6-
 
-    - run:
-        name: Install system deps
-        command: |
-          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-          echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-          curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
-          sudo apt-get update -qq
-          sudo apt-get install -y build-essential default-jre-headless libpq-dev nodejs \
-                                  libreoffice-writer libreoffice-impress imagemagick unzip ghostscript \
-                                  libtesseract-dev libleptonica-dev liblept5 tesseract-ocr \
-                                  yarn libopenjp2-tools
-          sudo mkdir -p -m 777 /opt/fits
-          curl -fSL -o /tmp/fits-1.5.0.zip https://github.com/harvard-lts/fits/releases/download/1.5.0/fits-1.5.0.zip
-          sudo mv /tmp/fits-1.5.0.zip /opt/fits
-          cd /opt/fits && sudo unzip fits-1.5.0.zip && sudo chmod +X fits.sh
-          sudo sed -i 's/\(<tool.*TikaTool.*>\)/<!--\1-->/' /opt/fits/xml/fits.xml
-          echo 'export PATH=/opt/fits:$PATH' >> $BASH_ENV
+      - run:
+          name: Install dependencies
+          command: |
+            gem update --system
+            gem update bundler
+            bundle config path $CIRCLE_WORKING_DIRECTORY/vendor/bundle
+            bundle install
+            bundle pristine webdrivers
+            bundle clean
+            bundle exec rails webdrivers:chromedriver:update
+            yarn
 
-    # Download and cache dependencies
-    - restore_cache:
-        keys:
-        - dependencies-v5-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-        - dependencies-v5-{{ .Branch }}
-        - dependencies-v5-
+      - save_cache:
+          paths:
+            - ./public/uv
+            - ./node_modules
+            - ./vendor/bundle
+            - ./webdriver
+          key: dependencies-v6-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
 
-    - run:
-        name: Install dependencies
-        command: |
-          gem update --system
-          gem update bundler
-          bundle config path $CIRCLE_WORKING_DIRECTORY/vendor/bundle
-          bundle install
-          bundle pristine webdrivers
-          bundle clean
-          bundle exec rails webdrivers:chromedriver:update
-          yarn
+      #    - run:
+      #        name: Call Rubocop
+      #        command: bundle exec rubocop
 
-    - save_cache:
-        paths:
-        - ./public/uv
-        - ./node_modules
-        - ./vendor/bundle
-        - ./webdriver
-        key: dependencies-v5-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+#      - run:
+#          name: Start headless Chrome
+#          command: google-chrome-stable --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost
+#          background: true
 
-#    - run:
-#        name: Call Rubocop
-#        command: bundle exec rubocop
+      - run:
+          name: Load config into SolrCloud
+          command: |
+            cd solr/conf
+            zip -1 -r solr_hyrax_config.zip ./*
+            curl -H "Content-type:application/octet-stream" --data-binary @solr_hyrax_config.zip "http://localhost:8985/solr/admin/configs?action=UPLOAD&name=hyrax"
+            curl -H 'Content-type: application/json' http://localhost:8985/api/collections/ -d '{create: {name: hydra-test, config: hyrax, numShards: 1}}'
 
-    - run:
-        name: Start headless Chrome
-        command: google-chrome-stable --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost
-        background: true
+      - ruby/rspec-test
 
-    - run:
-        name: Load config into SolrCloud
-        command: |
-          cd solr/conf
-          zip -1 -r solr_hyrax_config.zip ./*
-          curl -H "Content-type:application/octet-stream" --data-binary @solr_hyrax_config.zip "http://localhost:8985/solr/admin/configs?action=UPLOAD&name=hyrax"
-          curl -H 'Content-type: application/json' http://localhost:8985/api/collections/ -d '{create: {name: hydra-test, config: hyrax, numShards: 1}}'
+      - run:
+          name: Run javascript tests
+          command: bundle exec rake spec:javascript
 
-    - run:
-        name: Run rspec in parallel
-        command: |
-          mkdir /tmp/test-results
-          bundle exec rspec $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-
-    - run:
-        name: Run javascript tests
-        command: bundle exec rake spec:javascript
-
-
-
-    # collect reports
-    - store_test_results:
-        path: /tmp/test-results
-    - store_artifacts:
-        path: /tmp/test-results
-        destination: test-results
-    - store_artifacts:
-        path: tmp/capybara
-        destination: capybara-screenshots
+      - store_artifacts:
+          path: tmp/capybara
+          destination: capybara-screenshots
