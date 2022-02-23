@@ -203,6 +203,8 @@ default: &default
         url: https://example.com
     homepage_banner: images/homepage_banner.png
     whitelisted_ingest_dirs: []
+    audit_user_key: example@test.test
+    batch_user_key: example@test.test
     contact_email: example@test.test
   geonames:
     username: demo # change in deployment
