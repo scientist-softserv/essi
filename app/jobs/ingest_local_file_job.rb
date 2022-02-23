@@ -14,9 +14,10 @@ class IngestLocalFileJob < Hyrax::ApplicationJob
     else
       Hyrax.config.callback.run(:after_import_local_file_failure, file_set, user, path)
     end
-  rescue SystemCallError
+  rescue SystemCallError => e
     # This is generic in order to handle Errno constants raised when accessing files
     # @see https://ruby-doc.org/core-2.5.3/Errno.html
+    file_set.errors.add(:base, e.inspect)
     Hyrax.config.callback.run(:after_import_local_file_failure, file_set, user, path)
   end
 end
