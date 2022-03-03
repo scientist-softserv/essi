@@ -25,13 +25,28 @@
         <li><%= link_to 'Log In As ...', main_app.log_in_as_path %></li>
         <% end %>
       </ul>
-
     </li><!-- /.btn-group -->
   <% else %>
     <li>
       <%= link_to main_app.new_user_session_path do %>
         <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> <%= t("hyrax.toolbar.profile.login") %>
       <% end %>
+    </li>
+  <% end %>
+  <% if !user_signed_in? && Rails.env.development? && ESSI.config.dig(:essi, :allow_dev_login) %>
+    <li class="dropdown">
+      <%= link_to '/', role: 'button', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false} do %>
+        <span class="sr-only"><%= t("hyrax.toolbar.profile.sr_action") %></span>
+        <span class="hidden-xs">&nbsp;<%= current_user&.name %></span>
+        <span class="sr-only"> <%= t("hyrax.toolbar.profile.sr_target") %></span>
+        <span class="fa fa-user"></span>
+        <span class="caret"></span>
+      <% end %>
+      <ul class="dropdown-menu dropdown-menu-right" role="menu">
+        <% if switch_user_select.present? %>
+        <li><%= link_to 'Log In As ...', main_app.log_in_as_path %></li>
+        <% end %>
+      </ul>
     </li>
   <% end %>
 </ul>

@@ -4,5 +4,5 @@
   <p>Check the box if you want the ability to return as current user.</p>
   <%= switch_user_select %>
   <% end %>
-  <h3>Current User: <%= current_user.uid %></h3>
+  <h3>Current User: <%= current_user&.uid %></h3>
 </div>
