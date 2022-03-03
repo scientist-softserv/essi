@@ -100,6 +100,10 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
+  # Switch routes must come before wildcard route
+  get 'switch_user', to: 'switch_user#set_current_user'
+  get 'switch_user/remember_user', to: 'switch_user#remember_user'
+
   # Purl redirects
   get '/purl/formats/:id', to: 'purl#formats', as: 'formats_purl'
   get '/purl/*id', to: 'purl#default', as: 'default_purl'
