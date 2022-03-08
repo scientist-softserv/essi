@@ -39,12 +39,16 @@ module IuMetadata
       data
     end
 
+    private_class_method def self.remote_metadata_lookup_url
+      ESSI.config.dig(:essi, :metadata, :remote_lookup)
+    end
+
     private_class_method def self.retrieve_mods(id)
-      conn = Faraday.new(url: 'http://dlib.indiana.edu:9000')
+      conn = Faraday.new(url: remote_metadata_lookup_url)
       response = conn.get do |req|
         req.url '/iucatextract'
         req.params['query'] = "cql.serverChoice=#{id}"
-        req.params['recordSchema'] = 'mods'
+        req.params['recordSchema'] = 'MODS'
         req.params['operation'] = 'searchRetrieve'
         req.params['version'] = '1.1'
         req.params['maximumRecords'] = '1'
@@ -53,7 +57,7 @@ module IuMetadata
     end
 
     private_class_method def self.retrieve_marc(id)
-      conn = Faraday.new(url: 'http://dlib.indiana.edu:9000')
+      conn = Faraday.new(url: remote_metadata_lookup_url)
       response = conn.get do |req|
         req.url '/iucatextract'
         req.params['query'] = "cql.serverChoice=#{id}"
