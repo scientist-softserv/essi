@@ -48,5 +48,5 @@ SwitchUser.setup do |config|
 
   # switch_back allows you to switch back to a previously selected user. See
   # README for more details.
-  config.switch_back = true
+  config.switch_back = !(Rails.env.development? && ESSI.config.dig(:essi, :allow_dev_login))
 end
