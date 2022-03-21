@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/IU-Libraries-Joint-Development/allinson_flex.git
-  revision: f3ed44ff96d50bc7c42cf2b9693d9b081f9a2f0c
+  revision: 4f212b446a45c528af910366ee869b6771d819e0
   specs:
     allinson_flex (0.1.0)
       json_schemer

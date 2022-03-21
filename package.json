@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.9.4",
-    "@rails/webpacker": "^4.3.0",
+    "@rails/webpacker": "^5.4.3",
     "@rjsf/core": "^2.0.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "immutability-helper": "^3.0.2",
@@ -17,7 +17,7 @@
     "react-spinners": "^0.8.1",
     "react-transition-group": "^4.3.0",
     "react_ujs": "^2.6.1",
-    "universalviewer": "3.1.1"
+    "universalviewer": "3.1.4"
   },
   "scripts": {
     "preinstall": "rm -rf ./public/uv",
