@@ -312,7 +312,7 @@ Hyrax.config do |config|
   # Hyrax callbacks left undefined in Hyrax
   # called in IngestLocalFileJob
   config.callback.set(:after_import_local_file_failure) do |file_set, user, path|
-    nil
+    Hyrax::ImportLocalFileFailureService.new(file_set, user, path).call
   end
   # called in IngestLocalFileJob
   config.callback.set(:after_import_local_file_success) do |file_set, user, path|
