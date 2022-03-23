@@ -9,7 +9,15 @@
       </div>
       <div class="modal_body">
         <div class="select-work-admin-set">
-          <%= select_tag :admin_set_id, options_for_select(available_admin_sets) %>
+          <%= select_tag :admin_set_id, options_for_select(usable_admin_sets) %>
+          <% if unusable_admin_sets.any? %>
+            The following Admin Sets are missing a permission template or an active workflow:
+            <ul>
+              <% unusable_admin_sets.each do |title_id| %>
+                <li><%= title_id.first %> (<%= title_id.last %>)</li>
+              <% end %>
+            </u>
+          <% end %>
         </div>
       </div>
       <div class="modal-header">
