@@ -206,6 +206,7 @@ default: &default
     audit_user_key: example@test.test
     batch_user_key: example@test.test
     contact_email: example@test.test
+    service_log: <%= Rails.root.join('log', 'file_service.log') %>
   geonames:
     username: demo # change in deployment
 

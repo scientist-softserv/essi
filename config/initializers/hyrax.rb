@@ -312,11 +312,11 @@ Hyrax.config do |config|
   # Hyrax callbacks left undefined in Hyrax
   # called in IngestLocalFileJob
   config.callback.set(:after_import_local_file_failure) do |file_set, user, path|
-    Hyrax::ImportLocalFileFailureService.new(file_set, user, path).call
+    ESSI::ImportLocalFileFailureService.new(file_set, user, path).call
   end
   # called in IngestLocalFileJob
   config.callback.set(:after_import_local_file_success) do |file_set, user, path|
-    nil
+    ESSI::ImportLocalFileSuccessService.new(file_set, user, path).call
   end
   # still enabled but not used; deprecated by after_perform call in IngestJob
   config.callback.set(:after_update_content) do |file_set, user, path|
