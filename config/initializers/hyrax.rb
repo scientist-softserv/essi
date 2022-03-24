@@ -196,11 +196,11 @@ Hyrax.config do |config|
   # config.display_share_button_when_not_logged_in = true
 
   # The user who runs batch jobs. Update this if you aren't using emails
-  # config.batch_user_key = 'batchuser@example.com'
+  config.batch_user_key = ESSI.config.dig(:essi, :batch_user_key)
 
   # The user who runs fixity check jobs. Update this if you aren't using emails
-  # config.audit_user_key = 'audituser@example.com'
-  #
+  config.audit_user_key = ESSI.config.dig(:essi, :audit_user_key)
+  
   # The banner image. Should be 5000px wide by 1000px tall
   config.banner_image = ESSI.config.dig(:essi, :homepage_banner) || 'images/homepage_banner.png'
 
@@ -307,6 +307,20 @@ Hyrax.config do |config|
   [ESSI.config.dig(:essi, :whitelisted_ingest_dirs) || [], 
    ENV['WHITELISTED_INGEST_DIRS'].to_s.split].select(&:any?).each do |additional_dirs|
     config.whitelisted_ingest_dirs += additional_dirs
+  end
+
+  # Hyrax callbacks left undefined in Hyrax
+  # called in IngestLocalFileJob
+  config.callback.set(:after_import_local_file_failure) do |file_set, user, path|
+    ESSI::ImportLocalFileFailureService.new(file_set, user, path).call
+  end
+  # called in IngestLocalFileJob
+  config.callback.set(:after_import_local_file_success) do |file_set, user, path|
+    ESSI::ImportLocalFileSuccessService.new(file_set, user, path).call
+  end
+  # still enabled but not used; deprecated by after_perform call in IngestJob
+  config.callback.set(:after_update_content) do |file_set, user, path|
+    nil
   end
 end
 
