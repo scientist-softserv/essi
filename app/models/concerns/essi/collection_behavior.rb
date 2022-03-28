@@ -1,5 +1,17 @@
 module ESSI
   module CollectionBehavior
+    extend ActiveSupport::Concern
+    included do
+      before_save :set_num_descendants
+      property :num_collections, predicate: ::RDF::URI.new('http://dlib.indiana.edu/vocabulary/numCollections'), multiple: false
+      property :num_works, predicate: ::RDF::URI.new('http://dlib.indiana.edu/vocabulary/numWorks'), multiple: false
+    end
+
+    def set_num_descendants
+      self.num_collections = self.subtree_collection_ids.count
+      self.num_works = self.subtree_work_ids.count
+    end
+
     def self.included(base)
       base.class_eval do
         extend ClassMethods
