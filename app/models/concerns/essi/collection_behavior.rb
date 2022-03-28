@@ -1,0 +1,71 @@
+module ESSI
+  module CollectionBehavior
+    def self.included(base)
+      base.class_eval do
+        extend ClassMethods
+      end
+    end
+
+    module ClassMethods
+      def child_objects_for(id, models: [])
+        id ||= []
+        return [] if id.empty?
+        conditions = { nesting_collection__parent_ids_ssim: id }
+        models = Array.wrap(models).map(&:to_s)
+        conditions[:has_model_ssim] = models if models.any?
+        ActiveFedora::Base.search_with_conditions(conditions, rows: 100_000)
+      end
+    
+      def child_collections_for(id)
+        child_objects_for(id, models: ['Collection'])
+      end
+    
+      def child_works_for(id)
+        child_objects_for(id, models: Hyrax.config.registered_curation_concern_types)
+      end
+
+      def subtree_objects_for(id, models: [])
+        accrued = []
+        nested = child_objects_for(id, models: models)
+        while nested.any?
+          accrued += nested
+          nested = child_objects_for(nested.map(&:id), models: models)
+        end
+        accrued
+      end
+
+      def subtree_collections_for(id)
+        subtree_objects_for(id, models: Collection)
+      end
+
+      def subtree_works_for(id)
+        subtree_objects_for(id).select do |object|
+          (object['has_model_ssim'] & Hyrax.config.registered_curation_concern_types).any?
+        end
+      end
+
+      def tree_objects_for(id, models: [])
+        ActiveFedora::Base.search_with_conditions({id: id}, rows: 1) + 
+          subtree_objects_for(id, models: models)
+      end
+
+      def tree_collections_for(id)
+        tree_objects_for(id, models: Collection)
+      end
+    end
+
+    ClassMethods.public_instance_methods.each do |class_method|
+      # child_objects, child_collections, etc.
+      object_method = class_method.to_s.sub(/_for$/, '')
+      define_method object_method do
+        self.class.send(class_method, id)
+      end
+
+      # child_object_ids, child_collection_ids, etc.
+      id_method = class_method.to_s.sub(/s_for$/, '_ids')
+      define_method id_method do
+        self.class.send(class_method, id).map(&:id)
+      end
+    end
+  end
+end

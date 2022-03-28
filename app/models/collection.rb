@@ -2,6 +2,7 @@
 class Collection < ActiveFedora::Base
   include ::ESSI::CampusMetadata
   include ::Hyrax::CollectionBehavior
+  include ::ESSI::CollectionBehavior
   # You can replace these metadata if they're not suitable
   include Hyrax::BasicMetadata
 
