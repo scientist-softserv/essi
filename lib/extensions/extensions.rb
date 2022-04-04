@@ -133,3 +133,6 @@ Qa::Authorities::Collections.prepend Extensions::Qa::Authorities::Collections::C
 Hydra::AccessControls::Permission.prepend Extensions::Hydra::AccessControls::Permission::EscapingObsoletions
 ActiveFedora::File.prepend Extensions::ActiveFedora::File::EscapingObsoletions
 
+# change total count methods to cover all descendants in the tree
+Hyrax::CollectionPresenter.prepend Extensions::Hyrax::CollectionPresenter::TotalCounts
+
