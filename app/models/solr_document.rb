@@ -27,8 +27,9 @@ class SolrDocument
   use_extension( Hydra::ContentNegotiation )
 
   attribute :num_pages, Solr::String, solr_name('num_pages', :stored_searchable, type: :integer)
-  attribute :num_collections, Solr::String, solr_name('num_collections', :stored_searchable, type: :integer)
-  attribute :num_works, Solr::String, solr_name('num_works', :stored_searchable, type: :integer)
+  attribute :number_of_pages, Solr::String, solr_name('number_of_pages', :stored_sortable, type: :integer)
+  attribute :num_collections, Solr::String, solr_name('num_collections', :stored_sortable, type: :integer)
+  attribute :num_works, Solr::String, solr_name('num_works', :stored_sortable, type: :integer)
   attribute :holding_location, Solr::String, solr_name('holding_location')
   attribute :campus, Solr::String, solr_name('campus')
   attribute :viewing_hint, Solr::String, solr_name('viewing_hint')

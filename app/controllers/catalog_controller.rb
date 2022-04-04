@@ -332,12 +332,12 @@ class CatalogController < ApplicationController
     config.add_sort_field \
       "#{solr_name('number_of_pages', :stored_sortable, type: :integer)} desc",
       label: "pages \u25BC"
-    # solr_name('num_works', :stored_sortable, type: :integer) returns
-    # num_works_isi
-    # which is correct, but the actual index key is num_works_isim as
-    # it's ignoring the multiple: false setting
-    config.add_sort_field 'num_works_isim asc', label: "contained works \u25B2"
-    config.add_sort_field 'num_works_isim desc', label: "contained works \u25BC"
+    config.add_sort_field \
+      "#{solr_name('num_works', :stored_sortable, type: :integer)} asc",
+      label: "collection size \u25B2"
+    config.add_sort_field \
+      "#{solr_name('num_works', :stored_sortable, type: :integer)} desc", 
+      label: "collection size \u25BC"
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.

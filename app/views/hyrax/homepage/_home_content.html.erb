@@ -22,6 +22,7 @@
 </div><!-- /.col-xs-6 -->
 <div class="centered">
   <%= link_to t('hyrax.homepage.admin_sets.link'),
-              main_app.search_catalog_path(f: { human_readable_type_sim: ["Collection"]}),
+              main_app.search_catalog_path(f: { human_readable_type_sim: ["Collection"]}
+                                           sort: "num_works_isi desc"),
               class: 'button' %>
 </div>

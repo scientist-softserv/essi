@@ -6,6 +6,7 @@ class BibRecordIndexer < Hyrax::WorkIndexer
   include ESSI::IIIFThumbnailBehavior
   include ESSI::IndexesFilesets
   include ESSI::IndexesNumPages
+  include ESSI::IndexesSortableMetadata
 
   # Uncomment this block if you want to add custom indexing behavior:
   # def generate_solr_document
