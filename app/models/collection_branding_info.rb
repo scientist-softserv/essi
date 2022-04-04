@@ -102,7 +102,7 @@ class CollectionBrandingInfo < ApplicationRecord
         self.image_path = \
           Hyrax.config.iiif_image_url_builder.call(uri_to_id,
                                                    nil,
-                                                   Hyrax.config.iiif_image_size_default)
+                                                   ESSI.config.dig(:essi, :collection_banner_size) || Hyrax.config.iiif_image_size_default)
         save
       end
     end  
