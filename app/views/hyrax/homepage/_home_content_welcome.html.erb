@@ -1,3 +1,12 @@
 <h1>Welcome to Digital Collections</h1>
 <p>Digital Collections is a growing repository of digital image collections held at Indiana University campuses. Please see our <a href="/about">About</a> page for more information about this service.</p>
+<div class="collection-counts-wrapper">
+  As of <%= Time.now.strftime("%B %d, %Y") %>, Digital Collections contains:
+  <div class="collection-counts-item">
+    <span><%= Collection.count %></span>Collections
+  </div>
+  <div class="collection-counts-item">
+    <span><%= Hyrax.config.registered_curation_concern_types.map(&:constantize).map(&:count).sum %></span>Works
+  </div>
+</div>
 <br/>
