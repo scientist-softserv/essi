@@ -102,7 +102,7 @@ RSpec.feature 'Create and run a CSV Importer', type: :system, js: true do
       expect(page).to have_content 'A Test Image'
       expect(page).to have_content '0-99 pages'
       expect(page).to have_content 'Test Admin Set'
-      click_on('Show Child Items')
+      click_on(I18n.t('hyrax.works.form.show_child_items'))
       expect(find('table.related-files')).to have_content('rgb.png')
       expect(find('table.related-files')).to have_content('world.png')
       expect(find('table.related-files')).to have_content('Public')
