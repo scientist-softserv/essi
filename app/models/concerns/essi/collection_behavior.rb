@@ -19,8 +19,13 @@ module ESSI
     end
 
     module ClassMethods
+      # solr queries break if you pass an id set with greater than 96 members
+      def constrain_ids(ids)
+        Array.wrap(ids)[0,96]
+      end
+      
       def child_objects_for(id, models: [])
-        id ||= []
+        id = constrain_ids(id)
         return [] if id.empty?
         conditions = { nesting_collection__parent_ids_ssim: id }
         models = Array.wrap(models).map(&:to_s)
@@ -41,7 +46,8 @@ module ESSI
         nested = child_objects_for(id, models: models)
         while nested.any?
           accrued += nested
-          nested = child_objects_for(nested.map(&:id), models: models)
+          collection_ids = nested.select { |e| Array.wrap(e['has_model_ssim']).include?'Collection' }.map(&:id)
+          nested = child_objects_for(collection_ids, models: models)
         end
         accrued
       end
