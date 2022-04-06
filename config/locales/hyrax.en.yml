@@ -106,8 +106,8 @@ en:
         browse_files_button: Upload from server
     works:
       form:
-        show_child_items: Show Child Items
-        hide_child_items: Hide Child Items
+        show_child_items: Show Item Images
+        hide_child_items: Hide Item Images
       structure:
         breadcrumb: Edit Structure
       file_manager:

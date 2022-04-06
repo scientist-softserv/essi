@@ -2,10 +2,11 @@
 class Collection < ActiveFedora::Base
   include ::ESSI::CampusMetadata
   include ::Hyrax::CollectionBehavior
+  include ::ESSI::CollectionBehavior
   # You can replace these metadata if they're not suitable
   include Hyrax::BasicMetadata
 
-  self.indexer = Hyrax::CollectionWithBasicMetadataIndexer
+  self.indexer = ESSI::CollectionIndexer
 
   def collection_branding_infos(role: nil)
     cbis = ::CollectionBrandingInfo.where(collection_id: id)

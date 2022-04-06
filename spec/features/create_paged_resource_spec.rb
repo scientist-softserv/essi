@@ -81,7 +81,7 @@ RSpec.feature 'Create a PagedResource', type: :system, js: true do
       expect(find('.work-type')).to have_content('My Test Work')
       expect(page).to_not have_content "Your files are being processed by Digital Collections in the background."
       expect(find('li.attribute-title')).to have_content('My Test Work')
-      click_on('Show Child Items')
+      click_on(I18n.t('hyrax.works.form.show_child_items'))
       expect(find('table.related-files')).to have_content('rgb.png')
 
       click_on('Go')
