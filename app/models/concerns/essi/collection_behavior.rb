@@ -3,6 +3,7 @@ module ESSI
     extend ActiveSupport::Concern
     included do
       before_save :set_num_descendants
+      before_update :set_default_thumbnail
       property :num_collections, predicate: ::RDF::URI.new('http://dlib.indiana.edu/vocabulary/numCollections'), multiple: false
       property :num_works, predicate: ::RDF::URI.new('http://dlib.indiana.edu/vocabulary/numWorks'), multiple: false
     end
@@ -10,6 +11,19 @@ module ESSI
     def set_num_descendants
       self.num_collections = self.subtree_collection_ids.count
       self.num_works = self.subtree_work_ids.count
+    end
+
+    def default_thumbnail_id(user = User.new)
+      ability = Ability.new(user)
+      blacklight_config = Hyrax::Dashboard::CollectionsController.blacklight_config
+      repository = blacklight_config.repository_class.new(blacklight_config)
+      form = Hyrax::Forms::CollectionForm.new(self, ability, repository)
+      file_id = form.send(:all_files_with_access)&.first&.last
+      file_id
+    end
+
+    def set_default_thumbnail
+      self.thumbnail_id = self.default_thumbnail_id if self.thumbnail_id.nil?
     end
 
     def self.included(base)
