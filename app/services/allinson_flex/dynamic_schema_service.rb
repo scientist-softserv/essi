@@ -83,6 +83,7 @@ module AllinsonFlex
 
     # @return [Hash] property => array of indexing
     # modified for essi to exclude modifier values like admin_only
+    # modified for essi to exclude :based_near
     def indexing_properties
       indexers = {}
       properties.each_pair do |prop_name, prop_value|
@@ -94,6 +95,7 @@ module AllinsonFlex
                                 end.compact.uniq
         end
       end
+      indexers.delete(:based_near)
       indexers[:profile_version] = ['profile_version_ssi']
       indexers[:dynamic_schema_id] = ['dynamic_schema_id_ssi']
       indexers
