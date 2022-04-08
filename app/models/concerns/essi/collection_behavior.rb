@@ -21,6 +21,7 @@ module ESSI
     module ClassMethods
       # POST to avoid URI Too Long error from solr, and raise row limit
       def child_objects_for(id, models: [])
+        id = Array.wrap(id)
         return [] if id.empty?
         conditions = { nesting_collection__parent_ids_ssim: id }
         models = Array.wrap(models).map(&:to_s)
