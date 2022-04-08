@@ -19,18 +19,15 @@ module ESSI
     end
 
     module ClassMethods
-      # solr queries break if you pass an id set with greater than 96 members
-      def constrain_ids(ids)
-        Array.wrap(ids)[0,96]
-      end
-      
+      # POST to avoid URI Too Long error from solr, and raise row limit
       def child_objects_for(id, models: [])
-        id = constrain_ids(id)
+        id = Array.wrap(id)
         return [] if id.empty?
         conditions = { nesting_collection__parent_ids_ssim: id }
         models = Array.wrap(models).map(&:to_s)
         conditions[:has_model_ssim] = models if models.any?
-        ActiveFedora::Base.search_with_conditions(conditions, rows: 100_000)
+        options = { method: :post, rows: 100_000 }
+        ActiveFedora::Base.search_with_conditions(conditions, options)
       end
     
       def child_collections_for(id)
