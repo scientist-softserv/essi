@@ -24,7 +24,7 @@ module AllinsonFlex::AllinsonFlexModifiedHelper
 
   private
     def format_admin_set_ids(admin_set_ids)
-      AdminSet.search_with_conditions(id: admin_set_ids).map do |solr_hit|
+      AdminSet.search_with_conditions({ id: admin_set_ids }, rows: 1000).map do |solr_hit|
         [solr_hit['title_tesim'].first, solr_hit.id]
       end
     end
