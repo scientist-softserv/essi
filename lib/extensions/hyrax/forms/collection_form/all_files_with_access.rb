@@ -8,6 +8,7 @@ module Extensions
           private
 
           def all_files_with_access
+            return [] unless id.present?
             member_file_set_title_ids.sort { |x,y| x[0].upcase <=> y[0].upcase }
           end
 
