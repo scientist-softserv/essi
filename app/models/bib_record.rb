@@ -28,5 +28,6 @@ class BibRecord < ActiveFedora::Base
   # schema (by adding accepts_nested_attributes)
 
   include AllinsonFlex::DynamicMetadataBehavior
+  include ESSI::DynamicMetadataBehavior
   include ::Hyrax::BasicMetadata
 end

@@ -140,3 +140,5 @@ ActiveFedora::File.prepend Extensions::ActiveFedora::File::EscapingObsoletions
 # change total count methods to cover all descendants in the tree
 Hyrax::CollectionPresenter.prepend Extensions::Hyrax::CollectionPresenter::TotalCounts
 
+# Increase solr row limit
+Hyrax::PresenterFactory.prepend Extensions::Hyrax::PresenterFactory::SolrRowLimit

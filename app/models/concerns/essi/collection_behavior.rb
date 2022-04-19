@@ -3,6 +3,7 @@ module ESSI
     extend ActiveSupport::Concern
     included do
       before_save :set_num_descendants
+      before_update :set_default_thumbnail
       property :num_collections, predicate: ::RDF::URI.new('http://dlib.indiana.edu/vocabulary/numCollections'), multiple: false
       property :num_works, predicate: ::RDF::URI.new('http://dlib.indiana.edu/vocabulary/numWorks'), multiple: false
     end
@@ -12,6 +13,19 @@ module ESSI
       self.num_works = self.subtree_work_ids.count
     end
 
+    def default_thumbnail_id(user = User.new)
+      ability = Ability.new(user)
+      blacklight_config = Hyrax::Dashboard::CollectionsController.blacklight_config
+      repository = blacklight_config.repository_class.new(blacklight_config)
+      form = Hyrax::Forms::CollectionForm.new(self, ability, repository)
+      file_id = form.send(:all_files_with_access)&.first&.last
+      file_id
+    end
+
+    def set_default_thumbnail
+      self.thumbnail_id = self.default_thumbnail_id if self.thumbnail_id.nil?
+    end
+
     def self.included(base)
       base.class_eval do
         extend ClassMethods
@@ -19,18 +33,15 @@ module ESSI
     end
 
     module ClassMethods
-      # solr queries break if you pass an id set with greater than 96 members
-      def constrain_ids(ids)
-        Array.wrap(ids)[0,96]
-      end
-      
+      # POST to avoid URI Too Long error from solr, and raise row limit
       def child_objects_for(id, models: [])
-        id = constrain_ids(id)
+        id = Array.wrap(id)
         return [] if id.empty?
         conditions = { nesting_collection__parent_ids_ssim: id }
         models = Array.wrap(models).map(&:to_s)
         conditions[:has_model_ssim] = models if models.any?
-        ActiveFedora::Base.search_with_conditions(conditions, rows: 100_000)
+        options = { method: :post, rows: 100_000 }
+        ActiveFedora::Base.search_with_conditions(conditions, options)
       end
     
       def child_collections_for(id)
