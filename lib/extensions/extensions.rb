@@ -113,6 +113,10 @@ Hyrax::SelectTypeListPresenter.prepend Extensions::Hyrax::SelectTypeListPresente
 # return false for render_bookmarks_control? in CollectionsController
 Hyrax::CollectionsController.prepend Extensions::Hyrax::CollectionsController::RenderBookmarksControl
 
+# ESSI-1578: Add all searchable fields into the collection search builder context
+Hyrax::CollectionsController.prepend Extensions::Hyrax::CollectionsController::ParamsForQuery
+Hyrax::Dashboard::CollectionsController.prepend Extensions::Hyrax::Dashboard::CollectionsController::ParamsForQuery
+
 # ESSI-1361: select from all files for Collection thumbnail
 Hyrax::Forms::CollectionForm.prepend Extensions::Hyrax::Forms::CollectionForm::AllFilesWithAccess
 Hyrax::CollectionMemberSearchBuilder.prepend Extensions::Hyrax::CollectionMemberSearchBuilder::Rows
