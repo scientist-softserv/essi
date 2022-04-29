@@ -5,6 +5,10 @@ module Extensions
       module TotalCounts
         delegate :num_collections, :num_works, to: :solr_document
 
+        def tree_collection_ids
+          @tree_collection_ids ||= ::Collection.tree_collections_for(id).map(&:id)
+        end
+
         def total_items
           num_works + num_collections
         end
