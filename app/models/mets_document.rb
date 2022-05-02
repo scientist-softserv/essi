@@ -21,6 +21,14 @@ class METSDocument
                 "//mets:div[@TYPE='IsPartOf']/@CONTENTIDS").to_s
   end
 
+  def mets_id
+    @mets.xpath("/mets:mets/@ID").to_s
+  end
+
+  def label
+    @mets.xpath("/mets:mets/@LABEL").to_s
+  end
+
   def pudl_id
     @mets.xpath("/mets:mets/mets:metsHdr/mets:metsDocumentID")
          .first.content.gsub(/\.mets/, '')

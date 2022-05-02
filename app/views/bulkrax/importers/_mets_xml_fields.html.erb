@@ -18,8 +18,11 @@
 
   <%= fi.input :title, 
     hint: 'Provide a title for this work',
-    input_html: { value: importer.parser_fields['title'] }
-    %>
+    input_html: { value: importer.parser_fields['title'] },
+    required: false
+  %>
+
+  <%= fi.input :override_title, as: :boolean, hint: 'If checked, always use the selected title. If unchecked, use title the record and only use the provided value if the record title is blank.', input_html: { checked: (importer.parser_fields['override_title'] == "1") } %>
 
   <%= fi.input :import_type, 
 		collection: [

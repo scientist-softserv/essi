@@ -13,6 +13,7 @@ module IuMetadata
       identifier
       source_metadata_identifier
       viewing_direction
+      title
     ].freeze
 
     def attributes
@@ -25,6 +26,10 @@ module IuMetadata
 
     def source_metadata_identifier
       bib_id
+    end
+
+    def title
+      Array.wrap([label, mets_id].select(&:present?).first)
     end
 
     # no default metadata
