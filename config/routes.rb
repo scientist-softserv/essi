@@ -79,6 +79,11 @@ Rails.application.routes.draw do
         get '/pdf', action: :pdf, as: :pdf
       end
     end
+    resources :file_sets, only: [] do
+      member do
+        post :regenerate_ocr, action: :regenerate_ocr
+      end
+    end
   end
 
   concern :exportable, Blacklight::Routes::Exportable.new
