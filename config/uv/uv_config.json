@@ -5,6 +5,10 @@
   "modules": {
     "contentLeftPanel": {
       "options": {
+        "galleryThumbHeight": 400,
+        "galleryThumbWidth": 250,
+        "oneColThumbHeight": 400,
+        "oneColThumbWidth": 250,
         "defaultToTreeEnabled": true,
         "thumbsCacheInvalidation": {
           "enabled": false
