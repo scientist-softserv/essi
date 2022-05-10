@@ -12,7 +12,8 @@ RSpec.describe IuMetadata::METSRecord do
     {
       "source_metadata_identifier" => 'bhr9405',
       "identifier" => 'ark:/88435/7d278t10z',
-      "viewing_direction" => 'left-to-right'
+      "viewing_direction" => 'left-to-right',
+      "title" => []
     }
 
   describe "#attributes" do

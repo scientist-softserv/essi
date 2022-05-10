@@ -82,8 +82,12 @@ module Bulkrax
       self.parsed_metadata
     end
 
+    def override_title
+      %w[true 1].include?(parser.parser_fields['override_title'].to_s)
+    end
+
     def add_title
-      self.parsed_metadata['title'] = [parser.parser_fields['title'] || record.identifier]
+      self.parsed_metadata['title'] = [parser.parser_fields['title']] if override_title || self.parsed_metadata['title'].blank?
     end
 
     def add_local_files
