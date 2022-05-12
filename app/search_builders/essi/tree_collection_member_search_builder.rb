@@ -1,6 +1,6 @@
 module ESSI
   # This search builder requires that a accessor named "collection" exists in the scope
-  class TreeCollectionMemberSearchBuilder < ::SearchBuilder
+  class TreeCollectionMemberSearchBuilder < Hyrax::CatalogSearchBuilder
     include Hyrax::FilterByType
     attr_reader :collection, :search_includes_models
 
@@ -8,7 +8,10 @@ module ESSI
     self.collection_membership_field = 'member_of_collection_ids_ssim'
 
     # Defines which search_params_logic should be used when searching for Collection members
-    self.default_processor_chain += [:member_of_collection]
+    self.default_processor_chain += [
+      :member_of_collection,
+      :show_works_or_works_that_contain_files
+    ]
 
     # @param [scope] Typically the controller object
     # @param [Symbol] :works, :collections, (anything else retrieves both)
