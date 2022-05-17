@@ -23,6 +23,7 @@ RUN mkdir -p /opt/fits && \
     cd /opt/fits && unzip fits-1.5.1.zip && chmod +X fits.sh && sed -i 's/\(<tool.*TikaTool.*>\)/<!--\1-->/' /opt/fits/xml/fits.xml
 ENV PATH /opt/fits:$PATH
 ENV RUBY_THREAD_MACHINE_STACK_SIZE 8388608
+ENV RUBY_THREAD_VM_STACK_SIZE 8388608
 
 ###
 # ruby dev image
