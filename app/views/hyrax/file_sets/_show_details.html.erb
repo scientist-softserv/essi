@@ -12,14 +12,16 @@
   <% else %>
     <dd>not available</dd>
   <% end %>
-  <%# FIXME: get better path %>
-  <dd>
-    <%= link_to 'Regenerate OCR',
-                file_set_fixity_checks_path(@presenter).sub('fixity_checks', 'regenerate_ocr'),
-                method: :post,
-                class: 'btn btn-danger',
-                data: { confirm: 'Are you sure you want to regenerate this OCR?' } %>
-  </dd>
+  <% if current_ability&.can?(:regenerate_ocr, FileSet) %>
+    <dd>
+      <%# FIXME: get better path %>
+      <%= link_to 'Regenerate OCR',
+                  file_set_fixity_checks_path(@presenter).sub('fixity_checks', 'regenerate_ocr'),
+                  method: :post,
+                  class: 'btn btn-danger',
+                  data: { confirm: 'Are you sure you want to regenerate this OCR?' } %>
+    </dd>
+  <% end %>
   <dt>Fixity Check</dt>
   <dd><%= @presenter.fixity_check_status %></dd>
   <dt>Characterization</dt>
