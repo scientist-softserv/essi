@@ -16,6 +16,7 @@ end
 # extracted text support
 Hyrax::DownloadsController.prepend Extensions::Hyrax::DownloadsController::ExtractedText
 Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::ExtractedText
+Hyrax::FileSetsController.include Extensions::Hyrax::FileSetsController::RegenerateOCR
 
 # viewing hint support
 IIIFManifest::ManifestBuilder::ImageBuilder.include Extensions::IIIFManifest::ManifestBuilder::ImageBuilder::ViewingHint
