@@ -7,9 +7,10 @@ class METSDocument
     @mets = File.open(@source_file) { |f| Nokogiri::XML(f) }
   end
 
-  def ark_id
+  def obj_id
     @mets.xpath("/mets:mets/@OBJID").to_s
   end
+  alias_method :ark_id, :obj_id
 
   def bib_id
     @mets.xpath("/mets:mets/mets:dmdSec/mets:mdRef/@xlink:href") \
@@ -31,7 +32,22 @@ class METSDocument
 
   def pudl_id
     @mets.xpath("/mets:mets/mets:metsHdr/mets:metsDocumentID")
-         .first.content.gsub(/\.mets/, '')
+      .first&.content.to_s.gsub(/\.mets/, '')
+  end
+
+  def related_url
+    @mets.xpath("/mets:mets/mets:metsHdr/mets:altRecordID").map(&:content)
+  end
+
+  def series
+    xpath = "/mets:mets/mets:dmdSec[@ID='dmdSec-DC']/mets:mdWrap[@MDTYPE='DC']/mets:xmlData/qdc:qualifieddc/dcterms:isPartOf"
+    # by default, nokogiri only looks for namespaces in the root node
+    # @mets.collect_namespaces will collect all namespaces defined in the document
+    # the reverse_merge ensures additional namespaces used in the XPATH statement are available
+    namespaces = { 'xmlns:qdc' => 'http://www.bl.uk/namespaces/oai_dcq/',
+                   'xmlns:dcterms' => 'http://purl.org/dc/terms/' }
+    namespaces = @mets.collect_namespaces.reverse_merge(namespaces)
+    @mets.xpath(xpath, namespaces).map(&:content)
   end
 
   def thumbnail_path

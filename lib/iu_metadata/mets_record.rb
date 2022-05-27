@@ -11,9 +11,11 @@ module IuMetadata
     # local metadata
     ATTRIBUTES = %w[
       identifier
+      related_url
+      series
       source_metadata_identifier
-      viewing_direction
       title
+      viewing_direction
     ].freeze
 
     def attributes
@@ -21,11 +23,13 @@ module IuMetadata
     end
 
     def identifier
-      ark_id
+      obj_id
     end
+    # deprecation planned for purl
+    alias_method :purl, :identifier
 
     def source_metadata_identifier
-      bib_id
+      mets_id
     end
 
     def title

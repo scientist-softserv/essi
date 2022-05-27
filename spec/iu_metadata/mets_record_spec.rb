@@ -10,10 +10,12 @@ RSpec.describe IuMetadata::METSRecord do
 
   record1_attributes =
     {
-      "source_metadata_identifier" => 'bhr9405',
       "identifier" => 'ark:/88435/7d278t10z',
+      "related_url" => [],
+      "series" => [],
+      "source_metadata_identifier" => 'BHR9405',
+      "title" => ['BHR9405'],
       "viewing_direction" => 'left-to-right',
-      "title" => []
     }
 
   describe "#attributes" do
