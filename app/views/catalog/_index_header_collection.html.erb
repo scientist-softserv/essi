@@ -1,4 +1,4 @@
-<%# copied from hyrax index_header_default %>
+<%# copied from hyrax index_header_default, modified to add badge %>
 <%# header bar for doc items in index view -%>
 <div class="documentHeader row">
   <%# main title container for doc partial view
@@ -17,6 +17,9 @@
       </span>
     <% end %>
     <%= link_to_document document, document_show_link_field(document), counter: counter %>
+    <span style="float: right;">
+      <%= Hyrax::CollectionPresenter.new(document, current_ability).collection_type_badge %>
+    </span>
   </h3>
 
   <%= document_actions %>
