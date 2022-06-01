@@ -730,8 +730,8 @@ tr:nth-child(even):hover {
 }
 
 .gallery .grid-item img {
-  object-fit: cover;
-  object-position: 50% 25%;
+  object-fit: contain;
+  object-position: 50% 50%;
   width: 292px;
   height: 219px;
 }
