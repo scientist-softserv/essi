@@ -748,6 +748,10 @@ tr:nth-child(even):hover {
   border:1px solid $cream;
 }
 
+.gallery .grid-collection {
+  border-right: 5px solid lightgray !important;
+  border-bottom: 5px solid lightgray !important;
+}
 
 #search-results .grid-list {
   display: flex;
