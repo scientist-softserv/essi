@@ -7,13 +7,8 @@ module ESSI
     end
 
     def set_catalog_search_term_for_uv_search
-      return unless request&.referer&.present? && request&.referer&.include?('catalog')
-      url_args = request&.referer&.split('&')
-      search_term = []
-      url_args&.each do |arg|
-        next unless arg.match?('q=')
-        search_term << CGI::parse(arg)['q']
-      end
+      return unless params[:query].present?
+      search_term = CGI::parse(params[:query])
       params[:highlight] = search_term&.flatten&.first
     end
   end
