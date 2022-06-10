@@ -26,7 +26,7 @@ module.exports = function(config) {
 
         files: [
             {pattern: 'spec/javascripts/fixtures/*.html', watched: true, included: false, served: true},
-            'public/assets/application-*.js',
+            'public/test-assets/application-*.js',
             'spec/javascripts/helpers/*',
             'spec/javascripts/*_spec.js',
             'spec/javascripts/*_spec.coffee',
