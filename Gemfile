@@ -107,8 +107,8 @@ gem 'webpacker'
 gem 'react-rails'
 
 # Profiling
-gem 'rack-mini-profiler'
-gem 'stackprof'
+gem 'rack-mini-profiler', require: ['prepend_net_http_patch']
+gem 'stackprof', require: false
 
 # hold back hydra-head due to implicit Blacklight 7 requirement in newer versions
 gem 'hydra-head', '10.6.1'
