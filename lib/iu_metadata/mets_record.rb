@@ -11,6 +11,7 @@ module IuMetadata
     # local metadata
     ATTRIBUTES = %w[
       identifier
+      purl
       related_url
       series
       source_metadata_identifier

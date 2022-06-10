@@ -11,6 +11,7 @@ RSpec.describe IuMetadata::METSRecord do
   record1_attributes =
     {
       "identifier" => 'ark:/88435/7d278t10z',
+      "purl" => 'ark:/88435/7d278t10z',
       "related_url" => [],
       "series" => [],
       "source_metadata_identifier" => 'BHR9405',
