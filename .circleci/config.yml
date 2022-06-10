@@ -19,6 +19,8 @@ default_environment: &default_environment
   SPEC_OPTS: --profile 10 --format RspecJunitFormatter --out /tmp/test-results/rspec.xml --format progress
   COVERALLS_PARALLEL: true
   WD_INSTALL_DIR: ./webdriver
+  KARMA_BROWSER: ChromeHeadless
+  KARMA_HOSTNAME: localhost
 
 jobs:
   build:
@@ -37,6 +39,7 @@ jobs:
           MYSQL_USER: essi
           MYSQL_PASSWORD: essi
 
+    resource_class: medium+
     working_directory: ~/repo
 
     environment:
@@ -116,10 +119,6 @@ jobs:
             curl -H 'Content-type: application/json' http://localhost:8985/api/collections/ -d '{create: {name: hydra-test, config: hyrax, numShards: 1}}'
 
       - ruby/rspec-test
-
-      - run:
-          name: Run javascript tests
-          command: bundle exec rake spec:javascript
 
       - store_artifacts:
           path: tmp/capybara
