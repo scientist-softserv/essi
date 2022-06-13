@@ -344,7 +344,7 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    faraday (0.17.4)
+    faraday (0.17.5)
       multipart-post (>= 1.2, < 3)
     faraday-encoding (0.0.4)
       faraday
@@ -536,13 +536,6 @@ GEM
       activesupport (>= 4)
     iso-639 (0.3.5)
     iso8601 (0.9.1)
-    jasmine-core (3.10.1)
-    jasmine-jquery-rails (2.0.3)
-    jasmine-rails (0.15.0)
-      jasmine-core (>= 1.3, < 4.0)
-      phantomjs (>= 1.9)
-      railties (>= 3.2.0)
-      sprockets-rails
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -722,7 +715,6 @@ GEM
       ast (~> 2.4.1)
     parslet (2.0.0)
     pdf-core (0.9.0)
-    phantomjs (2.1.1.0)
     posix-spawn (0.3.15)
     power_converter (0.1.2)
     prawn (2.4.0)
@@ -941,10 +933,11 @@ GEM
     scanf (1.0.0)
     scrub_rb (1.0.1)
     select2-rails (3.5.11)
-    selenium-webdriver (4.1.0)
+    selenium-webdriver (4.2.1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
     semantic_range (3.0.0)
     shex (0.6.4)
       ebnf (~> 2.1, >= 2.2)
@@ -1065,6 +1058,7 @@ GEM
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
     webrick (1.7.0)
+    websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -1104,8 +1098,6 @@ DEPENDENCIES
   i18n-js
   iiif_manifest
   iso-639
-  jasmine-jquery-rails
-  jasmine-rails
   jbuilder (~> 2.5)
   jquery-rails
   ldap_groups_lookup (~> 0.6.0)
@@ -1146,4 +1138,4 @@ DEPENDENCIES
   willow_sword!
 
 BUNDLED WITH
-   2.2.29
+   2.3.12
