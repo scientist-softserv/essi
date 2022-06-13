@@ -5,8 +5,8 @@
 version: 2.1
 
 orbs:
-  browser-tools: circleci/browser-tools@1.2.4
-  ruby: circleci/ruby@1.4.0
+  browser-tools: circleci/browser-tools@1.3.0
+  ruby: circleci/ruby@1.8.0
 
 default_environment: &default_environment
   RAILS_ENV: test
@@ -26,13 +26,13 @@ jobs:
   build:
     docker:
       - image: cimg/ruby:2.7.4-browsers
-      - image: circleci/redis:6
+      - image: cimg/redis:6.2
       - image: ghcr.io/samvera/fcrepo4:4.7.5
         environment:
           CATALINA_OPTS: "-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1024m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
       - image: solr:7
         command: bin/solr -cloud -noprompt -f -p 8985
-      - image: circleci/mysql:8.0-ram
+      - image: cimg/mysql:8.0
         command: --default-authentication-plugin=mysql_native_password
         environment:
           MYSQL_DATABASE: essi_test
