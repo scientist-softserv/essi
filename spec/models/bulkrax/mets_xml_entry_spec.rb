@@ -72,7 +72,7 @@ module Bulkrax
           expect(xml_entry.parsed_metadata).to include('admin_set_id' => 'MyString',
                                                        'rights_statement' => [nil],
                                                        'source' => ["http://purl.dlib.indiana.edu/iudl/archives/VAC1741-00310"],
-                                                       'title' => ["http://purl.dlib.indiana.edu/iudl/archives/VAC1741-00310"],
+                                                       'title' => ["VAC1741-00310"],
                                                        #'viewing_direction' => 'left-to-right',
                                                        'visibility' => 'open',
                                                        'work_type' => ['PagedResource'])
