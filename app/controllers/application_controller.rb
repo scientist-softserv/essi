@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action do
-    if current_user && current_user.admin?
+    if defined?(Rack::MiniProfiler) && current_user && current_user.admin?
       Rack::MiniProfiler.authorize_request
     end
   end

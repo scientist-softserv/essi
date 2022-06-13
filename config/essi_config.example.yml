@@ -77,6 +77,8 @@ default: &default
   airbrake:
     project_id:
     project_key:
+  rack_profiler:
+    enabled: true
   ldap:
     enabled: false
     host: ads.iu.edu
