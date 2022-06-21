@@ -40,6 +40,12 @@ Rails.application.routes.draw do
 
   mount Riiif::Engine => 'iiif/2', as: :riiif if Hyrax.config.iiif_image_server?
 
+  # block Blacklight bookmark routes
+  get '/bookmarks', to: 'application#rescue_404'
+  post '/bookmarks', to: 'application#rescue_404'
+  get '/bookmarks/*all', to: 'application#rescue_404'
+  post '/bookmarks/*all', to: 'application#rescue_404'
+
   mount Blacklight::Engine => '/'
   mount Hydra::RoleManagement::Engine => '/'
 
