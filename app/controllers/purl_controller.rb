@@ -25,7 +25,7 @@ class PurlController < ApplicationController
 
   private
     FILESET_LOOKUPS = { FileSet => nil }.freeze
-    DEFAULT_WORK_PATTERN = /^[a-zA-Z\/]{0,}\w{3}\d{4}$/.freeze
+    DEFAULT_WORK_PATTERN = /^[a-zA-Z\/]{0,}\w{2,}\d{3,}$/.freeze
     DEFAULT_WORK_LOOKUPS = Hyrax.config.registered_curation_concern_types.sort.map do |klass|
       [klass.constantize, DEFAULT_WORK_PATTERN.dup]
     end.to_h.freeze

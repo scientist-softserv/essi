@@ -10,6 +10,13 @@ describe PurlController do
                        source_metadata_identifier: 'BHR9405')
   }
   let(:paged_resource_path) { Rails.application.routes.url_helpers.hyrax_paged_resource_path(paged_resource) }
+  let(:legacy_paged_resource) {
+    FactoryBot.create(:paged_resource,
+                      user: user,
+                      purl: ['http://purl.dlib.indiana.edu/iudl/archives/cushman/P04259'],
+                      source_metadata_identifier: 'P04259')
+  }
+  let(:legacy_paged_resource_path) { Rails.application.routes.url_helpers.hyrax_paged_resource_path(legacy_paged_resource) }
   let(:file_set) {
     FactoryBot.create(:file_set,
                        user: user,
@@ -24,6 +31,7 @@ describe PurlController do
     before do
       sign_in user
       paged_resource
+      legacy_paged_resource
     end
     context 'with a matching id' do
       shared_examples 'responses for matches' do
@@ -63,6 +71,20 @@ describe PurlController do
 
         context 'matching a full PURL by purl' do
           let(:id) { 'iudl/variations/score/BHR9405' }
+          include_examples 'responses for matches'
+        end
+      end
+      context 'when for a legacy PagedResource' do
+        let(:target_path) { legacy_paged_resource_path }
+        let(:manifest_path) { legacy_paged_resource_path + '/manifest' }
+
+        context 'matching by source_metadata_identifier' do
+          let(:id) { legacy_paged_resource.source_metadata_identifier }
+          include_examples 'responses for matches'
+        end
+
+        context 'matching a full PURL by purl' do
+          let(:id) { 'iudl/archives/cushman/P04259' }
           include_examples 'responses for matches'
         end
       end
