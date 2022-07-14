@@ -37,7 +37,7 @@ module ESSI
 
     def create_tmp_files(pdf)
       # TODO Use logical structure if it exists?
-      sorted_files = @resource.file_set_ids
+      sorted_files = Hyrax::SolrDocument::OrderedMembers.decorate(@resource).ordered_member_ids
       sorted_files.each.with_index(1) do |fs, i|
         fs_solr = SolrDocument.find fs
         uri = Hyrax.config.iiif_image_url_builder.call(fs_solr.original_file_id, nil, '1024,')

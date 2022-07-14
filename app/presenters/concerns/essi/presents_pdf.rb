@@ -17,7 +17,7 @@ module ESSI
     #
     # @return [Array] array of rendering hashes
     def sequence_rendering
-      rendering_ids = solr_document[:file_set_ids_ssim]
+      rendering_ids = Hyrax::SolrDocument::OrderedMembers.decorate(solr_document).ordered_member_ids
 
       renderings = []
       if rendering_ids.present? && allow_pdf_download?
