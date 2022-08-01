@@ -4,6 +4,7 @@ require 'active_support/core_ext/hash/keys'
 module AllinsonFlex
   # @todo move custom error classes to a single location
   class NoAllinsonFlexContextError < StandardError; end
+  class NoAllinsonFlexSchemaError < StandardError; end
 
   class DynamicSchemaService
     attr_accessor :dynamic_schema, :context, :context_id, :model
@@ -154,6 +155,11 @@ module AllinsonFlex
                             else
                               AllinsonFlex::DynamicSchema.find_by(context_id: context_id, allinson_flex_class: work_class_name.to_s)
                             end
+        if @dynamic_schema.nil?
+          raise AllinsonFlex::NoAllinsonFlexSchemaError.new(
+            "No Metadata Schema for ID #{dynamic_schema_id}, context #{context_id}, class #{work_class_name.to_s}"
+          )
+        end
       end
 
       def properties

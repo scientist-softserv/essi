@@ -38,6 +38,15 @@ module ESSI
         ::IIIFManifest::ManifestFactory.new(presenter).to_h.to_json
       end
     end
+
+    # Overrides stock Hyrax method to catch AllinsonFlex errors during build_form
+    def new
+      begin 
+        super
+      rescue ::AllinsonFlex::NoAllinsonFlexContextError, ::AllinsonFlex::NoAllinsonFlexSchemaError => e
+        redirect_to my_works_path, alert: 'Error retrieving AllinsonFlex properties.  A new profile version may still be saving.'
+      end
+    end
   
     private
       def after_create_response
