@@ -30,6 +30,7 @@ module ESSI
 
     # avoid deprecation warning for ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer
     config.active_record.sqlite3.represent_boolean_as_integer = true
+    config.active_record.yaml_column_permitted_classes = [Symbol, Hash, Array, ActiveSupport::HashWithIndifferentAccess]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
