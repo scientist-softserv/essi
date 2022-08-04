@@ -13,7 +13,7 @@
   %>
   <%= fi.input :record_element, 
     hint: 'Provide the xml element name to use to identify the record, or records, eg. ROW - each record in the attached XML is wrapped in a <ROW> tag.', 
-    input_html: { value: importer.parser_fields['record_element'] }
+    input_html: { value: importer.parser_fields['record_element'] || 'mets:mets' }
     %>
 
   <%= fi.input :title, 
