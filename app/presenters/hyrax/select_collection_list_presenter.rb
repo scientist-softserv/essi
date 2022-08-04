@@ -11,42 +11,37 @@ module Hyrax
 
     # @return [Boolean] are there many different collections to choose?
     def many?
-      authorized_collections.size > 1
+      authorized_collection_ids.size > 1
     end
 
     # @return [Boolean] are there any authorized collections?
     def any?
-      return true if authorized_collections.present?
-      false
+      authorized_collection_ids.present?
     end
 
-    # Return an array of authorized collections
-
+    # @return [Array<CollectionPresenter>] array of collection presenters
     def authorized_collections
-      @authorized_collections ||= Collection.search_with_conditions(id: authorized_collection_ids).map { |collection| ::SolrDocument.new(collection) }
+      @authorized_collections ||= authorized_collection_docs.map { |doc| row_presenter.new(doc, @current_ability) }
     end
 
+    # @return [Array<SolrDocument>] array of solr documents for each collection
+    def authorized_collection_docs
+      @authorized_collection_docs ||= Collection.search_with_conditions({ id: authorized_collection_ids}, rows: 1_000).map { |doc| ::SolrDocument.new(doc) }
+    end
+
+    # @return [Array<String>] array of collection ids
     def authorized_collection_ids
       @authorized_collection_ids ||= Hyrax::Collections::PermissionsService.collection_ids_for_deposit(ability: @current_ability)
     end
 
-    # Return or yield the first type in the list. This is used when the list
-    # only has a single element.
-    # @yieldparam [CollectionType] a Hyrax::CollectionType
-    # @return [CollectionType] a Hyrax::CollectionType
-    def first_collection_type
-      yield(authorized_collections.first) if block_given?
-      authorized_collections.first
-    end
-
     # @yieldparam [CollectionPresenter] a presenter for the collection
     def each
-      authorized_collections.each { |collection| yield row_presenter.new(collection, @current_ability) }
+      authorized_collection_docs.each { |doc| yield row_presenter.new(doc, @current_ability) }
     end
 
     def options_for_select
       options = []
-      self.each { |r| options << [r.title.first, r.id] }
+      self.each { |r| options << [r.to_s, r.id] }
       options.sort
     end
   end
