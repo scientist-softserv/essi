@@ -77,6 +77,7 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers, type: :request
   config.include Warden::Test::Helpers, type: :feature
   config.include(ControllerLevelHelpers, type: :view)
+  config.include CapybaraWatcher, type: :feature
   config.before(:each, type: :view) { initialize_controller_helpers(view) }
 
   # The following methods ensure proper handling of minted IDs via Noid to eliminate LDP conflict errors
@@ -151,4 +152,8 @@ VCR.configure do |config|
   # Ignore webdriver updates
   driver_hosts = Webdrivers::Common.subclasses.map { |driver| URI(driver.base_url).host }
   config.ignore_hosts(*driver_hosts)
+end
+
+CapybaraWatcher.configure do |options|
+  options[:timeout] = 5 # Time in seconds
 end

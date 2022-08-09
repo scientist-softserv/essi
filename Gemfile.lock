@@ -210,6 +210,7 @@ GEM
     capybara-screenshot (1.0.26)
       capybara (>= 1.0, < 4)
       launchy
+    capybara_watcher (0.1.2)
     carrierwave (1.3.2)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -1079,6 +1080,7 @@ DEPENDENCIES
   byebug
   capybara
   capybara-screenshot (~> 1.0)
+  capybara_watcher
   coffee-rails (~> 4.2)
   country_select (~> 4.0)
   database_cleaner
