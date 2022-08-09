@@ -108,6 +108,16 @@ module Bulkrax
     def add_logical_structure
       self.parsed_metadata['structure'] = record.structure 
     end
+
+    # the form only allows selecting an existing collection
+    def find_or_create_collection_ids
+      if parser.parser_fields['collection_id'].present?
+        self.collection_ids = Array.wrap(parser.parser_fields['collection_id'])
+      else
+        self.collection_ids = []
+      end
+      self.collection_ids
+    end
   end
 end
 
