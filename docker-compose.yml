@@ -54,7 +54,7 @@ services:
 
   worker:
     << : *default-app
-    command: bash -l -c "bundle install && sidekiq -c 4"
+    command: bash -l -c "bundle install && bundle exec sidekiq -c 4"
 
   db:
     image: mysql:8.0
