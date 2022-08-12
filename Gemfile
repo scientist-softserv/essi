@@ -43,6 +43,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara'
   gem 'capybara-screenshot', '~> 1.0'
+  gem 'capybara_watcher'
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'database_cleaner'
