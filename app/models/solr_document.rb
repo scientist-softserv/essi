@@ -57,4 +57,12 @@ class SolrDocument
   def catalog_url
     self[Solrizer.solr_name('related_url')]&.select { |url| url.match ESSI.config.dig(:essi, :metadata, :url).gsub('%s', '') }&.first
   end
+
+  def campus_collection_breadcrumbs
+    begin 
+      JSON::parse(self['campus_collection_breadcrumb_tesim'].first, symbolize_names: true)
+    rescue
+      []
+    end
+  end
 end
