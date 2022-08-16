@@ -26,7 +26,11 @@ module Extensions
         @ldp_source = build_ldp_resource(id)
         raise IllegalOperation, "Attempting to recreate existing ldp_source: `#{ldp_source.subject}'" unless ldp_source.new?
         self.dynamic_schema_id = attributes&.delete(:dynamic_schema_id)
-        load_allinson_flex ## This is the new part
+        begin
+          load_allinson_flex ## This is the new part
+        rescue ::AllinsonFlex::NoAllinsonFlexContextError, ::AllinsonFlex::NoAllinsonFlexSchemaError => e
+          Rails.logger.error(e.inspect)
+        end
         assign_attributes(attributes) if attributes
         assert_content_model
         load_attached_files

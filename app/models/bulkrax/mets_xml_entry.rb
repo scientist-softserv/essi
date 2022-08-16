@@ -60,13 +60,18 @@ module Bulkrax
       @files ||= record.files
     end
 
+    def add_work_type
+      self.parsed_metadata ||= {}
+      self.parsed_metadata['work_type'] = [parser.parser_fields['work_type'] || 'PagedResource']
+    end
+
     def build_metadata
       raise StandardError, 'Record not found' if record.nil?
       raise StandardError, 'Missing source identifier' if source_identifier.blank?
       self.parsed_metadata = {}
       self.parsed_metadata['admin_set_id'] = self.importerexporter.admin_set_id
       self.parsed_metadata[self.class.source_identifier_export] = [source_identifier]
-      self.parsed_metadata['work_type'] = [parser.parser_fields['work_type'] || 'PagedResource']
+      add_work_type
       record.attributes.each do |k,v|
         add_metadata(k, v) unless v.blank?
       end
@@ -102,6 +107,16 @@ module Bulkrax
 
     def add_logical_structure
       self.parsed_metadata['structure'] = record.structure 
+    end
+
+    # the form only allows selecting an existing collection
+    def find_or_create_collection_ids
+      if parser.parser_fields['collection_id'].present?
+        self.collection_ids = Array.wrap(parser.parser_fields['collection_id'])
+      else
+        self.collection_ids = []
+      end
+      self.collection_ids
     end
   end
 end

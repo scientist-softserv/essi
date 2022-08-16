@@ -9,6 +9,7 @@ RSpec.describe ArchivalMaterial do
   include_examples "ExtraLockable Behaviors" do
     let(:curation_concern) { FactoryBot.create(:archival_material) }
   end
+  include_examples "pdf default downloadable"
 
   describe '#ocr_searchable?' do
     let(:work) { described_class.new(ocr_state: nil) }

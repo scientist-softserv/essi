@@ -11,6 +11,7 @@ class ArchivalMaterial < ActiveFedora::Base
   # include ESSI::OCRMetadata
   include ESSI::PDFBehavior
   #include ESSI::PDFMetadata
+  include ESSI::PDFDefaultDownloadable
 
   self.indexer = ArchivalMaterialIndexer
   # Change this to restrict which works can be added as a child.

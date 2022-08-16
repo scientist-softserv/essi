@@ -45,7 +45,7 @@ services:
 
   essi:
     << : *default-app
-    command: bash -l -c "bundle exec rake db:migrate db:seed yarn:install && bundle exec rails s"
+    command: bash -l -c "bundle install && bundle exec rake db:migrate db:seed yarn:install && bundle exec rails s"
     environment:
       VIRTUAL_HOST: essi.docker
       VIRTUAL_PORT: 3000
@@ -54,7 +54,7 @@ services:
 
   worker:
     << : *default-app
-    command: sidekiq -c 10
+    command: bash -l -c "bundle install && bundle exec sidekiq -c 4"
 
   db:
     image: mysql:8.0
