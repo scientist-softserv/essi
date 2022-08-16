@@ -24,6 +24,8 @@ module ESSI
                  index.as :stored_searchable, :facetable
                end
 
+      property :rights_note, predicate: 'http://purl.org/dc/elements/1.1/rights'
+
       property :abridger, predicate: RDF::Vocab::MARCRelators.abr
       property :actor, predicate: RDF::Vocab::MARCRelators.act
       property :adapter, predicate: RDF::Vocab::MARCRelators.adp

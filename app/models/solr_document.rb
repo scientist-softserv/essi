@@ -31,6 +31,7 @@ class SolrDocument
   attribute :num_collections, Solr::String, solr_name('num_collections', :stored_sortable, type: :integer)
   attribute :num_works, Solr::String, solr_name('num_works', :stored_sortable, type: :integer)
   attribute :holding_location, Solr::String, solr_name('holding_location')
+  attribute :rights_note, Solr::Array, solr_name('rights_note')
   attribute :campus, Solr::String, solr_name('campus')
   attribute :viewing_hint, Solr::String, solr_name('viewing_hint')
   attribute :viewing_direction, Solr::String, solr_name('viewing_direction')
@@ -44,7 +45,7 @@ class SolrDocument
   def series
     self[Solrizer.solr_name('series')]
   end
-  
+
   def source_metadata_identifier
     self[Solrizer.solr_name('source_metadata_identifier')]&.first
   end
