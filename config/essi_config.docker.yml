@@ -78,6 +78,13 @@ default: &default
   airbrake:
     project_id:
     project_key:
+    proxy:
+      enabled: false
+      config:
+        host:
+        port:
+        user:
+        password:
   rack_profiler:
     enabled: true
   ldap:
