@@ -1,0 +1,8 @@
+changelog:
+  categories:
+    - title: Changes Needing Updated Configuration
+      labels:
+        - configuration change
+    - title: "What's Changed"
+      labels:
+        - "*"
