@@ -17,6 +17,12 @@ Airbrake.configure do |c|
   c.project_id = ESSI.config.dig :airbrake, :project_id
   c.project_key = ESSI.config.dig :airbrake, :project_key
 
+  # Outbound proxy settings
+  # https://docs.airbrake.io/docs/platforms/ruby/#configuring-airbrake-v5-to-use-a-proxy
+  if ESSI.config.dig :airbrake, :proxy, :enabled
+    c.proxy = ESSI.config.dig :airbrake, :proxy, :config
+  end
+
   # Configures the root directory of your project. Expects a String or a
   # Pathname, which represents the path to your project. Providing this option
   # helps us to filter out repetitive data from backtrace frames and link to
