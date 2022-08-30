@@ -25,8 +25,12 @@ module Hyrax
     end
 
     # @return [Array<SolrDocument>] array of solr documents for each collection
+    # query_limit prevents exceeding the solr query header max
     def authorized_collection_docs
-      @authorized_collection_docs ||= Collection.search_with_conditions({ id: authorized_collection_ids}, rows: 1_000).map { |doc| ::SolrDocument.new(doc) }
+      query_limit = 100
+      @authorized_collection_docs ||= authorized_collection_ids.each_slice(query_limit).inject([]) do |acc, slice|
+        acc + Collection.search_with_conditions({ id: slice}, rows: query_limit).map { |doc| ::SolrDocument.new(doc) }
+      end
     end
 
     # @return [Array<String>] array of collection ids
