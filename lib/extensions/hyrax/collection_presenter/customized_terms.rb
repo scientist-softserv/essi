@@ -10,7 +10,7 @@ module Extensions
             def self.terms
               [:total_items, :size, :modified_date, :resource_type, :creator, :contributor,
                :keyword, :license, :publisher, :date_created, :subject, :language,
-               :identifier, :based_near, :campus, :related_url]
+               :identifier, :based_near, :campus, :related_url, :rights_note]
             end
 
             delegate :campus, to: :solr_document

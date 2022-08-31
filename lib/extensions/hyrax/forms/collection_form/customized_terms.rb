@@ -9,16 +9,16 @@ module Extensions
               self.terms = [:resource_type, :title, :creator, :contributor, :description,
                             :keyword, :license, :publisher, :date_created, :subject, :language,
                             :representative_id, :thumbnail_id, :identifier, :based_near,
-                            :campus, :related_url, :visibility, :collection_type_gid, :source]
-        
+                            :campus, :related_url, :visibility, :collection_type_gid, :source, :rights_note]
+
               self.required_fields = [:title]
-        
+
               # Terms that appear above the accordion
-              # Modified from hyrax to include :source
+              # Modified from hyrax to include :source and :rights_note
               def primary_terms
-                [:title, :description, :source]
+                [:title, :description, :source, :rights_note]
               end
-        
+
               # Terms that appear within the accordion
               # Modified from hyrax to include :campus
               def secondary_terms

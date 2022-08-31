@@ -1,0 +1,13 @@
+<% if f.object.multiple? key %>
+  <%= f.input key, as: :multi_value,
+      label: dynamic_label(key),
+      input_html: { rows: '14', type: 'textarea'},
+      required: f.object.required?(key),
+      hint: dynamic_hint(key) %>
+<% else %>
+  <%= f.input key, as: :text,
+      label: dynamic_label(key),
+      input_html: { rows: '14', type: 'textarea'},
+      required: f.object.required?(key),
+      hint: dynamic_hint(key) %>
+<% end %>
