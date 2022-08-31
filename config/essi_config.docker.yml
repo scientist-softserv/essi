@@ -33,6 +33,7 @@ default: &default
       - export # Bulkrax
     max_retries: 3
   rails:
+    log_level: debug
     mailer:
       host: localhost:3000
       address: 'smtp.gmail.com'
