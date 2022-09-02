@@ -17,7 +17,7 @@ module Qa::Authorities
     private
       def api_url(id)
         return nil unless ESSI.config[:iucat_libraries]
-        [ESSI.config[:iucat_libraries][:url], ERB::Util.url_encode(id)].join('/')
+        [ESSI.config[:iucat_libraries][:url], ::Addressable::URI.escape(id)].join('/')
       end
 
       def api_data_for(id)
