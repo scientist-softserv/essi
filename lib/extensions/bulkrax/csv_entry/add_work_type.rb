@@ -3,32 +3,36 @@ module Extensions
   module Bulkrax
     module CsvEntry
       module AddWorkType
-        # modified from build_metadata method
-        def add_work_type
+        def add_record_metadata(required_fields: [], excluded_fields: [])
           raise StandardError, 'Record not found' if record.nil?
           self.parsed_metadata ||= {}
           record.each do |key, value|
-            next unless key == 'model'
-    
+            next if key.in?(excluded_fields)
+            next unless key.in?(required_fields) || required_fields.none?
+
             index = key[/\d+/].to_i - 1 if key[/\d+/].to_i != 0
             add_metadata(key_without_numbers(key), value, index)
           end
           self.parsed_metadata
         end
 
-        # unmodified from bulkrax
+        def add_work_type
+          add_record_metadata(required_fields: ['model'])
+        end
+
+        def add_standard_metadata
+          add_record_metadata(excluded_fields: ['file', 'collection'])
+        end
+
+        # modified from bulkrax to ensure setting model before adding other metadata
         def build_metadata
           raise StandardError, 'Record not found' if record.nil?
           raise StandardError, "Missing required elements, missing element(s) are: #{importerexporter.parser.missing_elements(keys_without_numbers(record.keys)).join(', ')}" unless importerexporter.parser.required_elements?(keys_without_numbers(record.keys))
     
           self.parsed_metadata = {}
           self.parsed_metadata[work_identifier] = [record[source_identifier]]
-          record.each do |key, value|
-            next if key == 'collection'
-    
-            index = key[/\d+/].to_i - 1 if key[/\d+/].to_i != 0
-            add_metadata(key_without_numbers(key), value, index)
-          end
+          add_work_type
+          add_standard_metadata
           add_file
           add_visibility
           add_rights_statement
