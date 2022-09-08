@@ -1,4 +1,4 @@
-# unmodified copy of Hyrax::Adapters::NestingIndexAdapter
+# modified copy of Hyrax::Adapters::NestingIndexAdapter
 module ESSI
   module Adapters
     module NestingIndexAdapter
@@ -85,6 +85,7 @@ module ESSI
         )
       end
 
+      # modified from hyrax
       # @api public
       #
       # @param solr_doc [SolrDocument]
@@ -98,8 +99,52 @@ module ESSI
         solr_doc[solr_field_name_for_storing_parent_ids] = parent_ids
         solr_doc[solr_field_name_for_storing_pathnames] = pathnames
         solr_doc[solr_field_name_for_deepest_nested_depth] = depth
+        solr_doc['campus_collection_breadcrumb_tesim'] = campus_collection_paths(pathnames, solr_doc).to_json
         ActiveFedora::SolrService.add(solr_doc, commit: true)
         solr_doc
+      end
+
+      # @param paths [Array] - self-inclusive ancestry id paths
+      # @paramsolr_doc [SolrDocument]
+      # @return Array - nested array of campus/collection hashes
+      def self.campus_collection_paths(paths, solr_doc)
+        campus = Array.wrap(SolrDocument.new(solr_doc).campus).first
+        id_sets = paths.map { |path| path.split('/')[0...-1] }.select(&:any?)
+        if id_sets.any?
+          collections = Collection.search_with_conditions({ id: id_sets.flatten.uniq }, rows: 1_000).map { |c| SolrDocument.new(c) }
+          results = id_sets.map { |ids| campus_collection_hash(ids, collections) }
+        else
+          results = []
+        end
+        if campus && results.map { |r| r.select { |e| e[:campus] == campus }.any? }.none?
+          results.unshift([campus_hash(campus)])
+        end
+        results
+      end
+
+      # @param ids [Array]
+      # @param collections [Array]
+      # @return Array - hashes with parent object descriptor, campus/collection id
+      def self.campus_collection_hash(ids, collections)
+        result = ids.map { |id| collection_hash(id, collections) }
+        campus = Array.wrap(collections.find { |c| c.id == ids.first }&.campus).first
+        result.unshift(campus_hash(campus)) if campus
+        result
+      end
+
+      # @param campus [String] - campus id
+      # @return Hash
+      def self.campus_hash(campus)
+        { text: ::CampusService.find(campus)[:term],
+          campus: campus }
+      end
+
+      # @param id [String] - collection id
+      # @param collections [Array] - SolrDocuments for collection title lookup
+      # @return Hash
+      def self.collection_hash(id, collections)
+        { text: collections.find { |c| c.id == id }.title.first,
+          collection: id }
       end
 
       # @api public
