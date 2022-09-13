@@ -99,7 +99,9 @@ module ESSI
         solr_doc[solr_field_name_for_storing_parent_ids] = parent_ids
         solr_doc[solr_field_name_for_storing_pathnames] = pathnames
         solr_doc[solr_field_name_for_deepest_nested_depth] = depth
-        solr_doc['campus_collection_breadcrumb_tesim'] = campus_collection_paths(pathnames, solr_doc).to_json
+        campus_collection_breadcrumbs = campus_collection_paths(pathnames, solr_doc)
+        solr_doc['campus_collection_breadcrumb_tesim'] = campus_collection_breadcrumbs.to_json
+        solr_doc['campus_sim'] = defined_and_inherited_campus(solr_doc, campus_collection_breadcrumbs)
         ActiveFedora::SolrService.add(solr_doc, commit: true)
         solr_doc
       end
@@ -145,6 +147,21 @@ module ESSI
       def self.collection_hash(id, collections)
         { text: collections.find { |c| c.id == id }.title.first,
           collection: id }
+      end
+
+      # @param solr_doc [SolrDocument]
+      # @param breadcrumbs [Array] - nested array of campus/collection hashes
+      # @return Array
+      def self.defined_and_inherited_campus(solr_doc, breadcrumbs)
+        ((Array.wrap(solr_doc['campus_sim']) || []) + inherited_campus(breadcrumbs)).uniq
+      end
+
+      # @param breadcrumbs [Array] - nested array of campus/collection hashes
+      # @return Array
+      def self.inherited_campus(breadcrumbs)
+        breadcrumbs.map do |hash_array|
+          hash_array.select { |h| h.keys.include?(:campus) }.map { |h| h[:campus] }
+        end.flatten.uniq
       end
 
       # @api public
