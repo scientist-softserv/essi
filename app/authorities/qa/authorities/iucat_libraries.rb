@@ -7,20 +7,20 @@ module Qa::Authorities
     end
 
     def find(id)
-      data_for(id)[:library] || {}
+      api_data_for(id)[:library] || supplemental_data_for(id) || {}
     end
 
     def all
-      data_for('all')[:libraries] || []
+      ((api_data_for('all')[:libraries] || []) + supplemental_data).uniq { |r| r[:code] }
     end
 
     private
       def api_url(id)
         return nil unless ESSI.config[:iucat_libraries]
-        [ESSI.config[:iucat_libraries][:url], id].join('/')
+        [ESSI.config[:iucat_libraries][:url], ::Addressable::URI.escape(id)].join('/')
       end
 
-      def data_for(id)
+      def api_data_for(id)
         return {} unless api_enabled? && api_url(id)
         begin
           result = json(api_url(id)).with_indifferent_access
@@ -33,6 +33,19 @@ module Qa::Authorities
       def api_enabled?
         return nil unless ESSI.config[:iucat_libraries]
         ESSI.config[:iucat_libraries][:api_enabled]
+      end
+
+      def supplemental_data_for(id)
+        supplemental_data.select { |e| e[:code] == id }.first
+      end
+
+      def supplemental_data
+        data_path = Rails.root.join('config', 'authorities', 'supplemental_holding_locations.yml')
+        @supplemental_data ||= begin
+          YAML.load_file(data_path).map { |h| h.with_indifferent_access }
+        rescue
+          []
+        end
       end
   end
 end

@@ -689,4 +689,104 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"success":false,"data":"error"}'
   recorded_at: Thu, 12 Aug 2021 17:41:35 GMT
-recorded_with: VCR 6.0.0
+- request:
+    method: get
+    uri: https://iucat.iu.edu/api/library/B-MEDIASCHOOL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.5
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache/2.4.6 (CentOS)
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 01 Sep 2022 21:13:44 GMT
+      X-Request-Id:
+      - d467d19d-e16c-4276-8661-55bc3c20bb1e
+      Status:
+      - 200 OK
+      X-Runtime:
+      - '0.100173'
+      Transfer-Encoding:
+      - chunked
+      Etag:
+      - W/"04268f80c815fe5b2f5caf5007285560"
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _Blacklight5_session=70334bb47cf7de7de6f60ae99864b229; path=/; HttpOnly
+      X-Frame-Options:
+      - ALLOWALL
+      X-Powered-By:
+      - Phusion Passenger 5.1.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"success":false,"data":"error"}'
+  recorded_at: Thu, 01 Sep 2022 21:13:44 GMT
+- request:
+    method: get
+    uri: https://iucat.iu.edu/api/library/B-WELLS%20and%20more
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.5
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache/2.4.6 (CentOS)
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 01 Sep 2022 21:13:44 GMT
+      X-Request-Id:
+      - 786a7bc4-c511-4204-a806-8ca680a67ba2
+      Status:
+      - 200 OK
+      X-Runtime:
+      - '0.092915'
+      Transfer-Encoding:
+      - chunked
+      Etag:
+      - W/"04268f80c815fe5b2f5caf5007285560"
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _Blacklight5_session=4032df12e602902633bc0bc464daeb4d; path=/; HttpOnly
+      X-Frame-Options:
+      - ALLOWALL
+      X-Powered-By:
+      - Phusion Passenger 5.1.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"success":false,"data":"error"}'
+  recorded_at: Thu, 01 Sep 2022 21:13:44 GMT
+recorded_with: VCR 6.1.0
