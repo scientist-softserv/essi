@@ -12,16 +12,17 @@ RSpec.describe CampusAttributeRenderer do
       img_alt: 'The Sample Gates at IU Bloomington'
     }
   }
-  let(:rendered) { described_class.new(value).render }
+  let(:value_html) { described_class.new(value).value_html }
 
   before do
     allow(CampusService).to receive(:find).with(value).and_return(obj)
   end
 
-  context "with a rendered campus" do
-    it "renders the label and facet search link " do
-      expect(rendered).to include('IU Bloomington')
-      expect(rendered).to match /href=".*catalog.*campus_sim.*IUB/
+  describe "#value_html" do
+    context "with a campus" do
+      it "returns a blank string" do
+        expect(value_html).to be_blank
+      end
     end
   end
 end
