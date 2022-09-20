@@ -10,6 +10,7 @@
           <% custom_renderer = "#{field.itemprop.titleize.gsub(' ','')}AttributeRenderer".constantize %>
           <% field_value = custom_renderer.new(field_value, { label: field_label }).value_html.html_safe %>
         <% end %>
+        <% next if field_value.blank? %>
         <dt><%= field_label %></dt>
         <% if field_value.match(/(<([^>]+)>)/i) %>
           <dd><%= field_value %></dd>
@@ -34,3 +35,6 @@
   </div>
 </div>
 <% end %>
+<div class="col-md-12">
+  <%= CampusCollectionBreadcrumbRenderer.new(document.campus_collection_breadcrumbs, main_app).value_html %>
+</div>
