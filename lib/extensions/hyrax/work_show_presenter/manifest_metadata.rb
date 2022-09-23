@@ -3,7 +3,7 @@ module Extensions
   module Hyrax
     module WorkShowPresenter
       module ManifestMetadata
-        HTML_RENDERED_FIELDS = [:holding_location].freeze
+        HTML_RENDERED_FIELDS = [:campus, :holding_location].freeze
         # Copied from Hyrax gem
         # IIIF metadata for inclusion in the manifest
         #  Called by the `iiif_manifest` gem to add metadata
