@@ -11,7 +11,7 @@ module Extensions
         # @return [Array] array of metadata hashes
         def manifest_metadata
           metadata = []
-          ::Hyrax.config.iiif_metadata_fields.each do |field|
+          (static_iiif_metadata_fields | public_view_properties.keys).each do |field|
             next unless methods.include?(field.to_sym)
             value = Array.wrap(send(field))
             if field.to_sym.in? HTML_RENDERED_FIELDS
@@ -22,11 +22,23 @@ module Extensions
             next if data.blank?
       
             metadata << {
-              'label' => I18n.t("simple_form.labels.defaults.#{field}", default: field.to_s.humanize),
+              'label' => label_for(field),
               'value' => value
             }
           end
           metadata
+        end
+ 
+        def static_iiif_metadata_fields
+          ::Hyrax.config.iiif_metadata_fields
+        end
+
+        def public_view_properties
+          @public_view_properties ||= dynamic_schema_service.view_properties.reject { |k,v| v[:admin_only] }
+        end
+
+        def label_for(field)
+          public_view_properties.dig(field, :label) || I18n.t("simple_form.labels.defaults.#{field}", default: field.to_s.humanize)
         end
 
         # retain br tags, sanitize all other HTML, remove label line
