@@ -1,3 +1,4 @@
+<%# modified from hyrax for dynamic metadata with admin_only traits %>
 <% presenter.dynamic_schema_service.view_properties.each_pair do | prop_key, prop_value | %>
   <%# @todo internationalisation %>
   <% next if prop_value[:admin_only] && !presenter.current_ability.current_user.admin? %>
