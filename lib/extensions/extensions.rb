@@ -144,3 +144,6 @@ Hyrax::CollectionPresenter.prepend Extensions::Hyrax::CollectionPresenter::Total
 
 # Increase solr row limit
 Hyrax::PresenterFactory.prepend Extensions::Hyrax::PresenterFactory::SolrRowLimit
+
+# prevent double-display of description from flexible metadata
+IIIFManifest::ManifestBuilder::RecordPropertyBuilder.prepend Extensions::IIIFManifest::ManifestBuilder::RecordPropertyBuilder::DynamicDescription
