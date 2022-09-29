@@ -1,6 +1,6 @@
 module ESSI
   module PresentsCustomRenderedAttributes
-    CUSTOM_RENDERED_ATTRIBUTES = [:campus, :holding_location].freeze
+    CUSTOM_RENDERED_ATTRIBUTES = [:campus, :description, :holding_location].freeze
 
     def self.included(base)
       base.class_eval do
