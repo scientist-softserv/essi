@@ -2,24 +2,6 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
-  # Hide top-level routes to the dashboard when running the public access site.
-  # Requires setting the config key 'site_usage' to 'access_only'. Absence of the
-  # key will result in default routes drawn by the Hyrax/Blacklight engines.
-  if ESSI.config.dig(:essi, :site_usage) == 'access_only'
-    get '/dashboard', to: redirect('/', status: 302)
-    namespace :dashboard do
-      get 'profiles/:id', to: redirect('/', status: 302)
-      get 'works', to: redirect('/', status: 302)
-      get 'collections', to: redirect('/', status: 302)
-      get 'activity', to: redirect('/', status: 302)
-      get '*other', to: redirect('/', status: 302)
-      namespace :my do
-        get 'collections', to: redirect('/', status: 302)
-        get 'works', to: redirect('/', status: 302)
-        get '*other', to: redirect('/', status: 302)
-      end
-    end
-  end
 
   mount Bulkrax::Engine, at: '/'
   # new route for allinson_flex
