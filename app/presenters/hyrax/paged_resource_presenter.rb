@@ -2,10 +2,9 @@
 #  `rails generate hyrax:work PagedResource`
 module Hyrax
   class PagedResourcePresenter < Hyrax::WorkShowPresenter
-    include ESSI::PresentsNumPages
+    include ESSI::PresentsDelegatedAttributes
     include ESSI::PresentsOCR
     include ESSI::PresentsPDF
-    include ESSI::PresentsRelatedUrl
     include ESSI::PresentsStructure
 
     delegate :series, :viewing_direction, :viewing_hint,
