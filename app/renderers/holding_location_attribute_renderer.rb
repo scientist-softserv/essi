@@ -17,7 +17,7 @@ class HoldingLocationAttributeRenderer < Hyrax::Renderers::AttributeRenderer
     end
 
     def location_string(loc)
-      return unless loc
+      return unless loc.present?
       safe_join([label_string(loc), address_string(loc), contact_string(loc)].select(&:present?), tag(:br))
     end
 

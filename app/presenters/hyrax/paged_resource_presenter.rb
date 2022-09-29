@@ -12,8 +12,7 @@ module Hyrax
 
     include AllinsonFlex::DynamicPresenterBehavior
     self.model_class = ::PagedResource
-    include ESSI::PresentsCampus
-    include ESSI::PresentsHoldingLocation
+    include ESSI::PresentsCustomRenderedAttributes
     delegate(*delegated_properties, to: :solr_document)
   end
 end

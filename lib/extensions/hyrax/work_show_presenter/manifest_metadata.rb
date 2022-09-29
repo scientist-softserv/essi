@@ -3,7 +3,6 @@ module Extensions
   module Hyrax
     module WorkShowPresenter
       module ManifestMetadata
-        HTML_RENDERED_FIELDS = [:campus, :holding_location].freeze
         # Copied from Hyrax gem
         # IIIF metadata for inclusion in the manifest
         #  Called by the `iiif_manifest` gem to add metadata
@@ -13,17 +12,17 @@ module Extensions
           metadata = []
           (static_iiif_metadata_fields | public_view_properties.keys).each do |field|
             next unless methods.include?(field.to_sym)
-            value = Array.wrap(send(field))
-            if field.to_sym.in? HTML_RENDERED_FIELDS
-              value.map! { |v| unrender_value(v) }
+            if field.to_sym.in? (self.class.try(:custom_rendered_properties) || [])
+              value = send(field, options: { iiif: true })
+            else
+              value = send(field)
             end
-      
-            data = send(field)
-            next if data.blank?
-      
+
+            next if value.blank?
+
             metadata << {
               'label' => label_for(field),
-              'value' => value
+              'value' => Array.wrap(value)
             }
           end
           metadata
@@ -39,11 +38,6 @@ module Extensions
 
         def label_for(field)
           public_view_properties.dig(field, :label) || I18n.t("simple_form.labels.defaults.#{field}", default: field.to_s.humanize)
-        end
-
-        # retain br tags, sanitize all other HTML, remove label line
-        def unrender_value(value)
-          Array.wrap(ActionView::Base.full_sanitizer.sanitize(value.gsub(/<br\s*\/?>/, "\n")).split("\n")[1..-1]).join('<br>')
         end
       end
     end
