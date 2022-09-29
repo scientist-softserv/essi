@@ -1,0 +1,10 @@
+<%# @todo internationalisation %>
+<% if presenter.send(prop_key).blank? %>
+  <%# no display %>
+<% elsif prop_value[:admin_only] && !presenter.current_ability.current_user.admin? %>
+  <%# no display %>
+<% elsif prop_key.in?(presenter.class.try(:custom_rendered_properties) || []) %>
+  <%= presenter.try(prop_key, options: { label: prop_value[:label], iiif: false }) %>
+<% else %>
+  <%= presenter.attribute_to_html(prop_key, label: prop_value[:label] ,html_dl: true) %>
+<% end %>

@@ -1,10 +1,11 @@
-<%# modified from hyrax for dynamic metadata with admin_only traits %>
+<%# modified from hyrax for dynamic metadata with admin_only traits, description at top %>
+<% initial_properties = [:description] %>
+<% initial_properties.each do |prop_key| %>
+  <% prop_value = presenter.dynamic_schema_service.view_properties[prop_key] %>
+  <% next unless prop_value %>
+  <%= render 'attribute_row', presenter: presenter, prop_key: prop_key, prop_value: prop_value %>
+<% end %>
 <% presenter.dynamic_schema_service.view_properties.each_pair do | prop_key, prop_value | %>
-  <%# @todo internationalisation %>
-  <% next if prop_value[:admin_only] && !presenter.current_ability.current_user.admin? %>
-  <% if prop_key.in?(presenter.class.try(:custom_rendered_properties) || []) %>
-    <%= presenter.try(prop_key, options: { label: prop_value[:label] }) %>
-  <% else %>
-    <%= presenter.attribute_to_html(prop_key, label: prop_value[:label] ,html_dl: true) %>
-  <% end %>
+  <% next if prop_key.in? initial_properties %>
+  <%= render 'attribute_row', presenter: presenter, prop_key: prop_key, prop_value: prop_value %>
 <% end %>
