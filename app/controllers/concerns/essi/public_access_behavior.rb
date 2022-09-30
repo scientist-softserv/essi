@@ -10,7 +10,7 @@ module Essi
                                    'hyrax/dashboard/profiles',
                                    'hyrax/pages#show',
                            ],
-                           deny: [%r{^hyrax/    # Free space regexp tp deny resource modification actions
+                           deny: [%r{^hyrax/    # Free space regexp to deny resource modification actions
                                      (file_sets|images|paged_resources|bib_records|archival_materials|scientifics)    # Resource controllers to deny
                                      [#]    # Character class wrapped delimiter
                                      (new|create|edit|update|destroy|save_structure|regenerate_ocr)    # Actions to deny on resource controllers
