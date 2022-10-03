@@ -104,6 +104,7 @@ default: &default
   authorized_ldap_groups:
     - ESSI-USERS
   essi:
+    site_usage: admin # admin or access_only
     allow_dev_login: false
     iiif_host: essi.docker  # riiif only
     notifier_email: example@test.test
