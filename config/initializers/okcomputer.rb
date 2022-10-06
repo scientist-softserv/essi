@@ -42,6 +42,8 @@ Rails.application.configure do
     checks.register "fcrepo", EssiDevOps::FcrepoCheck.new(fcrepo_url, 10,
                                                         auth_options)
 
+    checks.register "image_sync", EssiDevOps::ImageSyncCheck.new if File.file?('/run/secrets/distributed_deployment')
+
     # TODO: Remove this when CheckCollection instances not setting
     # registrant_name is fixed.
     checks.collection.each do |check_name, check_obj|
