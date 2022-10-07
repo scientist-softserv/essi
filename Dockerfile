@@ -19,8 +19,8 @@ RUN yarn && \
     yarn config set no-progress && \
     yarn config set silent
 RUN mkdir -p /opt/fits && \
-    curl -fSL -o /opt/fits/fits-1.5.1.zip https://github.com/harvard-lts/fits/releases/download/1.5.1/fits-1.5.1.zip && \
-    cd /opt/fits && unzip fits-1.5.1.zip && chmod +X fits.sh && sed -i 's/\(<tool.*TikaTool.*>\)/<!--\1-->/' /opt/fits/xml/fits.xml
+    curl -fSL -o /opt/fits/fits-1.5.5.zip https://github.com/harvard-lts/fits/releases/download/1.5.5/fits-1.5.5.zip && \
+    cd /opt/fits && unzip fits-1.5.5.zip && rm fits-1.5.5.zip && chmod +X fits.sh && sed -i 's/\(<tool.*TikaTool.*>\)/<!--\1-->/' /opt/fits/xml/fits.xml
 ENV PATH /opt/fits:$PATH
 ENV RUBY_THREAD_MACHINE_STACK_SIZE 16777216
 ENV RUBY_THREAD_VM_STACK_SIZE 16777216
