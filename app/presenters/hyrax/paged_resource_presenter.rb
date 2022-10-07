@@ -2,10 +2,9 @@
 #  `rails generate hyrax:work PagedResource`
 module Hyrax
   class PagedResourcePresenter < Hyrax::WorkShowPresenter
-    include ESSI::PresentsNumPages
+    include ESSI::PresentsDelegatedAttributes
     include ESSI::PresentsOCR
     include ESSI::PresentsPDF
-    include ESSI::PresentsRelatedUrl
     include ESSI::PresentsStructure
 
     delegate :series, :viewing_direction, :viewing_hint,
@@ -13,8 +12,7 @@ module Hyrax
 
     include AllinsonFlex::DynamicPresenterBehavior
     self.model_class = ::PagedResource
-    include ESSI::PresentsCampus
-    include ESSI::PresentsHoldingLocation
+    include ESSI::PresentsCustomRenderedAttributes
     delegate(*delegated_properties, to: :solr_document)
   end
 end

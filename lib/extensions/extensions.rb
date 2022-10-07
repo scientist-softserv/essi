@@ -125,8 +125,7 @@ Hyrax::CollectionMemberSearchBuilder.prepend Extensions::Hyrax::CollectionMember
 Hyrax::Collections::CollectionMemberService.prepend Extensions::Hyrax::Collections::CollectionMemberService::AvailableMemberFilesetTitleIds
 
 # ESSI-1337: apply custom renderers to catalog index, as well as on Show page
-Blacklight::IndexPresenter.include ESSI::PresentsCampus
-Blacklight::IndexPresenter.include ESSI::PresentsHoldingLocation
+Blacklight::IndexPresenter.include ESSI::PresentsCustomRenderedAttributes
 
 # Fix raw SQL queries
 # @todo remove after upgrade to Hyrax 3.x
@@ -144,3 +143,6 @@ Hyrax::CollectionPresenter.prepend Extensions::Hyrax::CollectionPresenter::Total
 
 # Increase solr row limit
 Hyrax::PresenterFactory.prepend Extensions::Hyrax::PresenterFactory::SolrRowLimit
+
+# prevent double-display of description from flexible metadata
+IIIFManifest::ManifestBuilder::RecordPropertyBuilder.prepend Extensions::IIIFManifest::ManifestBuilder::RecordPropertyBuilder::DynamicDescription

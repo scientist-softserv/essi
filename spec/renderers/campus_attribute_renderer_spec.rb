@@ -13,16 +13,23 @@ RSpec.describe CampusAttributeRenderer do
       img_alt: 'The Sample Gates at IU Bloomington'
     }
   }
-  subject { described_class.new([code]) }
+  let(:options) { {} }
+  subject { described_class.new([code], options) }
 
   before do
     allow(CampusService).to receive(:find).with(code).and_return(obj)
   end
 
   describe "#value_html" do
-    context "with a campus" do
+    context "for catalog view" do
+      let(:options) { { catalog: true } }
       it "returns a blank string" do
         expect(subject.value_html).to be_blank
+      end
+    end
+    context "for iiif view" do
+      it "returns a content string" do
+        expect(subject.value_html).not_to be_blank
       end
     end
   end

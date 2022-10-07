@@ -8,7 +8,7 @@
         <% field_value = doc_presenter.field_value(Blacklight::Configuration::Field.new(field: field_name)) %>
         <% if field.itemprop&.to_sym.in?(doc_presenter.class.try(:custom_rendered_properties) || []) %>
           <% custom_renderer = "#{field.itemprop.titleize.gsub(' ','')}AttributeRenderer".constantize %>
-          <% field_value = custom_renderer.new(field_value, { label: field_label }).value_html.html_safe %>
+          <% field_value = custom_renderer.new(field_value, { label: field_label, catalog: true }).value_html.html_safe %>
         <% end %>
         <% next if field_value.blank? %>
         <dt><%= field_label %></dt>
