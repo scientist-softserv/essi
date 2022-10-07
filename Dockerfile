@@ -1,5 +1,5 @@
 # system dependency image
-FROM ruby:2.7.4-bullseye AS essi-sys-deps
+FROM ruby:2.7.6-bullseye AS essi-sys-deps
 
 ARG USER_ID=1000
 ARG GROUP_ID=1000
@@ -8,19 +8,19 @@ RUN groupadd -g ${GROUP_ID} essi && \
     useradd -m -l -g essi -u ${USER_ID} essi && \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get update -qq && \
-    apt-get install -y build-essential default-jre-headless libpq-dev nodejs \
+    apt-get install -y --no-install-recommends build-essential default-jre-headless libpq-dev nodejs \
       libreoffice-writer libreoffice-impress imagemagick unzip ghostscript \
       libtesseract-dev libleptonica-dev liblept5 tesseract-ocr \
       yarn libopenjp2-tools && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get clean all && rm -rf /var/lib/apt/lists/*
 RUN yarn && \
     yarn config set no-progress && \
     yarn config set silent
 RUN mkdir -p /opt/fits && \
-    curl -fSL -o /opt/fits/fits-1.5.1.zip https://github.com/harvard-lts/fits/releases/download/1.5.1/fits-1.5.1.zip && \
-    cd /opt/fits && unzip fits-1.5.1.zip && chmod +X fits.sh && sed -i 's/\(<tool.*TikaTool.*>\)/<!--\1-->/' /opt/fits/xml/fits.xml
+    curl -fSL -o /opt/fits/fits-1.5.5.zip https://github.com/harvard-lts/fits/releases/download/1.5.5/fits-1.5.5.zip && \
+    cd /opt/fits && unzip fits-1.5.5.zip && rm fits-1.5.5.zip && chmod +X fits.sh && sed -i 's/\(<tool.*TikaTool.*>\)/<!--\1-->/' /opt/fits/xml/fits.xml
 ENV PATH /opt/fits:$PATH
 ENV RUBY_THREAD_MACHINE_STACK_SIZE 16777216
 ENV RUBY_THREAD_VM_STACK_SIZE 16777216

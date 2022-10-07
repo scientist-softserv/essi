@@ -25,7 +25,7 @@ default_environment: &default_environment
 jobs:
   build:
     docker:
-      - image: cimg/ruby:2.7.4-browsers
+      - image: cimg/ruby:2.7.6-browsers
       - image: cimg/redis:6.2
       - image: ghcr.io/samvera/fcrepo4:4.7.5
         environment:
@@ -61,16 +61,16 @@ jobs:
           command: |
             curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
             echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-            curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+            curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
             sudo apt-get update -qq
             sudo apt-get install -y --no-install-recommends build-essential default-jre-headless libpq-dev nodejs \
                                     libreoffice-writer libreoffice-impress imagemagick unzip ghostscript \
                                     libtesseract-dev libleptonica-dev liblept5 tesseract-ocr \
                                     yarn libopenjp2-tools libxml2-dev libsqlite3-dev
             sudo mkdir -p -m 777 /opt/fits
-            curl -fSL -o /tmp/fits-1.5.1.zip https://github.com/harvard-lts/fits/releases/download/1.5.1/fits-1.5.1.zip
-            sudo mv /tmp/fits-1.5.1.zip /opt/fits
-            cd /opt/fits && sudo unzip fits-1.5.1.zip && sudo chmod +X fits.sh
+            curl -fSL -o /tmp/fits-1.5.5.zip https://github.com/harvard-lts/fits/releases/download/1.5.5/fits-1.5.5.zip
+            sudo mv /tmp/fits-1.5.5.zip /opt/fits
+            cd /opt/fits && sudo unzip fits-1.5.5.zip && sudo chmod +X fits.sh
             sudo sed -i 's/\(<tool.*TikaTool.*>\)/<!--\1-->/' /opt/fits/xml/fits.xml
             echo 'export PATH=/opt/fits:$PATH' >> $BASH_ENV
 
