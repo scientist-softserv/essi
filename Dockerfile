@@ -10,11 +10,11 @@ RUN groupadd -g ${GROUP_ID} essi && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get update -qq && \
-    apt-get install -y build-essential default-jre-headless libpq-dev nodejs \
+    apt-get install -y --no-install-recommends build-essential default-jre-headless libpq-dev nodejs \
       libreoffice-writer libreoffice-impress imagemagick unzip ghostscript \
       libtesseract-dev libleptonica-dev liblept5 tesseract-ocr \
       yarn libopenjp2-tools && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get clean all && rm -rf /var/lib/apt/lists/*
 RUN yarn && \
     yarn config set no-progress && \
     yarn config set silent
