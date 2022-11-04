@@ -67,6 +67,10 @@ RUN gem update bundler && \
 
 COPY --chown=essi:essi . .
 
+# The defaults for ImageMagick are too constrained, override so that MiniMagick won't fail
+RUN mkdir -p /etc/ImageMagick-6/
+COPY ./config/ImageMagick-6/policy.xml /etc/ImageMagick-6/
+
 ENV RAILS_LOG_TO_STDOUT true
 ENV RAILS_ENV production
 
