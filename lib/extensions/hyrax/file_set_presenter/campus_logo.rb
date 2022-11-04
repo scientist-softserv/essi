@@ -4,6 +4,7 @@ module Extensions
     module FileSetPresenter
       module CampusLogo
         def campus_logo
+          return false unless parent
           # Check if campus information is set for file set's work's admin set
           set = parent.admin_set.first.parameterize(separator: '_')
           return false unless ESSI.config[:essi][:campus_logos].present? && ESSI.config[:essi][:campus_logos][set]
