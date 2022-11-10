@@ -28,7 +28,7 @@
   <div class="collection-counts-wrapper">
     <% if collection_presenter.total_viewable_collections.positive? %>
     <div class="collection-counts-item">
-      <span><%= collection_presenter.total_viewable_collections %></span>Subcollection<%= collection_presenter.total_viewable_collections > 1 ? 's' : '' %>
+      <span><%= collection_presenter.total_viewable_collections %></span><%= 'Subcollection'.pluralize(collection_presenter.total_viewable_collections) %>
     </div>
     <% end %>
     <% if collection_presenter.total_viewable_works.positive? %>
