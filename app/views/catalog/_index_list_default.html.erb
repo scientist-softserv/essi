@@ -33,7 +33,7 @@
     <% end %>
     <% if collection_presenter.total_viewable_works.positive? %>
     <div class="collection-counts-item">
-      <span><%= collection_presenter.total_viewable_works %></span>Work<%= collection_presenter.total_viewable_works > 1 ? 's' : '' %>
+      <span><%= collection_presenter.total_viewable_works %></span><%= 'Work'.pluralize(collection_presenter.total_viewable_works) %>
     </div>
     <% end %>
   </div>
