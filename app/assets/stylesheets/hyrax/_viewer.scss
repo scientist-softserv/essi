@@ -14,6 +14,7 @@
   position: relative;
   overflow: hidden;
   margin: 10px 0;
+  height: 390px; // minimum on narrow screens; overridden at widths 640px and greater
 }
 
 .viewer-wrapper iframe {
