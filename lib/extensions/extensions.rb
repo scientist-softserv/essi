@@ -19,7 +19,7 @@ Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::ExtractedTe
 Hyrax::FileSetsController.include Extensions::Hyrax::FileSetsController::RegenerateOCR
 
 # viewing hint support
-IIIFManifest::ManifestBuilder::ImageBuilder.include Extensions::IIIFManifest::ManifestBuilder::ImageBuilder::ViewingHint
+IIIFManifest::ManifestBuilder::ImageBuilder.prepend Extensions::IIIFManifest::ManifestBuilder::ImageBuilder::ViewingHint
 Hyrax::Forms::FileManagerForm.include Extensions::Hyrax::Forms::FileManagerForm::ViewingMetadata
 Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::ViewingHint
 
