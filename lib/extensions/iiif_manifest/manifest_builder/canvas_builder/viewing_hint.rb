@@ -4,9 +4,9 @@ module Extensions
       module CanvasBuilder
         module ViewingHint
           private
-            # unmodified from iiif_manifest
+            # modified from iiif_manifest to include viewing_hint
             def attach_image
-              image_builder.new(display_image).apply(canvas)
+              image_builder.new(display_image).apply(canvas, viewing_hint: record.viewing_hint)
             end
         end
       end
