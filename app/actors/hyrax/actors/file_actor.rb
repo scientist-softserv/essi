@@ -31,6 +31,8 @@ module Hyrax
             transform_to_jp2(file_set, io)
             # use transformed .jp2 for characterization
             characterization_path = io.path
+            # clean up characterization_path in CharacterizeJob, including tmpdir
+            delete_characterization_path = 'include_parent_dir'
           end
 
           Hydra::Works::AddFileToFileSet.call(file_set,
@@ -49,9 +51,10 @@ module Hyrax
         return false unless file_set.save
         repository_file = related_file
         Hyrax::VersioningService.create(repository_file, user)
+        delete_characterization_path ||= false
         characterization_path ||= pathhint_for(io)
         derivation_path ||= pathhint_for(io)
-        CharacterizeJob.perform_later(file_set, repository_file.id, characterization_path, derivation_path) if characterize_files?(file_set)
+        CharacterizeJob.perform_later(file_set, repository_file.id, characterization_path, derivation_path, delete_characterization_path) if characterize_files?(file_set)
       end
 
       # Reverts file and spawns async job to characterize and create derivatives.
@@ -115,7 +118,7 @@ module Hyrax
         def transform_to_jp2(file_set, io)
           original_path = io.path
           new_file = File.basename(original_path).sub(/\.tif+$/, '.jp2')
-          new_path = "#{Dir.mktmpdir}/#{new_file}"
+          new_path = "#{Dir.mktmpdir}/#{new_file}" # makes tmp dir, later cleaned up via 'include_parent_dir' option
           file_set.label = new_file
           file_set.title = [new_file]
           if Hydra::Derivatives.kdu_compress_path.present?

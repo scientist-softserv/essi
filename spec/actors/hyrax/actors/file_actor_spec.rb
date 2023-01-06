@@ -67,7 +67,7 @@ describe Hyrax::Actors::FileActor do
         end
         it 'runs characterization' do
           expect(CharacterizeJob).to receive(:perform_later) \
-            .with(file_set, String, String, String)
+            .with(file_set, String, String, String, false)
           file_actor.ingest_file(io)
         end
       end
@@ -93,7 +93,7 @@ describe Hyrax::Actors::FileActor do
         end
         it 'runs jp2-based characterization, tiff-based derivation' do
           expect(CharacterizeJob).to receive(:perform_later) \
-            .with(file_set, String, /jp2/, tiff_filename)
+            .with(file_set, String, /jp2/, tiff_filename, 'include_parent_dir')
           file_actor.ingest_file(io)
         end
       end
@@ -119,7 +119,7 @@ describe Hyrax::Actors::FileActor do
         end
         it 'runs tiff-based characterization and derivation' do
           expect(CharacterizeJob).to receive(:perform_later) \
-            .with(file_set, String, tiff_filename, tiff_filename)
+            .with(file_set, String, tiff_filename, tiff_filename, false)
           file_actor.ingest_file(io)
         end
       end
