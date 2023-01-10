@@ -27,7 +27,7 @@ x-app:
     - solr
     - fcrepo
     - db
-    - s3proxy
+    - minio
     - cantaloupe
     - chrome
 
@@ -66,14 +66,17 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: essi
 
-  s3proxy:
-    image: andrewgaul/s3proxy
+  minio:
+    image: bitnami/minio:latest
     ports:
-      - '9000:80'
+      - '9000:9000'
+      - '9001:9001'
     environment:
-      S3PROXY_AUTHORIZATION: none
+      MINIO_ROOT_USER: essi-minio
+      MINIO_ROOT_PASSWORD: Essi12345
+      MINIO_DEFAULT_BUCKETS: 'essi-dev:public'
     volumes:
-      - './staged_files:/data'
+      - minio:/data
 
   cantaloupe:
     image: iublibtech/cantaloupe:4.1.11
@@ -169,3 +172,4 @@ volumes:
   redis:
   solr:
   rails_cache:
+  minio:
