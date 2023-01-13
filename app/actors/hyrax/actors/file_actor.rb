@@ -112,12 +112,12 @@ module Hyrax
 
         def transform_to_jp2?(io)
           # FIXME: only transform tiffs?
-          ESSI.config.dig(:essi, :store_files_as_jp2) && io.path.match(/\.tif+$/)
+          ESSI.config.dig(:essi, :store_files_as_jp2) && io.path.match(/\.tif+$/i)
         end
 
         def transform_to_jp2(file_set, io)
           original_path = io.path
-          new_file = File.basename(original_path).sub(/\.tif+$/, '.jp2')
+          new_file = File.basename(original_path).sub(/\.tif+$/i, '.jp2')
           new_path = "#{Dir.mktmpdir}/#{new_file}" # makes tmp dir, later cleaned up via 'include_parent_dir' option
           file_set.label = new_file
           file_set.title = [new_file]
