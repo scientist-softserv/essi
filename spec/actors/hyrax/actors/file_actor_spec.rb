@@ -81,10 +81,10 @@ describe Hyrax::Actors::FileActor do
           expect(file_actor).to receive(:transform_to_jp2)
           file_actor.ingest_file(io)
         end
-        it 'changes FileSet extension' do
+        it 'leaves label unchanged' do
           expect(file_set.label).not_to match /jp2$/
           file_actor.ingest_file(io)
-          expect(file_set.label).to match /jp2$/
+          expect(file_set.label).not_to match /jp2$/
         end
         it 'changes FileSet mimetype' do
           expect(file_set.mime_type).not_to match /jp2/

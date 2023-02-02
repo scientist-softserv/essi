@@ -119,8 +119,9 @@ module Hyrax
           original_path = io.path
           new_file = File.basename(original_path).sub(/\.tif+$/i, '.jp2')
           new_path = "#{Dir.mktmpdir}/#{new_file}" # makes tmp dir, later cleaned up via 'include_parent_dir' option
-          file_set.label = new_file
-          file_set.title = [new_file]
+          # retain original label, in case of user-provided bulkrax import values
+          # file_set.label = new_file
+          # file_set.title = [new_file]
           if Hydra::Derivatives.kdu_compress_path.present?
             url = URI("file://#{new_path}").to_s
             # FIXME: chokes on compressed tiffs
