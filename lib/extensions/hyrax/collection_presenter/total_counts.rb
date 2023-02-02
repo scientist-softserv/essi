@@ -1,4 +1,4 @@
-# unmodified from hyrax
+# modified from hyrax to count descendants tree, not just immediate descendants
 module Extensions
   module Hyrax
     module CollectionPresenter

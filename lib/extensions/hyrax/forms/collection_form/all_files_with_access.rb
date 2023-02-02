@@ -1,4 +1,4 @@
-# unmodified hyrax methods prepping monkeypatch for ESSI-1361
+# modified from hyrax
 module Extensions
   module Hyrax
     module Forms
@@ -7,6 +7,7 @@ module Extensions
 
           private
 
+          # refactored to use helper method, service with increased row limit
           def all_files_with_access
             return [] unless id.present?
             member_file_set_title_ids.sort { |x,y| x[0].upcase <=> y[0].upcase }
