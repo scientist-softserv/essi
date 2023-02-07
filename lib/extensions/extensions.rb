@@ -75,6 +75,13 @@ Bulkrax::ExportersController.prepend Extensions::Bulkrax::ExportersController::S
 Bulkrax::ApplicationParser.prepend Extensions::Bulkrax::ApplicationParser::IdentifierHash
 Bulkrax::ApplicationMatcher.prepend Extensions::Bulkrax::ApplicationMatcher::ParseSubject
 Bulkrax::ImportWorkCollectionJob.prepend Extensions::Bulkrax::ImportWorkCollectionJob::AddUserToPermissionTemplate
+# bulkrax import of file-specific metadata
+AttachFilesToWorkWithOrderedMembersJob.prepend Extensions::AttachFilesToWorkWithOrderedMembersJob::ImportMetadata
+Bulkrax::CsvEntry.prepend Extensions::Bulkrax::CsvEntry::AddFileMetadata
+Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::FileFactoryMetadata
+Hyrax::Actors::CreateWithFilesActor.prepend Extensions::Hyrax::Actors::CreateWithFilesActor::UploadedFiles
+Hyrax::Actors::CreateWithFilesOrderedMembersActor.prepend Extensions::Hyrax::Actors::CreateWithFilesOrderedMembersActor::AttachFilesWithMetadata
+Hyrax::UploadedFile.prepend Extensions::Hyrax::UploadedFile::UploadedFileMetadata
 
 # actor customizations
 Hyrax::CurationConcern.actor_factory.insert Hyrax::Actors::TransactionalRequest, ESSI::Actors::PerformLaterActor
