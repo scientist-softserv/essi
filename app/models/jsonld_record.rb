@@ -11,8 +11,8 @@ class JSONLDRecord
       mods = IuMetadata::Client.retrieve(bib_id, :mods)
       raise MissingRemoteRecordError, 'No MARC record found for this ID' if
         marc.source.blank?
-      raise MissingRemoteRecordError, 'No MODS record found for this ID' if
-        mods.source.blank?
+      # ignore missing MODS as it's not strictly needed
+      # raise MissingRemoteRecordError, 'No MODS record found for this ID' if mods.source.blank?
       JSONLDRecord.new(bib_id, marc, mods, factory: factory)
     end
   end
