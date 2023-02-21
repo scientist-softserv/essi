@@ -72,6 +72,8 @@ default: &default
     file_system:
       :home: <%= Rails.root.join("staged_files") %>
   airbrake:
+    host:
+    errbit: false
     project_id:
     project_key:
     proxy:

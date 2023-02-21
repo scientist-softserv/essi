@@ -10,6 +10,18 @@
 # Configuration details:
 # https://github.com/airbrake/airbrake-ruby#configuration
 Airbrake.configure do |c|
+  # Set custom Airbrake endpoint (e.g. errbit)
+  host_config = ESSI.config.dig :airbrake, :host
+  c.error_host = host_config unless host_config.blank?
+
+  # Disable unsupported features if using errbit
+  if ESSI.config.dig :airbrake, :errbit
+    c.job_stats           = false
+    c.query_stats         = false
+    c.performance_stats   = false
+    c.remote_config       = false
+  end
+
   # You must set both project_id & project_key. To find your project_id and
   # project_key navigate to your project's General Settings and copy the values
   # from the right sidebar.
@@ -60,6 +72,8 @@ Airbrake.configure do |c|
   # Alternatively, you can integrate with Rails' filter_parameters.
   # Read more: https://goo.gl/gqQ1xS
   # c.blocklist_keys = Rails.application.config.filter_parameters
+  
+  c.app_version = ENV['SOURCE_COMMIT']
 end
 
 # A filter that collects request body information. Enable it if you are sure you
