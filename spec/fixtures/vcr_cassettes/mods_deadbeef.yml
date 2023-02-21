@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://metadata.remote.service.url/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=missingrecorddeadbeef&recordSchema=MODS&version=1.1
+    uri: http://metadata.remote.service.url/iucatextract?maximumRecords=1&operation=searchRetrieve&query=cql.serverChoice=missingrecorddeadbeef&recordSchema=mods&version=1.1
     body:
       encoding: US-ASCII
       string: ''
