@@ -60,3 +60,18 @@
   longitude: '-86.5326939'
   parking: https://libraries.indiana.edu/file/wylie-house-museum-parking-pdf
   notes: ''
+- code: I-EITELJORG
+  label: Indianapolis - Eiteljorg Museum of American Indians and Western Art
+  address: 500 West Washington Street
+  address2:
+  city: Indianapolis
+  state: IN
+  zip: '46204'
+  phone: 317-636-9378
+  email:
+  url: https://eiteljorg.org/
+  urlHours: https://eiteljorg.org/visit/map-hours-parking/
+  latitude: '39.76872'
+  longitude: "-86.16780"
+  parking: https://eiteljorg.org/visit/map-hours-parking/
+  notes:
