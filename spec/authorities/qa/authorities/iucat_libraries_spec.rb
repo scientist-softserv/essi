@@ -22,7 +22,7 @@ RSpec.describe Qa::Authorities::IucatLibraries do
         it 'returns only supplemental data' do
           expect(result).to be_a Array
           expect(result).not_to be_empty
-          expect(result.size).to eq 4
+          expect(result.size).to eq 5
         end
       end
     end
@@ -50,7 +50,7 @@ RSpec.describe Qa::Authorities::IucatLibraries do
         it 'returns only supplemental data' do
           expect(result).to be_a Array
           expect(result).not_to be_empty
-          expect(result.size).to eq 4
+          expect(result.size).to eq 5
         end
       end
     end
