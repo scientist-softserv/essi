@@ -36,13 +36,13 @@ class HoldingLocationAttributeRenderer < Hyrax::Renderers::AttributeRenderer
     end
 
     def contact_string(loc)
-      safe_join(['Contact at ',
-                 content_tag(:a,
-                             loc.dig(:email),
-                             href: "mailto:#{loc.dig(:email)}"),
-                 ', ',
-                 content_tag(:a,
-                             loc.dig(:phone),
-                             href: "tel:#{loc.dig(:phone)}")])
+      contact_hash = { mailto: loc.dig(:email),
+                       tel: loc.dig(:phone) }.select { |k,v| v.present? }
+      return nil if contact_hash.empty?
+      contact_tags = contact_hash.map { |k,v| content_tag(:a, v, href: "#{k}:#{v}") }
+      if contact_tags.size > 1
+        contact_tags = contact_tags.zip([', ']).flatten.select(&:present?)
+      end
+      safe_join(['Contact at '] + contact_tags)
     end
 end
