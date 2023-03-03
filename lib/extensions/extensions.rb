@@ -80,6 +80,8 @@ AttachFilesToWorkWithOrderedMembersJob.prepend Extensions::AttachFilesToWorkWith
 Bulkrax::CsvEntry.prepend Extensions::Bulkrax::CsvEntry::AddFileMetadata
 Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::FileFactoryMetadata
 Hyrax::Actors::CreateWithFilesActor.prepend Extensions::Hyrax::Actors::CreateWithFilesActor::UploadedFiles
+### IIIF Print, quick and dirty way to get the FileSetActor to load after CreateWithFilesActor
+Hyrax::Actors::FileSetActor.prepend(IiifPrint::Actors::FileSetActorDecorator)
 Hyrax::Actors::CreateWithFilesOrderedMembersActor.prepend Extensions::Hyrax::Actors::CreateWithFilesOrderedMembersActor::AttachFilesWithMetadata
 Hyrax::UploadedFile.prepend Extensions::Hyrax::UploadedFile::UploadedFileMetadata
 
