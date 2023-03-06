@@ -29,6 +29,11 @@ collection_types.each do |c|
   puts "#{oldtitle} changed to #{c.title}"
 end
 
+puts "\n== Adding user to admin role"
+admin = Role.create(name: "admin")
+admin.users << User.first
+admin.save
+
 puts "\n== Loading workflows"
 Hyrax::Workflow::WorkflowImporter.load_workflows
 errors = Hyrax::Workflow::WorkflowImporter.load_errors
@@ -43,3 +48,4 @@ rescue
 end
 
 puts "\n== Finished creating single tenant resources"
+
