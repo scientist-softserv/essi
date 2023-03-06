@@ -54,6 +54,7 @@ vendor/engines/
 yarn-debug.log*
 .yarn-integrity
 spec/tmp/pdfs
+/public/test-assets/
 
 # Ignore solr generated files
 solr/config/*
