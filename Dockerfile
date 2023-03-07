@@ -15,10 +15,6 @@ RUN groupadd -g ${GROUP_ID} essi && \
       libtesseract-dev libleptonica-dev liblept5 tesseract-ocr \
       yarn libopenjp2-tools && \
     apt-get clean all && rm -rf /var/lib/apt/lists/*
-RUN wget https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0-57.tar.gz && \
-    tar xf 7.1.0-57.tar.gz && apt-get install -y libpng-dev libtiff-dev librsvg2-dev && \
-    cd ImageMagick* && ./configure && make install && cd $OLDPWD && rm -rf ImageMagick* && \
-    sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf' && ldconfig
 RUN yarn && \
     yarn config set no-progress && \
     yarn config set silent
@@ -28,6 +24,12 @@ RUN mkdir -p /opt/fits && \
 ENV PATH /opt/fits:$PATH
 ENV RUBY_THREAD_MACHINE_STACK_SIZE 16777216
 ENV RUBY_THREAD_VM_STACK_SIZE 16777216
+
+# Installs specific version of ImageMagick to work with iiif_print
+RUN wget https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0-57.tar.gz && \
+    tar xf 7.1.0-57.tar.gz && apt-get install -y libpng-dev libtiff-dev librsvg2-dev && \
+    cd ImageMagick* && ./configure && make install && cd $OLDPWD && rm -rf ImageMagick* && \
+    sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf' && ldconfig
 
 ###
 # ruby dev image
@@ -70,10 +72,6 @@ RUN gem update bundler && \
     bundle install -j 2 --retry=3 --deployment --without development
 
 COPY --chown=essi:essi . .
-
-# The defaults for ImageMagick are too constrained, override so that MiniMagick won't fail
-RUN mkdir -p /etc/ImageMagick-6/
-COPY ./config/ImageMagick-6/policy.xml /etc/ImageMagick-6/
 
 ENV RAILS_LOG_TO_STDOUT true
 ENV RAILS_ENV production
