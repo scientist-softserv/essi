@@ -10,10 +10,7 @@ class Image < ActiveFedora::Base
   include ESSI::OCRBehavior
   # include ESSI::OCRMetadata
   include IiifPrint.model_configuration(
-    pdf_split_child_model: self,
-    derivative_service_plugins: [
-      IiifPrint::TextExtractionDerivativeService,
-    ]
+    pdf_split_child_model: self
   )
 
   self.indexer = ImageIndexer
