@@ -68,6 +68,17 @@ RSpec.describe ESSI::Actors::PerformLaterActor do
         expect { middleware.update(env) }.not_to have_enqueued_job(PerformLaterActorJob)
       end
     end
+
+    context 'when called from IIIF Print' do
+      let(:attributes) { { work_members_attributes: 'foo' } }
+
+      it 'continues down the Actor stack' do
+        expect(terminator).to receive(:update).with(
+            having_attributes(:attributes => attributes )
+        )
+        expect { middleware.update(env) }.not_to have_enqueued_job(PerformLaterActorJob)
+      end
+    end
   end
 
   describe "#destroy" do
