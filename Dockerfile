@@ -11,10 +11,14 @@ RUN groupadd -g ${GROUP_ID} essi && \
     curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get update -qq && \
     apt-get install -y --no-install-recommends build-essential default-jre-headless libpq-dev nodejs \
-      libreoffice-writer libreoffice-impress imagemagick unzip ghostscript \
+      libreoffice-writer libreoffice-impress poppler-utils unzip ghostscript \
       libtesseract-dev libleptonica-dev liblept5 tesseract-ocr \
       yarn libopenjp2-tools && \
     apt-get clean all && rm -rf /var/lib/apt/lists/*
+RUN wget https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0-57.tar.gz && \
+    tar xf 7.1.0-57.tar.gz && apt-get install -y libpng-dev libtiff-dev librsvg2-dev && \
+    cd ImageMagick* && ./configure && make install && cd $OLDPWD && rm -rf ImageMagick* && \
+    sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf' && ldconfig
 RUN yarn && \
     yarn config set no-progress && \
     yarn config set silent
