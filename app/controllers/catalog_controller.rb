@@ -18,6 +18,8 @@ class CatalogController < ApplicationController
   include BlacklightIiifSearch::Controller
 
   configure_blacklight do |config|
+    # IiifPrint index fields
+    config.add_index_field 'all_text_tsimv', highlight: true, helper_method: :render_ocr_snippets
 
     # configuration for Blacklight IIIF Content Search
     config.iiif_search = {
@@ -35,7 +37,7 @@ class CatalogController < ApplicationController
 
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     config.show.partials.insert(1, :openseadragon)
-    config.search_builder_class = Hyrax::CatalogSearchBuilder
+    config.search_builder_class = IiifPrint::CatalogSearchBuilder
 
     # Show gallery view
     config.view.gallery.partials = [:index_header, :index]
@@ -336,7 +338,7 @@ class CatalogController < ApplicationController
       "#{solr_name('num_works', :stored_sortable, type: :integer)} asc",
       label: "collection size \u25B2"
     config.add_sort_field \
-      "#{solr_name('num_works', :stored_sortable, type: :integer)} desc", 
+      "#{solr_name('num_works', :stored_sortable, type: :integer)} desc",
       label: "collection size \u25BC"
 
     # If there are more than this many search results, no spelling ("did you

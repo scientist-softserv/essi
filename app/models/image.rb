@@ -9,6 +9,12 @@ class Image < ActiveFedora::Base
   include ESSI::NumPagesBehavior
   include ESSI::OCRBehavior
   # include ESSI::OCRMetadata
+  include IiifPrint.model_configuration(
+    pdf_split_child_model: self,
+    derivative_service_plugins: [
+      IiifPrint::TextExtractionDerivativeService,
+    ]
+  )
 
   self.indexer = ImageIndexer
   # Change this to restrict which works can be added as a child.
