@@ -5,11 +5,12 @@ RSpec.describe BlacklightIiifSearch::AnnotationBehavior do
   let(:page_document) do
     SolrDocument.new('id' => file_set_id,
                      'work_id_ssi' => parent_id,
-                     'word_boundary_tsi' => boundaries)
+                     'word_boundary_tsi' => boundaries,
+                     'has_model_ssim' => ['FileSet'])
   end
   let(:controller) { CatalogController.new }
   let(:boundaries) do
-    "{\"width\":null,\"height\":null,\"coords\":{\"software\":[[2641,4102,512,44]]}}" 
+    "{\"width\":null,\"height\":null,\"coords\":{\"software\":[[2641,4102,512,44]]}}"
   end
   let(:parsed_boundaries) do
     JSON.parse(boundaries)
