@@ -19,10 +19,10 @@ GIT
 
 GIT
   remote: https://github.com/scientist-softserv/iiif_print.git
-  revision: ed740bc9d2b65e1790e763ae4d390fd51f1fce88
-  branch: main
+  revision: d14246664048c708071c7ff4de2e9a34aa703465
+  ref: d142466
   specs:
-    iiif_print (0.0.1)
+    iiif_print (1.0.0)
       blacklight_iiif_search (~> 1.0)
       dry-monads (~> 1.4.0)
       hyrax (>= 2.5, < 4.0)
@@ -1110,7 +1110,7 @@ DEPENDENCIES
   hyrax (~> 2.9.6)
   i18n-js
   iiif_manifest
-  iiif_print!
+  iiif_print (~> 1.0)!
   iso-639
   jbuilder (~> 2.5)
   jquery-rails
