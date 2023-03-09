@@ -8,7 +8,9 @@ class CreateOCRJob < CreateDerivativesJob
     return if file_set.video? && !Hyrax.config.enable_ffmpeg
     filename = Hyrax::WorkingDirectory.find_or_retrieve(file_id, file_set.id, filepath)
 
-    file_set.send(:file_set_derivatives_service).send(:create_ocr_derivatives, filename)
+    # using #create_derivatives instead of #create_ocr_derivatives to use IIIF Print
+    # @see https://github.com/scientist-softserv/iiif_print/blob/d14246664048c708071c7ff4de2e9a34aa703465/app/services/iiif_print/pluggable_derivative_service.rb#L25
+    file_set.send(:file_set_derivatives_service).send(:create_derivatives, filename)
 
     # Reload from Fedora and reindex for thumbnail and extracted text
     file_set.reload
