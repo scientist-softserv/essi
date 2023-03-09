@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Hyrax::DerivativeService do
+  let(:image_work) { FactoryBot.create :image_with_one_image }
   let(:image_file) { File.join(fixture_path, 'world.png') }
-  let(:file_set) { FactoryBot.create :file_set }
+  let(:file_set) { image_work.file_sets.first }
   let(:fsd_service) { described_class.for(file_set) }
 
   around(:each) do |example|
@@ -17,9 +18,11 @@ RSpec.describe Hyrax::DerivativeService do
     allow(OCRRunner).to receive(:create).and_return(nil)
   end
 
-  describe 'services' do
+  describe 'pluggable derivative service' do
+    let(:derivative_service) { IiifPrint::PluggableDerivativeService.new(file_set) }
+
     it 'includes the OCR service' do
-      expect(described_class.services).to include ESSI::FileSetOCRDerivativesService
+      expect(derivative_service.valid_plugins).to include ESSI::FileSetOCRDerivativesService
     end
   end
 
@@ -30,6 +33,9 @@ RSpec.describe Hyrax::DerivativeService do
         ESSI.config[:essi][:create_ocr_files] = true
         ESSI.config[:essi][:skip_derivatives] = false
       end
+
+      let(:file_set) { FactoryBot.create :file_set }
+
       it 'does not call OCRRunner' do
         expect(OCRRunner).not_to receive(:create)
         fsd_service.create_derivatives('test.txt')
