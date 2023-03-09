@@ -12,7 +12,11 @@ class Image < ActiveFedora::Base
   include IiifPrint.model_configuration(
     pdf_split_child_model: self,
     derivative_service_plugins: [
+      IiifPrint::JP2DerivativeService,
+      IiifPrint::PDFDerivativeService,
       IiifPrint::TextExtractionDerivativeService,
+      IiifPrint::TIFFDerivativeService,
+      ESSI::FileSetOCRDerivativesService
     ]
   )
 
