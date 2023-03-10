@@ -25,7 +25,8 @@ Hyrax::Forms::FileManagerForm.include Extensions::Hyrax::Forms::FileManagerForm:
 Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::ViewingHint
 
 # TODO: determine if needed?
-# iiif manifest support
+# iiif manifest support for parent work when using IIIF Print
+# this is responsible for displaying the parent metadata above the child metadata in the UV metadata pane
 Hyrax::WorkShowPresenter.prepend Extensions::Hyrax::WorkShowPresenter::ManifestMetadata
 
 # add campus logo information when available.
