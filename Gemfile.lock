@@ -19,8 +19,8 @@ GIT
 
 GIT
   remote: https://github.com/scientist-softserv/iiif_print.git
-  revision: d14246664048c708071c7ff4de2e9a34aa703465
-  ref: d142466
+  revision: 315a737d1857d41ba7add55caf33a61902dc09d4
+  ref: 315a737
   specs:
     iiif_print (1.0.0)
       blacklight_iiif_search (~> 1.0)

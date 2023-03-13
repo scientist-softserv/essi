@@ -1,3 +1,11 @@
+<%# When navigating to the File Manager from a parent work, the `node`  %>
+<%# is a `WorkShowPresenter` instead of a `FileSetPresenter` which does %>
+<%# not have #extracted_text? which will cause a problem further down.  %>
+<%# To avoid an exception, we use the parent work's `FileSetPresenter`. %>
+<% if node.is_a?(Hyrax::WorkShowPresenter) %>
+  <% node = node.file_set_presenters.find { |fsp| node.file_set_ids.include?(fsp.id) } %>
+<% end %>
+
 OCR: <%= ocr_check(node) %>
 
 <% hints = ['', 'non-paged', 'facing-pages'] %>
