@@ -17,6 +17,9 @@ Rake::Task['hyrax:default_admin_set:create'].invoke
 # Import a flexible metadata profile
 AllinsonFlex::Importer.load_profile_from_path(path: Rails.root.join('config', 'metadata_profile', 'essi_short.yaml').to_s) unless AllinsonFlex::Profile.any?
 
+puts "\n== Creating default admin set"
+admin_set = AdminSet.find(AdminSet.find_or_create_default_admin_set_id)
+
 collection_types = Hyrax::CollectionType.all
 collection_types.each do |c|
   next unless c.title =~ /^translation missing/
@@ -25,3 +28,24 @@ collection_types.each do |c|
   c.save
   puts "#{oldtitle} changed to #{c.title}"
 end
+
+puts "\n== Adding user to admin role"
+admin = Role.create(name: "admin")
+admin.users << User.first
+admin.save
+
+puts "\n== Loading workflows"
+Hyrax::Workflow::WorkflowImporter.load_workflows
+errors = Hyrax::Workflow::WorkflowImporter.load_errors
+abort("Failed to process all workflows:\n  #{errors.join('\n  ')}") unless errors.empty?
+
+puts "\n== Creating permission template"
+begin
+  permission_template = admin_set.permission_template
+  # If the permission template is missing we will need to run the create service
+rescue
+  Hyrax::AdminSetCreateService.new(admin_set: admin_set, creating_user: nil).create
+end
+
+puts "\n== Finished creating single tenant resources"
+

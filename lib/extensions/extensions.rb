@@ -25,7 +25,8 @@ Hyrax::Forms::FileManagerForm.include Extensions::Hyrax::Forms::FileManagerForm:
 Hyrax::FileSetPresenter.include Extensions::Hyrax::FileSetPresenter::ViewingHint
 
 # TODO: determine if needed?
-# iiif manifest support
+# iiif manifest support for parent work when using IIIF Print
+# this is responsible for displaying the parent metadata above the child metadata in the UV metadata pane
 Hyrax::WorkShowPresenter.prepend Extensions::Hyrax::WorkShowPresenter::ManifestMetadata
 
 # add campus logo information when available.
@@ -80,6 +81,9 @@ AttachFilesToWorkWithOrderedMembersJob.prepend Extensions::AttachFilesToWorkWith
 Bulkrax::CsvEntry.prepend Extensions::Bulkrax::CsvEntry::AddFileMetadata
 Bulkrax::ObjectFactory.prepend Extensions::Bulkrax::ObjectFactory::FileFactoryMetadata
 Hyrax::Actors::CreateWithFilesActor.prepend Extensions::Hyrax::Actors::CreateWithFilesActor::UploadedFiles
+### IIIF Print, quick and dirty way to get the FileSetActor to load after CreateWithFilesActor
+Hyrax::Actors::FileSetActor.prepend(IiifPrint::Actors::FileSetActorDecorator)
+Hyrax::Actors::FileSetOrderedMembersActor.prepend Extensions::Hyrax::Actors::FileSetOrderedMembersActor::PdfSplit
 Hyrax::Actors::CreateWithFilesOrderedMembersActor.prepend Extensions::Hyrax::Actors::CreateWithFilesOrderedMembersActor::AttachFilesWithMetadata
 Hyrax::UploadedFile.prepend Extensions::Hyrax::UploadedFile::UploadedFileMetadata
 
@@ -96,7 +100,8 @@ Hydra::Derivatives.kdu_compress_recipes =
                     .merge(ESSI.config.dig(:essi, :jp2_recipes) || {})
 
 # ocr derivation
-Hyrax::DerivativeService.services.unshift ESSI::FileSetOCRDerivativesService
+# disabling this because we are plugging this in to IIIF Print through each model
+# Hyrax::DerivativeService.services.unshift ESSI::FileSetOCRDerivativesService
 
 # add customized terms, currently just campus, to collection forms
 Hyrax::Forms::CollectionForm.include Extensions::Hyrax::Forms::CollectionForm::CustomizedTerms

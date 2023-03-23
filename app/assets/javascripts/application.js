@@ -29,6 +29,8 @@
 //= require nestedSortable/jquery.mjs.nestedSortable
 //= require openseadragon
 //= require hyrax
+//= require iiif_print
+
 //= require bulkrax/application
 //= require allinson_flex/application
 //= require_tree .
