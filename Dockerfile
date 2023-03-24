@@ -75,6 +75,7 @@ COPY --chown=essi:essi . .
 
 ENV RAILS_LOG_TO_STDOUT true
 ENV RAILS_ENV production
+ENV SKIP_IIIF_PRINT_BULKRAX_VERSION_REQUIREMENT true
 
 ENTRYPOINT ["bundle", "exec"]
 
