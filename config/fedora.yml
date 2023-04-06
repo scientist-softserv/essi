@@ -3,6 +3,8 @@ default: &default
   password: <%= ESSI.config[:fedora][:password] %>
   url: <%= ESSI.config[:fedora][:url] %>
   base_path: <%= ESSI.config[:fedora][:base_path] %>
+  request:
+    timeout: 300
 development:
   <<: *default
 test:
