@@ -19,12 +19,15 @@ sidekiq_config = YAML.safe_load(ERB.new(IO.read(Rails.root.join('config', 'sidek
 # 2. Or the named option is set from the default Sidekiq YAML configuration file if exists
 # 3. Or no options are set and Sidekiq defaults to internal defaults
 
-# If no queue names are set in either the ESSI or Sidekiq config files, the queue
+# The environment variable SIDEKIQ_QUEUES takes priority when setting the monitored queues.
+# If no queue names are set in either the ENV var, the ESSI or Sidekiq config files, the queue
 # will be set to the Sidekiq internal of default.
-Sidekiq.options[:queues] = ESSI.config.fetch(:sidekiq,{}).fetch(:queue_names,nil) ||
-    sidekiq_config.fetch(:queues,['default']) if sidekiq_config
+env_queues = ENV.fetch('SIDEKIQ_QUEUES', '').split(',')
+Sidekiq.options[:queues] = (env_queues.empty? ? nil : env_queues) ||
+  ESSI.config.fetch(:sidekiq,{}).fetch(:queue_names,nil) ||
+  sidekiq_config.fetch(:queues,['default']) if sidekiq_config
 
 # If max_retries is not set in either the ESSI or Sidekiq config files, the value
 # will be set to the Sidekiq internal default (10?)
 Sidekiq.options[:max_retries] = ESSI.config.fetch(:sidekiq,{}).fetch(:max_retries,nil) ||
-    sidekiq_config.fetch(:max_retries,3) if sidekiq_config
+  sidekiq_config.fetch(:max_retries,3) if sidekiq_config
