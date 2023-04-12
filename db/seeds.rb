@@ -29,6 +29,12 @@ collection_types.each do |c|
   puts "#{oldtitle} changed to #{c.title}"
 end
 
+if ENV['IU_ADMIN_EMAIL'] && ENV['IU_ADMIN_PASSWORD']
+  u = User.find_or_create_by(email: ENV['IU_ADMIN_EMAIL']) do |u|
+    u.password = ENV['IU_ADMIN_PASSWORD']
+  end
+end
+
 puts "\n== Adding user to admin role"
 admin = Role.create(name: "admin")
 admin.users << User.first
@@ -48,4 +54,3 @@ rescue
 end
 
 puts "\n== Finished creating single tenant resources"
-
