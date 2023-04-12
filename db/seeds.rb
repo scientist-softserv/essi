@@ -36,15 +36,13 @@ collection_types.each do |c|
 end
 
 if ENV['IU_ADMIN_EMAIL'] && ENV['IU_ADMIN_PASSWORD']
-  User.find_or_create_by(email: ENV['IU_ADMIN_EMAIL']) do |u|
+  user = User.find_or_create_by(email: ENV['IU_ADMIN_EMAIL']) do |u|
     u.password = ENV['IU_ADMIN_PASSWORD']
   end
+  puts "\n== Adding user to admin role"
+  admin = Role.find_or_create_by(name: 'admin')
+  user.roles << admin
 end
-
-puts "\n== Adding user to admin role"
-admin = Role.create(name: 'admin')
-admin.users << User.first
-admin.save
 
 puts "\n== Loading workflows"
 Hyrax::Workflow::WorkflowImporter.load_workflows
