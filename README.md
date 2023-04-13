@@ -19,6 +19,7 @@ To set up a development environment via Docker Compose:
    - For example: `openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout ./tmp/certs/localhost.key -out ./tmp/certs/localhost.crt`
    - The key file may need read permissions for group 101 (the nginx container user's group)
 1. Run `docker-compose build`
+1. Add your IU credentials to .env as IU_EMAIL and IU_PASSWORD.
 1. Run `docker-compose up`
 1. Check that all services are "Up" using `docker-compose ps` from the `essi` directory
    - If there is a missing `.env.development` error, add an empty `.env.development` file and re-run `docker-compose up`

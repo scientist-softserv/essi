@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -15,7 +17,10 @@ Rake::Task['hyrax:default_collection_types:create'].invoke
 Rake::Task['hyrax:default_admin_set:create'].invoke
 
 # Import a flexible metadata profile
-AllinsonFlex::Importer.load_profile_from_path(path: Rails.root.join('config', 'metadata_profile', 'essi_short.yaml').to_s) unless AllinsonFlex::Profile.any?
+unless AllinsonFlex::Profile.any?
+  AllinsonFlex::Importer.load_profile_from_path(path: Rails.root.join('config', 'metadata_profile',
+                                                                      'essi_short.yaml').to_s)
+end
 
 puts "\n== Creating default admin set"
 admin_set = AdminSet.find(AdminSet.find_or_create_default_admin_set_id)
@@ -23,16 +28,21 @@ admin_set = AdminSet.find(AdminSet.find_or_create_default_admin_set_id)
 collection_types = Hyrax::CollectionType.all
 collection_types.each do |c|
   next unless c.title =~ /^translation missing/
+
   oldtitle = c.title
-  c.title = I18n.t(c.title.gsub("translation missing: en.", ''))
+  c.title = I18n.t(c.title.gsub('translation missing: en.', ''))
   c.save
   puts "#{oldtitle} changed to #{c.title}"
 end
 
-puts "\n== Adding user to admin role"
-admin = Role.create(name: "admin")
-admin.users << User.first
-admin.save
+if ENV['IU_ADMIN_EMAIL'] && ENV['IU_ADMIN_PASSWORD']
+  user = User.find_or_create_by(email: ENV['IU_ADMIN_EMAIL']) do |u|
+    u.password = ENV['IU_ADMIN_PASSWORD']
+  end
+  puts "\n== Adding user to admin role"
+  admin = Role.find_or_create_by(name: 'admin')
+  user.roles << admin
+end
 
 puts "\n== Loading workflows"
 Hyrax::Workflow::WorkflowImporter.load_workflows
@@ -41,11 +51,10 @@ abort("Failed to process all workflows:\n  #{errors.join('\n  ')}") unless error
 
 puts "\n== Creating permission template"
 begin
-  permission_template = admin_set.permission_template
+  admin_set.permission_template
   # If the permission template is missing we will need to run the create service
-rescue
+rescue StandardError
   Hyrax::AdminSetCreateService.new(admin_set: admin_set, creating_user: nil).create
 end
 
 puts "\n== Finished creating single tenant resources"
-
