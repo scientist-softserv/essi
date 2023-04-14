@@ -1,9 +1,0 @@
-<div class="search-results-title-row">
-  <h3 class="search-result-title">
-  <% if params['q'].present? %>
-    <%= link_to document.title_or_label, [document, { query: params['q'] }] %></h3>
-  <% else %>
-    <%= link_to document.title_or_label, document %></h3>
-  <% end %>
-  </h3>
-</div>
