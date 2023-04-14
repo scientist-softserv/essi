@@ -19,4 +19,5 @@ IiifPrint.config do |config|
   # but a different model property may be desired such as :date_published
   # @example
   #   config.sort_iiif_manifest_canvases_by = :date_published
+  config.uv_config_path = '/uv/uv_config.json'
 end
