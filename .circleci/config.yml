@@ -21,6 +21,7 @@ default_environment: &default_environment
   WD_INSTALL_DIR: ./webdriver
   KARMA_BROWSER: ChromeHeadless
   KARMA_HOSTNAME: localhost
+  SKIP_IIIF_PRINT_BULKRAX_VERSION_REQUIREMENT: true
 
 jobs:
   build:
