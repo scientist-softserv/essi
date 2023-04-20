@@ -27,4 +27,10 @@ IiifPrint.config do |config|
       visibility: parent_work.visibility.to_s
     }
   end
+
+  # Configure how the manifest sorts the canvases, by default it sorts by :title,
+  # but a different model property may be desired such as :date_published
+  # @example
+  #   config.sort_iiif_manifest_canvases_by = :date_published
+  config.uv_config_path = '/uv/uv_config.json'
 end
