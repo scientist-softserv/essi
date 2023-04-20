@@ -15,8 +15,16 @@ IiifPrint.config do |config|
   # @example
   #   config.excluded_model_name_solr_field_key = 'some_solr_field_key'
 
-  # Configure how the manifest sorts the canvases, by default it sorts by :title,
-  # but a different model property may be desired such as :date_published
-  # @example
-  #   config.sort_iiif_manifest_canvases_by = :date_published
+  config.uv_config_path = "/uv/uv_config.json"
+
+  config.child_work_attributes_function = lambda do |parent_work:, admin_set_id:|
+    {
+      admin_set_id: admin_set_id.to_s,
+      creator: parent_work.creator.to_a,
+      # adding this configuration because IIIF Print is expecting rights_statement
+      # to be an array but it is a string in ESSI
+      rights_statement: parent_work.rights_statement.to_s,
+      visibility: parent_work.visibility.to_s
+    }
+  end
 end
