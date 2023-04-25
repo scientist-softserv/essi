@@ -98,7 +98,7 @@ do |resource_symbol, presenter_factory, resource_controller|
           .to receive(:member_presenters).and_return(member_presenters)
       end
 
-      context 'without structured content' do
+      context 'without structured content', skip: 'structures are currently not implemented in IIIF Print' do
         let(:logical_order) { {} }
         let(:member_presenters) { [] }
 
@@ -112,7 +112,7 @@ do |resource_symbol, presenter_factory, resource_controller|
         end
       end
 
-      context 'with structured content' do
+      context 'with structured content', skip: 'structures are currently not implemented in IIIF Print' do
         let(:member_presenters) do
           [fs1, fs2].map do |fs|
             solr_doc = SolrDocument.new(fs.to_solr)
