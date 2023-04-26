@@ -100,8 +100,7 @@ Hydra::Derivatives.kdu_compress_recipes =
                     .merge(ESSI.config.dig(:essi, :jp2_recipes) || {})
 
 # ocr derivation
-# disabling this because we are plugging this in to IIIF Print through each model
-# Hyrax::DerivativeService.services.unshift ESSI::FileSetOCRDerivativesService
+Hyrax::DerivativeService.services.unshift ESSI::FileSetOCRDerivativesService
 
 # add customized terms, currently just campus, to collection forms
 Hyrax::Forms::CollectionForm.include Extensions::Hyrax::Forms::CollectionForm::CustomizedTerms
