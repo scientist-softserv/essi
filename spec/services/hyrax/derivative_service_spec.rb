@@ -18,14 +18,6 @@ RSpec.describe Hyrax::DerivativeService do
     allow(OCRRunner).to receive(:create).and_return(nil)
   end
 
-  describe 'pluggable derivative service' do
-    let(:derivative_service) { IiifPrint::PluggableDerivativeService.new(file_set) }
-
-    it 'includes the OCR service' do
-      expect(derivative_service.valid_plugins).to include ESSI::FileSetOCRDerivativesService
-    end
-  end
-
   describe '.create_derivatives', :clean do
     context 'with a non-image' do
       before(:each) do

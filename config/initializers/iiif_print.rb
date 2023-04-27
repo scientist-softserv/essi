@@ -33,4 +33,12 @@ IiifPrint.config do |config|
   # @example
   #   config.sort_iiif_manifest_canvases_by = :date_published
   config.uv_config_path = '/uv/uv_config.json'
+
+  config.ocr_coords_from_json_function = lambda do |document:, **|
+    document['word_boundary_tsi']
+  end
+
+  config.all_text_generator_function = lambda do |object:|
+    IiifPrint::TextExtraction::AltoReader.new(object.extracted_text.content).text if object.extracted_text.present?
+  end
 end
