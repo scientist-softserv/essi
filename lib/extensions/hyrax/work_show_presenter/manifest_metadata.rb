@@ -9,25 +9,10 @@ module Extensions
         #
         # @return [Array] array of metadata hashes
         def manifest_metadata
-          metadata = []
-          (static_iiif_metadata_fields | public_view_properties.keys).each do |field|
-            next unless methods.include?(field.to_sym)
-            if field.to_sym.in? (self.class.try(:custom_rendered_properties) || [])
-              value = send(field, options: { iiif: true })
-            else
-              value = send(field)
-            end
-
-            next if value.blank?
-
-            metadata << {
-              'label' => label_for(field),
-              'value' => Array.wrap(value)
-            }
-          end
-          metadata
+          # Using IIIF Print's approach to display parent metadata
+          ::Hyrax::IiifManifestPresenter.new(self).manifest_metadata
         end
- 
+
         def static_iiif_metadata_fields
           ::Hyrax.config.iiif_metadata_fields
         end

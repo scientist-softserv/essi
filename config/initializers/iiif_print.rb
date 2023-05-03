@@ -41,4 +41,6 @@ IiifPrint.config do |config|
   config.all_text_generator_function = lambda do |object:|
     IiifPrint::TextExtraction::AltoReader.new(object.extracted_text.content).text if object.extracted_text.present?
   end
+
+  config.iiif_metadata_field_presentation_order = Hyrax.config.iiif_metadata_fields
 end
