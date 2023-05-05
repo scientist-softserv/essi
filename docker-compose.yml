@@ -158,7 +158,7 @@ services:
       - "8984:8080"
 
   chrome:
-    image: selenium/standalone-chrome:4.2.1
+    image: selenium/standalone-chrome:4.9.0
     volumes:
       - /dev/shm:/dev/shm
     shm_size: 2G
