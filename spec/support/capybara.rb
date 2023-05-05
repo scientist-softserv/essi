@@ -15,7 +15,7 @@ if ENV['IN_DOCKER'].present?
   TEST_HOST='essi.docker'
 
   args = %w[disable-gpu no-sandbox whitelisted-ips window-size=1400,1400]
-  args.push('headless') if ActiveModel::Type::Boolean.new.cast(ENV.fetch(['CHROME_HEADLESS_MODE'], true))
+  args.push('headless') if ActiveModel::Type::Boolean.new.cast(ENV.fetch('CHROME_HEADLESS_MODE', true))
 
   options = Selenium::WebDriver::Options.chrome("goog:chromeOptions" => { args: args })
 
