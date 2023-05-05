@@ -13,25 +13,27 @@ end
 
 if ENV['IN_DOCKER'].present?
   TEST_HOST='essi.docker'
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    'goog:chromeOptions': {
-      args: %w[disable-gpu no-sandbox whitelisted-ips window-size=1400,1400] #run without headless so we can see the screenshots
-      #args: %w[headless disable-gpu no-sandbox whitelisted-ips window-size=1400,1400] # run headless
-    }
-  )
+
+  args = %w[disable-gpu no-sandbox whitelisted-ips window-size=1400,1400]
+  args.push('headless') if ActiveModel::Type::Boolean.new.cast(ENV.fetch('CHROME_HEADLESS_MODE', true))
+
+  options = Selenium::WebDriver::Options.chrome("goog:chromeOptions" => { args: args })
 
   Capybara.register_driver :selenium_chrome_headless_sandboxless do |app|
-    d = Capybara::Selenium::Driver.new(app,
-                                       browser: :remote,
-                                       desired_capabilities: capabilities,
-                                       url: ENV['HUB_URL'])
+    driver = Capybara::Selenium::Driver.new(app,
+                                            browser: :remote,
+                                            capabilities: options,
+                                            url: ENV['HUB_URL'])
+
     # Fix for capybara vs remote files. Selenium handles this for us
-    d.browser.file_detector = lambda do |args|
+    driver.browser.file_detector = lambda do |args|
       str = args.first.to_s
       str if File.exist?(str)
     end
-    d
+
+    driver
   end
+
   Capybara.server_host = '0.0.0.0'
   Capybara.server_port = 3010
   # renamed container from app to essi  because the app domain is taken by google(gTLD)

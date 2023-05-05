@@ -158,10 +158,13 @@ services:
       - "8984:8080"
 
   chrome:
-    image: selenium/standalone-chrome:4.2.1
+    image: seleniarm/standalone-chromium:4.9.0
     volumes:
       - /dev/shm:/dev/shm
     shm_size: 2G
+    environment:
+      SE_SCREEN_WIDTH: 1920
+      SE_SCREEN_HEIGHT: 1080
     ports:
       - "4444:4444"
       - "5959:5900"
