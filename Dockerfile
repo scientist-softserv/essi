@@ -14,7 +14,8 @@ RUN groupadd -g ${GROUP_ID} essi && \
       libreoffice-writer libreoffice-impress imagemagick unzip ghostscript \
       libtesseract-dev libleptonica-dev liblept5 tesseract-ocr \
       yarn libopenjp2-tools libjemalloc2 && \
-    apt-get clean all && rm -rf /var/lib/apt/lists/*
+    apt-get clean all && rm -rf /var/lib/apt/lists/* && \
+    ln -s /usr/lib/*-linux-gnu/libjemalloc.so.2 /usr/local/lib/libjemalloc.so.2
 RUN yarn && \
     yarn config set no-progress && \
     yarn config set silent
@@ -24,7 +25,7 @@ RUN mkdir -p /opt/fits && \
 ENV PATH /opt/fits:$PATH
 ENV RUBY_THREAD_MACHINE_STACK_SIZE 16777216
 ENV RUBY_THREAD_VM_STACK_SIZE 16777216
-ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+ENV LD_PRELOAD=/usr/local/lib/libjemalloc.so.2
 
 ###
 # ruby dev image
