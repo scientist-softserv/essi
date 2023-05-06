@@ -10,7 +10,9 @@ module Extensions
         # @return [Array] array of metadata hashes
         def manifest_metadata
           # Using IIIF Print's approach to display parent metadata
-          ::Hyrax::IiifManifestPresenter.new(self).manifest_metadata
+          iiif_manifest_presenter = ::Hyrax::IiifManifestPresenter.new(self)
+          iiif_manifest_presenter.ability = current_ability
+          iiif_manifest_presenter.manifest_metadata
         end
 
         def static_iiif_metadata_fields
